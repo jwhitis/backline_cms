@@ -19,8 +19,8 @@ development:
   encoding: unicode
   database: toddfarrell_development
   pool: 5
-  username: toddfarrell
-  password:
+  username: jwhitis
+  password: memorymachine15
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -48,13 +48,13 @@ test:
   encoding: unicode
   database: toddfarrell_test
   pool: 5
-  username: toddfarrell
-  password:
+  username: jwhitis
+  password: memorymachine15
 
 production:
   adapter: postgresql
   encoding: unicode
   database: toddfarrell_production
   pool: 5
-  username: toddfarrell
-  password:
+  username: jwhitis
+  password: memorymachine15
