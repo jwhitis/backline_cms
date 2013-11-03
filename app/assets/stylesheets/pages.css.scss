@@ -1,12 +1,14 @@
 $heading-font: "IM Fell DW Pica SC", serif;
 $bright-white: #FFF;
 $off-white: #E5E5E5;
-$light-grey: #999;
+$light-grey: #303030;
+$lighter-grey: #363636;
 $dark-grey: #272727;
 $black: #1A1819;
+$orange: #FF8C00;
 
 body {
-  background-color: #303030;
+  background-color: $light-grey;
   color: $off-white;
 }
 
@@ -28,8 +30,24 @@ a:hover {
   text-decoration: none;
 }
 
+div#stripe {
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  top: 100px;
+  z-index: 1;
+  background-color: $black;
+}
+
 nav {
-  padding: 190px 20px 0 0 !important;
+  width: 100%;
+  height: 640px;
+  margin-top: 160px;
+  padding: 30px 25px 20px 0 !important;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: $lighter-grey;
+  box-shadow: 0 0 15px 0 $black;
 
   ul {
     margin: 0;
@@ -48,47 +66,53 @@ div#main {
     height: 160px;
     position: absolute;
     top: 20px;
-    left: -100px;
+    left: -105px;
     z-index: 2;
-    border: 2px solid $off-white;
+    border: 4px solid $lighter-grey;
     border-radius: 50%;
     background-image: url("bird_small.png");
-    box-shadow: inset 0 0 20px 2px $black;
+    box-shadow: inset 0 0 20px 4px $black;
   }
-
-  div#stripe {
-    width: 15px;
-    height: 800px;
-    position: absolute;
-    left: 0;
-    z-index: 1;
-    background-color: $off-white;
+  div#logo:hover {
+    border-color: $off-white;
+    cursor: pointer;
   }
 
   header {
-    height: 100px;
+    height: 160px;
     position: relative;
-    border-bottom: 2px solid $off-white;
 
     h1 {
-      margin: 0 0 5px 75px;
-      position: absolute;
-      bottom: 0;
+      margin: 60px 0 10px 75px;
       font-family: $heading-font;
 
       span {
-        color: $light-grey;
+        margin-left: 4px;
+        color: $black;
       }
+    }
+    h1:hover {
+      color: $bright-white;
+    }
+
+    div#audio-player {
+      width: 100%;
+      height: 60px;
+      position: absolute;
+      bottom: 0;
     }
   }
 
   div#content {
-    padding: 75px 15px 15px 35px;
+    padding: 15px 20px 15px 30px;
   }
 
   div#sidebar {
-    height: 700px;
-    padding-top: 20px;
-    border-left: 2px solid $off-white;
+    height: 640px;
+    padding: 15px 20px 15px 20px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: $lighter-grey;
+    box-shadow: 0 0 15px 0 $black;
   }
 }
