@@ -1,3 +1,94 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$heading-font: "IM Fell DW Pica SC", serif;
+$bright-white: #FFF;
+$off-white: #E5E5E5;
+$light-grey: #999;
+$dark-grey: #272727;
+$black: #1A1819;
+
+body {
+  background-color: #303030;
+  color: $off-white;
+}
+
+h1 {
+  margin: 0 0 10px 0;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+h2 {
+  margin: 0 0 10px 0;
+  font-size: 24px;
+}
+
+a {
+  color: $off-white;
+}
+a:hover {
+  color: $bright-white;
+  text-decoration: none;
+}
+
+nav {
+  padding: 190px 20px 0 0 !important;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    list-style: none;
+    font-size: 20px;
+  }
+}
+
+div#main {
+  position: relative;
+
+  div#logo {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    top: 20px;
+    left: -100px;
+    z-index: 2;
+    border: 2px solid $off-white;
+    border-radius: 50%;
+    background-image: url("bird_small.png");
+    box-shadow: inset 0 0 20px 2px $black;
+  }
+
+  div#stripe {
+    width: 15px;
+    height: 800px;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    background-color: $off-white;
+  }
+
+  header {
+    height: 100px;
+    position: relative;
+    border-bottom: 2px solid $off-white;
+
+    h1 {
+      margin: 0 0 5px 75px;
+      position: absolute;
+      bottom: 0;
+      font-family: $heading-font;
+
+      span {
+        color: $light-grey;
+      }
+    }
+  }
+
+  div#content {
+    padding: 75px 15px 15px 35px;
+  }
+
+  div#sidebar {
+    height: 700px;
+    padding-top: 20px;
+    border-left: 2px solid $off-white;
+  }
+}

@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Toddfarrell</title>
+  <title>Todd Farrell, Jr.</title>
+  <link href="http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC" rel="stylesheet" type="text/css">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+  <div class="row">
+    <nav class="col-sm-2">
+      <%= render "layouts/nav" %>
+    </nav>
+    <div id="main" class="col-sm-10">
+      <div id="logo"></div>
+      <div id="stripe"></div>
+      <header class="row">
+        <%= render "layouts/header" %>
+      </header>
+      <div class="row">
+        <div id="content" class="col-xs-7">
+          <%= yield %>
+        </div>
+        <div id="sidebar" class="col-sm-5">
+          <%= render "layouts/sidebar" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
