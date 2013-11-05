@@ -77,7 +77,6 @@ div#main {
     div#pause-container {
       width: 100%;
       height: 100%;
-      display: none;
       position: relative;
 
       div#play {
@@ -104,6 +103,54 @@ div#main {
   div#logo:hover {
     border-color: $off-white;
     cursor: pointer;
+
+    div#play-container div#play {
+      border-left-color: $bright-white;
+    }
+    div#pause-container div#pause {
+      border-color: $bright-white;
+    }
+  }
+
+  div#next {
+    position: absolute;
+    top: 118px;
+    left: 74px;
+    z-index: 3;
+
+    div.ff {
+      width: 0;
+      height: 0;
+      display: inline-block;
+      border-left: 16px solid $off-white;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+    }
+  }
+
+  div#prev {
+    position: absolute;
+    top: 118px;
+    left: -160px;
+    z-index: 3;
+
+    div.rew {
+      width: 0;
+      height: 0;
+      display: inline-block;
+      border-right: 16px solid $off-white;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+    }
+  }
+
+  div#next:hover div.ff {
+    cursor: pointer;
+    border-left-color: $bright-white;
+  }
+  div#prev:hover div.rew {
+    cursor: pointer;
+    border-right-color: $bright-white;
   }
 
   header {
