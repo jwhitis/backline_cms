@@ -1,12 +1,18 @@
 $(document).on("ready page:load", function(){
 
   var media = [
-    "http://toddfarrell.s3.amazonaws.com/audio/Bobby_And_Chipper.mp3",
+    "http://toddfarrell.s3.amazonaws.com/audio/Year_In_Review.mp3",
     "http://toddfarrell.s3.amazonaws.com/audio/Plastic_Knives.mp3",
-    "http://toddfarrell.s3.amazonaws.com/audio/Take_It_Slow.mp3"
+    "http://toddfarrell.s3.amazonaws.com/audio/Bobby_And_Chipper.mp3",
+    "http://toddfarrell.s3.amazonaws.com/audio/Pawnshops.mp3",
+    "http://toddfarrell.s3.amazonaws.com/audio/Liner_Notes.mp3",
+    "http://toddfarrell.s3.amazonaws.com/audio/Better_Men.mp3",
+    "http://toddfarrell.s3.amazonaws.com/audio/If_Its_Alright_By_You.mp3",
+    "http://toddfarrell.s3.amazonaws.com/audio/Take_It_Slow.mp3",
+    "http://toddfarrell.s3.amazonaws.com/audio/My_Currency_Is_Doubt.mp3"
   ]
 
-  var currentSong = media[0];
+  var currentSong = media[1];
   $("span#song-title").text(songTitle());
 
   // Instantiate jPlayer
