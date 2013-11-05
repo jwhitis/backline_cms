@@ -72,6 +72,34 @@ div#main {
     border-radius: 50%;
     background-image: url("bird_small.png");
     box-shadow: inset 0 0 20px 4px $black;
+
+    div#play-container,
+    div#pause-container {
+      width: 100%;
+      height: 100%;
+      display: none;
+      position: relative;
+
+      div#play {
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 63px;
+        left: 70px;
+        border-left: 20px solid $off-white;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+      }
+      div#pause {
+        width: 20px;
+        height: 25px;
+        position: absolute;
+        top: 65px;
+        left: 67px;
+        border-left: 7px solid $off-white;
+        border-right: 7px solid $off-white;
+      }
+    }
   }
   div#logo:hover {
     border-color: $off-white;
@@ -93,13 +121,6 @@ div#main {
     }
     h1:hover {
       color: $bright-white;
-    }
-
-    div#audio-player {
-      width: 100%;
-      height: 60px;
-      position: absolute;
-      bottom: 0;
     }
   }
 
