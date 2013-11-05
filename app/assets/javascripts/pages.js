@@ -7,12 +7,13 @@ $(document).on("ready page:load", function(){
   ]
 
   var currentSong = media[0];
+  $("span#song-title").text(songTitle());
 
   // Instantiate jPlayer
   $("div#my-jplayer").jPlayer({
     ready: function () {
       $(this).jPlayer("setMedia", {
-        mp3: media[0]
+        mp3: currentSong
       });
     },
     swfPath: "/",
@@ -27,29 +28,38 @@ $(document).on("ready page:load", function(){
   });
 
   $("div#prev").click(function(){
-    $("div#my-jplayer").jPlayer("setMedia", {
-      mp3: media[prevSongIndex()]
-    }).jPlayer("play");
-    currentSong = media[prevSongIndex()]
+    currentSong = media[prevSongIndex()];
+    changeMedia();
   });
 
   $("div#next").click(function(){
-    $("div#my-jplayer").jPlayer("setMedia", {
-      mp3: media[nextSongIndex()]
-    }).jPlayer("play");
-    currentSong = media[nextSongIndex()]
+    currentSong = media[nextSongIndex()];
+    changeMedia();
   });
+
+  function changeMedia(){
+    $("span#song-title").text(songTitle());
+    $("div#my-jplayer").jPlayer("setMedia", {
+      mp3: currentSong
+    }).jPlayer("play");
+  }
 
   function prevSongIndex(){
     return songIndex() == 0 ? media.length - 1 : songIndex() - 1;
-  };
+  }
 
   function nextSongIndex(){
     return songIndex() == media.length - 1 ? 0 : songIndex() + 1;
-  };
+  }
 
   function songIndex(){
     return media.indexOf(currentSong);
-  };
+  }
+
+  function songTitle(){
+    var songTitle = currentSong.split("/");
+    songTitle = songTitle[songTitle.length - 1];
+    return songTitle.match(/\w*/)[0].replace(/_/g, " ");
+  }
 
 });

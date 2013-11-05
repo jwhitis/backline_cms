@@ -1,4 +1,5 @@
-$heading-font: "IM Fell DW Pica SC", serif;
+$brand-font: "IM Fell DW Pica SC", serif;
+$audio-font: "Aldrich", sans-serif;
 $bright-white: #FFF;
 $off-white: #E5E5E5;
 $light-grey: #303030;
@@ -159,7 +160,7 @@ div#main {
 
     h1 {
       margin: 60px 0 10px 75px;
-      font-family: $heading-font;
+      font-family: $brand-font;
 
       span {
         margin-left: 4px;
@@ -168,6 +169,30 @@ div#main {
     }
     h1:hover {
       color: $bright-white;
+    }
+    div#now-playing {
+      width: 300px;
+      height: 35px;
+      padding: 8px 0 0 10px;
+      position: absolute;
+      bottom: 12px;
+      left: 140px;
+      z-index: 4;
+      border-top: 1px solid #333;
+      border-left: 1px solid #333;
+      border-radius: 4px;
+      background: #4a663d; /* Old browsers */
+      background: -moz-linear-gradient(left,  #4a663d 0%, #384c2d 40%, #384c2d 60%, #4a663d 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, right top, color-stop(0%,#4a663d), color-stop(40%,#384c2d), color-stop(60%,#384c2d), color-stop(100%,#4a663d)); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(left,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(left,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* Opera 11.10+ */
+      background: -ms-linear-gradient(left,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* IE10+ */
+      background: linear-gradient(to right,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a663d', endColorstr='#4a663d',GradientType=1 ); /* IE6-9 */
+      box-shadow: inset 0 0 10px 0 #333;
+      font-family: $audio-font;
+      font-size: 16px;
+      color: $dark-grey;
     }
   }
 
