@@ -1,2 +1,64 @@
-<h2>Releases</h2>
-<p>This is where the releases go.</p>
+<div id="releases">
+  <h2>Releases</h2>
+
+  <!-- ALL OUR HEROES LIVE IN VANS -->
+  <div class="row">
+    <div class="col-sm-7">
+      <h3>All Our Heroes Live in Vans</h3>
+      <ol>
+        <li>Year in Review</li>
+        <li>Plastic Knives</li>
+        <li>Chipper and Bobby</li>
+        <li>Pawnshops</li>
+        <li>Liner Notes</li>
+        <li>Better Men</li>
+        <li>If It's Alright By You</li>
+        <li>Take It Slow</li>
+        <li>My Currency Is Doubt</li>
+      </ol>
+    </div>
+    <div class="col-sm-5">
+      <a href="javascript:void(0)" data-toggle="modal" data-target="#AOHLIV">
+      <%= image_tag "http://toddfarrell.s3.amazonaws.com/images/AOHLIV_small.jpg", alt: "album cover", class: "album-cover-small" %>
+      </a>
+    </div>
+  </div>
+
+  <div class="modal fade" id="AOHLIV" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <%= image_tag "http://toddfarrell.s3.amazonaws.com/images/AOHLIV_large.jpg", alt: "album cover", class: "album-cover-large" %>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHERE FAKE COWBOYS GO TO DRINK -->
+  <div class="row">
+    <div class="col-sm-7">
+      <h3>Where Fake Cowboys Go to Drink</h3>
+      <ol>
+        <li>Take It Slow</li>
+        <li>Black Lab (Dog Days)</li>
+        <li>Pocketful of Rainchecks</li>
+        <li>Ain't My Year</li>
+        <li>Hey Julie</li>
+        <li>Amanda, I'm Sorry</li>
+      </ol>
+    </div>
+    <div class="col-sm-5">
+      <a href="javascript:void(0)" data-toggle="modal" data-target="#WFCGTD">
+        <%= image_tag "http://toddfarrell.s3.amazonaws.com/images/WFCGTD_small.jpg", alt: "album cover", class: "album-cover-small" %>
+      </a>
+    </div>
+  </div>
+
+  <div class="modal fade" id="WFCGTD" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <%= image_tag "http://toddfarrell.s3.amazonaws.com/images/WFCGTD_large.jpg", alt: "album cover", class: "album-cover-large" %>
+      </div>
+    </div>
+  </div>
+</div>

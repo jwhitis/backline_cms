@@ -209,3 +209,53 @@ div#main {
     box-shadow: 0 0 15px 0 $black;
   }
 }
+
+/* RELEASES */
+div#releases {
+  div.row {
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+  }
+
+  ol {
+    padding-left: 20px;
+  }
+
+  div.modal-dialog {
+    width: 420px;
+  }
+
+  div.modal-content {
+    background-color: $black;
+  }
+
+  button.close {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    color: $off-white;
+    opacity: 1;
+  }
+
+  button.close:hover {
+    color: $bright-white;
+  }
+
+  img.album-cover-small {
+    width: 200px;
+    height: 200px;
+    border-radius: 4px;
+    background-color: $black;
+  }
+
+  img.album-cover-large {
+    width: 400px;
+    height: 400px;
+    border-radius: 6px;
+    background-color: $black
+  }
+}
