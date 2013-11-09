@@ -1,4 +1,7 @@
 Toddfarrell::Application.routes.draw do
+  namespace :admin do
+    resources :shows, except: :show
+  end
   get "shows", to: "pages#shows"
   get "releases", to: "pages#releases"
   get "media", to: "pages#media"

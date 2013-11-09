@@ -1,0 +1,49 @@
+<%= render "layouts/errors", model: @show %>
+<%= form_for [:admin, @show], html: {class: "admin"} do |f| %>
+  <div class="form-group">
+    <%= f.label :venue %>
+    <%= f.text_field :venue, class: "form-control" %>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <%= label_tag :date %>
+      <%= text_field_tag :date, @show.pretty_date, class: "form-control datepicker" %>
+    </div>
+
+    <div class="form-group col-sm-6">
+      <%= f.label :cover %>
+      <%= f.text_field :cover, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: "form-control" %>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <%= f.label :city %>
+      <%= f.text_field :city, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :state %>
+      <%= f.text_field :state, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :zip %>
+      <%= f.text_field :zip, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :notes %>
+    <%= f.text_area :notes, rows: 4, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+  <%= link_to "Cancel", admin_shows_path, class: "btn btn-danger" %>
+<% end %>

@@ -15,5 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require jquery.jplayer.min
-//= require jplayer.playlist.min
+//= require jquery-ui-1.10.3.custom
 //= require_tree .
