@@ -1,5 +1,18 @@
-<h2>Shows</h2>
-<p>This is where the shows go.</p>
+<div id="shows">
+  <h2>Shows</h2>
 
-<h2>Announcements</h2>
-<p>This is where the announcements go.</p>
+  <% @shows.each do |show| %>
+    <div class="row">
+      <div class="col-sm-8">
+        <h3><%= show.venue %></h3>
+        <p><%= show.notes %><p>
+      </div>
+      <div class="col-sm-4">
+        <p><span>Date:</span> <%= show.pretty_date %></p>
+        <p><span>Time:</span> <%= show.time %></p>
+        <p><span>Cover:</span> <%= show.cover %></p>
+        <p><%== show.pretty_address %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

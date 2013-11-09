@@ -41,7 +41,7 @@ class Admin::ShowsController < ApplicationController
   private
 
   def show_params
-    params.require(:show).permit(:venue, :date, :cover, :address, :city, :state, :zip, :notes)
+    params.require(:show).permit(:venue, :date, :time, :cover, :address, :city, :state, :zip, :notes)
   end
 
   def format_date date

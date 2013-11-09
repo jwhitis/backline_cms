@@ -198,7 +198,7 @@ div#main {
   }
 
   div#content {
-    padding: 15px 20px 15px 30px;
+    padding: 15px 30px 15px 30px;
   }
 
   div#sidebar {
@@ -208,6 +208,32 @@ div#main {
     border-bottom-right-radius: 4px;
     background-color: $lighter-grey;
     box-shadow: 0 0 10px 1px $black;
+  }
+}
+
+/* SHOWS */
+div#shows {
+  div.row {
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-radius: 4px;
+    background-color: $black;
+    box-shadow: 4px 4px 10px 0 #000;
+  }
+
+  h3 {
+    margin: 0 0 5px 0;
+    font-size: 20px;
+    color: $gold;
+  }
+
+  p {
+    margin: 0;
+
+    span {
+      margin-right: 5px;
+      color: $gold;
+    }
   }
 }
 
@@ -298,8 +324,8 @@ div#releases {
   }
 
   img.album-cover-small {
-    width: 200px;
-    height: 200px;
+    width: 195px;
+    height: 195px;
     border-radius: 4px;
     background-color: $black;
     box-shadow: 4px 4px 10px 0 $black;
