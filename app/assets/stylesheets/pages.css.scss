@@ -2,11 +2,12 @@ $brand-font: "IM Fell DW Pica SC", serif;
 $audio-font: "Aldrich", sans-serif;
 $bright-white: #FFF;
 $off-white: #E5E5E5;
-$light-grey: #303030;
 $lighter-grey: #363636;
+$light-grey: #303030;
 $dark-grey: #272727;
 $black: #1A1819;
 $orange: #FF8C00;
+$gold: #C09853;
 
 body {
   background-color: $light-grey;
@@ -48,7 +49,7 @@ nav {
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   background-color: $lighter-grey;
-  box-shadow: 0 0 15px 0 $black;
+  box-shadow: 0 0 10px 1px $black;
 
   ul {
     margin: 0;
@@ -206,12 +207,53 @@ div#main {
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     background-color: $lighter-grey;
-    box-shadow: 0 0 15px 0 $black;
+    box-shadow: 0 0 10px 1px $black;
   }
 }
 
 /* RELEASES */
 div#releases {
+  div#headline {
+    margin-bottom: 20px;
+    padding: 10px 15px 12px 15px;
+    border-radius: 4px;
+    background: #363636; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #363636 0%, #363636 50%, #272727 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#363636), color-stop(50%,#363636), color-stop(100%,#272727)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg,  #363636 0%,#363636 50%,#272727 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  #363636 0%,#363636 50%,#272727 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  #363636 0%,#363636 50%,#272727 100%); /* IE10+ */
+    background: linear-gradient(135deg,  #363636 0%,#363636 50%,#272727 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#363636', endColorstr='#272727',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    box-shadow: 0 0 10px 1px $black;
+
+    p {
+      margin-bottom: 5px;
+      color: $gold;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      list-style: none;
+
+      li {
+        padding-left: 5px;
+        display: inline-block;
+      }
+
+      li::after {
+        content: "*";
+        margin-left: 10px;
+      }
+
+      li.row-end::after {
+        content: none;
+      }
+    }
+  }
+
   div.row {
     margin-bottom: 20px;
   }
@@ -223,6 +265,16 @@ div#releases {
 
   ol {
     padding-left: 20px;
+  }
+
+  p.album-links {
+    margin: 0;
+    font-size: 16px;
+
+    span {
+      margin-right: 5px;
+      color: $gold;
+    }
   }
 
   div.modal-dialog {
@@ -250,6 +302,7 @@ div#releases {
     height: 200px;
     border-radius: 4px;
     background-color: $black;
+    box-shadow: 4px 4px 10px 0 $black;
   }
 
   img.album-cover-large {
