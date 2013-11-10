@@ -17,3 +17,6 @@
 
 # Ignore database credentials
 /config/database.yml
+
+# Ignore Twitter credentials
+/config/initializers/credentials_twitter.rb

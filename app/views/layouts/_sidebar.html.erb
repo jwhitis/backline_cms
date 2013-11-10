@@ -1,2 +1,13 @@
-<h2>Dirty Birds Go Tweet!</h2>
-<p>This is where the Twitter stream goes.</p>
+<h2>Dirty Birds Tweet!</h2>
+<ul>
+  <% @tweets.each do |tweet| %>
+    <li class="clearfix">
+      <%= image_tag tweet.user.profile_image_url %>
+      <div class="content">
+        <span class="time"><%= tweet_time(tweet) %></span>
+        <%= link_to tweet.user.screen_name, "https://twitter.com/#{tweet.user.screen_name}", target: "_blank" %>
+        <p><%== tweet.text %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>

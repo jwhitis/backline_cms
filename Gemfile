@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
+gem 'twitter'
+
 group :production do
   gem 'rails_12factor'
 end
