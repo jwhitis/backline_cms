@@ -20,9 +20,11 @@ class PagesController < ApplicationController
   private
 
   def expose_tweets
-    @tweets = []
-    TWITTER_HANDLES.each { |handle| @tweets.concat Twitter.user_timeline(handle) }
-    @tweets = @tweets.sort_by(&:created_at).reverse!.take(8)
+    unless request.xhr?
+      @tweets = []
+      TWITTER_HANDLES.each { |handle| @tweets.concat Twitter.user_timeline(handle) }
+      @tweets = @tweets.sort_by(&:created_at).reverse!.take(8)
+    end
   end
 
 end
