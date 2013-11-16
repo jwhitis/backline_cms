@@ -1,3 +1,4 @@
+$page-height: 700px;
 $brand-font: "IM Fell DW Pica SC", serif;
 $audio-font: "Aldrich", sans-serif;
 $bright-white: #FFF;
@@ -42,21 +43,54 @@ div#stripe {
 }
 
 nav {
-  width: 100%;
-  height: 640px;
-  margin-top: 160px;
-  padding: 30px 25px 20px 0 !important;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  background-color: $lighter-grey;
-  box-shadow: 0 0 10px 1px $black;
+  height: $page-height;
+  margin-top: 160px;;
+  padding: 0 !important;
+  position: relative;
+
+  div.background {
+    width: 125px;
+    height: $page-height;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, .05);
+    box-shadow: 0 0 10px 1px $black;
+  }
 
   ul {
     margin: 0;
     padding: 0;
-    text-align: right;
+    position: absolute;
+    top: 36px;
+    right: 0;
+    z-index: 2;
     list-style: none;
     font-size: 20px;
+
+    li {
+      text-align: right;
+
+      div.arrow {
+        float: right;
+        border-right: 20px solid $black;
+        border-top: 18px solid transparent;
+        border-bottom: 18px solid transparent;
+      }
+
+      span {
+        width: 125px;
+        padding: 4px 15px 4px 0;
+        display: inline-block;
+        float: right;
+        border-top: 1px solid $dark-grey;
+        background-color: $black;
+      }
+    }
+
+    li:last-child span {
+      border-bottom: 1px solid $dark-grey;
+    }
   }
 }
 
@@ -202,9 +236,10 @@ div#main {
   }
 
   div#sidebar {
+    width: 336px;
+    height: $page-height;
     padding: 12px 0 0 0;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+    float: left;
     background-color: rgba(255, 255, 255, .05);
     box-shadow: 0 0 10px 1px $black;
 
@@ -233,7 +268,7 @@ div#main {
         }
 
         div.content {
-          width: 318px;
+          width: 248px;
           float: left;
 
           span.time {
@@ -260,10 +295,17 @@ div#main {
   }
 }
 
+footer {
+  height: 60px;
+  margin: 0 56px;
+  background-color: $black;
+  box-shadow: 0 5px 10px 1px $black;
+}
+
 /* SHOWS */
 div#shows {
   div.row {
-    margin-bottom: 20px;
+    margin: 0 -5px 20px -15px;
     padding: 10px 0;
     border-radius: 4px;
     background-color: $black;

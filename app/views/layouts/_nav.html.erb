@@ -1,6 +1,27 @@
+<div class="background"></div>
 <ul>
-  <li><%= link_to "Shows", shows_path, remote: true %></li>
-  <li><%= link_to "Releases", releases_path, remote: true %></li>
-  <li><%= link_to "Media", media_path, remote: true %></li>
-  <li><%= link_to "Bio", bio_path, remote: true %></li>
+  <li class="clearfix">
+    <%= link_to shows_path, remote: true do %>
+      <span>Shows</span>
+      <div class="arrow"></div>
+    <% end %>
+  </li>
+  <li class="clearfix">
+    <%= link_to releases_path, remote: true do %>
+      <span>Releases</span>
+      <div class="arrow"></div>
+    <% end %>
+  </li>
+  <li class="clearfix">
+    <%= link_to media_path, remote: true do %>
+      <span>Media</span>
+      <div class="arrow"></div>
+    <% end %>
+  </li>
+  <li class="clearfix">
+    <%= link_to bio_path, remote: true do %>
+      <span>Bio</span>
+      <div class="arrow"></div>
+    <% end %>
+  </li>
 </ul>
