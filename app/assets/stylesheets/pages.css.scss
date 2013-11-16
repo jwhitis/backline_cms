@@ -1,4 +1,4 @@
-$page-height: 700px;
+$page-height: 760px;
 $brand-font: "IM Fell DW Pica SC", serif;
 $audio-font: "Aldrich", sans-serif;
 $bright-white: #FFF;
@@ -11,6 +11,7 @@ $orange: #FF8C00;
 $gold: #C09853;
 
 body {
+  position: relative;
   background: url("http://toddfarrell.s3.amazonaws.com/images/navy_blue.png") $light-grey;
   color: $off-white;
 }
@@ -296,10 +297,25 @@ div#main {
 }
 
 footer {
+  width: 100%;
   height: 60px;
-  margin: 0 56px;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
   background-color: $black;
-  box-shadow: 0 5px 10px 1px $black;
+
+  div[class*="col-"] {
+    padding: 0;
+
+    p.copyright {
+      margin: 5px 0 0 -125px;
+      font-size: 12px;
+
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 /* SHOWS */
