@@ -1,0 +1,26 @@
+@import "variables";
+
+div#shows {
+  div.row {
+    margin: 0 -5px 20px -15px;
+    padding: 10px 0;
+    border-radius: 4px;
+    background-color: $black;
+    box-shadow: 4px 4px 10px 0 #000;
+  }
+
+  h3 {
+    margin: 0 0 5px 0;
+    font-size: 20px;
+    color: $gold;
+  }
+
+  p {
+    margin: 0;
+
+    span {
+      margin-right: 5px;
+      color: $gold;
+    }
+  }
+}
