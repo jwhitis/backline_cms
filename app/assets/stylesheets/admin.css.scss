@@ -4,6 +4,19 @@ div#errors {
     list-style: none;
   }
 }
+
 form.admin input[type="submit"] {
   margin-right: 15px;
+}
+
+table.admin {
+  th.date, td.date {
+    width: 84px;
+  }
+  th.edit, td.edit {
+    width: 34px;
+  }
+  th.delete, td.delete {
+    width: 51px;
+  }
 }

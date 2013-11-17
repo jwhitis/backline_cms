@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   end
 
   def media
+    @videos = Video.order(:created_at).reverse_order
   end
 
   def bio

@@ -1,0 +1,20 @@
+<%= render "layouts/errors", model: @video %>
+<%= form_for [:admin, @video], html: {class: "admin"} do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :caption %>
+    <%= f.text_area :caption, rows: 4, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :embed %>
+    <%= f.text_area :embed, rows: 4, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+  <%= link_to "Cancel", admin_videos_path, class: "btn btn-danger" %>
+<% end %>
