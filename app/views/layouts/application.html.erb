@@ -10,32 +10,31 @@
 </head>
 <body>
 
-<div id="stripe"></div>
 <div class="container">
+  <nav>
+    <%= render "layouts/nav" %>
+  </nav>
   <div class="row">
-    <nav class="col-sm-2 clearfix">
-      <%= render "layouts/nav" %>
-    </nav>
-    <div id="my-jplayer" class="jp-jplayer"></div>
-    <div id="main" class="col-sm-10">
+    <header class="col-xs-12">
+      <div id="my-jplayer" class="jp-jplayer"></div>
       <%= render "layouts/audio_controls" %>
-      <header class="row">
-        <%= render "layouts/header" %>
-      </header>
-      <div class="row">
-        <div id="content" class="col-xs-7">
-          <%= yield %>
-        </div>
-        <div id="sidebar" class="col-sm-5">
-          <%= render "layouts/sidebar" %>
-        </div>
-      </div>
+      <%= render "layouts/header" %>
+    </header>
+  </div>
+  <div id="main" class="row">
+    <div id="content" class="col-sm-8">
+      <%= yield %>
+    </div>
+    <div id="sidebar" class="col-sm-4">
+      <%= render "layouts/sidebar" %>
     </div>
   </div>
+  <div class="row">
+    <footer class="col-xs-12">
+      <%= render "layouts/footer" %>
+    </footer>
+  </div>
 </div>
-<footer>
-  <%= render "layouts/footer" %>
-</footer>
 
 </body>
 </html>

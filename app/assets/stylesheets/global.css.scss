@@ -24,76 +24,28 @@ a:hover {
   text-decoration: none;
 }
 
-div#stripe {
-  width: 100%;
-  height: 60px;
-  position: absolute;
-  top: 100px;
-  z-index: 1;
+nav.navbar {
+  margin: 0;
+  border: none;
+  border-radius: 0px;
   background-color: $black;
-}
-
-nav {
-  height: $page-height;
-  margin-top: 160px;;
-  padding: 0 !important;
-  position: relative;
-
-  div.background {
-    width: 125px;
-    height: $page-height;
-    position: absolute;
-    right: 0;
-    z-index: 1;
-    background-color: rgba(255, 255, 255, .05);
-    box-shadow: 0 0 10px 1px $black;
-  }
 
   ul {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 36px;
-    right: 0;
-    z-index: 2;
-    list-style: none;
-    font-size: 20px;
-
     li {
-      text-align: right;
-
-      div.arrow {
-        float: right;
-        border-right: 20px solid $black;
-        border-top: 18px solid transparent;
-        border-bottom: 18px solid transparent;
-      }
-
-      span {
-        width: 125px;
-        padding: 4px 15px 4px 0;
-        display: inline-block;
-        float: right;
-        border-top: 1px solid $dark-grey;
-        background-color: $black;
-      }
-    }
-
-    li:last-child span {
-      border-bottom: 1px solid $dark-grey;
+      font-size: 18px;
     }
   }
 }
 
-div#main {
+header {
+  height: 60px;
   position: relative;
 
   div#logo {
     width: 160px;
     height: 160px;
     position: absolute;
-    top: 20px;
-    left: -105px;
+    top: -100px;
     z-index: 2;
     border: 4px solid $lighter-grey;
     border-radius: 50%;
@@ -141,8 +93,8 @@ div#main {
 
   div#next {
     position: absolute;
-    top: 118px;
-    left: 74px;
+    top: -47px;
+    left: 195px;
     z-index: 3;
 
     div.ff {
@@ -157,8 +109,8 @@ div#main {
 
   div#prev {
     position: absolute;
-    top: 118px;
-    left: -160px;
+    top: -47px;
+    left: -45px;
     z-index: 3;
 
     div.rew {
@@ -180,58 +132,53 @@ div#main {
     border-right-color: $bright-white;
   }
 
-  header {
-    height: 160px;
-    position: relative;
+  h1 {
+    margin: 10px 0 10px 175px;
+    font-family: $brand-font;
 
-    h1 {
-      margin: 60px 0 10px 75px;
-      font-family: $brand-font;
-
-      span {
-        margin-left: 4px;
-        color: $black;
-      }
-    }
-    h1:hover {
-      color: $bright-white;
-    }
-    div#now-playing {
-      width: 310px;
-      height: 35px;
-      padding: 8px 0 0 10px;
-      position: absolute;
-      bottom: 12px;
-      left: 140px;
-      z-index: 4;
-      border-top: 1px solid #333;
-      border-left: 1px solid #333;
-      border-radius: 4px;
-      background: #4a663d; /* Old browsers */
-      background: -moz-linear-gradient(left,  #4a663d 0%, #384c2d 40%, #384c2d 60%, #4a663d 100%); /* FF3.6+ */
-      background: -webkit-gradient(linear, left top, right top, color-stop(0%,#4a663d), color-stop(40%,#384c2d), color-stop(60%,#384c2d), color-stop(100%,#4a663d)); /* Chrome,Safari4+ */
-      background: -webkit-linear-gradient(left,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* Chrome10+,Safari5.1+ */
-      background: -o-linear-gradient(left,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* Opera 11.10+ */
-      background: -ms-linear-gradient(left,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* IE10+ */
-      background: linear-gradient(to right,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* W3C */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a663d', endColorstr='#4a663d',GradientType=1 ); /* IE6-9 */
-      box-shadow: inset 0 0 10px 0 #333;
-      font-family: $audio-font;
-      font-size: 16px;
-      color: $dark-grey;
+    span {
+      margin-left: 4px;
+      color: $black;
     }
   }
+  h1:hover {
+    color: $bright-white;
+  }
+  div#now-playing {
+    width: 310px;
+    height: 35px;
+    padding: 8px 0 0 10px;
+    position: absolute;
+    top: -52px;
+    left: 300px;
+    z-index: 4;
+    border-top: 1px solid #333;
+    border-left: 1px solid #333;
+    border-radius: 4px;
+    background: #4a663d; /* Old browsers */
+    background: -moz-linear-gradient(left,  #4a663d 0%, #384c2d 40%, #384c2d 60%, #4a663d 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#4a663d), color-stop(40%,#384c2d), color-stop(60%,#384c2d), color-stop(100%,#4a663d)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* IE10+ */
+    background: linear-gradient(to right,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a663d', endColorstr='#4a663d',GradientType=1 ); /* IE6-9 */
+    box-shadow: inset 0 0 10px 0 #333;
+    font-family: $audio-font;
+    font-size: 16px;
+    color: $dark-grey;
+  }
+}
 
+div#main {
   div#content {
     padding: 15px 30px 0 30px;
   }
 
   div#sidebar {
-    width: 336px;
     min-height: $page-height;
     max-height: $page-height + 60px;
     padding: 12px 0 0 0;
-    float: left;
     background-color: rgba(255, 255, 255, .05);
     box-shadow: 0 0 10px 1px $black;
 
@@ -253,14 +200,14 @@ div#main {
         img {
           width: 48px;
           height: 48px;
-          margin: 5px 15px 0 10px;
+          margin: 5px 12px 0 10px;
           float: left;
           border-radius: 4px;
           box-shadow: 2px 2px 5px 0 $black;
         }
 
         div.content {
-          width: 248px;
+          width: 305px;
           float: left;
 
           span.time {
@@ -291,23 +238,18 @@ div#main {
 }
 
 footer {
-  width: 100%;
   height: 60px;
   position: absolute;
   bottom: 0;
   z-index: 1;
   background-color: $black;
 
-  div[class*="col-"] {
-    padding: 0;
+  p.copyright {
+    padding-top: 5px;
+    font-size: 12px;
 
-    p.copyright {
-      margin: 5px 0 0 -125px;
-      font-size: 12px;
-
-      a {
-        text-decoration: underline;
-      }
+    a {
+      text-decoration: underline;
     }
   }
 }
