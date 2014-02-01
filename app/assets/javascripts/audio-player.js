@@ -24,7 +24,7 @@ $(document).on("ready page:load", function(){
     },
     swfPath: "/",
     supplied: "mp3",
-    cssSelectorAncestor: "header",
+    cssSelectorAncestor: "div#main",
     cssSelector: {
       play: "div#play-container",
       pause: "div#pause-container"

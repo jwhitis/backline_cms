@@ -1,16 +1,15 @@
-$(document).on("ready page:load", function(){
+$(document).on("ready page:load", function() {
 
-  // Animate navigation tabs on hover
-  $("nav li").hover(function(){
-    $(this).find("span").filter(":not(:animated)").animate({
-      "width": "140px",
-      "padding-right": "30px"
-    }, 100);
-  }, function(){
-    $(this).find("span").animate({
-      "width": "125px",
-      "padding-right": "15px"
-    }, 100);
+  // Highlight active tab
+  var action = $("ul.navbar-nav").attr("data-action");
+  $("ul.navbar-nav a").each(function() {
+    if ($(this).text().toLowerCase() == action) {
+      $(this).addClass("active");
+    }
+  });
+  $("ul.navbar-nav a").click(function() {
+    $("ul.navbar-nav a").removeClass("active");
+    $(this).addClass("active");
   });
 
 });

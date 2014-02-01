@@ -1,9 +1,19 @@
 @import "variables";
 
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   position: relative;
-  background: url("http://toddfarrell.s3.amazonaws.com/images/navy_blue.png") $light-grey;
+  background-color: $black;
   color: $off-white;
+}
+
+div#wrapper {
+  min-height: 100%;
+  position: relative;
 }
 
 h1 {
@@ -24,33 +34,87 @@ a:hover {
   text-decoration: none;
 }
 
-nav.navbar {
-  margin: 0;
-  border: none;
-  border-radius: 0px;
-  background-color: $black;
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
 
-  ul {
-    li {
-      font-size: 18px;
+nav.navbar {
+  height: 140px;
+  margin: 0;
+  border-width: 4px 0 2px 0;
+  border-top-color: $dark-red;
+  border-bottom-color: $bright-white;
+  border-radius: 0px;
+  background-color: #C6C9CC;
+
+  div#navbar-container {
+    height: 100%;
+    position: relative;
+    background: url("US_map_inverted2.png") no-repeat #C6C9CC;
+
+    div.colorfill {
+      width: 1000px;
+      height: 100%;
+      position: absolute;
+      left: -999px;
+      background-color: #BABBBF;
+    }
+
+    a.navbar-brand {
+      font-family: $brand-font;
+      font-size: 38px;
+      text-transform: uppercase;
+      color: $light-red;
+      line-height: 32px;
+      letter-spacing: -.04em;
+      text-shadow: 1px 1px 1px $black;
+
+      span {
+        margin-left: 40px;
+        font-size: 32px;
+        text-transform: none;
+      }
+      @media (max-width: 991px) {
+        span {
+          display: none;
+        }
+      }
+    }
+
+    ul.navbar-nav {
+      li {
+        a {
+          padding: 10px;
+          font-size: 16px;
+          font-weight: bold;
+          text-transform: uppercase;
+          color: #777;
+        }
+        a.active {
+          margin-top: -5px;
+          border-top: 5px solid $light-red;
+          color: $bright-white;
+        }
+      }
     }
   }
 }
 
-header {
-  height: 60px;
+
+div#main {
   position: relative;
 
   div#logo {
-    width: 160px;
-    height: 160px;
+    width: 50px;
+    height: 50px;
     position: absolute;
-    top: -100px;
+    top: -58px;
+    right: 380px;
     z-index: 2;
-    border: 4px solid $lighter-grey;
+    border: 4px solid $off-white;
     border-radius: 50%;
-    background-image: url("http://toddfarrell.s3.amazonaws.com/images/bird_small.png");
-    box-shadow: inset 0 0 20px 4px $black;
 
     div#play-container,
     div#pause-container {
@@ -62,25 +126,25 @@ header {
         width: 0;
         height: 0;
         position: absolute;
-        top: 63px;
-        left: 70px;
+        top: 7px;
+        left: 14px;
         border-left: 20px solid $off-white;
-        border-top: 15px solid transparent;
-        border-bottom: 15px solid transparent;
+        border-top: 14px solid transparent;
+        border-bottom: 14px solid transparent;
       }
       div#pause {
         width: 20px;
         height: 25px;
         position: absolute;
-        top: 65px;
-        left: 67px;
+        top: 9px;
+        left: 11px;
         border-left: 7px solid $off-white;
         border-right: 7px solid $off-white;
       }
     }
   }
   div#logo:hover {
-    border-color: $off-white;
+    border-color: $bright-white;
     cursor: pointer;
 
     div#play-container div#play {
@@ -93,8 +157,8 @@ header {
 
   div#next {
     position: absolute;
-    top: -47px;
-    left: 195px;
+    top: -44px;
+    right: 330px;
     z-index: 3;
 
     div.ff {
@@ -109,8 +173,8 @@ header {
 
   div#prev {
     position: absolute;
-    top: -47px;
-    left: -45px;
+    top: -44px;
+    right: 446px;
     z-index: 3;
 
     div.rew {
@@ -132,58 +196,46 @@ header {
     border-right-color: $bright-white;
   }
 
-  h1 {
-    margin: 10px 0 10px 175px;
-    font-family: $brand-font;
-
-    span {
-      margin-left: 4px;
-      color: $black;
-    }
-  }
-  h1:hover {
-    color: $bright-white;
-  }
   div#now-playing {
     width: 310px;
     height: 35px;
     padding: 8px 0 0 10px;
     position: absolute;
-    top: -52px;
-    left: 300px;
+    top: -50px;
+    right: 11px;
     z-index: 4;
-    border-top: 1px solid #333;
-    border-left: 1px solid #333;
+    border-top: 1px solid #999;
+    border-left: 1px solid #999;
     border-radius: 4px;
-    background: #4a663d; /* Old browsers */
-    background: -moz-linear-gradient(left,  #4a663d 0%, #384c2d 40%, #384c2d 60%, #4a663d 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#4a663d), color-stop(40%,#384c2d), color-stop(60%,#384c2d), color-stop(100%,#4a663d)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(left,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* IE10+ */
-    background: linear-gradient(to right,  #4a663d 0%,#384c2d 40%,#384c2d 60%,#4a663d 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a663d', endColorstr='#4a663d',GradientType=1 ); /* IE6-9 */
-    box-shadow: inset 0 0 10px 0 #333;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(left,  #eeeeee 0%, #ffffff 30%, #ffffff 70%, #eeeeee 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#eeeeee), color-stop(30%,#ffffff), color-stop(70%,#ffffff), color-stop(100%,#eeeeee)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #eeeeee 0%,#ffffff 30%,#ffffff 70%,#eeeeee 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #eeeeee 0%,#ffffff 30%,#ffffff 70%,#eeeeee 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #eeeeee 0%,#ffffff 30%,#ffffff 70%,#eeeeee 100%); /* IE10+ */
+    background: linear-gradient(to right,  #eeeeee 0%,#ffffff 30%,#ffffff 70%,#eeeeee 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#eeeeee',GradientType=1 ); /* IE6-9 */
     font-family: $audio-font;
     font-size: 16px;
-    color: $dark-grey;
+    color: #777;
   }
-}
 
-div#main {
   div#content {
-    padding: 15px 30px 0 30px;
+    padding-top: 15px;
+
+    h2 {
+      margin: -50px 0 25px 0;
+      font-size: 32px;
+      font-weight: bold;
+      line-height: 25px;
+      color: $bright-white;
+    }
   }
 
   div#sidebar {
-    min-height: $page-height;
-    max-height: $page-height + 60px;
     padding: 12px 0 0 0;
-    background-color: rgba(255, 255, 255, .05);
-    box-shadow: 0 0 10px 1px $black;
 
     h2 {
-      margin-left: 15px;
       font-size: 18px;
     }
 
@@ -195,7 +247,7 @@ div#main {
       li {
         margin-bottom: 10px;
         padding-bottom: 10px;
-        border-bottom: 1px solid $dark-grey;
+        border-bottom: 1px solid rgba(181, 181, 181, .1);
 
         img {
           width: 48px;
@@ -221,10 +273,10 @@ div#main {
 
           a {
             font-size: 16px;
-            color: $gold;
+            color: $light-red;
           }
           a:hover {
-            color: #FFC870;
+            color: $bright-white;
           }
         }
       }
@@ -238,14 +290,15 @@ div#main {
 }
 
 footer {
-  height: 60px;
+  width: 100%;
+  height: 40px;
   position: absolute;
   bottom: 0;
-  z-index: 1;
-  background-color: $black;
+  background-color: #000;
 
   p.copyright {
-    padding-top: 5px;
+    padding-top: 12px;
+    text-align: right;
     font-size: 12px;
 
     a {

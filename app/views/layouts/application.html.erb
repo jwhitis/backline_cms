@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Todd Farrell, Jr.</title>
-  <link href="http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Vollkorn:700" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet" type="text/css">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -10,30 +10,24 @@
 </head>
 <body>
 
-<div class="container">
-  <nav>
-    <%= render "layouts/nav" %>
-  </nav>
-  <div class="row">
-    <header class="col-xs-12">
-      <div id="my-jplayer" class="jp-jplayer"></div>
+<div id="wrapper">
+  <%= render "layouts/nav" %>
+  <div class="container">
+    <div id="main" class="row">
       <%= render "layouts/audio_controls" %>
-      <%= render "layouts/header" %>
-    </header>
-  </div>
-  <div id="main" class="row">
-    <div id="content" class="col-sm-8">
-      <%= yield %>
-    </div>
-    <div id="sidebar" class="col-sm-4">
-      <%= render "layouts/sidebar" %>
+      <div id="content" class="col-sm-7">
+        <%= yield %>
+      </div>
+      <div id="sidebar" class="col-sm-5">
+        <%= render "layouts/sidebar" %>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <footer class="col-xs-12">
+  <footer>
+    <div class="container">
       <%= render "layouts/footer" %>
-    </footer>
-  </div>
+    </div>
+  </footer>
 </div>
 
 </body>

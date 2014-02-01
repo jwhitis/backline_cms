@@ -2,17 +2,16 @@
 
 div#shows {
   div.row {
-    margin: 0 -5px 20px -15px;
+    margin: 0 0 20px -15px;
     padding: 10px 0;
     border-radius: 4px;
-    background-color: $black;
+    background-color: $dark-grey;
     box-shadow: 4px 4px 10px 0 #000;
   }
 
   h3 {
     margin: 0 0 5px 0;
     font-size: 20px;
-    color: $gold;
   }
 
   p {
@@ -20,7 +19,6 @@ div#shows {
 
     span {
       margin-right: 5px;
-      color: $gold;
     }
   }
 }
