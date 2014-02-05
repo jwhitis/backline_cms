@@ -1,7 +1,7 @@
-/*! jQuery UI - v1.10.3 - 2013-11-08
+/*! jQuery UI - v1.10.4 - 2014-02-02
 * http://jqueryui.com
 * Includes: jquery.ui.core.js, jquery.ui.datepicker.js
-* Copyright 2013 jQuery Foundation and other contributors; Licensed MIT */
+* Copyright 2014 jQuery Foundation and other contributors; Licensed MIT */
 
 (function( $, undefined ) {
 
@@ -12,7 +12,7 @@ var uuid = 0,
 $.ui = $.ui || {};
 
 $.extend( $.ui, {
-	version: "1.10.3",
+	version: "1.10.4",
 
 	keyCode: {
 		BACKSPACE: 8,
@@ -315,7 +315,7 @@ $.extend( $.ui, {
 })( jQuery );
 (function( $, undefined ) {
 
-$.extend($.ui, { datepicker: { version: "1.10.3" } });
+$.extend($.ui, { datepicker: { version: "1.10.4" } });
 
 var PROP_NAME = "datepicker",
 	instActive;
@@ -2335,6 +2335,6 @@ $.fn.datepicker = function(options){
 $.datepicker = new Datepicker(); // singleton instance
 $.datepicker.initialized = false;
 $.datepicker.uuid = new Date().getTime();
-$.datepicker.version = "1.10.3";
+$.datepicker.version = "1.10.4";
 
 })(jQuery);

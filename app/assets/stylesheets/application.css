@@ -10,7 +10,7 @@
  *
  *= require_self
  *= require bootstrap
- *= require jquery-ui-1.10.3.custom
+ *= require jquery-ui-1.10.4.custom
  *= require jquery.fancybox
  *= require_tree .
  */
