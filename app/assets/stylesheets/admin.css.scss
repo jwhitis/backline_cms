@@ -10,13 +10,17 @@ form.admin input[type="submit"] {
 }
 
 table.admin {
+  margin-bottom: 10px;
+
   th.date, td.date {
     width: 84px;
   }
   th.edit, td.edit {
     width: 34px;
+    text-decoration: underline;
   }
   th.delete, td.delete {
     width: 51px;
+    text-decoration: underline;
   }
 }
