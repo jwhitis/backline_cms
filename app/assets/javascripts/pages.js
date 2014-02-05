@@ -12,6 +12,17 @@ $(document).on("ready page:load", function() {
     $(this).addClass("active");
   });
 
+  // Initialize FancyBox for album covers
+  $("a.album-cover").fancybox({
+    padding: [15, 15, 5, 15],
+    wrapCSS: "album-cover-fancybox",
+    helpers: {
+      title: {
+        type: "inside"
+      }
+    }
+  });
+
   // Animate album covers on hover
   // $("div#content").on("mouseover", "img.album-cover-small", function() {
   //   $(this).animate({"margin-top": "5px"}, 50);

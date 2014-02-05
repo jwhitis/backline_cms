@@ -8,7 +8,7 @@ body {
   height: 100%;
   position: relative;
   background: url(http://toddfarrell.s3.amazonaws.com/images/building.jpg) no-repeat $black;
-  font-family: "Open Sans", sans-serif;
+  font-family: $main-font;
   color: $white;
 }
 

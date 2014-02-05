@@ -89,11 +89,18 @@ div#releases {
     background-color: $black;
     box-shadow: 4px 4px 10px 0 $black;
   }
+}
 
-  img.album-cover-large {
-    width: 400px;
-    height: 400px;
-    border-radius: 6px;
-    background-color: $black
+div.album-cover-fancybox {
+  img.fancybox-image {
+    border-radius: 4px;
+  }
+
+  div.fancybox-title-inside-wrap {
+    padding-top: 5px;
+    text-align: center;
+    font-family: $main-font;
+    font-size: 14px;
+    font-style: italic;
   }
 }
