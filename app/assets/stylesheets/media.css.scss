@@ -1,14 +1,10 @@
 @import "variables";
 
 div#media {
-  div.row:last-child {
-    margin-bottom: 60px;
-  }
-
   h3 {
     margin: 0 0 10px 0;
     font-size: 22px;
-    color: $light-red;
+    color: $pink;
   }
 
   iframe {

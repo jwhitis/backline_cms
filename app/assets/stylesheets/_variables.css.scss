@@ -1,9 +1,9 @@
-$brand-font: "Vollkorn", serif;
+@import url(http://fonts.googleapis.com/css?family=Quicksand|Open+Sans:400italic,400,700|Aldrich);
+
+$brand-font: "Quicksand", sans-serif;
 $audio-font: "Aldrich", sans-serif;
-$bright-white: #FFF;
-$off-white: #B5B5B5;
-$dark-grey: #272727;
-$black: #1A1819;
-// $gold: #C09853;
-$dark-red: #780000;
-$light-red: #BD4D4D;
+$white: #F5F5F5;
+$grey: #777777;
+$black: #0A0A0A;
+$red: #780000;
+$pink: #FA1E43;

@@ -12,7 +12,7 @@ $(document).on("ready page:load", function(){
     "http://toddfarrell.s3.amazonaws.com/audio/My_Currency_Is_Doubt.mp3"
   ]
 
-  var currentSong = media[1];
+  var currentSong = media[0];
   $("span#song-title").text(songTitle());
 
   // Instantiate jPlayer

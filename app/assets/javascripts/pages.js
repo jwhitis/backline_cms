@@ -12,4 +12,12 @@ $(document).on("ready page:load", function() {
     $(this).addClass("active");
   });
 
+  // Animate album covers on hover
+  // $("div#content").on("mouseover", "img.album-cover-small", function() {
+  //   $(this).animate({"margin-top": "5px"}, 50);
+  // });
+  // $("div#content").on("mouseout", "img.album-cover-small", function() {
+  //   $(this).animate({"margin-top": "0px"}, 50);
+  // });
+
 });

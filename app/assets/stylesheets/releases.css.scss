@@ -5,19 +5,11 @@ div#releases {
     margin-bottom: 20px;
     padding: 10px 15px 12px 15px;
     border-radius: 4px;
-    background: #363636; /* Old browsers */
-    background: -moz-linear-gradient(-45deg,  #363636 0%, #363636 50%, #272727 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#363636), color-stop(50%,#363636), color-stop(100%,#272727)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(-45deg,  #363636 0%,#363636 50%,#272727 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(-45deg,  #363636 0%,#363636 50%,#272727 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(-45deg,  #363636 0%,#363636 50%,#272727 100%); /* IE10+ */
-    background: linear-gradient(135deg,  #363636 0%,#363636 50%,#272727 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#363636', endColorstr='#272727',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background-color: rgba(51, 51, 51, .75);
     box-shadow: 0 0 10px 1px $black;
 
     p {
       margin-bottom: 5px;
-      color: $light-red;
     }
 
     ul {
@@ -29,6 +21,10 @@ div#releases {
       li {
         padding-left: 5px;
         display: inline-block;
+
+        a {
+          color: $pink;
+        }
       }
 
       li::after {
@@ -43,7 +39,7 @@ div#releases {
   }
 
   div.row {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   h3 {
@@ -61,7 +57,7 @@ div#releases {
 
     span {
       margin-right: 5px;
-      color: $light-red;
+      color: $pink;
     }
   }
 
@@ -77,12 +73,13 @@ div#releases {
     position: absolute;
     top: 8px;
     right: 15px;
-    color: $off-white;
+    color: #B5B5B5;
+    text-shadow: none;
     opacity: 1;
   }
 
   button.close:hover {
-    color: $bright-white;
+    color: $white;
   }
 
   img.album-cover-small {
