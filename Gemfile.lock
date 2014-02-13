@@ -39,6 +39,8 @@ GEM
     execjs (2.0.2)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    font-awesome-rails (4.0.3.1)
+      railties (>= 3.2, < 5.0)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.2)
@@ -122,6 +124,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  font-awesome-rails
   jbuilder (~> 1.2)
   jquery-rails
   pg
