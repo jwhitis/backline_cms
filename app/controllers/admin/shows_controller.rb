@@ -1,4 +1,5 @@
-class Admin::ShowsController < ApplicationController
+class Admin::ShowsController < Admin::AdminController
+  respond_to :js
 
   def index
     @shows = Show.order(:date)
@@ -12,7 +13,9 @@ class Admin::ShowsController < ApplicationController
     params[:show][:date] = format_date(params[:date])
     @show = Show.new(show_params)
     if @show.save
-      redirect_to admin_shows_path, notice: "Show successfully created."
+      @shows = Show.order(:date)
+      flash.now[:notice] = "Show successfully created."
+      render :index
     else
       render :new
     end
@@ -26,7 +29,9 @@ class Admin::ShowsController < ApplicationController
     @show = Show.find(params[:id])
     params[:show][:date] = format_date(params[:date])
     if @show.update_attributes(show_params)
-      redirect_to admin_shows_path, notice: "Show successfully updated."
+      @shows = Show.order(:date)
+      flash.now[:notice] = "Show successfully updated."
+      render :index
     else
       render :edit
     end
@@ -35,7 +40,8 @@ class Admin::ShowsController < ApplicationController
   def destroy
     @show = Show.find(params[:id])
     @show.destroy
-    redirect_to admin_shows_path, notice: "Show successfully deleted."
+    @shows = Show.order(:date)
+    flash.now[:notice] = "Show successfully deleted."
   end
 
   private

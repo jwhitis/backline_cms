@@ -1,5 +1,5 @@
 <%= render "layouts/errors", model: @show %>
-<%= form_for [:admin, @show], html: {class: "admin"} do |f| %>
+<%= form_for [:admin, @show], remote: true do |f| %>
   <div class="form-group">
     <%= f.label :venue %>
     <%= f.text_field :venue, class: "form-control" %>
@@ -50,5 +50,5 @@
   </div>
 
   <%= f.submit "Submit", class: "btn btn-primary" %>
-  <%= link_to "Cancel", admin_shows_path, class: "btn btn-danger" %>
+  <%= link_to "Cancel", admin_shows_path, remote: true,  class: "btn btn-danger" %>
 <% end %>

@@ -1,1 +1,7 @@
-<p class="copyright">Design by <%= link_to "Jack Whitis", "http://www.linkedin.com/in/jwhitis", target: "_blank" %> | &copy; 2014 Todd Farrell Jr. &amp; The Dirty Birds</p>
+<% if admin_signed_in? %>
+  <p class="pull-left">You are currently signed in. <%= link_to "Sign out", admin_sign_out_path, method: :delete, class: "admin-links" %></p>
+<% else %>
+  <p class="pull-left">Are you a site administrator? <%= link_to "Sign in", admin_sign_in_path, class: "admin-links" %></p>
+<% end %>
+
+<p class="pull-right">Design by <%= link_to "Jack Whitis", "http://www.linkedin.com/in/jwhitis", target: "_blank" %> | &copy; 2014 Todd Farrell Jr. &amp; The Dirty Birds</p>

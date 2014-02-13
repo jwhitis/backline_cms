@@ -1,0 +1,10 @@
+<%= render "layouts/alerts" %>
+<%= form_tag admin_sign_in_path do %>
+  <div class="form-group">
+    <%= label_tag :password, "What's the password?" %>
+    <span id="hint" title="Who does Eli listen to when he drinks at home alone?">Hint</span>
+    <%= password_field_tag :password, nil, class: "form-control" %>
+  </div>
+
+  <%= submit_tag "Submit", class: "btn btn-primary" %>
+<% end %>

@@ -1,7 +1,8 @@
-class Admin::VideosController < ApplicationController
+class Admin::VideosController < Admin::AdminController
+  respond_to :js
 
   def index
-    @videos = Video.order(:created_at).reverse_order
+    @videos = Video.order(:created_at)
   end
 
   def new
@@ -11,7 +12,9 @@ class Admin::VideosController < ApplicationController
   def create
     @video = Video.new(video_params)
     if @video.save
-      redirect_to admin_videos_path, notice: "Video successfully created."
+      @videos = Video.order(:created_at)
+      flash.now[:notice] = "Video successfully created."
+      render :index
     else
       render :new
     end
@@ -24,7 +27,9 @@ class Admin::VideosController < ApplicationController
   def update
     @video = Video.find(params[:id])
     if @video.update_attributes(video_params)
-      redirect_to admin_videos_path, notice: "Video successfully updated."
+      @videos = Video.order(:created_at)
+      flash.now[:notice] = "Video successfully updated."
+      render :index
     else
       render :edit
     end
@@ -33,7 +38,8 @@ class Admin::VideosController < ApplicationController
   def destroy
     @video = Video.find(params[:id])
     @video.destroy
-    redirect_to admin_videos_path, notice: "Video successfully deleted."
+    @videos = Video.order(:created_at)
+    flash.now[:notice] = "Video successfully deleted."
   end
 
   private

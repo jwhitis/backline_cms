@@ -70,6 +70,16 @@ nav.navbar {
       }
     }
 
+    p.navbar-text {
+      margin: 10px 15px;
+
+      a.navbar-link {
+        margin-left: 5px;
+        text-decoration: underline;
+        color: $white;
+      }
+    }
+
     ul.navbar-nav {
       li {
         a {
@@ -210,11 +220,12 @@ div#main {
 
   div#content {
     padding: 15px 15px 40px 15px;
+    position: relative;
 
     h2 {
-      margin: -50px 0 25px 0;
+      position: absolute;
+      top: -45px;
       font-size: 32px;
-      line-height: 25px;
       color: $grey;
     }
   }
@@ -281,13 +292,15 @@ footer {
   bottom: 0;
   background-color: $black;
 
-  p.copyright {
+  p {
     padding-top: 12px;
-    text-align: right;
     font-size: 12px;
 
     a {
       text-decoration: underline;
+    }
+    a.admin-links {
+      margin-left: 5px;
     }
   }
 }

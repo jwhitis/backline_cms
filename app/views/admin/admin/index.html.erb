@@ -1,0 +1,10 @@
+<div id="admin">
+  <h2>Dashboard</h2>
+  <ul class="nav nav-pills">
+    <li class="active"><%= link_to "Shows", admin_shows_path, remote: true %></li>
+    <li><%= link_to "Videos", admin_videos_path, remote: true %></li>
+  </ul>
+  <div id="tab-content">
+    <%= render "admin/shows/shows" %>
+  </div>
+</div>

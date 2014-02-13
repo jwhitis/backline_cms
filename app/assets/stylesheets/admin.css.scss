@@ -1,26 +1,69 @@
-div#errors {
-  ul {
-    padding: 0;
-    list-style: none;
-  }
-}
+@import "variables";
 
-form.admin input[type="submit"] {
-  margin-right: 15px;
-}
+div#admin {
+  padding: 15px;
+  border-radius: 4px;
+  background-color: rgba(51, 51, 51, .75);
+  box-shadow: 0 0 10px 1px $black;
 
-table.admin {
-  margin-bottom: 10px;
+  div.alert {
+    margin-bottom: 15px;
+    padding: 10px 35px 10px 15px;
+  }
 
-  th.date, td.date {
-    width: 84px;
+  div#errors {
+    ul {
+      padding: 0;
+      list-style: none;
+    }
   }
-  th.edit, td.edit {
-    width: 34px;
-    text-decoration: underline;
+
+  ul.nav {
+    margin-bottom: 15px;
+
+    li a:hover {
+      background-color: transparent;
+      color: $white;
+    }
+    li.active a,
+    li.active a:hover  {
+      background-color: $white;
+      color: $pink;
+    }
   }
-  th.delete, td.delete {
-    width: 51px;
-    text-decoration: underline;
+
+  table {
+    margin: 15px 0;
+
+    th {
+      border: none;
+    }
+
+    td {
+      border-color: rgba(181, 181, 181, .25);
+    }
+
+    th.date, td.date {
+      width: 84px;
+    }
+    th.edit, td.edit {
+      width: 34px;
+      text-decoration: underline;
+    }
+    th.delete, td.delete {
+      width: 51px;
+      text-decoration: underline;
+    }
+  }
+
+  form {
+    span#hint {
+      margin-left: 5px;
+      text-decoration: underline;
+    }
+
+    a.btn-danger {
+      margin-left: 15px;
+    }
   }
 }
