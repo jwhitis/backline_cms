@@ -52,19 +52,19 @@ $(document).on("ready page:load", function() {
     }
   }
 
-  function prevSongIndex(){
+  function prevSongIndex() {
     return songIndex() == 0 ? media.length - 1 : songIndex() - 1;
   }
 
-  function nextSongIndex(){
+  function nextSongIndex() {
     return songIndex() == media.length - 1 ? 0 : songIndex() + 1;
   }
 
-  function songIndex(){
+  function songIndex() {
     return media.indexOf(currentSong);
   }
 
-  function songTitle(){
+  function songTitle() {
     var songTitle = currentSong.split("/");
     songTitle = songTitle[songTitle.length - 1];
     return songTitle.match(/\w*/)[0].replace(/_/g, " ");
