@@ -1,9 +1,18 @@
-$(document).on("ready page:load", function(){
+$(document).on("ready page:load ajaxSuccess", function() {
 
   // Fade out alerts after 3 seconds
   window.setTimeout(function() {
     $("div.timer.fade").alert("close");
   }, 3000);
+
+  // Initialize datepicker for admin form
+  $("div#admin input.datepicker").datepicker({
+    dateFormat: "m-d-yy"
+  });
+
+});
+
+$(document).on("ready page:load", function() {
 
   // Initialize tooltips for edit icons
   $("div#content").tooltip({
@@ -23,11 +32,6 @@ $(document).on("ready page:load", function(){
   // Initialize tooltip for password hint
   $("span#hint").tooltip({
     placement: "right"
-  });
-
-  // Initialize datepicker in admin form
-  $("form.admin input.datepicker").datepicker({
-    dateFormat: "m-d-yy"
   });
 
 });
