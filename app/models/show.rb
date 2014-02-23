@@ -6,7 +6,7 @@ class Show < ActiveRecord::Base
   end
 
   def pretty_address
-    "#{address}<br />#{city}, #{state} #{zip}"
+    "#{address}#{"<br />" if address.present?}#{city}#{"," if city.present?} #{state} #{zip}"
   end
 
 end

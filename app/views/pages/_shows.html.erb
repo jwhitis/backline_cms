@@ -9,9 +9,15 @@
       </div>
       <div class="col-sm-4">
         <p><span>Date:</span> <%= show.pretty_date %></p>
-        <p><span>Time:</span> <%= show.time %></p>
-        <p><span>Cover:</span> <%= show.cover %></p>
-        <p><%== show.pretty_address %></p>
+        <% if show.time.present? %>
+          <p><span>Time:</span> <%= show.time %></p>
+        <% end %>
+        <% if show.cover.present? %>
+          <p><span>Cover:</span> <%= show.cover %></p>
+        <% end %>
+        <% if show.pretty_address.present? %>
+          <p><%== show.pretty_address %></p>
+        <% end %>
       </div>
     </div>
   <% end %>
