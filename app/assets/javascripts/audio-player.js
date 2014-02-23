@@ -1,4 +1,4 @@
-$(document).on("ready page:load", function(){
+$(document).on("ready page:load", function() {
 
   var media = [
     "http://toddfarrell.s3.amazonaws.com/audio/Year_In_Review.mp3",
@@ -13,15 +13,11 @@ $(document).on("ready page:load", function(){
   ]
 
   var currentSong = media[0];
-  $("span#song-title").text(songTitle());
 
   // Instantiate jPlayer
   $("div#my-jplayer").jPlayer({
-    ready: function () {
-      $(this).jPlayer("setMedia", {
-        mp3: currentSong
-      });
-    },
+    ready: setMedia,
+    ended: playNextSong,
     swfPath: "/",
     supplied: "mp3",
     cssSelectorAncestor: "div#main",
@@ -33,21 +29,27 @@ $(document).on("ready page:load", function(){
     keyEnabled: true
   });
 
-  $("div#prev").click(function(){
+  $("div#prev").click(playPrevSong);
+  $("div#next").click(playNextSong);
+
+  function playPrevSong() {
     currentSong = media[prevSongIndex()];
-    changeMedia();
-  });
+    setMedia({ play: true });
+  }
 
-  $("div#next").click(function(){
+  function playNextSong() {
     currentSong = media[nextSongIndex()];
-    changeMedia();
-  });
+    setMedia({ play: true });
+  }
 
-  function changeMedia(){
+  function setMedia(options) {
     $("span#song-title").text(songTitle());
     $("div#my-jplayer").jPlayer("setMedia", {
       mp3: currentSong
-    }).jPlayer("play");
+    });
+    if (options.play) {
+      $("div#my-jplayer").jPlayer("play");
+    }
   }
 
   function prevSongIndex(){

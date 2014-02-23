@@ -7,7 +7,7 @@ html {
 body {
   height: 100%;
   position: relative;
-  background: url(http://toddfarrell.s3.amazonaws.com/images/building.jpg) no-repeat $black;
+  background: url(http://toddfarrell.s3.amazonaws.com/images/building.jpg) center no-repeat $black;
   font-family: $main-font;
   color: $white;
 }
@@ -15,6 +15,7 @@ body {
 div#wrapper {
   min-height: 100%;
   position: relative;
+  background-color: rgba(10, 10, 10, .85);
 }
 
 h1 {
@@ -32,6 +33,26 @@ a {
 }
 a:hover {
   color: $white;
+}
+
+.btn-pink {
+  background-color: $pink;
+  color: $white;
+}
+.btn-pink:hover {
+  background-color: #E51B3D;
+  color: $white;
+}
+
+div.tooltip div.tooltip-inner {
+  padding: 6px 8px;
+  background-color: $pink;
+}
+div.tooltip.top div.tooltip-arrow {
+  border-top-color: $pink;
+}
+div.tooltip.right div.tooltip-arrow {
+  border-right-color: $pink;
 }
 
 @media (min-width: 992px) {
@@ -102,7 +123,6 @@ nav.navbar {
 
 div#main {
   position: relative;
-  background-color: rgba(10, 10, 10, .5);
 
   div#logo {
     width: 50px;
@@ -224,9 +244,9 @@ div#main {
 
     h2 {
       position: absolute;
-      top: -45px;
-      font-size: 32px;
-      color: $grey;
+      top: -36px;
+      font-size: 28px;
+      color: $white;
     }
   }
 
@@ -245,7 +265,7 @@ div#main {
       li {
         margin-bottom: 10px;
         padding-bottom: 10px;
-        border-bottom: 1px solid rgba(181, 181, 181, .25);
+        border-bottom: 1px solid rgba(181, 181, 181, .2);
 
         img {
           width: 48px;

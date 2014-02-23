@@ -1,5 +1,17 @@
 $(document).on("ready page:load", function() {
 
+  // Swap out album cover images on hover
+  $("div#content").on({
+    mouseenter: function() {
+      url = $(this).attr("src").replace(".jpg", "_hover.jpg")
+      $(this).attr("src", url);
+    },
+    mouseleave: function() {
+      url = $(this).attr("src").replace("_hover.jpg", ".jpg")
+      $(this).attr("src", url);
+    }
+  }, "a.album-cover img");
+
   // Highlight active tab
   var action = $("ul.navbar-nav").attr("data-action");
   $("ul.navbar-nav a").each(function() {
@@ -22,13 +34,5 @@ $(document).on("ready page:load", function() {
       }
     }
   });
-
-  // Animate album covers on hover
-  // $("div#content").on("mouseover", "img.album-cover-small", function() {
-  //   $(this).animate({"margin-top": "5px"}, 50);
-  // });
-  // $("div#content").on("mouseout", "img.album-cover-small", function() {
-  //   $(this).animate({"margin-top": "0px"}, 50);
-  // });
 
 });

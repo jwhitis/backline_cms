@@ -40,19 +40,25 @@ div#admin {
     }
 
     td {
-      border-color: rgba(181, 181, 181, .25);
+      border-color: rgba(181, 181, 181, .1);
     }
 
     th.date, td.date {
       width: 84px;
     }
     th.edit, td.edit {
-      width: 34px;
-      text-decoration: underline;
-    }
-    th.delete, td.delete {
-      width: 51px;
-      text-decoration: underline;
+      width: 28px;
+      padding: 3px 5px 2px 5px;
+      text-align: center;
+
+      a {
+        display: none;
+        font-size: 18px;
+        color: $grey;
+      }
+      a:hover {
+        color: $white;
+      }
     }
   }
 
@@ -62,8 +68,9 @@ div#admin {
       text-decoration: underline;
     }
 
-    a.btn-danger {
+    a.cancel {
       margin-left: 15px;
+      text-decoration: underline;
     }
   }
 }

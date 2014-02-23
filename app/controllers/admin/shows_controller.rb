@@ -51,6 +51,7 @@ class Admin::ShowsController < Admin::AdminController
   end
 
   def format_date date
+    return nil if date.blank?
     date = date.split("-")
     date[0], date[1] = date[1], date[0]
     date.join("-").to_datetime

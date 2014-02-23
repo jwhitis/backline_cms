@@ -1,6 +1,6 @@
 Toddfarrell::Application.routes.draw do
   namespace :admin do
-    get "/", to: "admin#index"
+    get "/", to: "admin#dashboard"
     get "sign-in", to: "sessions#new", as: :sign_in
     post "sign-in", to: "sessions#create"
     delete "sign-out", to: "sessions#destroy", as: :sign_out
@@ -11,7 +11,7 @@ Toddfarrell::Application.routes.draw do
   get "releases", to: "pages#releases"
   get "media", to: "pages#media"
   get "bio", to: "pages#bio"
-  root "pages#releases"
+  root "pages#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

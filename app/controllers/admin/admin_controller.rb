@@ -1,7 +1,7 @@
 class Admin::AdminController < ApplicationController
   before_action :require_sign_in
 
-  def index
+  def dashboard
     @shows = Show.order(:date)
   end
 
