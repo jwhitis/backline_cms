@@ -22,12 +22,21 @@ div#releases {
           color: $pink;
         }
       }
-      li::after {
-        content: "*";
-        margin-left: 10px;
+      @media (max-width: 767px) {
+        li.divider.four {
+          display: none;
+        }
       }
-      li.row-end::after {
-        content: none;
+      @media (min-width: 768px) and (max-width: 991px) {
+        li.divider.two,
+        li.divider.four {
+          display: none;
+        }
+      }
+      @media (min-width: 992px) {
+        li.divider.three {
+          display: none;
+        }
       }
     }
   }
