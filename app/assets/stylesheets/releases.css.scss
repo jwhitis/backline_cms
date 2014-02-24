@@ -22,20 +22,14 @@ div#releases {
           color: $pink;
         }
       }
-
       li::after {
         content: "*";
         margin-left: 10px;
       }
-
       li.row-end::after {
         content: none;
       }
     }
-  }
-
-  div.row {
-    margin-bottom: 15px;
   }
 
   h3 {
@@ -43,13 +37,29 @@ div#releases {
     font-size: 18px;
   }
 
-  ol {
-    height: 195px;
-    padding-left: 20px;
+  div.row {
+    ol {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    img.album-cover-small {
+      width: 195px;
+      height: 195px;
+      border-radius: 4px;
+      background-color: $black;
+      box-shadow: 4px 4px 10px 0 $black;
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+      img.album-cover-small {
+        width: 189px;
+        height: 189px;
+      }
+    }
   }
 
   p.album-links {
-    margin: 0;
+    margin: 10px 0 15px 0;
     font-size: 16px;
 
     span {
@@ -57,35 +67,8 @@ div#releases {
       color: $pink;
     }
   }
-
-  div.modal-dialog {
-    width: 420px;
-  }
-
-  div.modal-content {
-    background-color: $black;
-  }
-
-  button.close {
-    position: absolute;
-    top: 8px;
-    right: 15px;
-    color: #B5B5B5;
-    text-shadow: none;
-    opacity: 1;
-  }
-
-  button.close:hover {
-    color: $white;
-  }
-
-  img.album-cover-small {
-    width: 195px;
-    height: 195px;
-    margin-top: 29px;
-    border-radius: 4px;
-    background-color: $black;
-    box-shadow: 4px 4px 10px 0 $black;
+  p.album-links:last-child {
+    margin-bottom: 0;
   }
 }
 

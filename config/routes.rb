@@ -1,6 +1,6 @@
 Toddfarrell::Application.routes.draw do
   namespace :admin do
-    get "/", to: "admin#dashboard"
+    get "/", to: "admin#index"
     get "sign-in", to: "sessions#new", as: :sign_in
     post "sign-in", to: "sessions#create"
     delete "sign-out", to: "sessions#destroy", as: :sign_out

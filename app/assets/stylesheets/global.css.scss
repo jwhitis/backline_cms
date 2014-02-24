@@ -71,50 +71,57 @@ nav.navbar {
   div#navbar-container {
     height: 100%;
 
-    a.navbar-brand {
-      font-family: $brand-font;
-      font-size: 38px;
-      line-height: 32px;
-      text-transform: uppercase;
-      color: $white;
-      text-shadow: 1px 1px 10px $pink;
-
-      span {
-        margin-left: 40px;
-        font-size: 32px;
-        text-transform: none;
+    div.navbar-header {
+      button.navbar-toggle {
+        border-color: $white;
       }
-      @media (max-width: 991px) {
-        span {
-          display: none;
-        }
+      button.navbar-toggle:hover {
+        background-color: $grey;
       }
-    }
 
-    p.navbar-text {
-      margin: 10px 15px;
-
-      a.navbar-link {
-        margin-left: 5px;
-        text-decoration: underline;
+      a.navbar-brand {
+        padding-bottom: 5px;
+        font-family: $brand-font;
+        font-size: 36px;
+        line-height: 32px;
+        text-transform: uppercase;
         color: $white;
+        text-shadow: 1px 1px 10px $pink;
+
+        span {
+          margin-left: 40px;
+          position: absolute;
+          font-size: 30px;
+          text-transform: none;
+        }
       }
     }
 
-    ul.navbar-nav {
-      li {
-        a {
-          padding: 10px;
-          font-size: 16px;
-          font-weight: bold;
-          text-transform: uppercase;
-          color: $grey;
+    div.navbar-collapse {
+      position: relative;
+      z-index: 9999;
+      background-color: $black;
+
+      ul.navbar-nav {
+        li {
+          a {
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: $grey;
+          }
+          a.active {
+            margin-top: -5px;
+            border-top: 5px solid $pink;
+            color: $white;
+          }
         }
-        a.active {
-          margin-top: -5px;
-          border-top: 5px solid $pink;
-          color: $white;
-        }
+      }
+    }
+    @media (min-width: 768px) {
+      div.navbar-collapse {
+        position: static;
       }
     }
   }
@@ -129,7 +136,7 @@ div#main {
     height: 50px;
     position: absolute;
     top: -60px;
-    right: 380px;
+    right: 70px;
     z-index: 2;
     border: 4px solid $grey;
     border-radius: 50%;
@@ -161,6 +168,11 @@ div#main {
       }
     }
   }
+  @media (min-width: 992px) {
+    div#logo {
+      right: 380px;
+    }
+  }
   div#logo:hover {
     border-color: $white;
     cursor: pointer;
@@ -176,7 +188,7 @@ div#main {
   div#next {
     position: absolute;
     top: -46px;
-    right: 330px;
+    right: 20px;
     z-index: 3;
 
     div.ff {
@@ -188,11 +200,20 @@ div#main {
       border-bottom: 12px solid transparent;
     }
   }
+  @media (min-width: 992px) {
+    div#next {
+      right: 330px;
+    }
+  }
+  div#next:hover div.ff {
+    cursor: pointer;
+    border-left-color: $white;
+  }
 
   div#prev {
     position: absolute;
     top: -46px;
-    right: 446px;
+    right: 136px;
     z-index: 3;
 
     div.rew {
@@ -204,10 +225,10 @@ div#main {
       border-bottom: 12px solid transparent;
     }
   }
-
-  div#next:hover div.ff {
-    cursor: pointer;
-    border-left-color: $white;
+  @media (min-width: 992px) {
+    div#prev {
+      right: 446px;
+    }
   }
   div#prev:hover div.rew {
     cursor: pointer;
@@ -239,7 +260,7 @@ div#main {
   }
 
   div#content {
-    padding: 15px 15px 40px 15px;
+    padding: 15px;
     position: relative;
 
     h2 {
@@ -249,13 +270,12 @@ div#main {
       color: $white;
     }
   }
+  @media (min-width: 768px) {
+    padding-bottom: 40px;
+  }
 
   div#sidebar {
     padding: 12px 0 0 0;
-
-    h2 {
-      font-size: 18px;
-    }
 
     ul {
       margin: 0;
@@ -264,20 +284,25 @@ div#main {
 
       li {
         margin-bottom: 10px;
-        padding-bottom: 10px;
+        padding: 0 10px 10px 10px;
         border-bottom: 1px solid rgba(181, 181, 181, .2);
 
-        img {
-          width: 48px;
-          height: 48px;
-          margin: 5px 12px 0 10px;
+        div.image {
+          width: 8%;
+          margin-right: 2%;
           float: left;
-          border-radius: 4px;
-          box-shadow: 2px 2px 5px 0 $black;
-        }
 
+          img {
+            width: 48px;
+            height: 48px;
+            margin-top: 5px;
+            float: left;
+            border-radius: 4px;
+            box-shadow: 2px 2px 5px 0 $black;
+          }
+        }
         div.content {
-          width: 305px;
+          width: 90%;
           float: left;
 
           span.time {
@@ -295,7 +320,27 @@ div#main {
           }
         }
       }
+      @media (min-width: 768px) {
+        li {
+          padding: 0 0 10px 0;
 
+          div.image {
+            width: auto;
+            margin-right: 12px;
+          }
+
+          div.content {
+            width: 252px;
+          }
+        }
+      }
+      @media (min-width: 992px) {
+        li {
+          div.content {
+            width: 340px;
+          }
+        }
+      }
       li:last-child {
         margin: 0;
         padding-bottom: 15px;
@@ -316,11 +361,18 @@ footer {
     padding-top: 12px;
     font-size: 12px;
 
+    span {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      span {
+        margin-right: 5px;
+        display: inline;
+      }
+    }
+
     a {
       text-decoration: underline;
-    }
-    a.admin-links {
-      margin-left: 5px;
     }
   }
 }

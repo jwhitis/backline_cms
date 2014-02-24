@@ -23,4 +23,7 @@ div#media {
     width: 100%;
     margin-bottom: 5px;
   }
+  div.row:last-child {
+    margin-bottom: 0;
+  }
 }

@@ -22,10 +22,14 @@ $(document).on("ready page:load", function() {
   // Show edit icons on table row hover
   $("div#content").on({
     mouseenter: function() {
-      $(this).find("td.edit a").show();
+      if ($(window).width() > 768) {
+        $(this).find("td.edit a").show();
+      }
     },
     mouseleave: function() {
-      $(this).find("td.edit a").hide();
+      if ($(window).width() > 768) {
+        $(this).find("td.edit a").hide();
+      }
     }
   }, "div#admin tr");
 

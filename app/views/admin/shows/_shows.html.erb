@@ -5,7 +5,7 @@
       <th class="date">Date</th>
       <th>Venue</th>
       <th>Cover</th>
-      <th>Address</th>
+      <th class="address">Address</th>
       <th class="edit"></th>
       <th class="delete"></th>
     </tr>
@@ -16,7 +16,7 @@
         <td class="date"><%= show.pretty_date %></td>
         <td><%= show.venue %></td>
         <td><%= show.cover %></td>
-        <td><%== show.pretty_address %></td>
+        <td class="address"><%== show.pretty_address %></td>
         <td class="edit"><%= link_to fa_icon("edit"), edit_admin_show_path(show), remote: true, title: "Edit" %></td>
         <td class="edit"><%= link_to fa_icon("trash-o"), admin_show_path(show), method: :delete, remote: true, title: "Delete", data: { confirm: "Are you sure you want to delete this show?" } %></td>
       </tr>

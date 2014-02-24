@@ -1,5 +1,10 @@
 $(document).on("ready page:load", function() {
 
+  // Collapse navbar on page select
+  $(this).on("ajaxSuccess", function() {
+    $("div#my-navbar-collapse").collapse("hide");
+  });
+
   // Swap out album cover images on hover
   $("div#content").on({
     mouseenter: function() {
@@ -13,12 +18,9 @@ $(document).on("ready page:load", function() {
   }, "a.album-cover img");
 
   // Highlight active tab
-  var action = $("ul.navbar-nav").attr("data-action");
-  $("ul.navbar-nav a").each(function() {
-    if ($(this).text().toLowerCase() == action) {
-      $(this).addClass("active");
-    }
-  });
+  var path = window.location.href.split("/");
+  path = path[path.length - 1];
+  $("ul.navbar-nav a[href='/" + path + "']").addClass("active");
   $("ul.navbar-nav a").click(function() {
     $("ul.navbar-nav a").removeClass("active");
     $(this).addClass("active");

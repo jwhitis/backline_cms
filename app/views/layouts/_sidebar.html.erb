@@ -1,7 +1,9 @@
 <ul>
   <% @tweets.each do |tweet| %>
     <li class="clearfix">
-      <%= image_tag tweet.user.profile_image_url %>
+      <div class="image">
+        <%= image_tag tweet.user.profile_image_url %>
+      </div>
       <div class="content">
         <%= link_to tweet.user.screen_name, "https://twitter.com/#{tweet.user.screen_name}", target: "_blank" %>
         <span class="time"><%= tweet_time(tweet) %></span>

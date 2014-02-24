@@ -23,4 +23,7 @@ div#shows {
       color: $pink;
     }
   }
+  div.row:last-child {
+    margin-bottom: 0;
+  }
 }
