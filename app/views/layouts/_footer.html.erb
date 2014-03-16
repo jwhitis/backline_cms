@@ -1,13 +1,17 @@
 <% if admin_signed_in? %>
   <p class="pull-left">
-    <span>You are currently signed in.</span>
+    <span class="admin">You are currently signed in.</span>
     <%= link_to "Sign out", admin_sign_out_path, method: :delete %>
   </p>
 <% else %>
   <p class="pull-left">
-    <span>Are you a site administrator?</span>
+    <span class="admin">Are you a site administrator?</span>
     <%= link_to "Sign in", admin_sign_in_path %>
   </p>
 <% end %>
 
-<p class="pull-right">Design by <%= link_to "Jack Whitis", "http://www.linkedin.com/in/jwhitis", target: "_blank" %> | &copy; 2014 Todd Farrell Jr. &amp; The Dirty Birds</p>
+<p class="pull-right">
+  Design by <%= link_to "Jack Whitis", "http://www.linkedin.com/in/jwhitis", target: "_blank" %> | &copy; 2014
+  <span class="copyright">Todd Farrell Jr. &amp; The Dirty Birds</span>
+  <span class="condensed-copyright">TFJ&amp;TDB</span>
+</p>

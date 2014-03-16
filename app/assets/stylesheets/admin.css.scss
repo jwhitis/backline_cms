@@ -46,7 +46,12 @@ div#admin {
     th.date, td.date {
       width: 84px;
     }
-    @media (min-width: 768px) and (max-width: 991px) {
+    @media (max-width: 419px) {
+      th.cover, td.cover {
+        display: none;
+      }
+    }
+    @media (max-width: 599px), (min-width: 768px) and (max-width: 991px) {
       th.address, td.address {
         display: none;
       }

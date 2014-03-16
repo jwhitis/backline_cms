@@ -23,7 +23,10 @@ div#releases {
         }
       }
       @media (max-width: 767px) {
-        li.divider.four {
+        li {
+          display: block;
+        }
+        li.divider {
           display: none;
         }
       }
@@ -47,22 +50,28 @@ div#releases {
   }
 
   div.row {
+    @media (max-width: 419px) {
+      div.album-container {
+        width: 100%;
+      }
+    }
+
     ol {
       margin: 0;
       padding-left: 20px;
     }
 
     img.album-cover-small {
-      width: 195px;
-      height: 195px;
+      width: 180px;
+      height: 180px;
+      margin-top: 10px;
       border-radius: 4px;
       background-color: $black;
       box-shadow: 4px 4px 10px 0 $black;
     }
-    @media (min-width: 768px) and (max-width: 991px) {
+    @media (min-width: 420px) {
       img.album-cover-small {
-        width: 189px;
-        height: 189px;
+        margin: 0;
       }
     }
   }

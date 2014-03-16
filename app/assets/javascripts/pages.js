@@ -1,5 +1,12 @@
 $(document).on("ready page:load", function() {
 
+  // Slide toggle Twitter stream on click
+  $("div#sidebar div.toggle").click(function() {
+    $("div#sidebar ul").slideToggle(function() {
+      $("div#sidebar div.arrow").toggleClass("up down");
+    });
+  });
+
   // Collapse navbar on page select
   $(this).on("ajaxSuccess", function() {
     $("div#my-navbar-collapse").collapse("hide");
