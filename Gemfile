@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.1'
 
 gem 'font-awesome-rails'
 gem 'newrelic_rpm'
@@ -10,7 +10,7 @@ group :production do
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
+gem 'rails', github: 'rails/rails', branch: '4-1-stable'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
