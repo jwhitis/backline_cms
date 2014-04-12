@@ -19,7 +19,7 @@
 /config/database.yml
 
 # Ignore Twitter credentials
-/config/initializers/credentials_twitter.rb
+/config/initializers/twitter_credentials.rb
 
 # Ignore admin password
 /config/initializers/admin_password.rb
