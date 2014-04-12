@@ -20,3 +20,6 @@
 
 # Ignore Twitter credentials
 /config/initializers/credentials_twitter.rb
+
+# Ignore admin password
+/config/initializers/admin_password.rb
