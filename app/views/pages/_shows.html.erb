@@ -1,23 +1,28 @@
 <h2>Shows</h2>
 <div id="shows">
-  <% @shows.each do |show| %>
-    <div class="row">
-      <div class="col-xs-7 col-sm-6 col-md-8 details">
-        <h3><%= show.venue %></h3>
-        <p><%= show.notes %><p>
+  <h3 class="title">Upcoming</h3>
+  <% if @upcoming_shows.any? %>
+    <%= render @upcoming_shows %>
+    <% if @more_upcoming_shows.any? %>
+      <div class="more">
+        <%= render @more_upcoming_shows %>
       </div>
-      <div class="col-xs-5 col-sm-6 col-md-4 details">
-        <p><span>Date:</span> <%= show.pretty_date %></p>
-        <% if show.time.present? %>
-          <p><span>Time:</span> <%= show.time %></p>
-        <% end %>
-        <% if show.cover.present? %>
-          <p><span>Cover:</span> <%= show.cover %></p>
-        <% end %>
-        <% if show.pretty_address.present? %>
-          <p><%== show.pretty_address %></p>
-        <% end %>
+      <%= link_to "View More", "javascript:void(0)", class: "toggle" %>
+    <% end %>
+  <% else %>
+    <p class="no-results">There are no upcoming shows.</p>
+  <% end %>
+
+  <h3 class="title">Past</h3>
+  <% if @past_shows.any? %>
+    <%= render @past_shows %>
+    <% if @more_past_shows.any? %>
+      <div class="more">
+        <%= render @more_past_shows %>
       </div>
-    </div>
+      <%= link_to "View More", "javascript:void(0)", class: "toggle" %>
+    <% end %>
+  <% else %>
+    <p class="no-results">There are no past shows.</p>
   <% end %>
 </div>

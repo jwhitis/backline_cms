@@ -1,5 +1,14 @@
 $(document).on("ready page:load", function() {
 
+  // Slide toggle more shows on click
+  $("div#content").on("click", "div#shows a.toggle", function() {
+    var link = $(this);
+    var text = link.text() == "View More" ? "View Less" : "View More";
+    $(this).prev("div.more").slideToggle(function() {
+      link.text(text);
+    });
+  });
+
   // Slide toggle Twitter stream on click
   $("div#sidebar div.toggle").click(function() {
     $("div#sidebar ul").slideToggle(function() {

@@ -7,7 +7,10 @@ class PagesController < ApplicationController
   end
 
   def shows
-    @shows = Show.order(:date)
+    @upcoming_shows = Show.upcoming.limit(2)
+    @more_upcoming_shows = Show.upcoming.offset(2)
+    @past_shows = Show.past.limit(2)
+    @more_past_shows = Show.past.offset(2)
   end
 
   def releases

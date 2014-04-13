@@ -9,4 +9,12 @@ class Show < ActiveRecord::Base
     "#{address}#{"<br />" if address.present?}#{city}#{"," if city.present?} #{state} #{zip}"
   end
 
+  def self.upcoming
+    where("date >= ?", Date.today).order(:date)
+  end
+
+  def self.past
+    where("date < ?", Date.today).order("date DESC")
+  end
+
 end

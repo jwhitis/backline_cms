@@ -270,7 +270,7 @@ div#main {
   }
 
   div#content {
-    padding: 15px;
+    padding: 15px 15px 0 15px;
     position: relative;
 
     h2 {
@@ -282,7 +282,7 @@ div#main {
   }
   @media (min-width: 768px) {
     div#content {
-      padding-bottom: 40px;
+      padding: 15px 20px 40px 15px;
 
       h2 {
         font-size: 28px;

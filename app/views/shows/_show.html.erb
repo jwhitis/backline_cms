@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-7 col-sm-6 col-md-8 details">
+    <h3><%= show.venue %></h3>
+    <p><%= show.notes %><p>
+  </div>
+  <div class="col-xs-5 col-sm-6 col-md-4 details">
+    <p><span>Date:</span> <%= show.pretty_date %></p>
+    <% if show.time.present? %>
+      <p><span>Time:</span> <%= show.time %></p>
+    <% end %>
+    <% if show.cover.present? %>
+      <p><span>Cover:</span> <%= show.cover %></p>
+    <% end %>
+    <% if show.pretty_address.present? %>
+      <p><%== show.pretty_address %></p>
+    <% end %>
+  </div>
+</div>
