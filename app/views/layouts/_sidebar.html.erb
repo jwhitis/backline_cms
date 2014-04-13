@@ -6,11 +6,11 @@
   <% @tweets.each do |tweet| %>
     <li class="clearfix">
       <div class="image">
-        <%= image_tag tweet.user.profile_image_url %>
+        <%= image_tag tweet.profile_image_url %>
       </div>
       <div class="content">
-        <%= link_to tweet.user.screen_name, "https://twitter.com/#{tweet.user.screen_name}", target: "_blank" %>
-        <span class="time"><%= tweet_time(tweet) %></span>
+        <%= link_to tweet.screen_name, "https://twitter.com/#{tweet.screen_name}", target: "_blank" %>
+        <span class="time"><%= formatted_time(tweet.posted_at) %></span>
         <p><%== tweet.text %></p>
       </div>
     </li>
