@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 
 gem 'font-awesome-rails'
+gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'twitter'
 
