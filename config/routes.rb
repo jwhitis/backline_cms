@@ -7,6 +7,7 @@ Toddfarrell::Application.routes.draw do
     resources :shows, except: :show
     resources :videos, except: :show
   end
+  resources :tweets, only: :index
   get "shows", to: "pages#shows"
   get "releases", to: "pages#releases"
   get "media", to: "pages#media"

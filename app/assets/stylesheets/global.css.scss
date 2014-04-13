@@ -392,9 +392,16 @@ div#main {
           }
         }
       }
-      li:last-child {
+      li.page-links {
         margin: 0;
         border: none;
+
+        a.previous {
+          float: left;
+        }
+        a.next {
+          float: right;
+        }
       }
     }
     @media (min-width: 768px) {

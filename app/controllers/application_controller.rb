@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def expose_tweets
-    @tweets = Tweet.recent.limit(7)
+    @tweets = Tweet.recent.page(params[:page]).per(7)
   end
 
 end

@@ -1,0 +1,8 @@
+<div class="image">
+  <%= image_tag tweet.profile_image_url %>
+</div>
+<div class="content">
+  <%= link_to tweet.screen_name, "https://twitter.com/#{tweet.screen_name}", target: "_blank" %>
+  <span class="time"><%= formatted_time(tweet.posted_at) %></span>
+  <p><%== tweet.text %></p>
+</div>

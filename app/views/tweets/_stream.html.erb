@@ -1,0 +1,11 @@
+<ul>
+  <% @tweets.each do |tweet| %>
+    <li class="clearfix">
+      <%= render tweet %>
+    </li>
+  <% end %>
+  <li class="page-links clearfix">
+    <%= link_to_previous_page @tweets, "Previous", params: { controller: "tweets", action: "index" }, remote: true, class: "previous" %>
+    <%= link_to_next_page @tweets, "Next", params: { controller: "tweets", action: "index" }, remote: true, class: "next" %>
+  </li>
+</ul>
