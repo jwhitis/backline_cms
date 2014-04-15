@@ -1,11 +1,11 @@
 <%= render "layouts/errors", model: @show %>
 <%= form_for [:admin, @show], remote: true do |f| %>
-  <div class="published-toggle <%= @show.published ? "on" : "off" %>">
+  <div class="published-toggle <%= published_state(@show) %>">
     <%= f.check_box :published %>
-    <span class="text on">
+    <span class="on-text">
       This show is currently published. <a href="javascript:void(0)">Unpublish it?</a>
     </span>
-    <span class="text off">
+    <span class="off-text">
       This show is currently unpublished. <a href="javascript:void(0)">Publish it?</a>
     </span>
   </div>

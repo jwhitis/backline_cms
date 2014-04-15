@@ -14,7 +14,7 @@
   <tbody>
     <% @shows.each do |show| %>
       <tr>
-        <td class="published"><div class="circle <%= show.published ? "on" : "off" %>"></div></td>
+        <td class="published"><div class="circle <%= published_state(show) %>"></div></td>
         <td class="date"><%= show.pretty_date %></td>
         <td><%= show.venue %></td>
         <td class="cover"><%= show.cover %></td>

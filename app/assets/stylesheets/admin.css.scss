@@ -113,12 +113,12 @@ div#admin {
       }
 
       &.on {
-        span.off {
+        span.off-text {
           display: none;
         }
       }
       &.off {
-        span.on {
+        span.on-text {
           display: none;
         }
       }
