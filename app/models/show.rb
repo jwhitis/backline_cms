@@ -10,11 +10,15 @@ class Show < ActiveRecord::Base
   end
 
   def self.upcoming
-    where("date >= ?", Date.today).order(:date)
+    published.where("date >= ?", Date.today).order(:date)
   end
 
   def self.past
-    where("date < ?", Date.today).order("date DESC")
+    published.where("date < ?", Date.today).order("date DESC")
+  end
+
+  def self.published
+    where(published: true)
   end
 
 end

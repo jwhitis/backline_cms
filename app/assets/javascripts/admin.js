@@ -14,6 +14,13 @@ $(document).on("ready page:load ajaxSuccess", function() {
 
 $(document).on("ready page:load", function() {
 
+  // Toggle published checkbox on click
+  $("div#content").on("click", "div.published-toggle", function() {
+    var checkbox = $("input#show_published");
+    checkbox.prop("checked", !checkbox.prop("checked"));
+    $(this).toggleClass("on off");
+  });
+
   // Initialize tooltips for edit icons
   $("div#content").tooltip({
     selector: "td.edit a"

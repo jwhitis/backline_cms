@@ -7,6 +7,13 @@ div#admin {
   background-color: rgba(51, 51, 51, .75);
   box-shadow: 0 0 10px 1px $black;
 
+  .on {
+    background-color: #47a447;
+  }
+  .off {
+    background-color: #d2322d;
+  }
+
   div.alert {
     margin-bottom: 15px;
     padding: 10px 35px 10px 15px;
@@ -44,13 +51,23 @@ div#admin {
       border-color: rgba(181, 181, 181, .1);
     }
 
-    th.date, td.date {
-      width: 84px;
-    }
     @media (max-width: 419px) {
+      th.published, td.published,
       th.cover, td.cover {
         display: none;
       }
+    }
+    th.published, td.published {
+      width: 35px;
+
+      div.circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+      }
+    }
+    th.date, td.date {
+      width: 84px;
     }
     @media (max-width: 599px), (min-width: 768px) and (max-width: 991px) {
       th.address, td.address {
@@ -82,6 +99,33 @@ div#admin {
     span#hint {
       margin-left: 5px;
       text-decoration: underline;
+    }
+
+    div.published-toggle {
+      margin: 0 -15px 15px -15px;
+      padding: 5px 15px;
+      display: block;
+      text-align: center;
+      cursor: pointer;
+
+      input[type="checkbox"] {
+        display: none;
+      }
+
+      &.on {
+        span.off {
+          display: none;
+        }
+      }
+      &.off {
+        span.on {
+          display: none;
+        }
+      }
+
+      a {
+        text-decoration: underline;
+      }
     }
 
     a.cancel {
