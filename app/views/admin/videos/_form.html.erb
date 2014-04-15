@@ -1,5 +1,15 @@
 <%= render "layouts/errors", model: @video %>
 <%= form_for [:admin, @video], remote: true do |f| %>
+  <div class="published-toggle <%= published_state(@video) %>">
+    <%= f.check_box :published %>
+    <span class="on-text">
+      This video is currently published. <a href="javascript:void(0)">Unpublish it?</a>
+    </span>
+    <span class="off-text">
+      This video is currently unpublished. <a href="javascript:void(0)">Publish it?</a>
+    </span>
+  </div>
+
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control" %>

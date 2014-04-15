@@ -5,4 +5,8 @@ class Video < ActiveRecord::Base
     created_at.strftime("%-m-%-d-%Y")
   end
 
+  def self.published
+    where(published: true)
+  end
+
 end

@@ -45,7 +45,7 @@ class Admin::VideosController < Admin::AdminController
   private
 
   def video_params
-    params.require(:video).permit(:title, :caption, :embed)
+    params.require(:video).permit(:title, :caption, :embed, :published)
   end
 
 end

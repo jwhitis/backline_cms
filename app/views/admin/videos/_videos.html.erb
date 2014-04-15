@@ -2,6 +2,7 @@
 <table class="table table-condensed">
   <thead>
     <tr>
+      <th class="published"></th>
       <th class="date">Added</th>
       <th>Title</th>
       <th class="edit"></th>
@@ -11,6 +12,7 @@
   <tbody>
     <% @videos.each do |video| %>
       <tr>
+        <td class="published"><div class="circle <%= published_state(video) %>"></div></td>
         <td class="date"><%= video.pretty_created_at %></td>
         <td><%= video.title %></td>
         <td class="edit"><%= link_to fa_icon("edit"), edit_admin_video_path(video), remote: true, title: "Edit" %></td>

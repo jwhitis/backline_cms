@@ -16,7 +16,7 @@ $(document).on("ready page:load", function() {
 
   // Toggle published checkbox on click
   $("div#content").on("click", "div.published-toggle", function() {
-    var checkbox = $("input#show_published");
+    var checkbox = $(this).find("input[type='checkbox']");
     checkbox.prop("checked", !checkbox.prop("checked"));
     $(this).toggleClass("on off");
   });
