@@ -4,6 +4,7 @@ ruby '2.2.0'
 gem 'font-awesome-rails'
 gem 'kaminari'
 gem 'newrelic_rpm'
+gem 'responders', '~> 2.0'
 gem 'twitter'
 
 group :development do
