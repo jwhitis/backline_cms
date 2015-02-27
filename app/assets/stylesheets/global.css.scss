@@ -433,21 +433,6 @@ footer {
       }
     }
 
-    span.copyright {
-      display: none;
-    }
-    span.condensed-copyright {
-      letter-spacing: .05em;
-    }
-    @media (min-width: 768px) {
-      span.copyright {
-        display: inline-block;
-      }
-      span.condensed-copyright {
-        display: none;
-      }
-    }
-
     a {
       text-decoration: underline;
     }
