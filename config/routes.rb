@@ -1,4 +1,4 @@
-Toddfarrell::Application.routes.draw do
+Rails.application.routes.draw do
   namespace :admin do
     get "/", to: "admin#index"
     get "sign-in", to: "sessions#new", as: :sign_in
