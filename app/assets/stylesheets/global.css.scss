@@ -7,15 +7,12 @@ html {
 body {
   height: 100%;
   position: relative;
-  background: url(http://toddfarrell.s3.amazonaws.com/images/building.jpg) center 140px no-repeat $black;
   font-family: $main-font;
-  color: $white;
 }
 
 div#wrapper {
   min-height: 100%;
   position: relative;
-  background-color: rgba(10, 10, 10, .85);
 }
 
 h1 {
@@ -26,13 +23,6 @@ h1 {
 h2 {
   margin: 0 0 10px 0;
   font-size: 24px;
-}
-
-a {
-  color: $white;
-}
-a:hover {
-  color: $white;
 }
 
 .btn-pink {
@@ -66,7 +56,6 @@ nav.navbar {
   margin: 0;
   border-top: 4px solid $red;
   border-radius: 0px;
-  background-color: $black;
 
   div#navbar-container {
     height: 100%;
@@ -84,8 +73,6 @@ nav.navbar {
         font-family: $brand-font;
         font-size: 25px;
         text-transform: uppercase;
-        color: $white;
-        text-shadow: 1px 1px 10px $pink;
 
         span {
           display: inline-block;
@@ -110,7 +97,6 @@ nav.navbar {
     div.navbar-collapse {
       position: relative;
       z-index: 9999;
-      background-color: $black;
 
       ul.navbar-nav {
         li {
@@ -119,12 +105,10 @@ nav.navbar {
             font-size: 16px;
             font-weight: bold;
             text-transform: uppercase;
-            color: $grey;
           }
           a.active {
             margin-top: -5px;
             border-top: 5px solid $pink;
-            color: $white;
           }
         }
       }
@@ -136,7 +120,6 @@ nav.navbar {
     }
   }
 }
-
 
 div#main {
   position: relative;
@@ -277,7 +260,6 @@ div#main {
       position: absolute;
       top: -36px;
       font-size: 22px;
-      color: $white;
     }
   }
   @media (min-width: 768px) {
@@ -417,7 +399,6 @@ footer {
   height: 40px;
   position: absolute;
   bottom: 0;
-  background-color: $black;
 
   p {
     padding-top: 12px;
