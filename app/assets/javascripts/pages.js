@@ -1,5 +1,8 @@
 $(document).on("ready page:load", function() {
 
+  // Initialize Transformicons
+  transformicons.add(".tcon");
+
   // Slide toggle more shows on click
   $("div#content").on("click", "div#shows a.toggle", function() {
     var link = $(this);

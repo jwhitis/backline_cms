@@ -17,4 +17,5 @@
 //= require jquery.jplayer.min
 //= require jquery-ui-1.10.4.custom
 //= require jquery.fancybox
+//= require transformicons
 //= require_tree .
