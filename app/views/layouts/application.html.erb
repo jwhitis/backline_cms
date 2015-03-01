@@ -12,18 +12,25 @@
 <body>
 
 <div id="wrapper">
-  <%= render "layouts/nav" %>
+  <header>
+    <div class="container">
+      <%= render "layouts/nav" %>
+      <%= image_tag "band_logo_v8.png", id: "logo" %>
+    </div>
+  </header>
+
   <div class="container">
     <div id="main" class="row">
-      <%= render "layouts/audio_controls" %>
       <div id="content" class="col-sm-7">
         <%= yield %>
       </div>
+
       <div id="sidebar" class="col-sm-5">
         <%= render "layouts/sidebar" %>
       </div>
     </div>
   </div>
+
   <footer>
     <div class="container">
       <%= render "layouts/footer" %>

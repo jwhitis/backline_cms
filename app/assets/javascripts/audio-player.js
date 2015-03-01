@@ -20,7 +20,7 @@ $(document).on("ready page:load", function() {
     ended: playNextSong,
     swfPath: "/",
     supplied: "mp3",
-    cssSelectorAncestor: "div#main",
+    cssSelectorAncestor: "div#audio-controls",
     cssSelector: {
       play: "div#play-container",
       pause: "div#pause-container"

@@ -27,11 +27,11 @@ h2 {
 
 .btn-pink {
   background-color: $pink;
-  color: $white;
+  color: white;
 }
 .btn-pink:hover {
   background-color: #E51B3D;
-  color: $white;
+  color: white;
 }
 
 div.tooltip div.tooltip-inner {
@@ -51,73 +51,12 @@ div.tooltip.right div.tooltip-arrow {
   }
 }
 
-nav.navbar {
-  height: 140px;
-  margin: 0;
+header {
   border-top: 4px solid $red;
-  border-radius: 0px;
+  background-color: white;
 
-  div#navbar-container {
-    height: 100%;
-
-    div.navbar-header {
-      button.navbar-toggle {
-        border-color: $white;
-      }
-      button.navbar-toggle:hover {
-        background-color: $grey;
-      }
-
-      a.navbar-brand {
-        padding-right: 0;
-        font-family: $brand-font;
-        font-size: 25px;
-        text-transform: uppercase;
-
-        span {
-          display: inline-block;
-          margin: 6px 0 0 20px;
-          font-size: 22px;
-          text-transform: none;
-        }
-      }
-      @media (min-width: 768px) {
-        a.navbar-brand {
-          font-size: 36px;
-          line-height: 26px;
-
-          span {
-            margin: 8px 0 0 40px;
-            font-size: 30px;
-          }
-        }
-      }
-    }
-
-    div.navbar-collapse {
-      position: relative;
-      z-index: 9999;
-
-      ul.navbar-nav {
-        li {
-          a {
-            padding: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            text-transform: uppercase;
-          }
-          a.active {
-            margin-top: -5px;
-            border-top: 5px solid $pink;
-          }
-        }
-      }
-    }
-    @media (min-width: 768px) {
-      div.navbar-collapse {
-        position: static;
-      }
-    }
+  img#logo {
+    width: 100%;
   }
 }
 
@@ -129,8 +68,6 @@ div#main {
     position: relative;
 
     h2 {
-      position: absolute;
-      top: -36px;
       font-size: 22px;
     }
   }
@@ -174,10 +111,10 @@ div#main {
       cursor: pointer;
 
       div.arrow.up {
-        border-bottom-color: $white;
+        border-bottom-color: white;
       }
       div.arrow.down {
-        border-top-color: $white;
+        border-top-color: white;
       }
     }
 
@@ -203,7 +140,7 @@ div#main {
             margin-top: 5px;
             float: left;
             border-radius: 4px;
-            box-shadow: 2px 2px 5px 0 $black;
+            box-shadow: 2px 2px 5px 0 black;
           }
         }
         div.content {
