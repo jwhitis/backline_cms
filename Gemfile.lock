@@ -38,6 +38,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.7)
     arel (6.0.0)
+    autoprefixer-rails (5.1.7)
+      execjs
+      json
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     buftok (0.2.0)
@@ -178,6 +181,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   coffee-rails (~> 4.1.0)
   font-awesome-rails
   jbuilder (~> 2.0)
