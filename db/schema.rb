@@ -11,38 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415030333) do
+ActiveRecord::Schema.define(version: 20150304051638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "shows", force: true do |t|
-    t.string   "venue"
+  create_table "shows", force: :cascade do |t|
+    t.string   "venue",      limit: 255
     t.date     "date"
-    t.string   "cover"
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
+    t.string   "cover",      limit: 255
+    t.string   "address",    limit: 255
+    t.string   "city",       limit: 255
+    t.string   "state",      limit: 255
+    t.string   "zip",        limit: 255
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "time"
+    t.string   "time",       limit: 255
     t.boolean  "published"
   end
 
-  create_table "tweets", force: true do |t|
-    t.string   "screen_name"
-    t.string   "profile_image_url"
+  create_table "tweets", force: :cascade do |t|
+    t.string   "handle",      limit: 255
+    t.string   "image_url",   limit: 255
     t.text     "text"
     t.datetime "posted_at"
-    t.integer  "twitter_id",        limit: 8
+    t.integer  "twitter_id",  limit: 8
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "profile_url"
   end
 
-  create_table "videos", force: true do |t|
-    t.string   "title"
+  create_table "videos", force: :cascade do |t|
+    t.string   "title",      limit: 255
     t.text     "caption"
     t.text     "embed"
     t.datetime "created_at"

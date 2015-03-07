@@ -20,8 +20,10 @@ class TweetRefresher
 
     def raw_params tweet
       {
-        screen_name: tweet.user.screen_name,
-        profile_image_url: tweet.user.profile_image_url.to_s,
+        name: tweet.user.name,
+        handle: tweet.user.screen_name,
+        profile_url: tweet.user.url.to_s,
+        image_url: tweet.user.profile_image_url(:original).to_s,
         text: tweet.text,
         posted_at: tweet.created_at,
         twitter_id: tweet.id
