@@ -1,8 +1,14 @@
-<div class="image">
-  <%= image_tag tweet.profile_image_url %>
-</div>
-<div class="content">
-  <%= link_to tweet.screen_name, "https://twitter.com/#{tweet.screen_name}", target: "_blank" %>
-  <span class="time"><%= formatted_time(tweet.posted_at) %></span>
-  <p><%== tweet.text %></p>
-</div>
+<%= link_to tweet.profile_url, target: "_blank", class: "tweet",
+  style: "background-image: url('#{tweet.image_url}');" do %>
+  <div class="overlay">
+    <div class="name">
+      <%= tweet.name %>
+    </div>
+    <div class="text">
+      <%== truncate(tweet.text, length: 90, separator: " ") %>
+    </div>
+    <div class="posted-at">
+      <%= formatted_time(tweet.posted_at) %>
+    </div>
+  </div>
+<% end %>

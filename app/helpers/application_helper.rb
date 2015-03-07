@@ -2,8 +2,8 @@ module ApplicationHelper
 
   def formatted_time time
     time_with_zone = time.in_time_zone("Central Time (US & Canada)")
-    format_string = time_with_zone.to_date == Date.today ? "%l:%M%P" : "%-m/%-d/%y"
-    time_with_zone.strftime(format_string)
+    time_in_words = time_ago_in_words(time_with_zone).sub(/\Aabout /, "")
+    "#{time_in_words} ago"
   end
 
   def admin_signed_in?

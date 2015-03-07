@@ -6,7 +6,7 @@ class Tweet < ActiveRecord::Base
   end
 
   def self.recent
-    order("posted_at DESC")
+    order(posted_at: :desc)
   end
 
 end

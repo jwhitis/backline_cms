@@ -15,19 +15,16 @@
   <header>
     <div class="container">
       <%= render "layouts/nav" %>
-      <%= image_tag "band_logo_v8.png", id: "logo" %>
     </div>
   </header>
 
   <div class="container">
-    <div id="main" class="row">
-      <div id="content" class="col-sm-7">
-        <%= yield %>
-      </div>
+    <%= image_tag "band_logo_v8.png", id: "logo" %>
 
-      <div id="sidebar" class="col-sm-5">
-        <%= render "layouts/sidebar" %>
-      </div>
+    <%= render "layouts/twitter_stream", tweets: @tweets %>
+
+    <div id="content">
+      <%= yield %>
     </div>
   </div>
 

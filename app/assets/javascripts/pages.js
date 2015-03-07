@@ -1,5 +1,12 @@
 $(document).on("ready page:load", function() {
 
+  // Fade out tweet text on hover
+  $("div#twitter-stream a.tweet").mouseenter(function() {
+    $(this).find("div.overlay").stop().fadeOut(300);
+  }).mouseleave(function() {
+    $(this).find("div.overlay").stop().fadeIn(300);
+  });
+
   // Initialize Transformicons
   transformicons.add(".tcon");
 
@@ -9,13 +16,6 @@ $(document).on("ready page:load", function() {
     var text = link.text() == "View More" ? "View Less" : "View More";
     $(this).prev("div.more").slideToggle(function() {
       link.text(text);
-    });
-  });
-
-  // Slide toggle Twitter stream on click
-  $("div#sidebar div.toggle").click(function() {
-    $("div#sidebar ul").slideToggle(function() {
-      $("div#sidebar div.arrow").toggleClass("up down");
     });
   });
 

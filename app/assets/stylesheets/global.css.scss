@@ -25,6 +25,10 @@ h2 {
   font-size: 24px;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 .btn-pink {
   background-color: $pink;
   color: white;
@@ -45,161 +49,26 @@ div.tooltip.right div.tooltip-arrow {
   border-right-color: $pink;
 }
 
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
+.container {
+  max-width: 940px;
 }
 
 header {
+  padding-bottom: 10px;
   border-top: 4px solid $red;
-  background-color: white;
-
-  img#logo {
-    width: 100%;
-  }
+  border-bottom: 1px solid rgba(black, .15);
+  background-color: #F2F2F2;
 }
 
-div#main {
-  position: relative;
+img#logo {
+  width: 100%;
+}
 
-  div#content {
-    padding: 15px 15px 0 15px;
-    position: relative;
+div#content {
+  padding-bottom: 40px;
 
-    h2 {
-      font-size: 22px;
-    }
-  }
-  @media (min-width: 768px) {
-    div#content {
-      padding: 15px 20px 40px 15px;
-
-      h2 {
-        font-size: 28px;
-      }
-    }
-  }
-
-  div#sidebar {
-    padding: 0 0 40px 0;
-
-    div.toggle {
-      width: 100%;
-      padding: 5px 15px;
-      background-color: rgba(245, 245, 245, .15);
-
-      h3 {
-        margin: 0;
-        float: left;
-        font-size: 18px;
-      }
-
-      div.arrow {
-        float: right;
-        border-left: 12px solid transparent;
-        border-right: 12px solid transparent;
-      }
-      div.arrow.up {
-        border-bottom: 15px solid $grey;
-      }
-      div.arrow.down {
-        border-top: 15px solid $grey;
-      }
-    }
-    div.toggle:hover {
-      cursor: pointer;
-
-      div.arrow.up {
-        border-bottom-color: white;
-      }
-      div.arrow.down {
-        border-top-color: white;
-      }
-    }
-
-    ul {
-      margin: 0;
-      padding: 12px 0 0 0;
-      display: none;
-      list-style: none;
-
-      li {
-        margin-bottom: 10px;
-        padding: 0 10px 10px 10px;
-        border-bottom: 1px solid rgba(181, 181, 181, .2);
-
-        div.image {
-          width: 16%;
-          margin-right: 4%;
-          float: left;
-
-          img {
-            width: 48px;
-            height: 48px;
-            margin-top: 5px;
-            float: left;
-            border-radius: 4px;
-            box-shadow: 2px 2px 5px 0 black;
-          }
-        }
-        div.content {
-          width: 80%;
-          float: left;
-
-          span.time {
-            float: right;
-          }
-
-          p {
-            margin: 0;
-            font-size: 13px;
-          }
-
-          a {
-            font-size: 16px;
-            color: $pink;
-          }
-        }
-      }
-      @media (min-width: 768px) {
-        li {
-          padding: 0 0 10px 0;
-
-          div.image {
-            width: auto;
-            margin-right: 12px;
-          }
-
-          div.content {
-            width: 252px;
-          }
-        }
-      }
-      @media (min-width: 992px) {
-        li {
-          div.content {
-            width: 340px;
-          }
-        }
-      }
-      li.page-links {
-        margin: 0;
-        border: none;
-
-        a.previous {
-          float: left;
-        }
-        a.next {
-          float: right;
-        }
-      }
-    }
-    @media (min-width: 768px) {
-      ul {
-        display: block !important;
-      }
-    }
+  h2 {
+    font-size: 28px;
   }
 }
 
