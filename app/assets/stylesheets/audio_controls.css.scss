@@ -11,46 +11,49 @@ div#circle {
   float: left;
   border: 4px solid white;
   border-radius: 50%;
+  transition: all .3s ease;
 
   div#play-container,
   div#pause-container {
     width: 100%;
     height: 100%;
     position: relative;
+  }
+
+  div#play {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 7px;
+    left: 14px;
+    border-left: 20px solid white;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    transition: all .3s ease;
+  }
+
+  div#pause {
+    width: 20px;
+    height: 25px;
+    position: absolute;
+    top: 9px;
+    left: 11px;
+    border-left: 7px solid white;
+    border-right: 7px solid white;
+    transition: all .3s ease;
+  }
+
+  &:hover {
+    border-color: $slate;
+    cursor: pointer;
 
     div#play {
-      width: 0;
-      height: 0;
-      position: absolute;
-      top: 7px;
-      left: 14px;
-      border-left: 20px solid white;
-      border-top: 14px solid transparent;
-      border-bottom: 14px solid transparent;
+      border-left-color: $slate;
     }
 
     div#pause {
-      width: 20px;
-      height: 25px;
-      position: absolute;
-      top: 9px;
-      left: 11px;
-      border-left: 7px solid white;
-      border-right: 7px solid white;
+      border-color: $slate;
     }
-  }
-}
-
-div#circle:hover {
-  border-color: $slate;
-  cursor: pointer;
-
-  div#play-container div#play {
-    border-left-color: $slate;
-  }
-
-  div#pause-container div#pause {
-    border-color: $slate;
   }
 }
 
@@ -65,12 +68,13 @@ div#prev {
     border-right: 16px solid white;
     border-top: 12px solid transparent;
     border-bottom: 12px solid transparent;
+    transition: all .3s ease;
   }
-}
 
-div#prev:hover div.arrow-left {
-  cursor: pointer;
-  border-right-color: $slate;
+  &:hover div.arrow-left {
+    cursor: pointer;
+    border-right-color: $slate;
+  }
 }
 
 div#next {
@@ -84,12 +88,13 @@ div#next {
     border-left: 16px solid white;
     border-top: 12px solid transparent;
     border-bottom: 12px solid transparent;
+    transition: all .3s ease;
   }
-}
 
-div#next:hover div.arrow-right {
-  cursor: pointer;
-  border-left-color: $slate;
+  &:hover div.arrow-right {
+    cursor: pointer;
+    border-left-color: $slate;
+  }
 }
 
 div#now-playing {
