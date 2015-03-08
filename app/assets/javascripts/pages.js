@@ -1,10 +1,20 @@
 $(document).on("ready page:load", function() {
 
+  // Show carousel caption on hover
+  $("div#content").on({
+    mouseenter: toggleCaption,
+    mouseleave: toggleCaption
+  }, "div#video-carousel");
+
+  function toggleCaption() {
+    if ($(window).width() > 767) {
+      $("div.carousel-caption").toggle();
+    }
+  }
+
   // Show tweet profile image on hover
-  $("div#twitter-stream a.tweet").mouseenter(function() {
-    $(this).find("div.overlay").stop().fadeOut(300);
-  }).mouseleave(function() {
-    $(this).find("div.overlay").stop().fadeIn(300);
+  $("div#twitter-stream a.tweet").hover(function() {
+    $(this).find("div.overlay").stop().fadeToggle(300);
   });
 
   // Initialize Transformicons

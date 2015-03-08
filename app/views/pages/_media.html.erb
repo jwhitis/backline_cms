@@ -1,14 +1,24 @@
-<h2>Media</h2>
 <div id="media">
-  <% @videos.each do |video| %>
-    <div class="row">
-      <div class="col-sm-12">
-        <h3><%= video.title %></h3>
-        <%== video.embed %>
-        <% if video.caption.present? %>
-          <p><%= video.caption %></p>
-        <% end %>
-      </div>
+  <div id="video-carousel" class="carousel slide" data-interval="false">
+    <div class="carousel-inner" role="listbox">
+      <% @videos.each_with_index do |video, index| %>
+        <div class="item <%= "active" if index.zero? %>">
+          <%== video.embed %>
+
+          <div class="carousel-caption">
+            <h3><%= video.title %></h3>
+
+            <% if video.caption.present? %>
+              <p><%= video.caption %></p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+
+  <%= link_to fa_icon("chevron-left"), "#video-carousel", data: { slide: "prev" },
+    class: "video-control prev-video" %>
+  <%= link_to fa_icon("chevron-right"), "#video-carousel", data: { slide: "next" },
+    class: "video-control next-video" %>
 </div>

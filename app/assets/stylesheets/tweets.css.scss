@@ -37,7 +37,9 @@ div#twitter-stream {
     height: 140px;
     margin-right: 10px;
     float: left;
+    background-repeat: no-repeat;
     background-size: 100%;
+    background-position: center;
     box-shadow: 0 2px 5px rgba(black, .5);
 
     &:last-child {
@@ -50,7 +52,7 @@ div#twitter-stream {
       line-height: 16px;
       color: $slate;
       text-shadow: 0 1px 1px rgba(black, .25);
-      background: linear-gradient(135deg, rgba($red, .9) 0%, rgba($red, .9) 50%, darken(rgba($red, .9), 10%) 100%);
+      background: linear-gradient(to bottom right, rgba($red, .95) 0%, rgba($red, .95) 50%, darken(rgba($red, .95), 10%) 100%);
 
       div.name {
         height: 25px;
