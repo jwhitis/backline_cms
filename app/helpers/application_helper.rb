@@ -10,4 +10,12 @@ module ApplicationHelper
     session[:admin]
   end
 
+  def admin_link
+    if admin_signed_in?
+      link_to "SIGN OUT", admin_sign_out_path, method: :delete
+    else
+      link_to "SIGN IN", admin_sign_in_path
+    end
+  end
+
 end

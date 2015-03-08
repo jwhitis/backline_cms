@@ -1,26 +1,51 @@
 @import "variables";
 
 nav.navbar {
+  width: 100%;
+  height: $nav-height;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
   margin: 0;
   border: none;
+  border-bottom: 2px solid rgba(black, .25);
   border-radius: 0;
+  background-color: $red;
 
   div.navbar-header {
     margin: 0;
+
+    button.tcon {
+      margin-top: 12px;
+    }
   }
 
-  ul.navbar-nav {
-    a {
-      padding: 20px 10px;
-      text-align: center;
-      font-size: 16px;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: $blue;
+  div.navbar-collapse {
+    border: none;
+    background-color: $red;
+    box-shadow: none;
 
-      &.active {
-        margin-top: -5px;
-        border-top: 5px solid $pink;
+    ul.navbar-nav {
+      margin: 0 -15px;
+      border-bottom: 2px solid rgba(black, .25);
+
+      a {
+        padding: 25px 15px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+        transition: all .3s ease;
+
+        &.active {
+          background-color: rgba(black, .25);
+        }
+
+        &:hover:not(.active) {
+          color: $slate;
+          background-color: transparent;
+        }
       }
     }
   }

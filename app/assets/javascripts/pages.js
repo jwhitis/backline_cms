@@ -1,6 +1,6 @@
 $(document).on("ready page:load", function() {
 
-  // Fade out tweet text on hover
+  // Show tweet profile image on hover
   $("div#twitter-stream a.tweet").mouseenter(function() {
     $(this).find("div.overlay").stop().fadeOut(300);
   }).mouseleave(function() {
@@ -22,6 +22,7 @@ $(document).on("ready page:load", function() {
   // Collapse navbar on page select
   $(this).on("ajaxSuccess", function() {
     $("div#my-navbar-collapse").collapse("hide");
+    transformicons.revert(".tcon");
   });
 
   // Swap out album cover images on hover

@@ -1,13 +1,11 @@
 // This file was generated on 3/1/15 using the Transformicons builder:
 // http://www.transformicons.com/builder.html
 
-@import "variables";
-
 $tcon-size: 40px !default;
 $tcon-transition: .3s !default;
 $tcon-jstransform: 'tcon-transform' !default;
 $tcon-menu-radius: ($tcon-size / 14) !default;
-$tcon-menu-color: $grey !default;
+$tcon-menu-color: white !default;
 $tcon-menu-arrowleft-transformation: (
   transform: scale3d(.8, .8, .8) rotate3d(0, 0, 1, 90deg)
 ) !default;

@@ -1,9 +1,9 @@
 <div id="twitter-stream">
-  <div class="blur blur-left"></div>
-  <div class="blur blur-right"></div>
+  <div class="blur blur-left hidden-xs"></div>
+  <div class="blur blur-right hidden-xs"></div>
   <div class="slider-container">
     <div class="slider clearfix">
-      <%= render tweets %>
+      <%= render partial: "tweets/tweet", collection: tweets %>
     </div>
   </div>
 </div>

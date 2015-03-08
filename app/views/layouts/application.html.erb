@@ -12,27 +12,25 @@
 <body>
 
 <div id="wrapper">
-  <header>
+  <%= render "layouts/nav" %>
+
+  <div id="banner">
     <div class="container">
-      <%= render "layouts/nav" %>
-    </div>
-  </header>
-
-  <div class="container">
-    <%= image_tag "band_logo_v8.png", id: "logo" %>
-
-    <%= render "layouts/twitter_stream", tweets: @tweets %>
-
-    <div id="content">
-      <%= yield %>
+      <%= link_to root_path do %>
+        <%= image_tag "band_logo_v8.png" %>
+      <% end %>
     </div>
   </div>
 
-  <footer>
+  <div id="main">
     <div class="container">
-      <%= render "layouts/footer" %>
+      <div id="content">
+        <%= yield %>
+      </div>
     </div>
-  </footer>
+  </div>
+
+  <%= render "layouts/footer" %>
 </div>
 
 </body>

@@ -1,23 +1,25 @@
 <nav class="navbar" role="navigation">
-  <div class="navbar-header">
-    <%= render "layouts/audio_controls" %>
+  <div class="container">
+    <div class="navbar-header">
+      <%= render "layouts/audio_controls" %>
 
-    <button type="button" class="tcon tcon-menu--xbutterfly navbar-btn pull-right visible-xs"
-      data-toggle="collapse" data-target="#my-navbar-collapse" aria-label="toggle menu">
-      <span class="tcon-menu__lines" aria-hidden="true"></span>
-      <span class="tcon-visuallyhidden">toggle menu</span>
-    </button>
-  </div>
+      <button type="button" class="tcon tcon-menu--xbutterfly pull-right visible-xs"
+        data-toggle="collapse" data-target="#my-navbar-collapse" aria-label="toggle menu">
+        <span class="tcon-menu__lines" aria-hidden="true"></span>
+        <span class="tcon-visuallyhidden">toggle menu</span>
+      </button>
+    </div>
 
-  <div class="collapse navbar-collapse" id="my-navbar-collapse">
-    <ul class="nav navbar-nav navbar-right">
-      <% if admin_signed_in? %>
-        <li><%= link_to "Admin", admin_path, remote: true %></li>
-      <% end %>
-      <li><%= link_to "Releases", releases_path, remote: true %></li>
-      <li><%= link_to "Shows", shows_path, remote: true %></li>
-      <li><%= link_to "Media", media_path, remote: true %></li>
-      <!-- <li><%#= link_to "Bio", bio_path, remote: true %></li> -->
-    </ul>
+    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <% if admin_signed_in? %>
+          <li><%= link_to "Admin", admin_path, remote: true %></li>
+        <% end %>
+        <li><%= link_to "Releases", releases_path, remote: true %></li>
+        <li><%= link_to "Shows", shows_path, remote: true %></li>
+        <li><%= link_to "Media", media_path, remote: true %></li>
+        <!-- <li><%#= link_to "Bio", bio_path, remote: true %></li> -->
+      </ul>
+    </div>
   </div>
 </nav>

@@ -1,87 +1,91 @@
 @import "variables";
 
 div#twitter-stream {
-  margin: 0 -25px;
   position: relative;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-bottom: 40px;
 
   div.blur {
-    width: 25px;
-    height: 140px;
+    width: 55px;
+    height: 160px;
     position: absolute;
-    top: 15px;
 
     &.blur-left {
       left: 0;
-      background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
-      background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
-      background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
-      background: -o-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
-      background: -ms-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
-      background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+      background: linear-gradient(to right, rgba($main-background-color, 1) 0%, rgba($main-background-color, 0) 100%);
     }
 
     &.blur-right {
       right: 0;
-      background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
-      background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
-      background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
-      background: -o-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
-      background: -ms-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
-      background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
+      background: linear-gradient(to right, rgba($main-background-color, 0) 0%, rgba($main-background-color, 1) 100%);
     }
   }
 
   div.slider-container {
-    margin: 0 auto;
-    padding: 15px 0 15px 25px;
+    padding: 10px 0;
     overflow-x: scroll;
 
     div.slider {
-      width: 7515px; // This is the width of 50 tweets side-by-side.
+      padding: 0 15px;
+      width: 7520px; // This is the width of 50 tweets plus margin and padding.
+    }
+  }
+
+  a.tweet {
+    width: 140px;
+    height: 140px;
+    margin-right: 10px;
+    float: left;
+    background-size: 100%;
+    box-shadow: 0 2px 5px rgba(black, .5);
+
+    &:last-child {
+      margin-right: 0;
     }
 
-    a.tweet {
-      width: 140px;
-      height: 140px;
-      margin-right: 10px;
-      float: left;
-      border: 1px solid rgba(black, .15);
-      background-clip: padding-box;
-      background-size: 100%;
-
-      &:last-child {
-        margin-right: 0;
-      }
+    div.overlay {
+      border: 1px solid rgba(black, .25);
+      font-size: 12px;
+      line-height: 16px;
+      color: $slate;
+      text-shadow: 0 1px 1px rgba(black, .25);
+      background: linear-gradient(135deg, rgba($red, .9) 0%, rgba($red, .9) 50%, darken(rgba($red, .9), 10%) 100%);
 
       div.name {
         height: 25px;
         padding: 5px 8px 3px 8px;
-        border-bottom: 1px solid rgba(black, .15);
-        line-height: 16px;
-        color: $red;
-        background-color: #F4F4F4;
-      }
-
-      div.text, div.posted-at {
-        font-size: 12px;
-        line-height: 16px;
-        background-color: #F4F4F4;
+        border-bottom: 1px solid rgba(black, .25);
+        font-size: 14px;
       }
 
       div.text {
-        height: 92px;
+        height: 84px;
         padding: 3px 8px 0 8px;
         overflow: hidden;
-        border-top: 1px solid white;
-        color: #777777;
+        border-top: 1px solid rgba(white, .15);
+        color: #CCCCCC;
       }
 
       div.posted-at {
-        height: 21px;
-        padding: 0 8px 5px 8px;
-        color: #B5B5B5;
+        height: 29px;
+        padding: 8px 8px 5px 8px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  div#twitter-stream {
+    margin-left: -55px;
+    margin-right: -55px;
+
+    div.slider-container {
+      padding-left: 55px;
+
+      div.slider {
+        padding: 0;
+        width: 7545px; // This is the width of 50 tweets plus margin and padding.
       }
     }
   }

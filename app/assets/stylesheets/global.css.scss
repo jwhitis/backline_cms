@@ -12,7 +12,9 @@ body {
 
 div#wrapper {
   min-height: 100%;
+  padding-top: $nav-height;
   position: relative;
+  background-color: $main-background-color;
 }
 
 h1 {
@@ -49,23 +51,37 @@ div.tooltip.right div.tooltip-arrow {
   border-right-color: $pink;
 }
 
-.container {
-  max-width: 940px;
+div#banner {
+  padding-top: 40px;
+  padding-bottom: 5px;
+  // This trick allows you to layer a background color over an image.
+  background: linear-gradient(to bottom, rgba(white, .75) 0%, rgba(white, .75) 50%, rgba(white, 1) 100%),
+    url('band_cropped2.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+
+  img {
+    width: 100%;
+  }
 }
 
-header {
-  padding-bottom: 10px;
-  border-top: 4px solid $red;
-  border-bottom: 1px solid rgba(black, .15);
-  background-color: #F2F2F2;
+@media (min-width: 768px) {
+  div#banner {
+    padding-top: 140px;
+    padding-bottom: 10px;
+  }
 }
 
-img#logo {
-  width: 100%;
-}
+div#main {
+  height: 400px;
+  color: white;
+  background-color: $blue;
+  // background: linear-gradient(to bottom, $blue 0%, darken($blue, 5%) 100%);
 
-div#content {
-  padding-bottom: 40px;
+  div#content {
+    display: none;
+  }
 
   h2 {
     font-size: 28px;
@@ -73,27 +89,21 @@ div#content {
 }
 
 footer {
-  width: 100%;
-  height: 40px;
-  position: absolute;
-  bottom: 0;
+  padding: 40px 0;
 
-  p {
-    padding-top: 12px;
-    font-size: 12px;
+  div.copyright {
+    text-align: center;
+    position: relative;
+    font-weight: bold;
 
     span.admin {
-      display: none;
-    }
-    @media (min-width: 768px) {
-      span.admin {
-        margin-right: 5px;
-        display: inline;
-      }
-    }
+      position: absolute;
+      right: 0;
 
-    a {
-      text-decoration: underline;
+      a {
+        color: #333333;
+        text-decoration: underline;
+      }
     }
   }
 }
