@@ -40,11 +40,11 @@ div#media {
       color: $slate;
     }
 
-    &.prev-video {
+    &.prev {
       left: -10px;
     }
 
-    &.next-video {
+    &.next {
       right: -10px;
     }
 
@@ -60,11 +60,11 @@ div#media {
     padding: 0 150px;
 
     a.video-control {
-      &.prev-video {
+      &.prev {
         left: 60px;
       }
 
-      &.next-video {
+      &.next {
         right: 60px;
       }
     }
