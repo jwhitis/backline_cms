@@ -5,7 +5,7 @@ module Admin::ShowsHelper
     title += ", " if show.city.present? && show.state.present?
     title += "#{show.state}"
     title += " - " if (show.city.present? || show.state.present?) && show.venue.present?
-    title += "#{show.venue}"
+    title += "#{show.venue_name}"
   end
 
 end

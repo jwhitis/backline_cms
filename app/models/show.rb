@@ -1,5 +1,5 @@
 class Show < ActiveRecord::Base
-  validates_presence_of :venue, :date
+  validates_presence_of :venue_name, :date, :city, :state
 
   def pretty_date
     (date || Date.today).strftime("%-m-%-d-%Y")

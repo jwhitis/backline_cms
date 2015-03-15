@@ -4,7 +4,7 @@
     <tr>
       <th class="published"></th>
       <th class="date">Date</th>
-      <th>Venue</th>
+      <th>Venue Name</th>
       <th class="cover">Cover</th>
       <th class="address">Address</th>
       <th class="edit"></th>
@@ -16,7 +16,7 @@
       <tr>
         <td class="published"><div class="circle <%= published_state(show) %>"></div></td>
         <td class="date"><%= show.pretty_date %></td>
-        <td><%= show.venue %></td>
+        <td><%= show.venue_name %></td>
         <td class="cover"><%= show.cover %></td>
         <td class="address"><%== show.pretty_address %></td>
         <td class="edit"><%= link_to fa_icon("edit"), edit_admin_show_path(show), remote: true, title: "Edit" %></td>
