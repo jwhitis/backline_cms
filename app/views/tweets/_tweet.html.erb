@@ -8,7 +8,7 @@
       <%== truncate(tweet.text, length: 90, separator: " ") %>
     </div>
     <div class="posted-at">
-      <%= formatted_time(tweet.posted_at) %>
+      <%= formatted_tweet_time(tweet) %>
     </div>
   </div>
 <% end %>
