@@ -1,28 +1,29 @@
-<h2>Shows</h2>
 <div id="shows">
-  <h3 class="title">Upcoming</h3>
-  <% if @upcoming_shows.any? %>
-    <%= render @upcoming_shows %>
-    <% if @more_upcoming_shows.any? %>
-      <div class="more">
-        <%= render @more_upcoming_shows %>
-      </div>
-      <%= link_to "View More", "javascript:void(0)", class: "toggle" %>
-    <% end %>
-  <% else %>
-    <p class="no-results">There are no upcoming shows.</p>
-  <% end %>
+  <h2>SHOWS</h2>
 
-  <h3 class="title">Past</h3>
-  <% if @past_shows.any? %>
-    <%= render @past_shows %>
-    <% if @more_past_shows.any? %>
-      <div class="more">
-        <%= render @more_past_shows %>
+  <div class="shows-table">
+    <div class="row header">
+      <div class="col-xs-2 text-center">
+        Date
       </div>
-      <%= link_to "View More", "javascript:void(0)", class: "toggle" %>
-    <% end %>
-  <% else %>
-    <p class="no-results">There are no past shows.</p>
-  <% end %>
+      <div class="col-xs-5">
+        Venue
+      </div>
+      <div class="col-xs-5 col-sm-3 location">
+        Location
+      </div>
+      <div class="col-xs-2 hidden-xs text-center">
+        Cover
+      </div>
+    </div>
+
+    <%= render @shows %>
+  </div>
+
+  <div class="pagination-links clearfix">
+    <%= link_to_previous_page @shows, "#{fa_icon("caret-left")} PREV".html_safe,
+      remote: true, class: "prev" %>
+    <%= link_to_next_page @shows, "NEXT #{fa_icon("caret-right")}".html_safe,
+      remote: true, class: "next" %>
+  </div>
 </div>

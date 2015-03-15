@@ -7,10 +7,7 @@ class PagesController < ApplicationController
   end
 
   def shows
-    @upcoming_shows = Show.upcoming.limit(2)
-    @more_upcoming_shows = Show.upcoming.offset(2)
-    @past_shows = Show.past.limit(2)
-    @more_past_shows = Show.past.offset(2)
+    @shows = Show.published.recent.page(params[:page]).per(8)
   end
 
   def releases

@@ -1,18 +1,18 @@
-<div class="row">
-  <div class="col-xs-7 col-sm-6 col-md-8 details">
-    <h3><%= show_title(show) %></h3>
-    <p><%= show.notes %><p>
+<div class="row show">
+  <div class="col-xs-2 text-center">
+    <%= formatted_show_date(show) %>
   </div>
-  <div class="col-xs-5 col-sm-6 col-md-4 details">
-    <p><span>Date:</span> <%= show.pretty_date %></p>
-    <% if show.time.present? %>
-      <p><span>Time:</span> <%= show.time %></p>
+  <div class="col-xs-5 <%= "multiline" if show.notes.present? %>">
+    <%= venue_link(show) %>
+    <% if show.notes.present? %>
+      <div class="notes hidden-xs"><%= show.notes %></div>
     <% end %>
-    <% if show.cover.present? %>
-      <p><span>Cover:</span> <%= show.cover %></p>
-    <% end %>
-    <% if show.pretty_address.present? %>
-      <p><%== show.pretty_address %></p>
-    <% end %>
+  </div>
+  <div class="col-xs-5 col-sm-3 location">
+    <%= google_maps_link(show) %>
+    <%= formatted_show_location(show) %>
+  </div>
+  <div class="col-sm-2 hidden-xs text-center">
+    <%= show.cover %>
   </div>
 </div>
