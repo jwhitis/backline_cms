@@ -44,46 +44,6 @@ div#shows {
       }
     }
   }
-
-  div.pagination-links {
-    padding-top: 20px;
-    text-align: center;
-
-    a {
-      width: 80px;
-      padding: 4px 10px;
-      display: inline-block;
-      border: 2px solid #CCCCCC;
-      font-size: 16px;
-      color: #CCCCCC;
-      background-color: darken($red, 5%);
-      box-shadow: 0 2px 5px rgba(black, .5);
-      transition: all .3s ease;
-
-      &:not(:last-child) {
-        margin-right: 7px;
-      }
-
-      &:hover {
-        border-color: $slate;
-        color: $slate;
-      }
-
-      i.fa {
-        position: relative;
-        top: 2px;
-        font-size: 22px;
-
-        &.fa-caret-left {
-          margin-right: 3px;
-        }
-
-        &.fa-caret-right {
-          margin-left: 3px;
-        }
-      }
-    }
-  }
 }
 
 @media (min-width: 768px) {
