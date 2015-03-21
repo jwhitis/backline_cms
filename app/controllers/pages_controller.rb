@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   def releases
   end
 
-  def media
+  def videos
     @videos = Video.published.order("created_at DESC")
   end
 

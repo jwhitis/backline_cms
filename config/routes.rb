@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :tweets, only: :index
   get "shows", to: "pages#shows"
   get "releases", to: "pages#releases"
-  get "media", to: "pages#media"
+  get "videos", to: "pages#videos"
   get "bio", to: "pages#bio"
   root "pages#index"
   # The priority is based upon order of creation: first created -> highest priority.
