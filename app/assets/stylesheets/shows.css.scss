@@ -43,15 +43,8 @@ div#shows {
         }
       }
     }
-  }
-}
 
-@media (min-width: 768px) {
-  div#shows {
-    width: 720px;
-    margin: 0 auto;
-
-    div.shows-table {
+    @media (min-width: 768px) {
       div.row {
         margin: 0;
 
