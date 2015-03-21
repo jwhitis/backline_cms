@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   get "shows", to: "pages#shows"
   get "music", to: "pages#music"
   get "videos", to: "pages#videos"
-  get "bio", to: "pages#bio"
   root "pages#index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
