@@ -1,0 +1,19 @@
+%flash-message {
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: lighter;
+  color: white;
+  text-shadow: 0 1px 1px rgba(black, .15);
+}
+
+div.flash-notice {
+  @extend %flash-message;
+  background-color: rgba(#21C056, .85);
+}
+
+div.flash-alert {
+  @extend %flash-message;
+  background-color: rgba(#E43725, .85);
+}

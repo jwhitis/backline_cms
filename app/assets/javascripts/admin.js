@@ -2,7 +2,7 @@ $(document).on("ready page:load ajaxSuccess", function() {
 
   // Fade out alerts after 3 seconds
   window.setTimeout(function() {
-    $("div.timer.fade").alert("close");
+    $("div.alert.timer").alert("close");
   }, 3000);
 
   // Initialize datepicker for admin form
