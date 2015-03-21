@@ -1,6 +1,13 @@
 @import "variables";
 
 div#shows {
+  h2 {
+    margin: 0 0 10px 0;
+    text-align: center;
+    font-size: 28px;
+    text-shadow: 0 1px 1px rgba(black, .35);
+  }
+
   div.shows-table {
     text-shadow: 0 1px 1px rgba(black, .35);
 

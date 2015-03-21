@@ -1,70 +1,87 @@
-<h2>Releases</h2>
 <div id="releases">
-  <div id="headline">
-    <p>We released our first full-length record, <em>All Our Heroes Live in Vans</em>, on October&nbsp;31,&nbsp;2013. You can read about it in any of these fine publications:</p>
-    <ul>
-      <li><%= link_to "Papa's Tunes", "http://popatunes.blogspot.com/2013/10/todd-farrell-jr-dirty-birds-all-our.html", target: "_blank" %></li>
-      <li class="divider one">*</li>
-      <li><%= link_to "Smoke on the Killing Floor", "http://smokeonthekillingfloor.tumblr.com/post/65612090808/all-our-heroes-live-in-vans-todd-farrell-jr-the", target: "_blank" %></li>
-      <li class="divider two">*</li>
-      <li><%= link_to "Bucket Full of Nails", "http://bucketfullofnails.com/2013/10/31/review-todd-farrell-jr-the-dirty-birds-all-our-heroes-live-in-vans/", target: "_blank" %></li>
-      <li class="divider three">*</li>
-      <li><%= link_to "Captain's Dead", "http://captainsdead.com/?p=33463", target: "_blank" %></li>
-      <li class="divider four">*</li>
-      <li><%= link_to "F**k Yeah Alt Country Boys", "http://fuckyeahaltcountryboys.tumblr.com/post/65616193677/toddfarrelldirtybirdsallourheroesliveinvans", target: "_blank" %></li>
-      <li class="divider five">*</li>
-      <li><%= link_to "Nine Bullets", "http://ninebullets.net/archives/todd-farrell-jr-the-dirty-birds-all-our-heroes-live-in-vans", target: "_blank" %></li>
-    </ul>
+  <div id="album-carousel" class="carousel slide" data-interval="false">
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <h2>American Night</h2>
+
+        <div class="row">
+          <div class="col-sm-8 cover">
+            <%= image_tag "all-our-heroes-live-in-vans_front.jpg", alt: "album cover" %>
+          </div>
+
+          <div class="col-sm-4 details">
+            <div class="release-date">Released May 7, 2015</div>
+
+            <ol>
+              <li>Roman Candles</li>
+              <li>April Fire</li>
+              <li>American Night</li>
+              <li>Liner Notes</li>
+              <li>Just Fine</li>
+              <li>Paper Napkins (Bonus)</li>
+            </ol>
+
+            <div class="store-links clearfix">
+              <%= link_to "http://toddfarrelljr.bandcamp.com/album/all-our-heroes-live-in-vans",
+                target: "_blank" do %>
+                <div class="button bandcamp"></div>
+              <% end %>
+
+              <%= link_to "https://itunes.apple.com/us/album/all-our-heroes-live-in-vans/id735911553?ls=1",
+                target: "_blank" do %>
+                <div class="button itunes"></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <h2>All Our Heroes Live in Vans</h2>
+
+        <div class="row">
+          <div class="col-sm-8 cover">
+            <%= image_tag "all-our-heroes-live-in-vans_front.jpg", alt: "album cover" %>
+          </div>
+
+          <div class="col-sm-4 details">
+            <div class="release-date">Released October 31, 2013</div>
+
+            <ol>
+              <li>Year in Review</li>
+              <li>Plastic Knives</li>
+              <li>Chipper and Bobby</li>
+              <li>Pawnshops</li>
+              <li>Liner Notes</li>
+              <li>Better Men</li>
+              <li>If It's Alright By You</li>
+              <li>Take It Slow</li>
+              <li>My Currency Is Doubt</li>
+            </ol>
+
+            <div class="store-links">
+              <%= link_to "http://toddfarrelljr.bandcamp.com/album/all-our-heroes-live-in-vans",
+                target: "_blank" do %>
+                <div class="button bandcamp"></div>
+              <% end %>
+
+              <%= link_to "https://itunes.apple.com/us/album/all-our-heroes-live-in-vans/id735911553?ls=1",
+                target: "_blank" do %>
+                <div class="button itunes"></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- ALL OUR HEROES LIVE IN VANS -->
-  <h3>All Our Heroes Live in Vans</h3>
-  <div class="row">
-    <div class="col-xs-6 col-md-7 album-container">
-      <ol>
-        <li>Year in Review</li>
-        <li>Plastic Knives</li>
-        <li>Chipper and Bobby</li>
-        <li>Pawnshops</li>
-        <li>Liner Notes</li>
-        <li>Better Men</li>
-        <li>If It's Alright By You</li>
-        <li>Take It Slow</li>
-        <li>My Currency Is Doubt</li>
-      </ol>
-    </div>
-    <div class="col-xs-6 col-md-5 album-container">
-      <a class="album-cover" href="http://toddfarrell.s3.amazonaws.com/images/AOHLIV_large.jpg" title="All Our Heroes Live In Vans (2013)">
-        <%= image_tag "http://toddfarrell.s3.amazonaws.com/images/AOHLIV_small.jpg", alt: "album cover", title: "All Our Heroes Live In Vans (2013)", class: "album-cover-small" %>
-      </a>
-    </div>
+  <div class="pagination-links clearfix">
+    <%= link_to "#album-carousel", data: { slide: "prev" } do %>
+      <%= fa_icon("caret-left") %> PREV
+    <% end %>
+    <%= link_to "#album-carousel", data: { slide: "next" } do %>
+      NEXT <%= fa_icon("caret-right") %>
+    <% end %>
   </div>
-  <p class="album-links">
-    <span>Available On:</span>
-    <%= link_to "iTunes", "https://itunes.apple.com/us/album/all-our-heroes-live-in-vans/id735911553?ls=1", target: "_blank" %>&nbsp;|&nbsp;<%= link_to "Bandcamp", "http://toddfarrell.bandcamp.com/album/all-our-heroes-live-in-vans", target: "_blank" %>
-  </p>
-
-  <!-- WHERE FAKE COWBOYS GO TO DRINK -->
-  <h3>Where Fake Cowboys Go to Drink</h3>
-  <div class="row">
-    <div class="col-xs-6 col-md-7 album-container">
-      <ol>
-        <li>Take It Slow</li>
-        <li>Black Lab (Dog Days)</li>
-        <li>Pocketful of Rainchecks</li>
-        <li>Ain't My Year</li>
-        <li>Hey Julie</li>
-        <li>Amanda, I'm Sorry</li>
-      </ol>
-    </div>
-    <div class="col-xs-6 col-md-5 album-container">
-      <a class="album-cover" href="http://toddfarrell.s3.amazonaws.com/images/WFCGTD_large.jpg" title="Where Fake Cowboys Go to Drink (2012)">
-        <%= image_tag "http://toddfarrell.s3.amazonaws.com/images/WFCGTD_small.jpg", alt: "album cover", title: "Where Fake Cowboys Go to Drink (2012)", class: "album-cover-small" %>
-      </a>
-    </div>
-  </div>
-  <p class="album-links">
-    <span>Available On:</span>
-    <%= link_to "Bandcamp", "http://toddfarrell.bandcamp.com/album/where-fake-cowboys-go-to-drink", target: "_blank" %>
-  </p>
 </div>
