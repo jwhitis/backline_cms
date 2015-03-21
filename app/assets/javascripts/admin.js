@@ -42,7 +42,7 @@ $(document).on("ready page:load", function() {
 
   // Initialize tooltip for password hint
   $("span#hint").tooltip({
-    placement: "right"
+    placement: "left"
   });
 
 });

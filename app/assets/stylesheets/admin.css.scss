@@ -1,11 +1,12 @@
 @import "variables";
 
 div#admin {
-  margin-bottom: 15px;
-  padding: 15px;
-  border-radius: 4px;
-  background-color: rgba(51, 51, 51, .75);
-  box-shadow: 0 0 10px 1px black;
+  h2 {
+    margin: 0 0 10px 0;
+    text-align: center;
+    font-size: 28px;
+    text-shadow: 0 1px 1px rgba(black, .35);
+  }
 
   .on {
     background-color: #47a447;
@@ -91,9 +92,18 @@ div#admin {
   }
 
   form {
+    label {
+      font-weight: normal;
+    }
+
     span#hint {
-      margin-left: 5px;
+      float: right;
+      font-size: 12px;
+      line-height: 20px;
+      font-weight: lighter;
       text-decoration: underline;
+      color: #CCCCCC;
+      cursor: pointer;
     }
 
     div.published-toggle {
