@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   resources :tweets, only: :index
   get "shows", to: "pages#shows"
-  get "releases", to: "pages#releases"
+  get "music", to: "pages#music"
   get "videos", to: "pages#videos"
   get "bio", to: "pages#bio"
   root "pages#index"

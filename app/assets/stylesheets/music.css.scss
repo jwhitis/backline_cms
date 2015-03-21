@@ -1,6 +1,6 @@
 @import "variables";
 
-div#releases {
+div#music {
   text-align: center;
 
   h2 {
@@ -83,7 +83,7 @@ div#releases {
 }
 
 @media (min-width: 768px) {
-  div#releases {
+  div#music {
     text-align: left;
   }
 }
