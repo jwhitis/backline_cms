@@ -6,10 +6,6 @@ module ApplicationHelper
     "#{time_in_words} ago"
   end
 
-  def admin_signed_in?
-    session[:admin]
-  end
-
   def admin_link
     if admin_signed_in?
       link_to "SIGN OUT", admin_sign_out_path, method: :delete

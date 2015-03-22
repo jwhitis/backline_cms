@@ -1,23 +1,37 @@
 class Admin::SessionsController < Admin::AdminController
-  skip_before_action :require_sign_in, only: [:new, :create]
+  skip_before_action :authenticate_admin!, only: [:new, :create]
 
   def new
-    redirect_to admin_path if session[:admin]
+    redirect_to admin_path if admin_signed_in?
   end
 
   def create
-    if params[:password] == ENV['ADMIN_PASSWORD']
-      session[:admin] = "D.B. Admin"
-      redirect_to admin_path, notice: "Welcome, Dirty Bird."
+    if password_is_correct?
+      sign_in_admin!
+      redirect_to admin_path, notice: "You are now signed in."
     else
-      flash.now[:alert] = "Nice try, bro."
+      flash.now[:alert] = "The password you entered is incorrect."
       render :new
     end
   end
 
   def destroy
-    session.delete(:admin)
-    redirect_to admin_sign_in_path, notice: "Adi&oacute;s, Dirty Bird.".html_safe
+    sign_out_admin!
+    redirect_to admin_sign_in_path, notice: "You are now signed out."
+  end
+
+  private
+
+  def password_is_correct?
+    params[:password] == ENV['ADMIN_PASSWORD']
+  end
+
+  def sign_in_admin!
+    session[:admin_id] = 1
+  end
+
+  def sign_out_admin!
+    session.delete(:admin_id)
   end
 
 end

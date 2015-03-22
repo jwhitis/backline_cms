@@ -1,5 +1,5 @@
 class Admin::AdminController < ApplicationController
-  before_action :require_sign_in
+  before_action :authenticate_admin!
 
   def index
     @shows = Show.order(:date)
@@ -7,9 +7,9 @@ class Admin::AdminController < ApplicationController
 
   private
 
-  def require_sign_in
-    unless session[:admin]
-      redirect_to admin_sign_in_path, alert: "Please, sign in first."
+  def authenticate_admin!
+    unless admin_signed_in?
+      redirect_to admin_sign_in_path, alert: "Please sign in to continue."
     end
   end
 
