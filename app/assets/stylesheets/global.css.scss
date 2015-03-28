@@ -51,7 +51,7 @@ div#banner {
   padding-top: 40px;
   padding-bottom: 5px;
   background: linear-gradient(to bottom, rgba(white, .75) 0%, rgba(white, .75) 50%, rgba(white, 1) 100%),
-    url(band_banner.jpg);
+    url(http://toddfarrell-production.s3.amazonaws.com/images/band_banner.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
@@ -73,7 +73,7 @@ div#main {
   color: white;
   // Treating the background color as a gradient allows you to layer it over an image.
   background: linear-gradient(to right, rgba(darken($blue, 15%), .5) 0%, rgba(darken($blue, 15%), .5) 100%),
-    url(night_sky_bw.jpeg);
+    url(http://toddfarrell-production.s3.amazonaws.com/images/night_sky_bw.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
