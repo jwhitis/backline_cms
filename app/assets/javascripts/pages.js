@@ -1,6 +1,6 @@
 $(document).on("ready page:load", function() {
 
-  // Show carousel caption on hover
+  // Show video carousel caption on hover
   $("div#content").on({
     mouseenter: toggleCaption,
     mouseleave: toggleCaption

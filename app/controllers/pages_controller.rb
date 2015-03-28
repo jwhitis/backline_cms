@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   respond_to :html, :js
 
   def index
-    redirect_to admin_signed_in? ? admin_path : music_path
+    redirect_to admin_signed_in? ? admin_path : shows_path
   end
 
   def shows
