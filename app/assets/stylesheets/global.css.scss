@@ -75,14 +75,8 @@ div#main {
   background: linear-gradient(to right, rgba(darken($blue, 15%), .5) 0%, rgba(darken($blue, 15%), .5) 100%),
     url(night_sky_bw.jpeg);
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-size: cover;
   background-position: center bottom;
-}
-
-@media (min-width: 459px) {
-  div#main {
-    background-size: 100%;
-  }
 }
 
 div#content {
