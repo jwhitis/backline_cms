@@ -1,24 +1,35 @@
-<%= render "layouts/flash_messages" %>
-<table class="table table-condensed">
+<%= link_to fa_icon("plus"), new_admin_video_path, remote: true, class: "btn btn-blue add-btn" %>
+
+<%= render "flash_messages" %>
+
+<table class="table">
   <thead>
     <tr>
-      <th class="published"></th>
-      <th class="date">Added</th>
+      <th></th>
+      <th>Added</th>
       <th>Title</th>
       <th class="edit"></th>
-      <th class="delete"></th>
     </tr>
   </thead>
   <tbody>
     <% @videos.each do |video| %>
       <tr>
-        <td class="published"><div class="circle <%= published_state(video) %>"></div></td>
-        <td class="date"><%= video.pretty_created_at %></td>
+        <td><%= video.published? ? fa_icon("check") : fa_icon("times") %></td>
+        <td><%= video.created_at.to_s(:numeric) %></td>
         <td><%= video.title %></td>
-        <td class="edit"><%= link_to fa_icon("edit"), edit_admin_video_path(video), remote: true, title: "Edit" %></td>
-        <td class="edit"><%= link_to fa_icon("trash-o"), admin_video_path(video), method: :delete, remote: true, title: "Delete", data: { confirm: "Are you sure you want to delete this video?" } %></td>
+        <td class="edit">
+          <%= link_to fa_icon("edit"), edit_admin_video_path(video), remote: true %>
+          <%= link_to fa_icon("trash-o"), admin_video_path(video), method: :delete, remote: true,
+            data: { confirm: "Are you sure you want to delete this video?" } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to "Add Video", new_admin_video_path, remote: true, class: "btn btn-blue" %>
+
+<div class="pagination-links clearfix">
+  <%= link_to_previous_page @videos, "#{fa_icon("caret-left")} PREV".html_safe,
+    remote: true %>
+  <%= link_to_next_page @videos, "NEXT #{fa_icon("caret-right")}".html_safe,
+    remote: true %>
+</div>

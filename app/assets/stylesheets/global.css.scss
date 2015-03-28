@@ -14,14 +14,14 @@ div#wrapper {
   min-height: 100%;
   padding-top: $nav-height;
   position: relative;
-  background-color: $main-background-color;
+  background-color: $light-grey;
 }
 
 a:hover, a:focus {
   text-decoration: none;
 }
 
-.btn-blue {
+.btn-blue, .btn-blue:focus {
   border-bottom: 1px solid rgba(black, .25);
   font-weight: bold;
   text-transform: uppercase;
@@ -29,10 +29,17 @@ a:hover, a:focus {
   text-shadow: 0 1px 1px rgba(black, .15);
   background-color: $blue;
   box-shadow: 0 1px 2px rgba(black, .25);
+  transition: all .3s ease;
 
   &:hover {
-    background-color: darken($blue, 5%);
     color: darken(white, 5%);
+    background-color: darken($blue, 5%);
+  }
+
+  &.active {
+    color: $blue;
+    background-color: $light-grey;
+    cursor: default;
   }
 }
 
@@ -97,8 +104,8 @@ footer {
       font-size: 12px;
 
       a {
-        color: #333333;
         text-decoration: underline;
+        color: #333333;
       }
     }
   }

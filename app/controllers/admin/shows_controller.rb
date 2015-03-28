@@ -2,7 +2,7 @@ class Admin::ShowsController < Admin::AdminController
   respond_to :js
 
   def index
-    @shows = Show.order(:date)
+    @shows = Show.display_order.page(params[:page])
   end
 
   def new
@@ -10,10 +10,10 @@ class Admin::ShowsController < Admin::AdminController
   end
 
   def create
-    params[:show][:date] = format_date(params[:date])
     @show = Show.new(show_params)
+
     if @show.save
-      @shows = Show.order(:date)
+      @shows = Show.display_order.page(params[:page])
       flash.now[:notice] = "Show successfully created."
       render :index
     else
@@ -27,9 +27,9 @@ class Admin::ShowsController < Admin::AdminController
 
   def update
     @show = Show.find(params[:id])
-    params[:show][:date] = format_date(params[:date])
+
     if @show.update_attributes(show_params)
-      @shows = Show.order(:date)
+      @shows = Show.display_order.page(params[:page])
       flash.now[:notice] = "Show successfully updated."
       render :index
     else
@@ -40,21 +40,16 @@ class Admin::ShowsController < Admin::AdminController
   def destroy
     @show = Show.find(params[:id])
     @show.destroy
-    @shows = Show.order(:date)
+    @shows = Show.display_order.page(params[:page])
     flash.now[:notice] = "Show successfully deleted."
+    render :index
   end
 
   private
 
   def show_params
-    params.require(:show).permit(:venue_name, :date, :time, :cover, :address, :city, :state, :zip, :notes, :published)
-  end
-
-  def format_date date
-    return nil if date.blank?
-    date = date.split("-")
-    date[0], date[1] = date[1], date[0]
-    date.join("-").to_datetime
+    params.require(:show).permit(:venue_name, :venue_url, :date, :time, :cover,
+      :address, :city, :state, :zip, :notes, :published)
   end
 
 end

@@ -1,0 +1,31 @@
+@import "variables";
+
+div#validation-errors {
+  padding: 8px 12px;
+  font-weight: lighter;
+  color: white;
+  text-shadow: 0 1px 1px rgba(black, .15);
+  background-color: $danger;
+  box-shadow: 0 1px 2px rgba(black, .15);
+
+  button {
+    padding: 0;
+    float: right;
+    border: none;
+    font-size: 16px;
+    line-height: 20px;
+    color: inherit;
+    text-shadow: inherit;
+    background-color: transparent;
+    transition: all .3s ease;
+
+    &:hover {
+      color: #CCCCCC;
+    }
+  }
+
+  ul {
+    padding: 0;
+    list-style-position: inside;
+  }
+}

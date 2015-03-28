@@ -2,7 +2,7 @@ class Admin::AdminController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @shows = Show.order(:date)
+    @shows = Show.display_order.page(params[:page])
   end
 
   private

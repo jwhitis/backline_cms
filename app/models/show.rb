@@ -1,20 +1,16 @@
 class Show < ActiveRecord::Base
   validates_presence_of :venue_name, :date, :city, :state
 
-  def pretty_date
-    (date || Date.today).strftime("%-m-%-d-%Y")
+  def location
+    "#{self.city}, #{self.state}"
   end
 
-  def pretty_address
-    "#{address}#{"<br />" if address.present?}#{city}#{"," if city.present?} #{state} #{zip}"
+  def self.display_order
+    order(date: :desc)
   end
 
   def self.published
     where(published: true)
-  end
-
-  def self.recent
-    order(date: :desc)
   end
 
 end

@@ -1,0 +1,12 @@
+<% if resource.errors.any? %>
+  <div id="validation-errors" class="alert alert-dismissable fade in">
+    <button type="button" data-dismiss="alert" aria-hidden="true">
+      <%= fa_icon("times") %>
+    </button>
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= "#{message}." %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

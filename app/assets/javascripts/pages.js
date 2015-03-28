@@ -67,4 +67,9 @@ $(document).on("ready page:load", function() {
     }
   });
 
+  // Initialize tooltips
+  $("div#content").tooltip({
+    selector: "[data-toggle='tooltip']"
+  });
+
 });

@@ -2,7 +2,7 @@ class Admin::VideosController < Admin::AdminController
   respond_to :js
 
   def index
-    @videos = Video.order(:created_at)
+    @videos = Video.display_order.page(params[:page])
   end
 
   def new
@@ -11,8 +11,9 @@ class Admin::VideosController < Admin::AdminController
 
   def create
     @video = Video.new(video_params)
+
     if @video.save
-      @videos = Video.order(:created_at)
+      @videos = Video.display_order.page(params[:page])
       flash.now[:notice] = "Video successfully created."
       render :index
     else
@@ -26,8 +27,9 @@ class Admin::VideosController < Admin::AdminController
 
   def update
     @video = Video.find(params[:id])
+
     if @video.update_attributes(video_params)
-      @videos = Video.order(:created_at)
+      @videos = Video.display_order.page(params[:page])
       flash.now[:notice] = "Video successfully updated."
       render :index
     else
@@ -38,8 +40,9 @@ class Admin::VideosController < Admin::AdminController
   def destroy
     @video = Video.find(params[:id])
     @video.destroy
-    @videos = Video.order(:created_at)
+    @videos = Video.display_order.page(params[:page])
     flash.now[:notice] = "Video successfully deleted."
+    render :index
   end
 
   private

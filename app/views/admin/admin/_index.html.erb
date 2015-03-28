@@ -1,10 +1,9 @@
-<h2>Admin</h2>
 <div id="admin">
-  <ul class="nav nav-pills">
-    <li class="active"><%= link_to "Shows", admin_shows_path, remote: true %></li>
-    <li><%= link_to "Videos", admin_videos_path, remote: true %></li>
-  </ul>
-  <div id="tab-content">
+  <nav class="clearfix">
+    <%= link_to "Shows", admin_shows_path, remote: true, class: "btn btn-blue active" %>
+    <%= link_to "Videos", admin_videos_path, remote: true, class: "btn btn-blue" %>
+  </nav>
+  <div id="admin-content">
     <%= render "admin/shows/shows" %>
   </div>
 </div>

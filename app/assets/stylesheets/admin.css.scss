@@ -1,6 +1,8 @@
 @import "variables";
 
 div#admin {
+  position: relative;
+
   h2 {
     margin: 0 0 10px 0;
     text-align: center;
@@ -8,85 +10,67 @@ div#admin {
     text-shadow: 0 1px 1px rgba(black, .35);
   }
 
-  .on {
-    background-color: #47a447;
-  }
-  .off {
-    background-color: #d2322d;
-  }
+  nav {
+    margin-bottom: 20px;
 
-  div#errors {
-    ul {
-      padding: 0;
-      list-style: none;
+    a {
+      float: left;
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
     }
   }
 
-  ul.nav {
-    margin-bottom: 15px;
-
-    li a:hover {
-      background-color: transparent;
-      color: white;
-    }
-    li.active a,
-    li.active a:hover  {
-      background-color: white;
-      color: $pink;
-    }
+  a.add-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 18px;
+    line-height: 20px;
   }
 
   table {
     margin: 15px 0;
+    text-shadow: 0 1px 1px rgba(black, .35);
 
     th {
       border: none;
+      font-weight: normal;
     }
 
     td {
-      border-color: rgba(181, 181, 181, .1);
-    }
+      border-color: rgba(white, .15);
+      font-weight: lighter;
 
-    @media (max-width: 419px) {
-      th.published, td.published,
-      th.cover, td.cover {
-        display: none;
-      }
-    }
-    th.published, td.published {
-      width: 35px;
-
-      div.circle {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-      }
-    }
-    th.date, td.date {
-      width: 84px;
-    }
-    @media (max-width: 599px), (min-width: 768px) and (max-width: 991px) {
-      th.address, td.address {
-        display: none;
-      }
-    }
-    th.edit, td.edit {
-      width: 28px;
-      padding: 3px 5px 2px 5px;
-      text-align: center;
-
-      a {
-        display: none;
+      i.fa {
         font-size: 18px;
-        color: #333333;
-      }
-      @media (max-width: 767px) {
-        a {
-          display: inline !important;
+        line-height: 20px;
+
+        &.fa-check {
+          color: $success;
+        }
+
+        &.fa-ellipsis-h {
+          color: #CCCCCC;
         }
       }
-      a:hover {
-        color: white;
+
+      &.edit {
+        text-align: right;
+
+        a {
+          color: white;
+          transition: all .3s ease;
+
+          &:not(:last-child) {
+            margin-right: 6px;
+          }
+
+          &:hover {
+            color: #CCCCCC;
+          }
+        }
       }
     }
   }
@@ -94,9 +78,15 @@ div#admin {
   form {
     label {
       font-weight: normal;
+      text-shadow: 0 1px 1px rgba(black, .35);
+
+      &.required:after {
+        content: "*";
+        margin-left: 3px;
+      }
     }
 
-    span#hint {
+    span.hint {
       float: right;
       font-size: 12px;
       line-height: 20px;
@@ -106,36 +96,28 @@ div#admin {
       cursor: pointer;
     }
 
-    div.published-toggle {
-      margin: 0 -15px 15px -15px;
-      padding: 5px 15px;
-      display: block;
-      text-align: center;
-      cursor: pointer;
+    i.fa-info-circle {
+      margin-left: 2px;
+      font-size: 16px;
+    }
 
-      input[type="checkbox"] {
-        display: none;
-      }
+    div.checkbox {
+      margin: 15px 0;
+      padding: 8px 12px 8px 32px;
+      border-radius: 4px;
+      text-shadow: 0 1px 1px rgba(black, .35);
+      background-color: rgba($warning, .85);
+      box-shadow: 0 1px 2px rgba(black, .15);
 
-      &.on {
-        span.off-text {
-          display: none;
-        }
-      }
-      &.off {
-        span.on-text {
-          display: none;
-        }
-      }
-
-      a {
-        text-decoration: underline;
+      &.published {
+        background-color: rgba($success, .85);
       }
     }
 
     a.cancel {
-      margin-left: 15px;
+      margin-left: 12px;
       text-decoration: underline;
+      color: white;
     }
   }
 }

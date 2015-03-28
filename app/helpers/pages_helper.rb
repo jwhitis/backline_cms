@@ -1,17 +1,10 @@
 module PagesHelper
 
-  def formatted_show_date show
-    show.date.strftime("%b %d")
-  end
-
   def venue_link show
     return show.venue_name if show.venue_url.blank?
 
+    # In order for the link to open properly, the venue URL must contain the protocol.
     link_to show.venue_name, show.venue_url, target: "_blank"
-  end
-
-  def formatted_show_location show
-    "#{show.city}, #{show.state}"
   end
 
   def google_maps_link show

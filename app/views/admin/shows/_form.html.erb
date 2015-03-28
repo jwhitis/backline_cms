@@ -1,24 +1,25 @@
-<%= render "layouts/errors", model: @show %>
-<%= form_for [:admin, @show], remote: true do |f| %>
-  <div class="published-toggle <%= published_state(@show) %>">
-    <%= f.check_box :published %>
-    <span class="on-text">
-      This show is currently published. <a href="javascript:void(0)">Unpublish it?</a>
-    </span>
-    <span class="off-text">
-      This show is currently unpublished. <a href="javascript:void(0)">Publish it?</a>
-    </span>
-  </div>
+<%= render "validation_errors", resource: @show %>
 
-  <div class="form-group">
-    <%= f.label :venue_name %>
-    <%= f.text_field :venue_name, class: "form-control" %>
+<%= form_for [:admin, @show], remote: true do |f| %>
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <%= f.label :venue_name, "Venue Name", class: "required" %>
+      <%= f.text_field :venue_name, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-sm-6">
+      <%= f.label :venue_url, "Venue URL" %>
+      <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
+        title: "To ensure that the link opens properly, please copy and paste the URL from your address bar.") %>
+      <%= f.text_field :venue_url, class: "form-control" %>
+    </div>
   </div>
 
   <div class="row">
     <div class="form-group col-sm-4">
-      <%= label_tag :date %>
-      <%= text_field_tag :date, @show.pretty_date, class: "form-control datepicker" %>
+      <%= f.label :date, class: "required" %>
+      <%= f.text_field :date, value: @show.date ? @show.date.to_s(:long) : nil,
+        class: "form-control datepicker" %>
     </div>
 
     <div class="form-group col-sm-4">
@@ -39,12 +40,12 @@
 
   <div class="row">
     <div class="form-group col-sm-6">
-      <%= f.label :city %>
+      <%= f.label :city, class: "required" %>
       <%= f.text_field :city, class: "form-control" %>
     </div>
 
     <div class="form-group col-sm-3">
-      <%= f.label :state %>
+      <%= f.label :state, class: "required" %>
       <%= f.text_field :state, class: "form-control" %>
     </div>
 
@@ -56,9 +57,15 @@
 
   <div class="form-group">
     <%= f.label :notes %>
-    <%= f.text_area :notes, rows: 4, class: "form-control" %>
+    <%= f.text_area :notes, rows: 3, class: "form-control" %>
   </div>
 
-  <%= f.submit "Submit", class: "btn btn-blue" %>
+  <div class="checkbox <%= "published" if @show.published? %>">
+    <%= f.label :published do %>
+      <%= f.check_box :published %> Publish this show?
+    <% end %>
+  </div>
+
+  <%= f.submit "Save", class: "btn btn-blue" %>
   <%= link_to "Cancel", admin_shows_path, remote: true, class: "cancel" %>
 <% end %>

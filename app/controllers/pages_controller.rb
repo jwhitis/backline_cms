@@ -7,14 +7,14 @@ class PagesController < ApplicationController
   end
 
   def shows
-    @shows = Show.published.recent.page(params[:page]).per(8)
+    @shows = Show.published.display_order.page(params[:page]).per(8)
   end
 
   def music
   end
 
   def videos
-    @videos = Video.published.order("created_at DESC")
+    @videos = Video.published.display_order
   end
 
 end

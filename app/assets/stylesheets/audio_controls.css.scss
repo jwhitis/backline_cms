@@ -106,7 +106,7 @@ div#now-playing {
   border-top: 1px solid darken($red, 5%);
   border-left: 1px solid darken($red, 5%);
   border-radius: 4px;
-  background: linear-gradient(to right, $main-background-color 0%, white 30%, white 70%, $main-background-color 100%);
+  background: linear-gradient(to right, $light-grey 0%, white 30%, white 70%, $light-grey 100%);
   font-family: $audio-font;
   font-size: 16px;
 }

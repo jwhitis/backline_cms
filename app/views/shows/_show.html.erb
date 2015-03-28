@@ -1,6 +1,6 @@
 <div class="row show">
   <div class="col-xs-2 text-center">
-    <%= formatted_show_date(show) %>
+    <%= show.date.to_s(:short) %>
   </div>
   <div class="col-xs-5 <%= "multiline" if show.notes.present? %>">
     <%= venue_link(show) %>
@@ -10,7 +10,7 @@
   </div>
   <div class="col-xs-5 col-sm-3 location">
     <%= google_maps_link(show) %>
-    <%= formatted_show_location(show) %>
+    <%= show.location %>
   </div>
   <div class="col-sm-2 hidden-xs text-center">
     <%= show.cover %>

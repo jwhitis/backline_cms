@@ -1,3 +1,3 @@
-$("div#admin ul.nav li").removeClass("active");
-$("a[href='/admin/videos'").parent("li").addClass("active");
-$("div#tab-content").html("<%=j render 'videos' %>");
+$("div#admin nav a").removeClass("active");
+$("a[href='/admin/videos'").addClass("active");
+$("div#admin-content").html("<%=j render 'videos' %>");

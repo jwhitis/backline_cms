@@ -1,30 +1,27 @@
-<%= render "layouts/errors", model: @video %>
-<%= form_for [:admin, @video], remote: true do |f| %>
-  <div class="published-toggle <%= published_state(@video) %>">
-    <%= f.check_box :published %>
-    <span class="on-text">
-      This video is currently published. <a href="javascript:void(0)">Unpublish it?</a>
-    </span>
-    <span class="off-text">
-      This video is currently unpublished. <a href="javascript:void(0)">Publish it?</a>
-    </span>
-  </div>
+<%= render "validation_errors", resource: @video %>
 
+<%= form_for [:admin, @video], remote: true do |f| %>
   <div class="form-group">
-    <%= f.label :title %>
+    <%= f.label :title, class: "required" %>
     <%= f.text_field :title, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :caption %>
-    <%= f.text_area :caption, rows: 4, class: "form-control" %>
+    <%= f.text_area :caption, rows: 3, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :embed %>
-    <%= f.text_area :embed, rows: 4, class: "form-control" %>
+    <%= f.label :embed, class: "required" %>
+    <%= f.text_area :embed, rows: 3, class: "form-control" %>
   </div>
 
-  <%= f.submit "Submit", class: "btn btn-blue" %>
+  <div class="checkbox <%= "published" if @video.published? %>">
+    <%= f.label :published do %>
+      <%= f.check_box :published %> Publish this video?
+    <% end %>
+  </div>
+
+  <%= f.submit "Save", class: "btn btn-blue" %>
   <%= link_to "Cancel", admin_videos_path, remote: true, class: "cancel" %>
 <% end %>
