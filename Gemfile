@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 gem 'autoprefixer-rails'
+gem 'carrierwave'
+gem 'fog-aws'
 gem 'font-awesome-rails'
 gem 'kaminari'
 gem 'newrelic_rpm'
