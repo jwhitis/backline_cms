@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :tweets, only: :index
   get "shows", to: "pages#shows"
   get "music", to: "pages#music"
+  get "photos", to: "pages#photos"
   get "videos", to: "pages#videos"
   root "pages#index"
 

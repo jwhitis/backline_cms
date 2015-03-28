@@ -13,6 +13,9 @@ class PagesController < ApplicationController
   def music
   end
 
+  def photos
+  end
+
   def videos
     @videos = Video.published.display_order
   end
