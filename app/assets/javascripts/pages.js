@@ -1,5 +1,8 @@
 $(document).on("ready page:load", function() {
 
+  // Initialize Transformicons
+  transformicons.add(".tcon");
+
   // Highlight active tab
   var path = window.location.pathname.split("/");
   path = path[path.length - 1];
@@ -9,23 +12,9 @@ $(document).on("ready page:load", function() {
     $(this).addClass("active");
   });
 
-  // Initialize Transformicons
-  transformicons.add(".tcon");
-
-  // Collapse navbar on page select
-  $(this).on("ajaxSuccess", function() {
-    $("div#my-navbar-collapse").collapse("hide");
-    transformicons.revert(".tcon");
-  });
-
   // Show tweet profile image on hover
   $("div#twitter-stream a.tweet").hover(function() {
     $(this).find("div.overlay").stop().fadeToggle(300);
-  });
-
-  // Initialize tooltips
-  $("div#content").tooltip({
-    selector: "[data-toggle='tooltip']"
   });
 
   // Show video carousel caption on hover
@@ -39,5 +28,21 @@ $(document).on("ready page:load", function() {
       $("div.carousel-caption").toggle();
     }
   }
+
+  // Initialize tooltips
+  $("div#content").tooltip({
+    selector: "[data-toggle='tooltip']"
+  });
+
+});
+
+$(document).on("ajaxSuccess", function() {
+
+  // Collapse navbar on page change
+  $("div#my-navbar-collapse").collapse("hide");
+  transformicons.revert(".tcon");
+
+  // Set vertical scroll position on page change
+  $("body").scrollTop(130);
 
 });

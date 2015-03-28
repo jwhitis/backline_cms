@@ -5,14 +5,14 @@ $(document).on("ready page:load ajaxSuccess", function() {
     $("div.alert.timer").alert("close");
   }, 3000);
 
+});
+
+$(document).on("ajaxSuccess", function() {
+
   // Initialize datepickers
   $("input.datepicker").datepicker({
     dateFormat: "DD, MM d, yy"
   });
-
-});
-
-$(document).on("ready page:load", function() {
 
   // Clicking published checkbox toggles published class on parent
   $("div#content").on("change", "input#show_published, input#video_published", function() {
