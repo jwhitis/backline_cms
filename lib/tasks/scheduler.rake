@@ -1,6 +1,10 @@
-desc "Save new tweets and discard old tweets"
-task refresh_tweets: :environment do
-  puts "Refreshing tweets..."
-  TweetRefresher.refresh
-  puts "All done."
+namespace :tweets do
+
+  desc "Discard old tweets in exchange for new ones"
+  task refresh: :environment do
+    puts "Refreshing tweets..."
+    TweetRefresher.refresh
+    puts "All done."
+  end
+
 end
