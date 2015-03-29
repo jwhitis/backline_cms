@@ -15,7 +15,7 @@ $(document).on("ajaxSuccess", function() {
   });
 
   // Clicking published checkbox toggles published class on parent
-  $("div#content").on("change", "input#show_published, input#video_published", function() {
+  $("div#content").on("change", "input.published", function() {
     $(this).parents("div.checkbox").toggleClass("published");
   });
 

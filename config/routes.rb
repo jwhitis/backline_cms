@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     post "sign-in", to: "sessions#create"
     delete "sign-out", to: "sessions#destroy", as: :sign_out
     resources :shows, except: :show
+    resources :photos, except: :show
     resources :videos, except: :show
   end
   resources :tweets, only: :index

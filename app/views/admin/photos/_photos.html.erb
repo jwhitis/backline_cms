@@ -1,0 +1,35 @@
+<%= link_to fa_icon("plus"), new_admin_photo_path, remote: true, class: "btn btn-blue add-btn" %>
+
+<%= render "flash_messages" %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Added</th>
+      <th>Caption</th>
+      <th class="edit"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @photos.each do |photo| %>
+      <tr>
+        <td><%= photo.published? ? fa_icon("check") : fa_icon("ellipsis-h") %></td>
+        <td><%= photo.created_at.to_s(:numeric) %></td>
+        <td><%= photo.caption %></td>
+        <td class="edit">
+          <%= link_to fa_icon("edit"), edit_admin_photo_path(photo), remote: true %>
+          <%= link_to fa_icon("trash-o"), admin_photo_path(photo), method: :delete, remote: true,
+            data: { confirm: "Are you sure you want to delete this photo?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="pagination-links clearfix">
+  <%= link_to_previous_page @photos, "#{fa_icon("caret-left")} PREV".html_safe,
+    remote: true %>
+  <%= link_to_next_page @photos, "NEXT #{fa_icon("caret-right")}".html_safe,
+    remote: true %>
+</div>

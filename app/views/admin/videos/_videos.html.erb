@@ -14,7 +14,7 @@
   <tbody>
     <% @videos.each do |video| %>
       <tr>
-        <td><%= video.published? ? fa_icon("check") : fa_icon("times") %></td>
+        <td><%= video.published? ? fa_icon("check") : fa_icon("ellipsis-h") %></td>
         <td><%= video.created_at.to_s(:numeric) %></td>
         <td><%= video.title %></td>
         <td class="edit">

@@ -1,0 +1,25 @@
+<%= render "validation_errors", resource: @photo %>
+
+<%= form_for [:admin, @photo], remote: true do |f| %>
+  <div class="form-group">
+    <%= f.label :image, class: "required" %>
+    <i class="image-formats">Please choose an image in one of these formats: JPG, JPEG, GIF, PNG</i>
+    <%= f.file_field :image %>
+  </div>
+
+  <%= image_tag @photo.image.thumb.url, class: "preview" %>
+
+  <div class="form-group">
+    <%= f.label :caption %>
+    <%= f.text_area :caption, rows: 3, class: "form-control" %>
+  </div>
+
+  <div class="checkbox <%= "published" if @photo.published? %>">
+    <%= f.label :published do %>
+      <%= f.check_box :published, class: "published" %> Publish this photo?
+    <% end %>
+  </div>
+
+  <%= f.submit "Save", class: "btn btn-blue" %>
+  <%= link_to "Cancel", admin_photos_path, remote: true, class: "cancel" %>
+<% end %>
