@@ -3,11 +3,12 @@ ruby '2.2.0'
 
 gem 'autoprefixer-rails'
 gem 'carrierwave'
-gem 'fog-aws'
+gem 'fog'
 gem 'font-awesome-rails'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'newrelic_rpm'
+gem 'remotipart', '~> 1.2'
 gem 'responders', '~> 2.0'
 gem 'twitter'
 
