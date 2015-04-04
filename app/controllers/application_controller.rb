@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   helper_method :admin_signed_in?
 
   def expose_tweets
-    @tweets = Tweet.display_order
+    @tweets = Tweet.display_order.limit(7)
   end
 
 end

@@ -1,8 +1,7 @@
-$container-padding: 30px;
-$gutter-width: 15px;
+$photo-gutter: 15px;
 
-@mixin photo-width($container-width, $columns) {
-  width: ($container-width - ($gutter-width * ($columns - 1))) / $columns;
+@mixin photo-width($gallery-width, $columns) {
+  width: ($gallery-width - ($photo-gutter * ($columns - 1))) / $columns;
 }
 
 div#photos {
@@ -12,7 +11,7 @@ div#photos {
 
   a.photo {
     width: 100%;
-    margin-bottom: $gutter-width;
+    margin-bottom: $photo-gutter;
     box-shadow: 0 2px 5px rgba(black, .5);
 
     img {
