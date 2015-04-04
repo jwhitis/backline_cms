@@ -10,6 +10,20 @@ body {
   font-family: $main-font;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: $main-font;
+}
+
+.page-title {
+  margin: 0 0 20px 0;
+  text-align: center;
+  font-family: $header-font;
+  font-size: 32px;
+  letter-spacing: 1px;
+  color: $light-grey;
+  text-shadow: 0 1px 1px rgba(black, .35);
+}
+
 div#wrapper {
   min-height: 100%;
   padding-top: $nav-height;
@@ -85,7 +99,7 @@ div.fixed-width {
 }
 
 footer {
-  padding: 40px 0;
+  padding: 30px 0 40px 0;
 
   div.copyright {
     text-align: center;

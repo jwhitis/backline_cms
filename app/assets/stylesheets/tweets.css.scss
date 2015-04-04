@@ -8,19 +8,19 @@ $tweet-gutter: 10px;
 }
 
 div#twitter-stream {
-  margin: 0 (-$tweet-gutter) 40px (-$tweet-gutter);
+  margin: 0 (-$tweet-gutter) 30px (-$tweet-gutter);
   padding-left: $tweet-gutter;
   text-align: center;
 
   div.tweet-container {
     @include tweet-container-width(2);
     height: 160px;
-    overflow-y: hidden;
+    overflow: hidden;
     padding: 10px 0;
     display: inline-block;
   }
 
-  @media (min-width: 440px) {
+  @media (min-width: 470px) {
     div.tweet-container {
       @include tweet-container-width(3);
     }

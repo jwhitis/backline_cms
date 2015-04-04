@@ -3,16 +3,8 @@
 div#music {
   text-align: center;
 
-  h2 {
-    margin: 0 0 10px 0;
-    padding-left: 3px;
-    font-size: 28px;
-    font-weight: normal;
-    text-shadow: 0 1px 1px rgba(black, .35);
-  }
-
   div.cover, div.details {
-    max-width: 500px;
+    max-width: 438px;
     margin: 0 auto;
   }
 
@@ -40,6 +32,7 @@ div#music {
       padding: 0;
       list-style-position: inside;
       font-weight: lighter;
+      color: $light-grey;
     }
   }
 
@@ -85,5 +78,10 @@ div#music {
 @media (min-width: 768px) {
   div#music {
     text-align: left;
+
+    h2.page-title {
+      text-align: left;
+      padding-left: 3px;
+    }
   }
 }

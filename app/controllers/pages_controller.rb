@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   end
 
   def photos
-    @photos = Photo.published.display_order.page(params[:page])
+    @photos = Photo.published.display_order.page(params[:page]).per(15)
   end
 
   def videos

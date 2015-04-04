@@ -100,13 +100,14 @@ div#next {
 div#now-playing {
   width: 310px;
   height: 35px;
+  overflow: hidden;
   margin: 7px 0 0 10px;
-  padding: 8px 0 0 10px;
+  padding: 0 10px;
   float: left;
   border-top: 1px solid darken($red, 5%);
   border-left: 1px solid darken($red, 5%);
   border-radius: 4px;
   background: linear-gradient(to right, $light-grey 0%, white 30%, white 70%, $light-grey 100%);
-  font-family: $audio-font;
   font-size: 16px;
+  line-height: 34px;
 }

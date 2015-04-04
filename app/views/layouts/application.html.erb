@@ -3,7 +3,8 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Todd Farrell, Jr.</title>
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700|Aldrich" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700|Oswald"
+    rel="stylesheet" type="text/css" />
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -15,7 +16,7 @@
 
   <div id="banner">
     <div class="container">
-      <%= link_to root_path do %>
+      <%= link_to root_path, remote: true do %>
         <%= image_tag "http://toddfarrell-production.s3.amazonaws.com/images/band_logo_v8.png" %>
       <% end %>
     </div>
