@@ -42,14 +42,16 @@ $(document).on("ready page:load", function() {
 
 });
 
-$(document).on("ajaxSuccess", function() {
+$(document).on("ajaxSuccess", function(event, xhr, settings) {
 
   // Collapse navbar on page change
   $("div#my-navbar-collapse").collapse("hide");
   transformicons.revert(".tcon");
 
-  // Set vertical scroll position on page change
-  $("body").scrollTop(130);
+  // Set vertical scroll position on page change (not including pagination)
+  if (!settings.url.match(/page=\d+/)) {
+    $("body").scrollTop(130);
+  }
 
   // Initialize Masonry for photo gallery
   initializeMasonry();
