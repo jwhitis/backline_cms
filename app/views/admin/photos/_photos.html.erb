@@ -8,6 +8,7 @@
       <th></th>
       <th>Added</th>
       <th>Caption</th>
+      <th></th>
       <th class="edit"></th>
     </tr>
   </thead>
@@ -17,6 +18,10 @@
         <td><%= photo.published? ? fa_icon("check") : fa_icon("ellipsis-h") %></td>
         <td><%= photo.created_at.to_s(:numeric) %></td>
         <td><%= photo.caption %></td>
+        <td>
+          <%= link_to "Preview", photo.image.display.url, rel: "photo-previews",
+            title: photo_title(photo), class: "photo-preview" %>
+        </td>
         <td class="edit">
           <%= link_to fa_icon("edit"), edit_admin_photo_path(photo), remote: true %>
           <%= link_to fa_icon("trash-o"), admin_photo_path(photo), method: :delete, remote: true,

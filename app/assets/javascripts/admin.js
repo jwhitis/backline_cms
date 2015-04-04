@@ -1,13 +1,14 @@
-$(document).on("ready page:load ajaxSuccess", function() {
+$(document).on("ready page:load", function() {
 
   // Fade out alerts after 3 seconds
-  window.setTimeout(function() {
-    $("div.alert.timer").alert("close");
-  }, 3000);
+  fadeOutAlerts();
 
 });
 
 $(document).on("ajaxSuccess", function() {
+
+  // Fade out alerts after 3 seconds
+  fadeOutAlerts();
 
   // Initialize datepickers
   $("input.datepicker").datepicker({
@@ -19,4 +20,13 @@ $(document).on("ajaxSuccess", function() {
     $(this).parents("div.checkbox").toggleClass("published");
   });
 
+  // Initialize Fancybox for photo previews
+  $("a.photo-preview").fancybox(fancybox_options);
+
 });
+
+function fadeOutAlerts() {
+  window.setTimeout(function() {
+    $("div.alert.timer").alert("close");
+  }, 3000);
+}

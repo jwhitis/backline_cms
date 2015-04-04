@@ -1,3 +1,12 @@
 <div id="photos">
-  <H2>PHOTOS</h2>
+  <div id="photo-gallery">
+    <%= render @photos %>
+  </div>
+
+  <div class="pagination-links clearfix">
+    <%= link_to_previous_page @photos, "#{fa_icon("caret-left")} PREV".html_safe,
+      remote: true %>
+    <%= link_to_next_page @photos, "NEXT #{fa_icon("caret-right")}".html_safe,
+      remote: true %>
+  </div>
 </div>

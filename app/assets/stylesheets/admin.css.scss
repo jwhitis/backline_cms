@@ -11,9 +11,10 @@ div#admin {
   }
 
   nav {
-    margin-bottom: 20px;
+    padding-right: 55px;
 
     a {
+      margin-bottom: 15px;
       float: left;
 
       &:not(:last-child) {
@@ -33,6 +34,19 @@ div#admin {
   table {
     margin: 15px 0;
     text-shadow: 0 1px 1px rgba(black, .35);
+
+    a {
+      color: white;
+      transition: all .3s ease;
+
+      &:hover {
+        color: $slate;
+      }
+
+      &.photo-preview {
+        text-decoration: underline;
+      }
+    }
 
     th {
       border: none;
@@ -59,17 +73,8 @@ div#admin {
       &.edit {
         text-align: right;
 
-        a {
-          color: white;
-          transition: all .3s ease;
-
-          &:not(:last-child) {
-            margin-right: 6px;
-          }
-
-          &:hover {
-            color: #CCCCCC;
-          }
+        a:not(:last-child) {
+          margin-right: 6px;
         }
       }
     }
@@ -101,14 +106,14 @@ div#admin {
       font-size: 16px;
     }
 
-    i.image-formats {
+    i.photo-formats {
       margin-bottom: 5px;
       display: block;
       font-weight: lighter;
       font-style: normal;
     }
 
-    img.preview {
+    img.photo-preview {
       max-width: 100%;
       margin-bottom: 15px;
       box-shadow: 0 2px 5px rgba(black, .5);

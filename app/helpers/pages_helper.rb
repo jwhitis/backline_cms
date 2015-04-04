@@ -15,4 +15,8 @@ module PagesHelper
       class: "google-maps-link"
   end
 
+  def photo_title photo
+    "<div class=\"photo-caption\">#{photo.caption}</div>"
+  end
+
 end

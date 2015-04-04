@@ -1,0 +1,4 @@
+<%= link_to photo.image.display.url, rel: "photo-gallery", title: photo_title(photo),
+  class: "photo" do %>
+  <%= image_tag photo.image.thumb.url %>
+<% end %>

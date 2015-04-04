@@ -1,0 +1,46 @@
+$container-padding: 30px;
+$gutter-width: 15px;
+
+@mixin photo-width($container-width, $columns) {
+  width: ($container-width - ($gutter-width * ($columns - 1))) / $columns;
+}
+
+div#photos {
+  div#photo-gallery {
+    margin: 0 auto;
+  }
+
+  a.photo {
+    width: 100%;
+    margin-bottom: $gutter-width;
+    box-shadow: 0 2px 5px rgba(black, .5);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 414px) {
+    a.photo {
+      @include photo-width(384px, 2);
+    }
+  }
+
+  @media (min-width: 768px) {
+    a.photo {
+      @include photo-width(720px, 3);
+    }
+  }
+
+  @media (min-width: 992px) {
+    a.photo {
+      @include photo-width(940px, 4);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    a.photo {
+      @include photo-width(1140px, 5);
+    }
+  }
+}

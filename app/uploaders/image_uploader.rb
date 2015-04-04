@@ -33,7 +33,8 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fit: [345, 345]
+    # The height is arbitrarily large so that the width always constrains the image.
+    process resize_to_fit: [345, 9999]
   end
 
   version :display do

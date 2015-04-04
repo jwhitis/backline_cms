@@ -24,7 +24,7 @@ $(document).on("ready page:load", function() {
   }, "div#video-carousel");
 
   function toggleCaption() {
-    if ($(window).width() > 767) {
+    if ($(window).width() >= 768) {
       $("div.carousel-caption").toggle();
     }
   }
@@ -33,6 +33,12 @@ $(document).on("ready page:load", function() {
   $("div#content").tooltip({
     selector: "[data-toggle='tooltip']"
   });
+
+  // Initialize Masonry for photo gallery
+  initializeMasonry();
+
+  // Initialize Fancybox for photo gallery
+  initializeFancybox();
 
 });
 
@@ -45,4 +51,30 @@ $(document).on("ajaxSuccess", function() {
   // Set vertical scroll position on page change
   $("body").scrollTop(130);
 
+  // Initialize Masonry for photo gallery
+  initializeMasonry();
+
+  // Initialize Fancybox for photo gallery
+  initializeFancybox();
+
 });
+
+function initializeMasonry() {
+  $("div#photo-gallery").imagesLoaded(function() {
+    $("div#photo-gallery").masonry({
+      itemSelector: "a.photo",
+      gutter: 15,
+      isFitWidth: true
+    });
+  });
+}
+
+function initializeFancybox() {
+  if ($(window).width() >= 768) {
+    $("a.photo").fancybox(fancybox_options);
+  } else {
+    $("a.photo").click(function(event) {
+      event.preventDefault();
+    });
+  }
+}

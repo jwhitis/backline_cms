@@ -1,0 +1,56 @@
+div.fancybox-skin {
+  border-radius: 0;
+  text-shadow: 0 1px 2px rgba(black, .5);
+
+  a {
+    color: white;
+    transition: all .3s ease;
+
+    &:hover {
+      color: #CCCCCC;
+    }
+  }
+
+  a.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    z-index: 8050;
+    font-size: 12px;
+    letter-spacing: .5px;
+    font-weight: bold;
+  }
+
+  i.fa-chevron-right,
+  i.fa-chevron-left {
+    margin-top: -14px;
+    position: absolute;
+    top: 50%;
+    z-index: 8040;
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  i.fa-chevron-right {
+    right: 10px;
+  }
+
+  i.fa-chevron-left {
+    left: 10px;
+  }
+
+  div.fancybox-title-over-wrap {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    background-color: transparent;
+
+    div.photo-caption {
+      padding: 8px 15px;
+      display: inline-block;
+      font-family: inherit;
+      font-size: 14px;
+      background-color: rgba(black, .8);
+    }
+  }
+}
