@@ -19,4 +19,6 @@
 //= require jquery-ui-1.10.4.custom
 //= require jquery.fancybox
 //= require transformicons
+//= require masonry
+//= require imagesloaded
 //= require_tree .
