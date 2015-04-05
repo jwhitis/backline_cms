@@ -1,6 +1,6 @@
 <div class="row show">
   <div class="col-xs-2 text-center">
-    <%= show.date.to_s(:short) %>
+    <%= formatted_show_date(show) %>
   </div>
   <div class="col-xs-5 <%= "multiline" if show.notes.present? %>">
     <%= venue_link(show) %>

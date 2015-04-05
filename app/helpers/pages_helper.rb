@@ -1,5 +1,9 @@
 module PagesHelper
 
+  def formatted_show_date show
+    show.date.to_s(:short).gsub(" ", "&nbsp").html_safe
+  end
+
   def venue_link show
     return show.venue_name if show.venue_url.blank?
 
