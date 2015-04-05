@@ -10,6 +10,13 @@ body {
   font-family: $main-font;
 }
 
+div#wrapper {
+  min-height: 100%;
+  padding-top: $nav-height;
+  position: relative;
+  background-color: $light-grey;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $main-font;
 }
@@ -22,13 +29,6 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1px;
   color: $light-grey;
   text-shadow: 0 1px 1px rgba(black, .35);
-}
-
-div#wrapper {
-  min-height: 100%;
-  padding-top: $nav-height;
-  position: relative;
-  background-color: $light-grey;
 }
 
 a:hover, a:focus {
