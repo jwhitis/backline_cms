@@ -5,6 +5,8 @@
     <div class="carousel-inner" role="listbox">
       <% @videos.each_with_index do |video, index| %>
         <div class="item <%= "active" if index.zero? %>">
+          <%= fa_icon("spinner spin") %>
+
           <%== video.embed %>
 
           <div class="carousel-caption">
