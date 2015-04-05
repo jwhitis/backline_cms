@@ -4,9 +4,8 @@ $(document).on("ready page:load", function() {
   transformicons.add(".tcon");
 
   // Highlight active tab
-  var path = window.location.pathname.split("/");
-  path = path[path.length - 1];
-  $("ul.navbar-nav a[href='/" + path + "']").addClass("active");
+  var path = window.location.pathname;
+  $("ul.navbar-nav a[href='" + path + "']").addClass("active");
   $("ul.navbar-nav a").click(function() {
     $("ul.navbar-nav a").removeClass("active");
     $(this).addClass("active");
@@ -34,11 +33,12 @@ $(document).on("ready page:load", function() {
     selector: "[data-toggle='tooltip']"
   });
 
-  // Initialize Masonry for photo gallery
-  initializeMasonry();
-
-  // Initialize Fancybox for photo gallery
-  initializeFancybox();
+  // Initialize Masonry and Fancybox for photo gallery
+  var path = window.location.pathname;
+  if (path == "/photos") {
+    initializeMasonry();
+    initializeFancybox();
+  }
 
 });
 
@@ -53,21 +53,39 @@ $(document).on("ajaxSuccess", function(event, xhr, settings) {
     $("body").scrollTop(130);
   }
 
-  // Initialize Masonry for photo gallery
-  initializeMasonry();
-
-  // Initialize Fancybox for photo gallery
-  initializeFancybox();
+  // Initialize Masonry and Fancybox for photo gallery
+  if (settings.url.match(/^\/photos/)) {
+    initializeMasonry();
+    initializeFancybox();
+  }
 
 });
 
 function initializeMasonry() {
+  // Change main background to solid color so background image
+  // doesn't change size when Masonry is initialized
+  $("div#main").css("background", "#152A35");
+
   $("div#photo-gallery").imagesLoaded(function() {
-    $("div#photo-gallery").masonry({
+    var msnry = new Masonry("div#photo-gallery", {
       itemSelector: "a.photo",
       gutter: 15,
       isFitWidth: true
     });
+
+    msnry.on("layoutComplete", function() {
+      // Change main background back to background image
+      $("div#main").css({
+        background: "linear-gradient(to right, rgba(8, 50, 73, .5) 0%, rgba(8, 50, 73, .5) 100%), url(http://toddfarrell-production.s3.amazonaws.com/images/night_sky_bw.jpeg)",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center bottom"
+      });
+
+      $("div#photo-gallery").animate({
+        opacity: 1
+      }, 1000);
+    }).layout();
   });
 }
 
