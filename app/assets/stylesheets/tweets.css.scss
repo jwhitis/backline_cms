@@ -4,19 +4,18 @@ $tweet-width: 140px;
 $tweet-gutter: 10px;
 
 @mixin tweet-container-width($tweets) {
-  width: ($tweet-width + $tweet-gutter) * $tweets;
+  width: (($tweet-width + $tweet-gutter) * $tweets) + $tweet-gutter;
 }
 
 div#twitter-stream {
   margin: 0 (-$tweet-gutter) 30px (-$tweet-gutter);
-  padding-left: $tweet-gutter;
   text-align: center;
 
   div.tweet-container {
     @include tweet-container-width(2);
     height: 160px;
     overflow: hidden;
-    padding: 10px 0;
+    padding: 10px 0 10px 10px;
     display: inline-block;
   }
 
