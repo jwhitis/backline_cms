@@ -92,9 +92,5 @@ function initializeMasonry() {
 function initializeFancybox() {
   if ($(window).width() >= 768) {
     $("a.photo").fancybox(fancyboxOptions);
-  } else {
-    $("a.photo").click(function(event) {
-      event.preventDefault();
-    });
   }
 }

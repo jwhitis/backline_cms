@@ -19,8 +19,8 @@
         <td><%= photo.created_at.to_s(:numeric) %></td>
         <td><%= photo.caption %></td>
         <td>
-          <%= link_to "Preview", photo.image.display.url, rel: "photo-previews",
-            title: photo_title(photo), class: "photo-preview" %>
+          <%= link_to "Preview", "javascript:void(0)", rel: "photo-previews", class: "photo-preview",
+            data: { fancybox_href: photo.image.display.url, fancybox_title: fancybox_title(photo) } %>
         </td>
         <td class="edit">
           <%= link_to fa_icon("edit"), edit_admin_photo_path(photo), remote: true %>

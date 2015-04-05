@@ -1,4 +1,4 @@
-<%= link_to photo.image.display.url, rel: "photo-gallery", title: photo_title(photo),
-  class: "photo" do %>
+<%= link_to "javascript:void(0)", title: photo.caption, rel: "photo-gallery", class: "photo",
+  data: { fancybox_href: photo.image.display.url, fancybox_title: fancybox_title(photo) } do %>
   <%= image_tag photo.image.thumb.url %>
 <% end %>
