@@ -21,7 +21,7 @@ $(document).on("ajaxSuccess", function() {
   });
 
   // Initialize Fancybox for photo previews
-  $("a.photo-preview").fancybox(fancybox_options);
+  $("a.photo-preview").fancybox(fancyboxOptions);
 
 });
 

@@ -1,4 +1,4 @@
-var fancybox_options = {
+var fancyboxOptions = {
   padding: 0,
   margin: 15,
   tpl: {
