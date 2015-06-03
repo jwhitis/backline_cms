@@ -1,9 +1,9 @@
 $(document).on("ready page:load", function() {
 
   var media = [
-    "http://toddfarrell-production.s3.amazonaws.com/audio/American_Night.mp3",
-    "http://toddfarrell-production.s3.amazonaws.com/audio/Year_In_Review.mp3",
-    "http://toddfarrell-production.s3.amazonaws.com/audio/Pawnshops.mp3"
+    "http://toddfarrell-production.s3.amazonaws.com/audio/Plastic_Knives.mp3",
+    "http://toddfarrell-production.s3.amazonaws.com/audio/Pawnshops.mp3",
+    "http://toddfarrell-production.s3.amazonaws.com/audio/If_Its_Alright_By_You.mp3"
   ]
 
   var currentSong = media[0];
