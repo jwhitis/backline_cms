@@ -1,12 +1,12 @@
 <div id="music" class="fixed-width">
   <div id="album-carousel" class="carousel slide" data-interval="false">
     <div class="carousel-inner" role="listbox">
-      <div class="item active">
+      <!-- <div class="item">
         <h2 class="page-title">American Night</h2>
 
         <div class="row">
           <div class="col-sm-7 cover">
-            <%= image_tag "http://toddfarrell-production.s3.amazonaws.com/images/all-our-heroes-live-in-vans_front.jpg", alt: "album cover" %>
+            <%#= image_tag "http://toddfarrell-production.s3.amazonaws.com/images/all-our-heroes-live-in-vans_front.jpg", alt: "album cover" %>
           </div>
 
           <div class="col-sm-5 details">
@@ -22,21 +22,21 @@
             </ol>
 
             <div class="store-links clearfix">
-              <%= link_to "http://toddfarrelljr.bandcamp.com/album/all-our-heroes-live-in-vans",
+              <%#= link_to "http://toddfarrelljr.bandcamp.com/album/all-our-heroes-live-in-vans",
                 target: "_blank" do %>
                 <div class="button bandcamp"></div>
-              <% end %>
+              <%# end %>
 
-              <%= link_to "https://itunes.apple.com/us/album/all-our-heroes-live-in-vans/id735911553?ls=1",
+              <%#= link_to "https://itunes.apple.com/us/album/all-our-heroes-live-in-vans/id735911553?ls=1",
                 target: "_blank" do %>
                 <div class="button itunes"></div>
-              <% end %>
+              <%# end %>
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="item">
+      <div class="item active">
         <h2 class="page-title">All Our Heroes Live in Vans</h2>
 
         <div class="row">
@@ -76,12 +76,12 @@
     </div>
   </div>
 
-  <div class="pagination-links clearfix">
-    <%= link_to "#album-carousel", data: { slide: "prev" } do %>
-      <%= fa_icon("caret-left") %> PREV
-    <% end %>
-    <%= link_to "#album-carousel", data: { slide: "next" } do %>
-      NEXT <%= fa_icon("caret-right") %>
-    <% end %>
-  </div>
+  <!-- <div class="pagination-links clearfix">
+    <%#= link_to "#album-carousel", data: { slide: "prev" } do %>
+      <%#= fa_icon("caret-left") %> PREV
+    <%# end %>
+    <%#= link_to "#album-carousel", data: { slide: "next" } do %>
+      NEXT <%#= fa_icon("caret-right") %>
+    <%# end %>
+  </div> -->
 </div>
