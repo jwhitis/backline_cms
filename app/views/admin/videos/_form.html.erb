@@ -16,7 +16,7 @@
     <%= f.text_area :embed, rows: 3, class: "form-control" %>
   </div>
 
-  <div class="checkbox <%= "published" if @video.published? %>">
+  <div class="checkbox <%= "active" if @video.published? %>">
     <%= f.label :published do %>
       <%= f.check_box :published, class: "published" %> Publish this video?
     <% end %>

@@ -15,9 +15,10 @@ $(document).on("ajaxSuccess", function() {
     dateFormat: "DD, MM d, yy"
   });
 
-  // Clicking published checkbox toggles published class on parent
+  // Clicking published checkbox toggles active class on parent
+  $("div#content").off("change", "input.published"); // Unbind existing event handlers
   $("div#content").on("change", "input.published", function() {
-    $(this).parents("div.checkbox").toggleClass("published");
+    $(this).parents("div.checkbox").toggleClass("active");
   });
 
   // Initialize Fancybox for photo previews

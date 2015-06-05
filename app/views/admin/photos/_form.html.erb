@@ -14,7 +14,7 @@
     <%= f.text_area :caption, rows: 3, class: "form-control" %>
   </div>
 
-  <div class="checkbox <%= "published" if @photo.published? %>">
+  <div class="checkbox <%= "active" if @photo.published? %>">
     <%= f.label :published do %>
       <%= f.check_box :published, class: "published" %> Publish this photo?
     <% end %>
