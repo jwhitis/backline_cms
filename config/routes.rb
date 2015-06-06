@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     resources :photos, except: :show
     resources :videos, except: :show
     resources :twitter_handles, only: [:index, :create, :destroy]
+    patch "tweets/refresh", to: "tweets#refresh"
   end
-  resources :tweets, only: :index
   get "shows", to: "pages#shows"
   get "music", to: "pages#music"
   get "photos", to: "pages#photos"

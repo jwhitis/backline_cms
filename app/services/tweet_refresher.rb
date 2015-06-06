@@ -6,7 +6,7 @@ class TweetRefresher
 
     def refresh
       tweets.each do |tweet|
-        Tweet.create(tweet_params(tweet)) unless Tweet.find_by_twitter_id(tweet.id)
+        Tweet.create(tweet_params(tweet)) unless Tweet.exists?(twitter_id: tweet.id)
       end
       Tweet.outdated.destroy_all
     end
@@ -35,7 +35,7 @@ class TweetRefresher
       TWITTER_HANDLES.each do |handle|
         tweets.concat twitter_client.user_timeline(handle)
       end
-      tweets
+      tweets.sort_by(&:created_at).reverse.take(Tweet::MAX_SAVED)
     end
 
     def twitter_client
