@@ -1,7 +1,4 @@
 class TweetRefresher
-
-  TWITTER_HANDLES = ["ToddFarrellJr", "SomeCallMeGoose", "EliRhodes", "jwhitis"]
-
   class << self
 
     def refresh
@@ -12,6 +9,27 @@ class TweetRefresher
     end
 
     private
+
+    def tweets
+      tweets = []
+      twitter_handles.each do |handle|
+        tweets.concat twitter_client.user_timeline(handle)
+      end
+      tweets.sort_by(&:created_at).reverse.take(Tweet::MAX_SAVED)
+    end
+
+    def twitter_handles
+      TwitterHandle.pluck(:handle)
+    end
+
+    def twitter_client
+      Twitter::REST::Client.new do |config|
+        config.consumer_key = ENV['TWITTER_KEY']
+        config.consumer_secret = ENV['TWITTER_SECRET']
+        config.access_token = ENV['ACCESS_TOKEN']
+        config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
+      end
+    end
 
     def tweet_params tweet
       params = ActionController::Parameters.new(raw_params(tweet))
@@ -30,23 +48,5 @@ class TweetRefresher
       }
     end
 
-    def tweets
-      tweets = []
-      TWITTER_HANDLES.each do |handle|
-        tweets.concat twitter_client.user_timeline(handle)
-      end
-      tweets.sort_by(&:created_at).reverse.take(Tweet::MAX_SAVED)
-    end
-
-    def twitter_client
-      Twitter::REST::Client.new do |config|
-        config.consumer_key = ENV['TWITTER_KEY']
-        config.consumer_secret = ENV['TWITTER_SECRET']
-        config.access_token = ENV['ACCESS_TOKEN']
-        config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
-      end
-    end
-
   end
-
 end
