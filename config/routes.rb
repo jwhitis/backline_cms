@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :shows, except: :show
     resources :photos, except: :show
     resources :videos, except: :show
+    resources :twitter_handles, only: [:index, :create, :destroy]
   end
   resources :tweets, only: :index
   get "shows", to: "pages#shows"

@@ -7,6 +7,7 @@ div#admin {
     padding-right: 55px;
 
     a {
+      width: 85px;
       margin-bottom: 15px;
       float: left;
 
@@ -63,6 +64,10 @@ div#admin {
         }
       }
 
+      span.number {
+        margin-right: 3px;
+      }
+
       &.edit {
         text-align: right;
 
@@ -74,6 +79,19 @@ div#admin {
   }
 
   form {
+    margin-top: 15px;
+
+    &.new-twitter-handle {
+      div.form-group {
+        margin-right: 15px;
+        float: left;
+
+        input[type="text"] {
+          width: 185px;
+        }
+      }
+    }
+
     label {
       font-weight: normal;
       text-shadow: 0 1px 1px rgba(black, .35);

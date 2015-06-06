@@ -1,0 +1,27 @@
+<%= render "flash_messages" %>
+
+<%= render "form" %>
+
+<table class="table">
+  <tbody>
+    <% @twitter_handles.each_with_index do |twitter_handle, index| %>
+      <tr>
+        <td>
+          <span class="number"><%= index + 1 %>.</span>
+          <%= twitter_handle.handle %>
+        </td>
+        <td class="edit">
+          <%= link_to fa_icon("times-circle"), admin_twitter_handle_path(twitter_handle), method: :delete,
+            remote: true, data: { confirm: "Are you sure you want to remove this username?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="pagination-links clearfix">
+  <%= link_to_previous_page @twitter_handles, "#{fa_icon("caret-left")} PREV".html_safe,
+    params: { controller: "/admin/twitter_handles" }, remote: true %>
+  <%= link_to_next_page @twitter_handles, "NEXT #{fa_icon("caret-right")}".html_safe,
+    params: { controller: "/admin/twitter_handles" }, remote: true %>
+</div>
