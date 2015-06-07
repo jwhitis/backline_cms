@@ -20,7 +20,7 @@
         <td><%= album.title %></td>
         <td>
           <%= link_to "Cover Art", "javascript:void(0)", rel: "album-previews", class: "image-preview",
-            data: { fancybox_href: album.cover_art.display.url } %>
+            data: { fancybox_href: album.cover_art.square.url } %>
         </td>
         <td class="edit">
           <%= link_to fa_icon("edit"), edit_admin_album_path(album), remote: true %>

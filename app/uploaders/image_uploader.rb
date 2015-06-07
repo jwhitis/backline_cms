@@ -32,13 +32,17 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :thumb do
+  version :thumb, if: :is_photo? do
     # The height is arbitrarily large so that the width always constrains the image.
     process resize_to_fit: [345, 9999]
   end
 
-  version :display do
+  version :display, if: :is_photo? do
     process resize_to_fit: [720, 560]
+  end
+
+  version :square, if: :is_cover_art? do
+    process resize_to_fill: [500, 500]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -52,5 +56,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  private
+
+  def is_photo? image
+    model.is_a?(Photo)
+  end
+
+  def is_cover_art? image
+    model.is_a?(Album)
+  end
 
 end
