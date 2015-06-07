@@ -21,8 +21,8 @@ $(document).on("ajaxSuccess", function() {
     $(this).parents("div.checkbox").toggleClass("active");
   });
 
-  // Initialize Fancybox for photo previews
-  $("a.photo-preview").fancybox(fancyboxOptions);
+  // Initialize Fancybox for image previews
+  $("a.image-preview").fancybox(fancyboxOptions);
 
 });
 

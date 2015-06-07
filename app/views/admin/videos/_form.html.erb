@@ -13,7 +13,12 @@
 
   <div class="form-group">
     <%= f.label :embed, class: "required" %>
+    <i class="instructions">Please copy and paste the embed code from a video hosting site such as YouTube or Vimeo.</i>
     <%= f.text_area :embed, rows: 3, class: "form-control" %>
+  </div>
+
+  <div class="preview">
+    <%== @video.embed %>
   </div>
 
   <div class="checkbox <%= "active" if @video.published? %>">

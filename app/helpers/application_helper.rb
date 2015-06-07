@@ -14,7 +14,7 @@ module ApplicationHelper
     end
   end
 
-  def fancybox_title photo
+  def photo_caption photo
     "<div class='photo-caption'>#{photo.caption}</div>"
   end
 

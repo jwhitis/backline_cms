@@ -3,11 +3,13 @@
 <%= form_for [:admin, @photo], remote: true do |f| %>
   <div class="form-group">
     <%= f.label :image, class: "required" %>
-    <i class="photo-formats">Please choose a photo in one of these formats: JPG, JPEG, GIF, PNG</i>
+    <i class="instructions">Please choose a photo in one of these formats: JPG, JPEG, GIF, PNG</i>
     <%= f.file_field :image %>
   </div>
 
-  <%= image_tag @photo.image.thumb.url, class: "photo-preview" %>
+  <div class="preview">
+    <%= image_tag @photo.image.thumb.url %>
+  </div>
 
   <div class="form-group">
     <%= f.label :caption %>

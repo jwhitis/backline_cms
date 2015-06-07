@@ -37,7 +37,7 @@ div#admin {
         color: $slate;
       }
 
-      &.photo-preview {
+      &.image-preview {
         text-decoration: underline;
       }
     }
@@ -117,17 +117,31 @@ div#admin {
       font-size: 16px;
     }
 
-    i.photo-formats {
-      margin-bottom: 5px;
+    i.instructions {
+      margin: -5px 0 5px 0;
       display: block;
       font-weight: lighter;
       font-style: normal;
     }
 
-    img.photo-preview {
-      max-width: 100%;
+    div.date-fields {
+      select {
+        width: auto;
+        float: left;
+
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
+      }
+    }
+
+    div.preview {
       margin-bottom: 15px;
-      box-shadow: 0 2px 5px rgba(black, .5);
+
+      img, iframe {
+        max-width: 100%;
+        box-shadow: 0 2px 5px rgba(black, .5);
+      }
     }
 
     div.checkbox {

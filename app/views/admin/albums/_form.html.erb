@@ -1,0 +1,58 @@
+<%= render "validation_errors", resource: @album %>
+
+<%= form_for [:admin, @album], remote: true do |f| %>
+  <div class="row">
+    <div class="form-group col-sm-7">
+      <%= f.label :title, class: "required" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-sm-5">
+      <%= f.label :release_date, "Release Date", class: "required" %>
+      <div class="date-fields clearfix">
+        <%= f.date_select :release_date, { start_year: Date.today.year, end_year: 1970,
+          order: [:month, :day, :year] }, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <%= f.label :bandcamp_url, "Bandcamp URL" %>
+      <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
+        title: "To ensure that the link opens properly, please copy and paste the URL from your address bar.") %>
+      <%= f.text_field :bandcamp_url, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-sm-6">
+      <%= f.label :itunes_url, "iTunes URL" %>
+      <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
+        title: "To ensure that the link opens properly, please copy and paste the URL from your address bar.") %>
+      <%= f.text_field :itunes_url, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :cover_art, "Cover Art", class: "required" %>
+    <i class="instructions">Please choose an image in one of these formats: JPG, JPEG, GIF, PNG</i>
+    <%= f.file_field :cover_art %>
+  </div>
+
+  <div class="preview">
+    <%= image_tag @album.cover_art.thumb.url %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :notes %>
+    <%= f.text_area :notes, rows: 3, class: "form-control" %>
+  </div>
+
+  <div class="checkbox <%= "active" if @album.published? %>">
+    <%= f.label :published do %>
+      <%= f.check_box :published, class: "published" %> Publish this album?
+    <% end %>
+  </div>
+
+  <%= f.submit "Save", class: "btn btn-blue" %>
+  <%= link_to "Cancel", admin_albums_path, remote: true, class: "cancel" %>
+<% end %>
