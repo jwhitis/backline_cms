@@ -3,21 +3,35 @@
 div#music {
   text-align: center;
 
-  div.cover, div.details {
+  div.cover-art, div.album-details {
     max-width: 438px;
     margin: 0 auto;
   }
 
-  div.cover {
+  div.cover-art {
     padding-bottom: 15px;
+    position: relative;
 
     img {
       width: 100%;
       box-shadow: 0 2px 5px rgba(black, .5);
     }
+
+    div.album-notes {
+      width: calc(100% - 30px);
+      height: calc(100% - 15px);
+      padding: 10px 20px;
+      position: absolute;
+      top: 0;
+      right: 15px;
+      display: none;
+      line-height: 24px;
+      font-weight: lighter;
+      background-color: rgba(black, .8);
+    }
   }
 
-  div.details {
+  div.album-details {
     font-size: 16px;
     text-shadow: 0 1px 1px rgba(black, .35);
 

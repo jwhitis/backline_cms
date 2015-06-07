@@ -11,6 +11,7 @@ class PagesController < ApplicationController
   end
 
   def music
+    @albums = Album.published.display_order
   end
 
   def photos

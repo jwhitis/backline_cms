@@ -16,17 +16,17 @@ $(document).on("ready page:load", function() {
     $(this).find("div.overlay").stop().fadeToggle(300);
   });
 
-  // Show video carousel caption on hover
+  // Show album notes on hover
   $("div#content").on({
-    mouseenter: toggleCaption,
-    mouseleave: toggleCaption
-  }, "div#video-carousel");
+    mouseenter: toggleAlbumNotes,
+    mouseleave: toggleAlbumNotes
+  }, "div.cover-art");
 
-  function toggleCaption() {
-    if ($(window).width() >= 768) {
-      $("div.carousel-caption").toggle();
-    }
-  }
+  // Show video caption on hover
+  $("div#content").on({
+    mouseenter: toggleVideoCaption,
+    mouseleave: toggleVideoCaption
+  }, "div#video-carousel");
 
   // Initialize tooltips
   $("div#content").tooltip({
@@ -60,6 +60,20 @@ $(document).on("ajaxSuccess", function(event, xhr, settings) {
   }
 
 });
+
+function toggleAlbumNotes() {
+  toggleElement("div.album-notes");
+}
+
+function toggleVideoCaption() {
+  toggleElement("div.carousel-caption");
+}
+
+function toggleElement(selector) {
+  if ($(window).width() >= 768) {
+    $(selector).fadeToggle(100);
+  }
+}
 
 function initializeMasonry() {
   // Change main background to solid color so background image
