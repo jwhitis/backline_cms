@@ -2,7 +2,7 @@ class Admin::TwitterHandlesController < Admin::AdminController
   respond_to :js
 
   def index
-    @twitter_handles = TwitterHandle.display_order.page(params[:page])
+    @twitter_handles = TwitterHandle.display_order
     @twitter_handle = TwitterHandle.new
   end
 
@@ -14,7 +14,7 @@ class Admin::TwitterHandlesController < Admin::AdminController
       flash.now[:notice] = "Username successfully added."
     end
 
-    @twitter_handles = TwitterHandle.display_order.page(params[:page])
+    @twitter_handles = TwitterHandle.display_order
     render :index
   end
 
@@ -22,7 +22,7 @@ class Admin::TwitterHandlesController < Admin::AdminController
     @twitter_handle = TwitterHandle.find(params[:id])
     @twitter_handle.destroy
     @twitter_handle = TwitterHandle.new
-    @twitter_handles = TwitterHandle.display_order.page(params[:page])
+    @twitter_handles = TwitterHandle.display_order
     flash.now[:notice] = "Username successfully removed."
     render :index
   end
