@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606232952) do
+ActiveRecord::Schema.define(version: 20150607185921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "album_tracks", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.integer  "number",     null: false
+    t.integer  "album_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "album_tracks", ["album_id"], name: "index_album_tracks_on_album_id", using: :btree
 
   create_table "albums", force: :cascade do |t|
     t.string   "title",                        null: false
@@ -26,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150606232952) do
     t.boolean  "published",    default: false, null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.integer  "tracks_count", default: 0,     null: false
   end
 
   create_table "photos", force: :cascade do |t|
@@ -79,4 +90,5 @@ ActiveRecord::Schema.define(version: 20150606232952) do
     t.boolean  "published"
   end
 
+  add_foreign_key "album_tracks", "albums"
 end
