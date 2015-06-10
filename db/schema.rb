@@ -11,20 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150607185921) do
+ActiveRecord::Schema.define(version: 20150610041255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "album_tracks", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.integer  "number",     null: false
-    t.integer  "album_id",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "album_tracks", ["album_id"], name: "index_album_tracks_on_album_id", using: :btree
 
   create_table "albums", force: :cascade do |t|
     t.string   "title",                        null: false
@@ -63,6 +53,17 @@ ActiveRecord::Schema.define(version: 20150607185921) do
     t.string   "venue_url"
   end
 
+  create_table "tracks", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.integer  "number",     null: false
+    t.integer  "album_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "type",       null: false
+  end
+
+  add_index "tracks", ["album_id"], name: "index_tracks_on_album_id", using: :btree
+
   create_table "tweets", force: :cascade do |t|
     t.string   "handle",      limit: 255
     t.string   "image_url",   limit: 255
@@ -90,5 +91,5 @@ ActiveRecord::Schema.define(version: 20150607185921) do
     t.boolean  "published"
   end
 
-  add_foreign_key "album_tracks", "albums"
+  add_foreign_key "tracks", "albums"
 end
