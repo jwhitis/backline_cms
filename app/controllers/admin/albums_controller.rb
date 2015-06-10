@@ -1,4 +1,5 @@
 class Admin::AlbumsController < Admin::AdminController
+  before_action :find_album, only: [:edit, :update, :destroy]
   respond_to :js
 
   def index
@@ -22,12 +23,9 @@ class Admin::AlbumsController < Admin::AdminController
   end
 
   def edit
-    @album = Album.find(params[:id])
   end
 
   def update
-    @album = Album.find(params[:id])
-
     if @album.update_attributes(album_params)
       @albums = Album.display_order.page(params[:page])
       flash.now[:notice] = "Album successfully updated."
@@ -38,7 +36,6 @@ class Admin::AlbumsController < Admin::AdminController
   end
 
   def destroy
-    @album = Album.find(params[:id])
     @album.destroy
     @albums = Album.display_order.page(params[:page])
     flash.now[:notice] = "Album successfully deleted."
@@ -46,6 +43,10 @@ class Admin::AlbumsController < Admin::AdminController
   end
 
   private
+
+  def find_album
+    @album = Album.find(params[:id])
+  end
 
   def album_params
     params.require(:album).permit(:title, :release_date, :notes, :bandcamp_url, :itunes_url,

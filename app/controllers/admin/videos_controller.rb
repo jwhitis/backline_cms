@@ -1,4 +1,5 @@
 class Admin::VideosController < Admin::AdminController
+  before_action :find_video, only: [:edit, :update, :destroy]
   respond_to :js
 
   def index
@@ -22,12 +23,9 @@ class Admin::VideosController < Admin::AdminController
   end
 
   def edit
-    @video = Video.find(params[:id])
   end
 
   def update
-    @video = Video.find(params[:id])
-
     if @video.update_attributes(video_params)
       @videos = Video.display_order.page(params[:page])
       flash.now[:notice] = "Video successfully updated."
@@ -38,7 +36,6 @@ class Admin::VideosController < Admin::AdminController
   end
 
   def destroy
-    @video = Video.find(params[:id])
     @video.destroy
     @videos = Video.display_order.page(params[:page])
     flash.now[:notice] = "Video successfully deleted."
@@ -46,6 +43,10 @@ class Admin::VideosController < Admin::AdminController
   end
 
   private
+
+  def find_video
+    @video = Video.find(params[:id])
+  end
 
   def video_params
     params.require(:video).permit(:title, :caption, :embed, :published)

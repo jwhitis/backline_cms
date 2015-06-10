@@ -1,4 +1,5 @@
 class Admin::ShowsController < Admin::AdminController
+  before_action :find_show, only: [:edit, :update, :destroy]
   respond_to :js
 
   def index
@@ -22,12 +23,9 @@ class Admin::ShowsController < Admin::AdminController
   end
 
   def edit
-    @show = Show.find(params[:id])
   end
 
   def update
-    @show = Show.find(params[:id])
-
     if @show.update_attributes(show_params)
       @shows = Show.display_order.page(params[:page])
       flash.now[:notice] = "Show successfully updated."
@@ -38,7 +36,6 @@ class Admin::ShowsController < Admin::AdminController
   end
 
   def destroy
-    @show = Show.find(params[:id])
     @show.destroy
     @shows = Show.display_order.page(params[:page])
     flash.now[:notice] = "Show successfully deleted."
@@ -46,6 +43,10 @@ class Admin::ShowsController < Admin::AdminController
   end
 
   private
+
+  def find_show
+    @show = Show.find(params[:id])
+  end
 
   def show_params
     params.require(:show).permit(:venue_name, :venue_url, :date, :time, :cover,
