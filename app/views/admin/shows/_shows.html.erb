@@ -5,7 +5,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th></th>
+      <th class="hidden-xs"></th>
       <th>Date</th>
       <th>Venue</th>
       <th class="hidden-xs">Location</th>
@@ -15,7 +15,7 @@
   <tbody>
     <% @shows.each do |show| %>
       <tr>
-        <td><%= show.published? ? fa_icon("check") : fa_icon("ellipsis-h") %></td>
+        <td class="hidden-xs"><%= show.published? ? fa_icon("check") : fa_icon("ellipsis-h") %></td>
         <td><%= show.date.to_s(:numeric) %></td>
         <td><%= show.venue_name %></td>
         <td class="hidden-xs"><%= show.location %></td>

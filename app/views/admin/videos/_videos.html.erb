@@ -5,8 +5,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th></th>
-      <th>Added</th>
+      <th class="hidden-xs"></th>
+      <th class="hidden-xs">Added</th>
       <th>Title</th>
       <th class="edit"></th>
     </tr>
@@ -14,8 +14,8 @@
   <tbody>
     <% @videos.each do |video| %>
       <tr>
-        <td><%= video.published? ? fa_icon("check") : fa_icon("ellipsis-h") %></td>
-        <td><%= video.created_at.to_s(:numeric) %></td>
+        <td class="hidden-xs"><%= video.published? ? fa_icon("check") : fa_icon("ellipsis-h") %></td>
+        <td class="hidden-xs"><%= video.created_at.to_s(:numeric) %></td>
         <td><%= video.title %></td>
         <td class="edit">
           <%= link_to fa_icon("edit"), edit_admin_video_path(video), remote: true %>

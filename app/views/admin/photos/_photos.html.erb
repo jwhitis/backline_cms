@@ -5,9 +5,9 @@
 <table class="table">
   <thead>
     <tr>
-      <th></th>
+      <th class="hidden-xs"></th>
       <th>Added</th>
-      <th>Caption</th>
+      <th class="hidden-xs">Caption</th>
       <th></th>
       <th class="edit"></th>
     </tr>
@@ -15,9 +15,9 @@
   <tbody>
     <% @photos.each do |photo| %>
       <tr>
-        <td><%= photo.published? ? fa_icon("check") : fa_icon("ellipsis-h") %></td>
+        <td class="hidden-xs"><%= photo.published? ? fa_icon("check") : fa_icon("ellipsis-h") %></td>
         <td><%= photo.created_at.to_s(:numeric) %></td>
-        <td><%= photo.caption %></td>
+        <td class="hidden-xs"><%= truncate(photo.caption, length: 80, separator: " ") %></td>
         <td>
           <%= link_to "Preview", "javascript:void(0)", rel: "photo-previews", class: "image-preview",
             data: { fancybox_href: photo.image.display.url, fancybox_title: photo_caption(photo) } %>
