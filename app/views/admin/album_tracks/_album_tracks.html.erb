@@ -1,0 +1,25 @@
+<%= link_to fa_icon("chevron-left"), edit_admin_album_path(@album), remote: true,
+  class: "btn btn-blue corner-btn" %>
+
+<%= render "flash_messages" %>
+
+<h2><%= @album.title %></h2>
+
+<%= render "admin/album_tracks/form" %>
+
+<table class="table">
+  <tbody>
+    <% @album_tracks.each do |album_track| %>
+      <tr>
+        <td>
+          <span class="number"><%= album_track.number %>.</span>
+          <%= album_track.title %>
+        </td>
+        <td class="edit">
+          <%= link_to fa_icon("times-circle"), admin_album_album_track_path(@album, album_track),
+            method: :delete, remote: true, data: { confirm: "Are you sure you want to remove this track?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

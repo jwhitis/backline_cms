@@ -4,41 +4,45 @@ div#admin {
   position: relative;
 
   nav {
-    padding-right: 55px;
+    padding-right: 40px;
 
     a {
       width: 85px;
-      margin-bottom: 15px;
+      margin: 0 15px 15px 0;
       float: left;
-
-      &:not(:last-child) {
-        margin-right: 15px;
-      }
     }
   }
 
   a.corner-btn {
+    width: 40px;
+    padding-left: 0;
+    padding-right: 0;
     position: absolute;
     top: 0;
     right: 0;
+    text-align: center;
     font-size: 18px;
     line-height: 20px;
   }
 
+  h2 {
+    margin: 10px 0 15px 0;
+    font-size: 28px;
+    color: $light-grey;
+    text-shadow: 0 1px 1px rgba(black, .35);
+  }
+
   table {
-    margin: 15px 0;
+    margin: 10px 0;
     text-shadow: 0 1px 1px rgba(black, .35);
 
     a {
+      text-decoration: underline;
       color: white;
       transition: all .3s ease;
 
       &:hover {
         color: $slate;
-      }
-
-      &.image-preview {
-        text-decoration: underline;
       }
     }
 
@@ -69,6 +73,7 @@ div#admin {
       }
 
       &.edit {
+        min-width: 58px;
         text-align: right;
 
         a:not(:last-child) {
@@ -81,7 +86,7 @@ div#admin {
   form {
     margin-top: 15px;
 
-    &.new-twitter-handle {
+    &.inline-custom {
       div.form-group {
         margin-right: 15px;
         float: left;
@@ -144,16 +149,31 @@ div#admin {
       }
     }
 
-    div.checkbox {
+    %status-box {
       margin: 15px 0;
-      padding: 8px 12px 8px 32px;
+      padding: 8px 12px;
       border-radius: 4px;
       text-shadow: 0 1px 1px rgba(black, .35);
-      background-color: rgba($warning, .85);
       box-shadow: 0 1px 2px rgba(black, .15);
+    }
+
+    div.checkbox {
+      @extend %status-box;
+      padding-left: 32px;
+      background-color: rgba($warning, .85);
 
       &.active {
         background-color: rgba($success, .85);
+      }
+    }
+
+    div.save-to-add-tracks {
+      @extend %status-box;
+      background-color: rgba($info, .85);
+
+      i.fa-exclamation-circle {
+        margin-right: 2px;
+        font-size: 16px;
       }
     }
 

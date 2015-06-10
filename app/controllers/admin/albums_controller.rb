@@ -14,9 +14,10 @@ class Admin::AlbumsController < Admin::AdminController
     @album = Album.new(album_params)
 
     if @album.save
-      @albums = Album.display_order.page(params[:page])
+      @album_track = AlbumTrack.new
+      @album_tracks = @album.tracks.display_order
       flash.now[:notice] = "Album successfully created."
-      render :index
+      render "admin/album_tracks/index"
     else
       render :new
     end

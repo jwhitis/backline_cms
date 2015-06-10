@@ -1,3 +1,8 @@
+<% if @album.persisted? %>
+  <%= link_to fa_icon("list"), admin_album_album_tracks_path(@album), remote: true,
+    class: "btn btn-blue corner-btn" %>
+<% end %>
+
 <%= render "validation_errors", resource: @album %>
 
 <%= form_for [:admin, @album], remote: true do |f| %>
@@ -52,6 +57,13 @@
       <%= f.check_box :published, class: "published" %> Publish this album?
     <% end %>
   </div>
+
+  <% if @album.new_record? %>
+    <div class="save-to-add-tracks">
+      <%= fa_icon("exclamation-circle") %>
+      Once you save this album, you'll be able to add tracks.
+    </div>
+  <% end %>
 
   <%= f.submit "Save", class: "btn btn-blue" %>
   <%= link_to "Cancel", admin_albums_path, remote: true, class: "cancel" %>

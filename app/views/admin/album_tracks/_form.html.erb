@@ -1,0 +1,10 @@
+<%= render "validation_errors", resource: @album_track %>
+
+<%= form_for [:admin, @album, @album_track], remote: true, html: { class: "inline-custom" } do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "Username", class: "sr-only" %>
+    <%= f.text_field :title, placeholder: "Track Title", class: "form-control" %>
+  </div>
+
+  <%= f.submit "Add", class: "btn btn-blue" %>
+<% end %>

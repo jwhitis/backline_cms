@@ -5,22 +5,26 @@
 <table class="table">
   <thead>
     <tr>
-      <th></th>
+      <th class="hidden-xs"></th>
       <th class="hidden-xs">Release Date</th>
       <th>Title</th>
-      <th></th>
+      <th class="hidden-xs"></th>
+      <th class="hidden-xs"></th>
       <th class="edit"></th>
     </tr>
   </thead>
   <tbody>
     <% @albums.each do |album| %>
       <tr>
-        <td><%= album.published? ? fa_icon("check") : fa_icon("ellipsis-h") %></td>
+        <td class="hidden-xs"><%= album.published? ? fa_icon("check") : fa_icon("ellipsis-h") %></td>
         <td class="hidden-xs"><%= album.release_date.to_s(:numeric) %></td>
         <td><%= album.title %></td>
-        <td>
+        <td class="hidden-xs">
           <%= link_to "Cover Art", "javascript:void(0)", rel: "album-previews", class: "image-preview",
             data: { fancybox_href: album.cover_art.square.url } %>
+        </td>
+        <td class="hidden-xs">
+          <%= link_to "Edit Tracks", admin_album_album_tracks_path(album), remote: true %>
         </td>
         <td class="edit">
           <%= link_to fa_icon("edit"), edit_admin_album_path(album), remote: true %>

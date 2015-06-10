@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   end
 
   def music
-    @albums = Album.published.display_order
+    @albums = Album.published.display_order.includes(:tracks)
   end
 
   def photos
