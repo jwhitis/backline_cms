@@ -17,15 +17,9 @@
               <div class="release-date">Released <%= album.release_date.to_s(:medium) %></div>
 
               <ol>
-                <li>Year in Review</li>
-                <li>Plastic Knives</li>
-                <li>Chipper and Bobby</li>
-                <li>Pawnshops</li>
-                <li>Liner Notes</li>
-                <li>Better Men</li>
-                <li>If It's Alright By You</li>
-                <li>Take It Slow</li>
-                <li>My Currency Is Doubt</li>
+                <% album.tracks.each do |album_track| %>
+                  <li><%= album_track.title %></li>
+                <% end %>
               </ol>
 
               <div class="store-links">
