@@ -35,28 +35,6 @@ a:hover, a:focus {
   text-decoration: none;
 }
 
-.btn-blue, .btn-blue:focus {
-  border-bottom: 1px solid rgba(black, .25);
-  font-weight: bold;
-  text-transform: uppercase;
-  color: white;
-  text-shadow: 0 1px 1px rgba(black, .15);
-  background-color: $blue;
-  box-shadow: 0 1px 2px rgba(black, .25);
-  transition: all .3s ease;
-
-  &:hover {
-    color: darken(white, 5%);
-    background-color: darken($blue, 5%);
-  }
-
-  &.active {
-    color: $blue;
-    background-color: $light-grey;
-    cursor: default;
-  }
-}
-
 div.tooltip-inner {
   padding: 6px 8px;
 }

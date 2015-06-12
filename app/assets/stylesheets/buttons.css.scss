@@ -1,0 +1,44 @@
+@import "variables";
+
+%btn-base {
+  padding: 6px 12px;
+  display: inline-block;
+  text-align: center;
+  border-bottom: 1px solid rgba(black, .25);
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px rgba(black, .15);
+  box-shadow: 0 1px 2px rgba(black, .25);
+  transition: all .3s ease;
+}
+
+.btn-blue, .btn-blue:focus {
+  @extend %btn-base;
+  color: white;
+  background-color: $blue;
+
+  &:hover {
+    color: darken(white, 15%);
+    background-color: darken($blue, 5%);
+  }
+
+  &.active {
+    border-bottom-color: rgba(black, .4);
+    color: $blue;
+    background-color: $light-grey;
+    cursor: default;
+  }
+}
+
+.btn-white, .btn-white:focus {
+  @extend %btn-base;
+  border-bottom-color: rgba(black, .4);
+  color: $blue;
+  background-color: $light-grey;
+
+  &:hover {
+    color: darken($blue, 10%);
+    background-color: darken($light-grey, 20%);
+  }
+}

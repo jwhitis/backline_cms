@@ -1,6 +1,6 @@
 <% if @album.persisted? %>
   <%= link_to fa_icon("list"), admin_album_album_tracks_path(@album), remote: true,
-    class: "btn btn-blue corner-btn" %>
+    class: "btn-blue corner-btn" %>
 <% end %>
 
 <%= render "validation_errors", resource: @album %>
@@ -65,6 +65,6 @@
     </div>
   <% end %>
 
-  <%= f.submit "Save", class: "btn btn-blue" %>
+  <%= f.submit "Save", class: "btn-blue" %>
   <%= link_to "Cancel", admin_albums_path, remote: true, class: "cancel" %>
 <% end %>
