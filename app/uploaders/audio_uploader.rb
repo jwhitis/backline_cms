@@ -1,10 +1,10 @@
 # encoding: utf-8
 
-class ImageUploader < CarrierWave::Uploader::Base
+class AudioUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
+  # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   # storage :file
@@ -32,23 +32,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :thumb, if: :is_photo? do
-    # The height is arbitrarily large so that the width always constrains the image.
-    process resize_to_fit: [345, 9999]
-  end
-
-  version :display, if: :is_photo? do
-    process resize_to_fit: [720, 560]
-  end
-
-  version :square, if: :is_cover_art? do
-    process resize_to_fill: [500, 500]
-  end
+  # version :thumb do
+  #   process :resize_to_fit => [50, 50]
+  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
-    %w(jpg jpeg gif png)
+    %w(mp3)
   end
 
   # Override the filename of the uploaded files:
@@ -56,15 +47,5 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
-  private
-
-  def is_photo? image
-    model.is_a?(Photo)
-  end
-
-  def is_cover_art? image
-    model.is_a?(Album)
-  end
 
 end
