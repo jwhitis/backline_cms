@@ -4,7 +4,9 @@
   <div class="form-group">
     <%= f.label :image, class: "required" %>
     <i class="instructions">Please choose a photo in one of these formats: JPG, JPEG, GIF, PNG</i>
+    <%= file_btn(@photo.image_changed?, "Choose Image") %>
     <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
   </div>
 
   <div class="preview">
@@ -22,6 +24,6 @@
     <% end %>
   </div>
 
-  <%= f.submit "Save", class: "btn-blue" %>
+  <%= submit_btn %>
   <%= link_to "Cancel", admin_photos_path, remote: true, class: "cancel" %>
 <% end %>

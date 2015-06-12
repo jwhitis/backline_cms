@@ -2,9 +2,16 @@
 
 <%= form_for [:admin, @album, @album_track], remote: true, html: { class: "inline-custom" } do |f| %>
   <div class="form-group">
-    <%= f.label :title, "Username", class: "sr-only" %>
+    <%= f.label :title, "Track Title", class: "sr-only" %>
     <%= f.text_field :title, placeholder: "Track Title", class: "form-control" %>
   </div>
 
-  <%= f.submit "Add", class: "btn btn-blue" %>
+  <div class="form-group">
+    <%= f.label :audio, "MP3", class: "sr-only" %>
+    <%= file_btn(@album_track.audio_changed?, "Choose MP3") %>
+    <%= f.file_field :audio %>
+    <%= f.hidden_field :audio_cache %>
+  </div>
+
+  <%= submit_btn("Add") %>
 <% end %>

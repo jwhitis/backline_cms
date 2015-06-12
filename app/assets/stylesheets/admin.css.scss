@@ -129,6 +129,28 @@ div#admin {
       font-style: normal;
     }
 
+    button.file-btn {
+      i.fa-check {
+        margin: 0 -5px 0 5px;
+        display: none;
+        font-size: 16px;
+        color: $success;
+        transition: all .3s ease;
+      }
+
+      &.checked i.fa-check {
+        display: inline;
+      }
+
+      &:hover i.fa-check {
+        color: darken($success, 15%);
+      }
+
+      & ~ input[type="file"] {
+        display: none;
+      }
+    }
+
     div.date-fields {
       select {
         width: auto;
@@ -173,6 +195,14 @@ div#admin {
 
       i.fa-exclamation-circle {
         margin-right: 2px;
+        font-size: 16px;
+      }
+    }
+
+    button.submit-btn {
+      i.fa-spinner {
+        margin: 0 -3px 0 8px;
+        display: none;
         font-size: 16px;
       }
     }

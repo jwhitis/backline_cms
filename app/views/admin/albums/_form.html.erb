@@ -40,7 +40,9 @@
   <div class="form-group">
     <%= f.label :cover_art, "Cover Art", class: "required" %>
     <i class="instructions">Please choose an image in one of these formats: JPG, JPEG, GIF, PNG</i>
+    <%= file_btn(@album.cover_art_changed?, "Choose Image") %>
     <%= f.file_field :cover_art %>
+    <%= f.hidden_field :cover_art_cache %>
   </div>
 
   <div class="preview">
@@ -65,6 +67,6 @@
     </div>
   <% end %>
 
-  <%= f.submit "Save", class: "btn-blue" %>
+  <%= submit_btn %>
   <%= link_to "Cancel", admin_albums_path, remote: true, class: "cancel" %>
 <% end %>

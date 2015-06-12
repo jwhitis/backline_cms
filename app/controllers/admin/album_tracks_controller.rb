@@ -41,7 +41,7 @@ class Admin::AlbumTracksController < Admin::AdminController
   end
 
   def album_track_params
-    params.require(:album_track).permit(:title)
+    params.require(:album_track).permit(:title, :audio, :audio_cache)
   end
 
 end

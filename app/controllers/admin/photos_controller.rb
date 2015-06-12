@@ -49,7 +49,7 @@ class Admin::PhotosController < Admin::AdminController
   end
 
   def photo_params
-    params.require(:photo).permit(:caption, :image, :published)
+    params.require(:photo).permit(:caption, :image, :image_cache, :published)
   end
 
 end
