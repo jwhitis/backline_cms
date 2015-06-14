@@ -1,0 +1,20 @@
+<%= render "flash_messages" %>
+
+<%= render "form" %>
+
+<table class="table">
+  <tbody>
+    <% @player_tracks.each do |player_track| %>
+      <tr>
+        <td>
+          <span class="number"><%= player_track.number %>.</span>
+          <%= player_track.title %>
+        </td>
+        <td class="edit">
+          <%= link_to fa_icon("times-circle"), admin_player_track_path(player_track), method: :delete,
+            remote: true, data: { confirm: "Are you sure you want to remove this track?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

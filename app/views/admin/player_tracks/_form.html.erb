@@ -1,6 +1,6 @@
-<%= render "validation_errors", resource: @album_track %>
+<%= render "validation_errors", resource: @player_track %>
 
-<%= form_for [:admin, @album, @album_track], remote: true, html: { class: "inline-custom" } do |f| %>
+<%= form_for [:admin, @player_track], remote: true, html: { class: "inline-custom" } do |f| %>
   <div class="form-group">
     <%= f.label :title, "Track Title", class: "sr-only" %>
     <%= f.text_field :title, placeholder: "Track Title", class: "form-control" %>
@@ -8,7 +8,7 @@
 
   <div class="form-group">
     <%= f.label :audio, "Choose MP3", class: "sr-only" %>
-    <%= file_btn(@album_track.audio_changed?, "Choose MP3") %>
+    <%= file_btn(@player_track.audio_changed?, "Choose MP3") %>
     <%= f.file_field :audio %>
     <%= f.hidden_field :audio_cache %>
   </div>

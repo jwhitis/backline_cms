@@ -22,7 +22,6 @@ class Admin::AlbumTracksController < Admin::AdminController
   def destroy
     @album_track = @album.tracks.find(params[:id])
     @album_track.destroy
-    decrement_track_numbers!
     @album_track = AlbumTrack.new
     @album_tracks = @album.tracks.display_order
     flash.now[:notice] = "Track successfully removed."
@@ -33,11 +32,6 @@ class Admin::AlbumTracksController < Admin::AdminController
 
   def find_album
     @album = Album.find(params[:album_id])
-  end
-
-  def decrement_track_numbers!
-    tracks = @album.tracks.where("number > ?", @album_track.number)
-    tracks.update_all("number = number - 1")
   end
 
   def album_track_params
