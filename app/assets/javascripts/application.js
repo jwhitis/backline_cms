@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require bootstrap
 //= require jquery.jplayer.min
-//= require jquery-ui-1.10.4.custom
+//= require jquery-ui-1.11.4.custom
 //= require jquery.fancybox
 //= require transformicons
 //= require masonry
