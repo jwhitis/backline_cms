@@ -28,6 +28,13 @@ class Admin::AlbumTracksController < Admin::AdminController
     render :index
   end
 
+  def reorder
+    AlbumTrack.reorder!(params[:resource_ids], album: @album)
+    @album_track = AlbumTrack.new
+    @album_tracks = @album.tracks.display_order
+    render :index
+  end
+
   private
 
   def find_album

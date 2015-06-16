@@ -7,10 +7,12 @@
 
 <%= render "admin/album_tracks/form" %>
 
-<table class="table">
+<i class="instructions">Click and drag the tracks to reorder them.</i>
+
+<table class="table sortable" data-url="<%= reorder_admin_album_album_tracks_path(@album) %>">
   <tbody>
     <% @album_tracks.each do |album_track| %>
-      <tr>
+      <tr id="<%= album_track.id %>">
         <td>
           <span class="number"><%= album_track.number %>.</span>
           <%= album_track.title %>

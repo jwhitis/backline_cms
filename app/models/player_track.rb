@@ -1,6 +1,4 @@
 class PlayerTrack < Track
-  include Reorderable
-
   validates_presence_of :audio
 
   before_validation :set_number
