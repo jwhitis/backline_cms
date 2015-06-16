@@ -32,17 +32,39 @@ div#admin {
     text-shadow: 0 1px 1px rgba(black, .35);
   }
 
+  i.instructions {
+    display: block;
+    font-weight: lighter;
+    font-style: normal;
+  }
+
   table {
     margin: 10px 0;
+    border-collapse: separate;
     text-shadow: 0 1px 1px rgba(black, .35);
 
-    a {
-      text-decoration: underline;
-      color: white;
-      transition: all .3s ease;
+    &.sortable {
+      tr {
+        &.ui-sortable-helper {
+          display: table;
+        }
 
-      &:hover {
-        color: $slate;
+        &:hover, &:active {
+          background-clip: padding-box;
+          background-color: rgba(black, .5);
+        }
+
+        &:active {
+          td {
+            border: none;
+          }
+        }
+      }
+    }
+
+    tr:last-child {
+      td {
+        border-bottom: 1px solid rgba(white, .15);
       }
     }
 
@@ -70,6 +92,16 @@ div#admin {
 
       span.number {
         margin-right: 3px;
+      }
+
+      a {
+        text-decoration: underline;
+        color: white;
+        transition: all .3s ease;
+
+        &:hover {
+          color: $slate;
+        }
       }
 
       &.edit {
@@ -124,9 +156,6 @@ div#admin {
 
     i.instructions {
       margin: -5px 0 5px 0;
-      display: block;
-      font-weight: lighter;
-      font-style: normal;
     }
 
     button.file-btn {

@@ -27,6 +27,13 @@ class Admin::PlayerTracksController < Admin::AdminController
     render :index
   end
 
+  def reorder
+    PlayerTrack.reorder!(params[:resource_ids])
+    @player_track = PlayerTrack.new
+    @player_tracks = PlayerTrack.display_order
+    render :index
+  end
+
   private
 
   def player_track_params

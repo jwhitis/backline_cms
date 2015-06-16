@@ -38,6 +38,23 @@ $(document).on("ajaxSuccess", function() {
   // Initialize Fancybox for image previews
   $("a.image-preview").fancybox(fancyboxOptions);
 
+  // Initialize sortable tables
+  $("table.sortable tbody").sortable({
+    items: "tr",
+    axis: "y",
+    containment: "table.sortable",
+    stop: function() {
+      var resourceIds = $(this).sortable("toArray");
+      var url = $(this).parent("table.sortable").data("url");
+      $.ajax({
+        method: "PATCH",
+        data: { resource_ids: resourceIds },
+        url: url,
+        dataType: "script"
+      });
+    }
+  });
+
 });
 
 function fadeOutAlerts() {

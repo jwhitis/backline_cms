@@ -2,10 +2,12 @@
 
 <%= render "form" %>
 
-<table class="table">
+<i class="instructions">Click and drag the tracks to reorder them.</i>
+
+<table class="table sortable" data-url="<%= reorder_admin_player_tracks_path %>">
   <tbody>
     <% @player_tracks.each do |player_track| %>
-      <tr>
+      <tr id="<%= player_track.id %>">
         <td>
           <span class="number"><%= player_track.number %>.</span>
           <%= player_track.title %>

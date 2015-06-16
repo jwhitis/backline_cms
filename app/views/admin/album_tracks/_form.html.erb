@@ -1,6 +1,7 @@
 <%= render "validation_errors", resource: @album_track %>
 
-<%= form_for [:admin, @album, @album_track], remote: true, html: { class: "inline-custom" } do |f| %>
+<%= form_for [:admin, @album, @album_track], remote: true,
+  html: { class: "inline-custom clearfix" } do |f| %>
   <div class="form-group">
     <%= f.label :title, "Track Title", class: "sr-only" %>
     <%= f.text_field :title, placeholder: "Track Title", class: "form-control" %>

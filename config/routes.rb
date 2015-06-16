@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   namespace :admin do
+    concern :reorderable do
+      patch :reorder, on: :collection
+    end
+
     get "/", to: "admin#index"
     get "sign-in", to: "sessions#new", as: :sign_in
     post "sign-in", to: "sessions#create"
@@ -10,10 +14,11 @@ Rails.application.routes.draw do
     end
     resources :photos, except: :show
     resources :videos, except: :show
+    resources :player_tracks, concerns: :reorderable, only: [:index, :create, :destroy]
     resources :twitter_handles, only: [:index, :create, :destroy]
-    resources :player_tracks, only: [:index, :create, :destroy]
     patch "tweets/refresh", to: "tweets#refresh"
   end
+
   get "shows", to: "pages#shows"
   get "music", to: "pages#music"
   get "photos", to: "pages#photos"
