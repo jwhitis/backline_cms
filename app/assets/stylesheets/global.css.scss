@@ -39,33 +39,16 @@ div.tooltip-inner {
   padding: 6px 8px;
 }
 
-div#banner {
-  padding-top: 40px;
-  padding-bottom: 5px;
-  background: linear-gradient(to bottom, rgba(white, .5) 50%, rgba(white, .85) 75%, rgba(white, 1) 100%),
-    url(http://toddfarrell-production.s3.amazonaws.com/images/band_banner.jpg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-
+a#banner {
   img {
     width: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  div#banner {
-    padding-top: 140px;
-    padding-bottom: 10px;
   }
 }
 
 div#main {
   padding: 40px 0;
   color: white;
-  // Treating the background color as a gradient allows you to layer it over an image.
-  background: linear-gradient(to right, rgba(darken($blue, 15%), .5) 0%, rgba(darken($blue, 15%), .5) 100%),
-    url(http://toddfarrell-production.s3.amazonaws.com/images/night_sky_bw.jpeg);
+  background-image: url(http://toddfarrell-production.s3.amazonaws.com/images/background1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;

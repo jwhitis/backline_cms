@@ -14,13 +14,9 @@
 <div id="wrapper">
   <%= render "layouts/nav" %>
 
-  <div id="banner">
-    <div class="container">
-      <%= link_to root_path, remote: true do %>
-        <%= image_tag "http://toddfarrell-production.s3.amazonaws.com/images/band_logo_v8.png" %>
-      <% end %>
-    </div>
-  </div>
+  <%= link_to root_path, remote: true, id: "banner" do %>
+    <%= image_tag "http://toddfarrell-production.s3.amazonaws.com/images/banner_website.jpg" %>
+  <% end %>
 
   <div id="main">
     <div class="container">
