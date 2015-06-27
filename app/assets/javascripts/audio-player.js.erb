@@ -7,7 +7,7 @@ $(document).on("ready page:load", function() {
   var currentTrack = media[0];
 
   // Instantiate jPlayer
-  $("div#my-jplayer").jPlayer({
+  $("div#main-jplayer").jPlayer({
     ready: setMedia,
     ended: playNextTrack,
     swfPath: "/",
@@ -36,11 +36,11 @@ $(document).on("ready page:load", function() {
 
   function setMedia(options) {
     $("span#track-title").text(trackTitle());
-    $("div#my-jplayer").jPlayer("setMedia", {
+    $("div#main-jplayer").jPlayer("setMedia", {
       mp3: currentTrack
     });
     if (options.play) {
-      $("div#my-jplayer").jPlayer("play");
+      $("div#main-jplayer").jPlayer("play");
     }
   }
 
