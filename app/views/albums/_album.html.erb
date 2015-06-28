@@ -1,0 +1,32 @@
+<h2 class="page-title"><%= album.title %></h2>
+
+<div class="row">
+  <div class="col-sm-7 cover-art">
+    <%= image_tag album.cover_art.square.url, alt: "cover art" %>
+    <% if album.notes.present? %>
+      <div class="album-notes"><%= album.notes %></div>
+    <% end %>
+  </div>
+
+  <div class="col-sm-5 album-details">
+    <div class="release-date">Released <%= album.release_date.to_s(:medium) %></div>
+
+    <div class="track-list">
+      <%= render album.tracks.display_order %>
+    </div>
+
+    <div class="store-links">
+      <% if album.bandcamp_url.present? %>
+        <%= link_to album.bandcamp_url, target: "_blank" do %>
+          <div class="button bandcamp"></div>
+        <% end %>
+      <% end %>
+
+      <% if album.itunes_url.present? %>
+        <%= link_to album.itunes_url, target: "_blank" do %>
+          <div class="button itunes"></div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

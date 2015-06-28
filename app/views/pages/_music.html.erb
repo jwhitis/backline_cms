@@ -3,40 +3,7 @@
     <div class="carousel-inner" role="listbox">
       <% @albums.each_with_index do |album, index| %>
         <div class="item <%= "active" if index.zero? %>">
-          <h2 class="page-title"><%= album.title %></h2>
-
-          <div class="row">
-            <div class="col-sm-7 cover-art">
-              <%= image_tag album.cover_art.square.url, alt: "cover art" %>
-              <% if album.notes.present? %>
-                <div class="album-notes"><%= album.notes %></div>
-              <% end %>
-            </div>
-
-            <div class="col-sm-5 album-details">
-              <div class="release-date">Released <%= album.release_date.to_s(:medium) %></div>
-
-              <ol>
-                <% album.tracks.each do |album_track| %>
-                  <li><%= album_track.title %></li>
-                <% end %>
-              </ol>
-
-              <div class="store-links">
-                <% if album.bandcamp_url.present? %>
-                  <%= link_to album.bandcamp_url, target: "_blank" do %>
-                    <div class="button bandcamp"></div>
-                  <% end %>
-                <% end %>
-
-                <% if album.itunes_url.present? %>
-                  <%= link_to album.itunes_url, target: "_blank" do %>
-                    <div class="button itunes"></div>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
-          </div>
+          <%= render album %>
         </div>
       <% end %>
     </div>
@@ -53,3 +20,5 @@
     <% end %>
   </div>
 </div>
+
+<%= render "layouts/inline_player" %>

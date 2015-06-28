@@ -1,8 +1,6 @@
 @import "variables";
 
 div#music {
-  text-align: center;
-
   div.cover-art, div.album-details {
     max-width: 438px;
     margin: 0 auto;
@@ -41,12 +39,49 @@ div#music {
       color: #999999;
     }
 
-    ol {
+    div.track-list {
       margin-bottom: 15px;
-      padding: 0;
-      list-style-position: inside;
       font-weight: lighter;
       color: $light-grey;
+
+      div.inline-controls {
+        width: 31px;
+        height: 22px;
+        float: left;
+
+        span.fa-stack {
+          width: 22px;
+          height: 22px;
+          transition: all .3s ease;
+
+          &:hover {
+            color: $slate;
+          }
+
+          i.fa {
+            font-size: 20px;
+            line-height: 22px;
+
+            &.fa-play, &.fa-stop {
+              font-size: 9px;
+            }
+
+            &.fa-play {
+              left: 1px;
+            }
+          }
+        }
+      }
+
+      a.download {
+        float: right;
+        color: $light-grey;
+        transition: all .3s ease;
+
+        &:hover {
+          color: $slate;
+        }
+      }
     }
   }
 
@@ -91,8 +126,6 @@ div#music {
 
 @media (min-width: 768px) {
   div#music {
-    text-align: left;
-
     h2.page-title {
       text-align: left;
       padding-left: 3px;
