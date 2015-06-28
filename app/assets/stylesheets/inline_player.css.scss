@@ -1,0 +1,15 @@
+.inline-controls {
+  span.stop {
+    display: none;
+  }
+
+  &.playing {
+    span.play {
+      display: none;
+    }
+
+    span.stop {
+      display: inline-block;
+    }
+  }
+}

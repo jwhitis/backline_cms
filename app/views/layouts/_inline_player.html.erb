@@ -1,0 +1,51 @@
+<div id="inline-player" class="jp-jplayer"></div>
+
+<script type="text/javascript">
+  var currentInlineTrack = $(".inline-controls").first().data("audio-url");
+
+  // Instantiate jPlayer
+  $("div#inline-player").jPlayer({
+    ready: setInlineTrack,
+    ended: showPlayIcon,
+    swfPath: "/",
+    supplied: "mp3",
+    preload: "auto",
+    keyEnabled: true,
+    keyBindings: {
+      play: {
+        key: 32, // Space bar
+        fn: stopInlinePlayer
+      }
+    }
+  });
+
+  $(".inline-controls .play").click(function() {
+    $("div#main-jplayer").jPlayer("stop");
+
+    $(".inline-controls").removeClass("playing");
+    $(this).parent(".inline-controls").addClass("playing");
+
+    currentInlineTrack = $(this).parent(".inline-controls").data("audio-url");
+    setInlineTrack({ play: true });
+  });
+
+  $(".inline-controls .stop").click(stopInlinePlayer);
+
+  function setInlineTrack(options) {
+    $("div#inline-player").jPlayer("setMedia", {
+      mp3: currentInlineTrack
+    });
+    if (options.play) {
+      $("div#inline-player").jPlayer("play");
+    }
+  }
+
+  function stopInlinePlayer() {
+    $("div#inline-player").jPlayer("stop");
+    showPlayIcon();
+  }
+
+  function showPlayIcon() {
+    $(".inline-controls").removeClass("playing");
+  }
+</script>

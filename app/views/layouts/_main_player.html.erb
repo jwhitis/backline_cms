@@ -1,0 +1,99 @@
+<div id="main-player" class="jp-jplayer"></div>
+
+<div id="main-controls" class="clearfix">
+  <div id="prev">
+    <div class="arrow-left"></div>
+    <div class="arrow-left"></div>
+  </div>
+  <div id="circle">
+    <div id="play-container">
+      <div id="play"></div>
+    </div>
+    <div id="pause-container">
+      <div id="pause"></div>
+    </div>
+  </div>
+  <div id="next">
+    <div class="arrow-right"></div>
+    <div class="arrow-right"></div>
+  </div>
+  <div id="now-playing" class="hidden-xs hidden-sm">
+    Now Playing: <span id="track-title"></span>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var mainTrackUrls = <%== PlayerTrack.audio_urls %>;
+
+  var mainTrackTitles = <%== PlayerTrack.titles %>;
+
+  var currentMainTrack = mainTrackUrls[0];
+
+  // Instantiate jPlayer
+  $("div#main-player").jPlayer({
+    ready: setMainTrack,
+    play: stopOtherPlayers,
+    ended: playNextMainTrack,
+    swfPath: "/",
+    supplied: "mp3",
+    cssSelectorAncestor: "div#main-controls",
+    cssSelector: {
+      play: "div#play-container",
+      pause: "div#pause-container"
+    },
+    preload: "auto",
+    keyEnabled: true
+  });
+
+  $("div#prev").click(playPrevMainTrack);
+  $("div#next").click(playNextMainTrack);
+
+  function playPrevMainTrack() {
+    currentMainTrack = mainTrackUrls[prevMainTrackIndex()];
+    setMainTrack({ play: true });
+  }
+
+  function playNextMainTrack() {
+    currentMainTrack = mainTrackUrls[nextMainTrackIndex()];
+    setMainTrack({ play: true });
+  }
+
+  function prevMainTrackIndex() {
+    if (currentMainTrackIndex() == 0) {
+      return mainTrackUrls.length - 1;
+    } else {
+      return currentMainTrackIndex() - 1;
+    }
+  }
+
+  function nextMainTrackIndex() {
+    if (currentMainTrackIndex() == mainTrackUrls.length - 1) {
+      return 0;
+    } else {
+      return currentMainTrackIndex() + 1;
+    }
+  }
+
+  function currentMainTrackIndex() {
+    return mainTrackUrls.indexOf(currentMainTrack);
+  }
+
+  function setMainTrack(options) {
+    $("span#track-title").text(currentMainTrackTitle());
+    $("div#main-player").jPlayer("setMedia", {
+      mp3: currentMainTrack
+    });
+    if (options.play) {
+      $("div#main-player").jPlayer("play");
+    }
+  }
+
+  function currentMainTrackTitle() {
+    return mainTrackTitles[currentMainTrackIndex()];
+  }
+
+  function stopOtherPlayers() {
+    $("div#inline-jplayer").jPlayer("stop");
+    $(".inline-controls").removeClass("playing");
+  }
+</script>

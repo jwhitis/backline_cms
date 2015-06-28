@@ -15,8 +15,9 @@ Rails.application.routes.draw do
     resources :photos, except: :show
     resources :videos, except: :show
     resources :player_tracks, concerns: :reorderable, only: [:index, :create, :destroy]
+    get "refresh_player", to: "admin#refresh_player"
     resources :twitter_handles, only: [:index, :create, :destroy]
-    patch "tweets/refresh", to: "tweets#refresh"
+    patch "tweets/refresh", to: "tweets#refresh", as: :refresh_tweets
   end
 
   get "shows", to: "pages#shows"

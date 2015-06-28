@@ -1,3 +1,6 @@
+<%= link_to fa_icon("refresh"), admin_refresh_player_path, remote: true,
+  class: "btn-blue corner-btn" %>
+
 <%= render "flash_messages" %>
 
 <%= render "form" %>
@@ -8,6 +11,10 @@
   <tbody>
     <% @player_tracks.each do |player_track| %>
       <tr id="<%= player_track.id %>">
+        <td class="inline-controls" data-audio-url="<%= player_track.audio.url %>">
+          <%= fa_stacked_icon "play", base: "circle-thin", class: "play" %>
+          <%= fa_stacked_icon "stop", base: "circle-thin", class: "stop" %>
+        </td>
         <td>
           <span class="number"><%= player_track.number %>.</span>
           <%= player_track.title %>
@@ -20,3 +27,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= render "layouts/inline_player" %>

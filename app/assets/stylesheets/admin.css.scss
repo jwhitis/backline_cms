@@ -56,7 +56,7 @@ div#admin {
 
         &:active {
           td {
-            border: none;
+            border-color: transparent;
           }
         }
       }
@@ -76,6 +76,24 @@ div#admin {
     td {
       border-color: rgba(white, .15);
       font-weight: lighter;
+
+      &.inline-controls {
+        width: 36px;
+
+        span.fa-stack {
+          width: 20px;
+          height: 20px;
+          transition: all .3s ease;
+
+          &:hover {
+            color: $slate;
+          }
+
+          i.fa-play, i.fa-stop {
+            font-size: 7px;
+          }
+        }
+      }
 
       i.fa {
         font-size: 18px;
