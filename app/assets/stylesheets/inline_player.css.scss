@@ -1,4 +1,30 @@
+@import "variables";
+
 .inline-controls {
+  span.fa-stack {
+    width: 20px;
+    height: 20px;
+    transition: all .3s ease;
+
+    &:hover {
+      color: $slate;
+      cursor: pointer;
+    }
+
+    i.fa {
+      font-size: 20px !important;
+      line-height: 20px;
+
+      &.fa-play, &.fa-stop {
+        font-size: 9px !important;
+      }
+    }
+
+    i.fa-play {
+      left: 1px;
+    }
+  }
+
   span.stop {
     display: none;
   }

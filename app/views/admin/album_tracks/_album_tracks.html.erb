@@ -1,11 +1,9 @@
-<%= link_to fa_icon("chevron-left"), edit_admin_album_path(@album), remote: true,
+<%= link_to fa_icon("plus"), new_admin_album_album_track_path(@album), remote: true,
   class: "btn-blue corner-btn" %>
 
 <%= render "flash_messages" %>
 
 <h2><%= @album.title %></h2>
-
-<%= render "admin/album_tracks/form" %>
 
 <i class="instructions">Click and drag the tracks to reorder them.</i>
 
@@ -24,7 +22,9 @@
           <%= album_track.title %>
         </td>
         <td class="edit">
-          <%= link_to fa_icon("times-circle"), admin_album_album_track_path(@album, album_track),
+          <%= link_to fa_icon("edit"), edit_admin_album_album_track_path(@album, album_track),
+            remote: true %>
+          <%= link_to fa_icon("trash-o"), admin_album_album_track_path(@album, album_track),
             method: :delete, remote: true, data: { confirm: "Are you sure you want to remove this track?" } %>
         </td>
       </tr>

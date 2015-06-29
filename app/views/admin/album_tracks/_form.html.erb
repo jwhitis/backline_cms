@@ -1,18 +1,37 @@
 <%= render "validation_errors", resource: @album_track %>
 
-<%= form_for [:admin, @album, @album_track], remote: true,
-  html: { class: "inline-custom clearfix" } do |f| %>
+<%= form_for [:admin, @album, @album_track], remote: true do |f| %>
   <div class="form-group">
-    <%= f.label :title, "Track Title", class: "sr-only" %>
-    <%= f.text_field :title, placeholder: "Track Title", class: "form-control" %>
+    <%= f.label :title, class: "required" %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :audio, "Choose MP3", class: "sr-only" %>
+    <%= f.label :audio %>
+    <i class="instructions">Please choose an MP3 file if you wish to enable streaming for this song.</i>
     <%= file_btn(@album_track.audio_changed?, "Choose MP3") %>
     <%= f.file_field :audio %>
     <%= f.hidden_field :audio_cache %>
   </div>
 
-  <%= submit_btn("Add") %>
+  <div class="preview">
+    <% if @album_track.audio.present? %>
+      <div class="inline-controls" data-audio-url="<%= @album_track.audio.url %>">
+        <%= fa_stacked_icon "play", base: "circle-thin", class: "play" %>
+        <%= fa_stacked_icon "stop", base: "circle-thin", class: "stop" %>
+      </div>
+      <%= @album_track.audio.file.filename %>
+    <% end %>
+  </div>
+
+  <div class="checkbox <%= "active" if @album_track.downloadable? %>">
+    <%= f.label :downloadable do %>
+      <%= f.check_box :downloadable %> Make this track available for download?
+    <% end %>
+  </div>
+
+  <%= submit_btn %>
+  <%= link_to "Cancel", admin_album_album_tracks_path(@album), remote: true, class: "cancel" %>
 <% end %>
+
+<%= render "layouts/inline_player" %>

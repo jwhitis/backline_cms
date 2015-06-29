@@ -79,24 +79,6 @@ div#admin {
 
       &.inline-controls {
         width: 36px;
-
-        span.fa-stack {
-          width: 20px;
-          height: 20px;
-          transition: all .3s ease;
-
-          &:hover {
-            color: $slate;
-          }
-
-          i.fa-play, i.fa-stop {
-            font-size: 7px;
-          }
-
-          i.fa-play {
-            left: 1px;
-          }
-        }
       }
 
       i.fa {
@@ -219,6 +201,11 @@ div#admin {
       img, iframe {
         max-width: 100%;
         box-shadow: 0 2px 5px rgba(black, .5);
+      }
+
+      div.inline-controls {
+        margin-right: 8px;
+        float: left;
       }
     }
 

@@ -45,32 +45,10 @@ div#music {
       color: $light-grey;
 
       div.inline-controls {
-        width: 31px;
+        width: 20px;
         height: 22px;
+        margin-right: 8px;
         float: left;
-
-        span.fa-stack {
-          width: 22px;
-          height: 22px;
-          transition: all .3s ease;
-
-          &:hover {
-            color: $slate;
-          }
-
-          i.fa {
-            font-size: 20px;
-            line-height: 22px;
-
-            &.fa-play, &.fa-stop {
-              font-size: 9px;
-            }
-
-            &.fa-play {
-              left: 1px;
-            }
-          }
-        }
       }
 
       a.download {

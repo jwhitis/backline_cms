@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     delete "sign-out", to: "sessions#destroy", as: :sign_out
     resources :shows, except: :show
     resources :albums, except: :show do
-      resources :album_tracks, concerns: :reorderable, only: [:index, :create, :destroy]
+      resources :album_tracks, concerns: :reorderable, except: :show do
+        get :download, on: :member
+      end
     end
     resources :photos, except: :show
     resources :videos, except: :show
