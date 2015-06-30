@@ -22,10 +22,10 @@ Rails.application.routes.draw do
     patch "tweets/refresh", to: "tweets#refresh", as: :refresh_tweets
   end
 
-  get "shows", to: "pages#shows"
-  get "music", to: "pages#music"
-  get "photos", to: "pages#photos"
-  get "videos", to: "pages#videos"
+  resources :shows, only: :index
+  get "music", to: "albums#index", as: :albums
+  resources :photos, only: :index
+  resources :videos, only: :index
   root "pages#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
