@@ -29,12 +29,6 @@ ActiveRecord::Schema.define(version: 20150629232006) do
     t.integer  "tracks_count", default: 0,     null: false
   end
 
-  create_table "email_subscribers", force: :cascade do |t|
-    t.string   "email",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "photos", force: :cascade do |t|
     t.text     "caption"
     t.string   "image"
@@ -57,6 +51,12 @@ ActiveRecord::Schema.define(version: 20150629232006) do
     t.string   "time",       limit: 255
     t.boolean  "published"
     t.string   "venue_url"
+  end
+
+  create_table "subscribers", force: :cascade do |t|
+    t.string   "email",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tracks", force: :cascade do |t|

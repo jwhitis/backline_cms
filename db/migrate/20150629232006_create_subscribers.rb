@@ -1,6 +1,6 @@
-class CreateEmailSubscribers < ActiveRecord::Migration
+class CreateSubscribers < ActiveRecord::Migration
   def change
-    create_table :email_subscribers do |t|
+    create_table :subscribers do |t|
       t.string :email, null: false
 
       t.timestamps null: false
