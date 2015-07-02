@@ -13,9 +13,9 @@ $(document).on("ready page:load", function() {
     $(this).siblings("button.file-btn").find("i.fa-check").fadeIn(300);
   });
 
-  // Clicking checkbox toggles active class on parent
+  // Clicking checkbox toggles checked class on parent
   $("div#content").on("change", "input[type='checkbox']", function() {
-    $(this).parents("div.checkbox").toggleClass("active");
+    $(this).parents("div.checkbox, div.audio-preview").toggleClass("checked");
   });
 
   // Add spinner to submit button on click

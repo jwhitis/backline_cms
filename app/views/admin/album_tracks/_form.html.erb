@@ -14,17 +14,23 @@
     <%= f.hidden_field :audio_cache %>
   </div>
 
-  <div class="preview">
-    <% if @album_track.audio.present? %>
+  <% if @album_track.audio.present? %>
+    <div class="audio-preview">
       <div class="inline-controls" data-audio-url="<%= @album_track.audio.url %>">
         <%= fa_stacked_icon "play", base: "circle-thin", class: "play" %>
         <%= fa_stacked_icon "stop", base: "circle-thin", class: "stop" %>
       </div>
       <%= @album_track.audio.file.filename %>
-    <% end %>
-  </div>
+      <div class="checkbox">
+        <%= f.label :remove_audio do %>
+          <%= f.check_box :remove_audio %> Remove MP3?
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 
-  <div class="checkbox <%= "active" if @album_track.downloadable? %>">
+  <div class="checkbox downloadable <%= "checked" if @album_track.downloadable? %>"
+    style="<%= "display: none;" if @album_track.audio.blank? %>">
     <%= f.label :downloadable do %>
       <%= f.check_box :downloadable %> Make this track available for download?
     <% end %>
@@ -35,3 +41,13 @@
 <% end %>
 
 <%= render "layouts/inline_player" %>
+
+<script type="text/javascript">
+  $("input#album_track_audio").on("change", function() {
+    if ($(this).val()) {
+      $("div.downloadable").fadeIn(300);
+    } else {
+      $("div.downloadable").fadeOut(300);
+    }
+  });
+</script>

@@ -202,11 +202,10 @@ div#admin {
         max-width: 100%;
         box-shadow: 0 2px 5px rgba(black, .5);
       }
+    }
 
-      div.inline-controls {
-        margin-right: 8px;
-        float: left;
-      }
+    div.checkbox {
+      margin: 15px 0;
     }
 
     %status-box {
@@ -217,12 +216,33 @@ div#admin {
       box-shadow: 0 1px 2px rgba(black, .15);
     }
 
-    div.checkbox {
+    div.audio-preview {
+      @extend %status-box;
+      color: $light-grey;
+      background-color: rgba(black, .7);
+
+      &.checked {
+        color: white;
+        background-color: rgba($danger, .85);
+      }
+
+      div.inline-controls {
+        margin-right: 8px;
+        float: left;
+      }
+
+      div.checkbox {
+        margin: 0;
+        float: right;
+      }
+    }
+
+    div.published, div.downloadable {
       @extend %status-box;
       padding-left: 32px;
       background-color: rgba($warning, .85);
 
-      &.active {
+      &.checked {
         background-color: rgba($success, .85);
       }
     }

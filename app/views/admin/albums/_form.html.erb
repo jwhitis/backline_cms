@@ -54,7 +54,7 @@
     <%= f.text_area :notes, rows: 3, class: "form-control" %>
   </div>
 
-  <div class="checkbox <%= "active" if @album.published? %>">
+  <div class="checkbox published <%= "checked" if @album.published? %>">
     <%= f.label :published do %>
       <%= f.check_box :published %> Publish this album?
     <% end %>
