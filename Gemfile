@@ -13,6 +13,7 @@ gem 'responders', '~> 2.0'
 gem 'twitter'
 
 group :development do
+  gem 'pry-rails'
   gem 'web-console', '~> 2.0'
 end
 
