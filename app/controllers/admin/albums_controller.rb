@@ -50,7 +50,7 @@ class Admin::AlbumsController < Admin::AdminController
 
   def album_params
     params.require(:album).permit(:title, :release_date, :notes, :bandcamp_url, :itunes_url,
-      :cover_art, :cover_art_cache, :published)
+      :cover_art, :cover_art_cache, :published, :archive, :archive_cache, :remove_archive)
   end
 
 end

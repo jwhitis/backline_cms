@@ -15,7 +15,7 @@
   </div>
 
   <% if @album_track.audio.present? %>
-    <div class="audio-preview">
+    <div class="filename">
       <div class="inline-controls" data-audio-url="<%= @album_track.audio.url %>">
         <%= fa_stacked_icon "play", base: "circle-thin", class: "play" %>
         <%= fa_stacked_icon "stop", base: "circle-thin", class: "stop" %>

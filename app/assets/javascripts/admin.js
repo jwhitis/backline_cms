@@ -15,7 +15,7 @@ $(document).on("ready page:load", function() {
 
   // Clicking checkbox toggles checked class on parent
   $("div#content").on("change", "input[type='checkbox']", function() {
-    $(this).parents("div.checkbox, div.audio-preview").toggleClass("checked");
+    $(this).parents("div.checkbox, div.filename").toggleClass("checked");
   });
 
   // Add spinner to submit button on click
