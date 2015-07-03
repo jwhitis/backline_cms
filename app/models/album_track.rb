@@ -21,4 +21,8 @@ class AlbumTrack < Track
     tracks.update_all("number = number - 1")
   end
 
+  def self.downloadable
+    where(downloadable: true)
+  end
+
 end

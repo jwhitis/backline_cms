@@ -51,9 +51,6 @@ class Admin::AlbumTracksController < Admin::AdminController
     render :index
   end
 
-  def download
-  end
-
   private
 
   def find_album

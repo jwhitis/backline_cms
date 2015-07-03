@@ -27,6 +27,12 @@
           <div class="button itunes"></div>
         <% end %>
       <% end %>
+
+      <% if album.downloadable? %>
+        <%= link_to download_album_path(album) do %>
+          <div class="button download">Download Album</div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

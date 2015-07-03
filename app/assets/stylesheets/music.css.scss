@@ -91,6 +91,16 @@ div#music {
         &.itunes {
           background-image: url(http://toddfarrell-production.s3.amazonaws.com/images/itunes.png);
         }
+
+        &.download {
+          padding: 13px 15px;
+          text-align: center;
+          font-size: 18px;
+          line-height: 22px;
+          text-transform: uppercase;
+          color: white;
+          background-color: black;
+        }
       }
     }
   }
