@@ -3,6 +3,7 @@ ruby '2.2.0'
 
 gem 'autoprefixer-rails'
 gem 'carrierwave'
+gem 'country_select', github: 'stefanpenner/country_select'
 gem 'fog'
 gem 'font-awesome-rails'
 gem 'kaminari'
