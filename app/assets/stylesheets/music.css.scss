@@ -52,12 +52,19 @@ div#music {
       }
 
       a.download {
+        padding: 0 8px;
         float: right;
-        color: $light-grey;
+        font-family: $header-font;
+        font-size: 11px;
+        line-height: 22px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: white;
+        background-color: rgba(black, .6);
         transition: all .3s ease;
 
         &:hover {
-          color: $slate;
+          background-color: darken($red, 5%);
         }
       }
     }
@@ -69,37 +76,41 @@ div#music {
     a {
       margin-bottom: 15px;
       float: left;
-      border-radius: 8px;
       box-shadow: 0 2px 5px rgba(black, .25);
 
-      &:first-child {
+      &:nth-child(odd) {
         margin-right: 15px;
       }
 
       div.button {
         width: 165px;
         height: 70px;
-        border-radius: 8px;
+        background-color: rgba(black, .6);
         background-size: 100%;
         background-position: center;
-        box-shadow: inset 1px 1px 2px white;
+        transition: all .3s ease;
 
         &.bandcamp {
-          background-image: url(http://toddfarrell-production.s3.amazonaws.com/images/bandcamp.png);
+          background-image: url(http://toddfarrell-production.s3.amazonaws.com/images/bandcamp_transparent.png);
         }
 
         &.itunes {
-          background-image: url(http://toddfarrell-production.s3.amazonaws.com/images/itunes.png);
+          background-image: url(http://toddfarrell-production.s3.amazonaws.com/images/itunes_transparent.png);
         }
 
         &.download {
           padding: 13px 15px;
           text-align: center;
-          font-size: 18px;
+          font-family: $header-font;
+          font-size: 20px;
           line-height: 22px;
+          letter-spacing: 1px;
           text-transform: uppercase;
           color: white;
-          background-color: black;
+        }
+
+        &:hover {
+          background-color: darken($red, 5%);
         }
       }
     }

@@ -7,6 +7,6 @@
   </div>
   <%= album_track.number %>. <%= album_track.title %>
   <% if album_track.downloadable? %>
-    <%= link_to fa_icon("download"), download_album_track_path(album_track), class: "download" %>
+    <%= link_to "Download", download_album_track_path(album_track), class: "download" %>
   <% end %>
 </div>
