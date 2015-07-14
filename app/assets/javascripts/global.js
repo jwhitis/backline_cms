@@ -50,7 +50,7 @@ $(document).on("ajaxSuccess", function(event, xhr, settings) {
 
   // Set vertical scroll position on page change (not including pagination)
   if (!settings.url.match(/page=\d+/)) {
-    $("body").scrollTop(130);
+    $("body").scrollTop(315);
   }
 
   // Initialize Masonry and Fancybox for photo gallery
