@@ -1,4 +1,4 @@
-<%= render "validation_errors", resource: @player_track %>
+<%= render "shared/validation_errors", resource: @player_track %>
 
 <%= form_for [:admin, @player_track], remote: true,
   html: { class: "inline-custom clearfix" } do |f| %>

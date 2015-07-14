@@ -1,4 +1,4 @@
-<%= render "validation_errors", resource: @twitter_handle %>
+<%= render "shared/validation_errors", resource: @twitter_handle %>
 
 <%= form_for [:admin, @twitter_handle], remote: true, html: { class: "inline-custom" } do |f| %>
   <div class="form-group">

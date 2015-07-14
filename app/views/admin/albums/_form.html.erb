@@ -3,7 +3,7 @@
     class: "btn-blue corner-btn" %>
 <% end %>
 
-<%= render "validation_errors", resource: @album %>
+<%= render "shared/validation_errors", resource: @album %>
 
 <%= form_for [:admin, @album], remote: true do |f| %>
   <div class="row">

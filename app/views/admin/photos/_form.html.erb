@@ -1,4 +1,4 @@
-<%= render "validation_errors", resource: @photo %>
+<%= render "shared/validation_errors", resource: @photo %>
 
 <%= form_for [:admin, @photo], remote: true do |f| %>
   <div class="form-group">

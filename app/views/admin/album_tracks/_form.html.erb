@@ -1,4 +1,4 @@
-<%= render "validation_errors", resource: @album_track %>
+<%= render "shared/validation_errors", resource: @album_track %>
 
 <%= form_for [:admin, @album, @album_track], remote: true do |f| %>
   <div class="form-group">
@@ -40,7 +40,7 @@
   <%= link_to "Cancel", admin_album_album_tracks_path(@album), remote: true, class: "cancel" %>
 <% end %>
 
-<%= render "layouts/inline_player" %>
+<%= render "shared/inline_player" %>
 
 <script type="text/javascript">
   $("input#album_track_audio").on("change", function() {

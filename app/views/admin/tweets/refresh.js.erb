@@ -1,3 +1,2 @@
 $("div#admin-content").prepend("<%=j render 'flash_messages' %>");
-var twitterStream = "<%=j render 'layouts/twitter_stream', tweets: @tweets %>";
-$("div#twitter-stream").replaceWith(twitterStream);
+$("div#twitter-stream").replaceWith("<%=j render 'layouts/twitter_stream', tweets: @tweets %>");

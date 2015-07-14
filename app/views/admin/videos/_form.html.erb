@@ -1,4 +1,4 @@
-<%= render "validation_errors", resource: @video %>
+<%= render "shared/validation_errors", resource: @video %>
 
 <%= form_for [:admin, @video], remote: true do |f| %>
   <div class="form-group">
