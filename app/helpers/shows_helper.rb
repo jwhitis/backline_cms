@@ -1,4 +1,4 @@
-module PagesHelper
+module ShowsHelper
 
   def formatted_show_date show
     show.date.to_s(:short).gsub(" ", "&nbsp").html_safe
@@ -17,13 +17,6 @@ module PagesHelper
     query = "#{show.address}, #{show.city}, #{show.state} #{show.zip}".to_query("q")
     link_to fa_icon("map-marker"), "https://maps.google.com?#{query}", target: "_blank",
       class: "google-maps-link"
-  end
-
-  def streamable_tracks? album
-    value = instance_variable_get("@streamable_#{album.id}")
-    return value unless value.nil?
-
-    instance_variable_set("@streamable_#{album.id}", album.tracks.streamable.exists?)
   end
 
 end
