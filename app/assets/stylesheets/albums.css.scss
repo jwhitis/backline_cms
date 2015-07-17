@@ -1,6 +1,12 @@
 @import "variables";
 
 div#albums {
+  margin: 0 -15px;
+
+  div.item {
+    padding: 0 15px;
+  }
+
   div.cover-art, div.album-details {
     max-width: 438px;
     margin: 0 auto;
@@ -71,22 +77,19 @@ div#albums {
   }
 
   div.store-links {
-    display: inline-block;
-
     a {
-      margin-bottom: 15px;
-      float: left;
+      display: block;
       box-shadow: 0 2px 5px rgba(black, .25);
 
-      &:nth-child(odd) {
-        margin-right: 15px;
+      &:not(:last-child) {
+        margin-bottom: 15px;
       }
 
       div.button {
-        width: 165px;
         height: 70px;
         background-color: rgba(black, .6);
-        background-size: 100%;
+        background-repeat: no-repeat;
+        background-size: auto 110%;
         background-position: center;
         transition: all .3s ease;
 
@@ -99,11 +102,10 @@ div#albums {
         }
 
         &.download {
-          padding: 13px 15px;
+          padding: 20px 15px;
           text-align: center;
           font-family: $header-font;
-          font-size: 20px;
-          line-height: 22px;
+          font-size: 22px;
           letter-spacing: 1px;
           text-transform: uppercase;
           color: white;
@@ -115,16 +117,12 @@ div#albums {
       }
     }
   }
-
-  @media (max-width: 374px) {
-    div.store-links {
-      width: 165px;
-    }
-  }
 }
 
 @media (min-width: 768px) {
-  div#music {
+  div#albums {
+    margin: 0 auto;
+
     h2.page-title {
       text-align: left;
       padding-left: 3px;

@@ -12,7 +12,7 @@
     <div class="release-date">Released <%= album.release_date.to_s(:medium) %></div>
 
     <div class="track-list">
-      <%= render album.tracks.display_order %>
+      <%= render album.tracks.display_order, album: album %>
     </div>
 
     <div class="store-links">

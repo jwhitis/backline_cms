@@ -25,4 +25,8 @@ class AlbumTrack < Track
     where(downloadable: true)
   end
 
+  def self.streamable
+    where.not(audio: nil)
+  end
+
 end
