@@ -1,0 +1,20 @@
+<% if flash.any? %>
+  <div id="flash-modal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body row">
+          <div class="col-xs-4">
+            <%= fa_stacked_icon("check", base: "circle-thin") %>
+          </div>
+          <div class="col-xs-8">
+            <%= link_to "CLOSE", "javascript:void(0)", data: { dismiss: "modal" }, class: "close-btn" %>
+
+            <% flash.each do |name, message| %>
+              <div><%== message %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

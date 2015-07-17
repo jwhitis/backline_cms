@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  # before_action :verify_subscription!, only: :download
+  before_action :verify_subscription!, only: :download
 
   def index
     @albums = Album.published.display_order.includes(:tracks)
@@ -11,7 +11,7 @@ class AlbumsController < ApplicationController
     return head(:forbidden) unless @album.downloadable?
 
     data = open(@album.archive.url)
-    send_data data.read, filename: filename, type: type
+    send_data data.read, filename: filename, type: file_type
   end
 
   private
@@ -25,7 +25,7 @@ class AlbumsController < ApplicationController
     @album.archive.file.extension
   end
 
-  def type
+  def file_type
     @album.archive.content_type
   end
 

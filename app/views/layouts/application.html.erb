@@ -10,24 +10,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="wrapper">
+    <%= render "layouts/nav" %>
 
-<div id="wrapper">
-  <%= render "layouts/nav" %>
+    <%= link_to root_path, remote: true, id: "banner" do %>
+      <%= image_tag "http://toddfarrell-production.s3.amazonaws.com/images/banner_website.jpg" %>
+    <% end %>
 
-  <%= link_to root_path, remote: true, id: "banner" do %>
-    <%= image_tag "http://toddfarrell-production.s3.amazonaws.com/images/banner_website.jpg" %>
-  <% end %>
-
-  <div id="main">
-    <div class="container">
-      <div id="content">
-        <%= yield %>
+    <div id="main">
+      <div class="container">
+        <div id="content">
+          <%= yield %>
+        </div>
       </div>
     </div>
+
+    <%= render "layouts/footer" %>
   </div>
 
-  <%= render "layouts/footer" %>
-</div>
-
+  <%= render "layouts/flash_modal" %>
 </body>
 </html>

@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get "album_tracks/:id/download", to: "album_tracks#download", as: :download_album_track
   resources :photos, only: :index
   resources :videos, only: :index
+  resources :subscribers, only: [:new, :create]
   root "pages#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

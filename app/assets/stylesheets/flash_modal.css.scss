@@ -1,0 +1,63 @@
+@import "variables";
+
+div#flash-modal {
+  z-index: 9999;
+
+  div.modal-dialog {
+    width: 320px;
+    padding: 110px 15px 15px 15px;
+  }
+
+  div.modal-content {
+    border-radius: 0;
+
+    div.modal-body.row {
+      height: 160px;
+      margin: 0;
+      padding: 0;
+    }
+
+    div.col-xs-4 {
+      height: 100%;
+      font-size: 22px;
+      color: white;
+      background-color: $blue;
+
+      span.fa-stack {
+        margin: -1em 0 0 -1em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
+    }
+
+    div.col-xs-8 {
+      padding-top: 50px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: lighter;
+
+      a.close-btn {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #777777;
+        transition: all .3s ease;
+
+        &:hover {
+          color: #999999;
+        }
+      }
+
+      strong {
+        color: #777777;
+      }
+    }
+  }
+}
+
+div.modal-backdrop {
+  z-index: 9000;
+}

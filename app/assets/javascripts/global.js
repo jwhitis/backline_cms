@@ -1,10 +1,16 @@
 $(document).on("ready page:load", function() {
 
+  var path = window.location.pathname;
+
   // Initialize Transformicons
   transformicons.add(".tcon");
 
+  // Show flash modal on non-admin pages
+  if (!path.match(/^\/admin/)) {
+    $("div#flash-modal").modal("show");
+  }
+
   // Highlight active tab
-  var path = window.location.pathname;
   $("ul.navbar-nav a[href='" + path + "']").addClass("active");
   $("ul.navbar-nav a").click(function() {
     $("ul.navbar-nav a").removeClass("active");
@@ -34,7 +40,6 @@ $(document).on("ready page:load", function() {
   });
 
   // Initialize Masonry and Fancybox for photo gallery
-  var path = window.location.pathname;
   if (path == "/photos") {
     initializeMasonry();
     initializeFancybox();
@@ -44,17 +49,19 @@ $(document).on("ready page:load", function() {
 
 $(document).on("ajaxSuccess", function(event, xhr, settings) {
 
+  var url = settings.url;
+
   // Collapse navbar on page change
   $("div#my-navbar-collapse").collapse("hide");
   transformicons.revert(".tcon");
 
   // Set vertical scroll position on page change (not including pagination)
-  if (!settings.url.match(/page=\d+/)) {
+  if (!url.match(/page=\d+/)) {
     $("body").scrollTop(315);
   }
 
   // Initialize Masonry and Fancybox for photo gallery
-  if (settings.url.match(/^\/photos/)) {
+  if (url.match(/^\/photos/)) {
     initializeMasonry();
     initializeFancybox();
   }

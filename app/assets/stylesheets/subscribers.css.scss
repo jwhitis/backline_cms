@@ -1,0 +1,53 @@
+@import "variables";
+
+div#subscribers {
+  form {
+    margin-top: 5px;
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 5px 25px;
+      border: none;
+      font-family: $header-font;
+      font-size: 22px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: white;
+      background-color: rgba(black, .6);
+      transition: all .3s ease;
+
+      &:hover {
+        background-color: darken($red, 5%);
+      }
+    }
+  }
+
+  p {
+    font-size: 16px;
+    letter-spacing: .5px;
+    font-weight: lighter;
+
+    &:last-child {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  div#subscribers {
+    div.col-sm-6 {
+      &:first-child {
+        padding-left: 30px;
+        border-left: 1px solid rgba(white, .25);
+
+        p:last-child {
+          margin: 0;
+        }
+      }
+
+      &:last-child {
+        padding-right: 30px;
+      }
+    }
+  }
+}

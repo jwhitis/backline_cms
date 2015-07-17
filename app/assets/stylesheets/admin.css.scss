@@ -219,7 +219,7 @@ div#admin {
     div.filename {
       @extend %status-box;
       color: $light-grey;
-      background-color: rgba(black, .7);
+      background-color: rgba(black, .6);
 
       &.checked {
         color: white;
