@@ -45,9 +45,12 @@
     <%= f.hidden_field :cover_art_cache %>
   </div>
 
-  <div class="preview">
-    <%= image_tag @album.cover_art.square.url %>
-  </div>
+  <% if @album.cover_art.present? %>
+    <div class="preview">
+      <label><%= @album.cover_art.file.filename %></label>
+      <%= image_tag @album.cover_art.square.url %>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <%= f.label :notes %>

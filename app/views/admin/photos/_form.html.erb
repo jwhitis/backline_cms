@@ -9,9 +9,12 @@
     <%= f.hidden_field :image_cache %>
   </div>
 
-  <div class="preview">
-    <%= image_tag @photo.image.thumb.url %>
-  </div>
+  <% if @photo.image.present? %>
+    <div class="preview">
+      <label><%= @photo.image.file.filename %></label>
+      <%= image_tag @photo.image.thumb.url %>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <%= f.label :caption %>
