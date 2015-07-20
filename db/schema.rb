@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720111515) do
+ActiveRecord::Schema.define(version: 20150720120736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150720111515) do
   create_table "nav_links", force: :cascade do |t|
     t.string   "text",       null: false
     t.string   "url",        null: false
-    t.integer  "number",     null: false
+    t.integer  "position",   null: false
     t.integer  "page_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20150720111515) do
 
   create_table "tracks", force: :cascade do |t|
     t.string   "title",                        null: false
-    t.integer  "number",                       null: false
+    t.integer  "position",                     null: false
     t.integer  "album_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false

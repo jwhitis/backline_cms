@@ -4,4 +4,6 @@ class Track < ActiveRecord::Base
   mount_uploader :audio, AudioUploader
 
   validates_presence_of :title
+
+  alias_attribute :number, :position
 end
