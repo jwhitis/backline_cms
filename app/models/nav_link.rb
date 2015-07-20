@@ -1,4 +1,6 @@
 class NavLink < ActiveRecord::Base
+  include Reorderable
+
   belongs_to :page
 
   validates :text, presence: true, uniqueness: true
