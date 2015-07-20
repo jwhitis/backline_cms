@@ -3,6 +3,8 @@ class Page < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  has_one :nav_link, dependent: :destroy
+
   validates :title, presence: true, uniqueness: true
   validates :slug, presence: true, format: { with: VALID_SLUG_REGEX }, uniqueness: true
 

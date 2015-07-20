@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150718004954) do
+ActiveRecord::Schema.define(version: 20150720111515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(version: 20150718004954) do
     t.integer  "tracks_count", default: 0,     null: false
     t.string   "archive"
   end
+
+  create_table "nav_links", force: :cascade do |t|
+    t.string   "text",       null: false
+    t.string   "url",        null: false
+    t.integer  "number",     null: false
+    t.integer  "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "nav_links", ["page_id"], name: "index_nav_links_on_page_id", using: :btree
+  add_index "nav_links", ["text"], name: "index_nav_links_on_text", unique: true, using: :btree
 
   create_table "pages", force: :cascade do |t|
     t.string   "title",                       null: false
@@ -120,5 +132,6 @@ ActiveRecord::Schema.define(version: 20150718004954) do
     t.boolean  "published"
   end
 
+  add_foreign_key "nav_links", "pages"
   add_foreign_key "tracks", "albums"
 end
