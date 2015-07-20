@@ -197,6 +197,18 @@ div#admin {
 
     div.preview {
       margin-bottom: 15px;
+      position: relative;
+
+      label {
+        display: block;
+      }
+
+      div.checkbox {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
 
       img, iframe {
         max-width: 100%;

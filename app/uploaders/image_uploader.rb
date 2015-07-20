@@ -32,16 +32,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :thumb, if: :is_photo? do
+  version :thumb, if: :thumb? do
     # The height is arbitrarily large so that the width always constrains the image.
     process resize_to_fit: [345, 9999]
   end
 
-  version :display, if: :is_photo? do
+  version :display, if: :display? do
     process resize_to_fit: [720, 560]
   end
 
-  version :square, if: :is_cover_art? do
+  version :square, if: :square? do
     process resize_to_fill: [500, 500]
   end
 
@@ -59,11 +59,15 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   private
 
-  def is_photo? image
+  def thumb? image
     model.is_a?(Photo)
   end
 
-  def is_cover_art? image
+  def display? image
+    [Page, Photo].include?(model.class)
+  end
+
+  def square? image
     model.is_a?(Album)
   end
 

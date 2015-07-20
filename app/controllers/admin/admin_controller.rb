@@ -2,7 +2,7 @@ class Admin::AdminController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @shows = Show.display_order.page(params[:page])
+    @pages = Page.display_order.page(params[:page_number])
   end
 
   def refresh_player
