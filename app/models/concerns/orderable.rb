@@ -1,4 +1,4 @@
-module Reorderable
+module Orderable
   extend ActiveSupport::Concern
 
   included do

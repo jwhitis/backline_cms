@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
-    concern :reorderable do
+    concern :orderable do
       patch :reorder, on: :collection
     end
 
@@ -11,11 +11,11 @@ Rails.application.routes.draw do
     resources :pages, except: :show
     resources :shows, except: :show
     resources :albums, except: :show do
-      resources :album_tracks, concerns: :reorderable, except: :show
+      resources :album_tracks, concerns: :orderable, except: :show
     end
     resources :photos, except: :show
     resources :videos, except: :show
-    resources :player_tracks, concerns: :reorderable, only: [:index, :create, :destroy]
+    resources :player_tracks, concerns: :orderable, only: [:index, :create, :destroy]
     get "refresh_player", to: "admin#refresh_player"
     resources :twitter_handles, only: [:index, :create, :destroy]
     patch "tweets/refresh", to: "tweets#refresh", as: :refresh_tweets

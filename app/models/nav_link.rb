@@ -1,5 +1,5 @@
 class NavLink < ActiveRecord::Base
-  include Reorderable
+  include Orderable
 
   belongs_to :page
 

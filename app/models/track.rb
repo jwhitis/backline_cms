@@ -1,5 +1,5 @@
 class Track < ActiveRecord::Base
-  include Reorderable
+  include Orderable
 
   mount_uploader :audio, AudioUploader
 
