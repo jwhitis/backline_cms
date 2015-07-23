@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     post "sign-in", to: "sessions#create"
     delete "sign-out", to: "sessions#destroy", as: :sign_out
     resources :pages, except: :show
+    resources :nav_links, concerns: :orderable, except: :show
     resources :shows, except: :show
     resources :albums, except: :show do
       resources :album_tracks, concerns: :orderable, except: :show

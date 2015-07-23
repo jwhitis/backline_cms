@@ -1,0 +1,23 @@
+<%= link_to fa_icon("plus"), new_admin_nav_link_path, remote: true, class: "btn-blue corner-btn" %>
+
+<%= render "flash_messages" %>
+
+<i class="instructions">Click and drag the nav links to reorder them.</i>
+
+<table class="table sortable" data-url="<%= reorder_admin_nav_links_path %>">
+  <tbody>
+    <% @nav_links.each do |nav_link| %>
+      <tr id="<%= nav_link.id %>">
+        <td>
+          <span class="position"><%= nav_link.position %>.</span>
+          <%= nav_link.text %>
+        </td>
+        <td class="edit">
+          <%= link_to fa_icon("edit"), edit_admin_nav_link_path(nav_link), remote: true %>
+          <%= link_to fa_icon("trash-o"), admin_nav_link_path(nav_link), method: :delete,
+            remote: true, data: { confirm: "Are you sure you want to remove this nav link?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

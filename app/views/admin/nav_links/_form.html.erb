@@ -1,0 +1,29 @@
+<%= render "shared/validation_errors", resource: @nav_link %>
+
+<%= form_for [:admin, @nav_link], remote: true do |f| %>
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <%= f.label :text, class: "required" %>
+      <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
+        title: "The link text must be 15 characters or less in length.") %>
+      <%= f.text_field :text, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-sm-6">
+      <%= f.label :page_id, "Page" %>
+      <%= f.collection_select :page_id, Page.published, :id, :title, { include_blank: "None" },
+        class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :external_url, "URL" %>
+    <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
+      title: "The URL must begin with http:// or https://.") %>
+    <i class="instructions">Only fill this in if you wish to link to an external site. Otherwise, please choose a page using the select box above.</i>
+    <%= f.text_field :external_url, class: "form-control" %>
+  </div>
+
+  <%= submit_btn %>
+  <%= link_to "Cancel", admin_nav_links_path, remote: true, class: "cancel" %>
+<% end %>

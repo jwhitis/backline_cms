@@ -19,4 +19,8 @@ class Page < ActiveRecord::Base
     order(created_at: :desc)
   end
 
+  def self.published
+    where(published: true)
+  end
+
 end

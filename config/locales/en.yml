@@ -25,5 +25,9 @@ en:
     attributes:
       album:
         archive: "Download file"
+        bandcamp_url: "Bandcamp URL"
+        itunes_url: "iTunes URL"
+      nav_link:
+        external_url: "URL"
       twitter_handle:
         handle: "Username"

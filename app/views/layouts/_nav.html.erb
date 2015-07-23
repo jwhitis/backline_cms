@@ -15,10 +15,13 @@
         <% if admin_signed_in? %>
           <li><%= link_to "Admin", admin_path, remote: true %></li>
         <% end %>
-        <li><%= link_to "Shows", shows_path, remote: true %></li>
-        <li><%= link_to "Music", albums_path, remote: true %></li>
-        <li><%= link_to "Photos", photos_path, remote: true %></li>
-        <li><%= link_to "Videos", videos_path, remote: true %></li>
+        <% NavLink.display_order.each do |nav_link| %>
+          <li><%= link_to nav_link.text, nav_link.url %></li>
+        <% end %>
+        <!-- <li><%#= link_to "Shows", shows_path, remote: true %></li>
+        <li><%#= link_to "Music", albums_path, remote: true %></li>
+        <li><%#= link_to "Photos", photos_path, remote: true %></li>
+        <li><%#= link_to "Videos", videos_path, remote: true %></li> -->
       </ul>
     </div>
   </div>

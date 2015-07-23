@@ -2,14 +2,14 @@
 
 <%= form_for [:admin, @page], remote: true do |f| %>
   <div class="row">
-    <div class="col-sm-7">
+    <div class="col-sm-6">
       <div class="form-group">
         <%= f.label :title, class: "required" %>
         <%= f.text_field :title, class: "form-control" %>
       </div>
     </div>
 
-    <div class="col-sm-5">
+    <div class="col-sm-6">
       <div class="form-group">
         <%= f.label :slug %>
         <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
