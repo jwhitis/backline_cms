@@ -10,7 +10,7 @@
     <div class="form-group col-sm-6">
       <%= f.label :venue_url, "Venue URL" %>
       <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
-        title: "To ensure that the link opens properly, please copy and paste the URL from your address bar.") %>
+        title: "The URL must begin with http:// or https://.") %>
       <%= f.text_field :venue_url, class: "form-control" %>
     </div>
   </div>

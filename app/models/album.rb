@@ -9,6 +9,8 @@ class Album < ActiveRecord::Base
   has_many :tracks, class_name: "AlbumTrack", dependent: :destroy
 
   validates_presence_of :title, :release_date, :cover_art
+  validates :bandcamp_url, url: true, allow_blank: true
+  validates :itunes_url, url: true, allow_blank: true
   validate :archive_size
 
   def archive_size

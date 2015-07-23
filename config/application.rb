@@ -25,5 +25,8 @@ module Toddfarrell
 
     # Override default behavior of wrapping fields with errors in DIVs.
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+
+    # Define additional autoload paths.
+    config.autoload_paths += %W(#{config.root}/lib/validators)
   end
 end
