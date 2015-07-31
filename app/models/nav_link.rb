@@ -1,8 +1,6 @@
 class NavLink < ActiveRecord::Base
   include Orderable
 
-  delegate :url_helpers, to: "Rails.application.routes"
-
   belongs_to :page
 
   validates :text, presence: true, length: { maximum: 15 }, uniqueness: true
@@ -26,8 +24,7 @@ class NavLink < ActiveRecord::Base
     if self.external_url.present?
       self.external_url
     elsif self.page
-      # url_helpers.page_path(self.page)
-      "PAGE PATH"
+      "/#{self.page.slug}"
     end
   end
 

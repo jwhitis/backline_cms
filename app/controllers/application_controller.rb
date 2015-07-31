@@ -1,8 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :expose_nav_links
   before_action :expose_tweets
 
   protected
+
+  def expose_nav_links
+    @nav_links = NavLink.display_order
+  end
 
   def expose_tweets
     @tweets = Tweet.display_order.limit(7)

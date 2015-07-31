@@ -5,9 +5,20 @@ class Admin::AdminController < ApplicationController
     @pages = Page.editable.display_order.page(params[:page_number])
   end
 
-  def refresh_player
-    flash.now[:notice] = "Audio player successfully refreshed."
-    respond_to :js
+  def refresh_nav_links
+    flash.now[:notice] = "Nav successfully refreshed."
+
+    respond_to do |format|
+      format.js { render :refresh_nav }
+    end
+  end
+
+  def refresh_player_tracks
+    flash.now[:notice] = "Audio successfully refreshed."
+
+    respond_to do |format|
+      format.js { render :refresh_nav }
+    end
   end
 
   private
