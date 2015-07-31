@@ -11,8 +11,8 @@
 
     <div class="form-group col-sm-6">
       <%= f.label :page_id, "Page" %>
-      <%= f.collection_select :page_id, Page.published, :id, :title, { include_blank: "None" },
-        class: "form-control" %>
+      <%= f.select :page_id, grouped_page_options_for_select(@nav_link.page_id),
+        { include_blank: "None" }, class: "form-control" %>
     </div>
   </div>
 

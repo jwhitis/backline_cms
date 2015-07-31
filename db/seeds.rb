@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Page::DEFAULT_SLUGS.each do |slug|
+  page = Page.uneditable.find_or_create_by!(title: slug.titleize, slug: slug)
+  page.create_nav_link(text: page.title) unless page.nav_link
+end

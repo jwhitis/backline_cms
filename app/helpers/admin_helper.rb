@@ -1,5 +1,14 @@
 module AdminHelper
 
+  def grouped_page_options_for_select selected_page_id = nil
+    grouped_pages = {
+      "Custom Pages" => Page.published.map { |page| [page.title, page.id] },
+      "Default Pages" => Page.uneditable.map { |page| [page.title, page.id] }
+    }
+
+    grouped_options_for_select(grouped_pages, selected_page_id)
+  end
+
   def file_btn checked = false, text = "Choose File"
     btn_classes = ["btn-white", "file-btn"]
     btn_classes << "checked" if checked

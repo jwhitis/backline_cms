@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   resources :photos, only: :index
   resources :videos, only: :index
   resources :subscribers, only: [:new, :create]
+  get ":slug", to: "pages#show", as: :page
   root "pages#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
