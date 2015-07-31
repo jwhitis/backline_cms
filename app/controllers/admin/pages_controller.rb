@@ -3,7 +3,7 @@ class Admin::PagesController < Admin::AdminController
   respond_to :js
 
   def index
-    @pages = Page.display_order.page(params[:page_number])
+    @pages = Page.editable.display_order.page(params[:page_number])
   end
 
   def new
@@ -14,7 +14,7 @@ class Admin::PagesController < Admin::AdminController
     @page = Page.new(page_params)
 
     if @page.save
-      @pages = Page.display_order.page(params[:page_number])
+      @pages = Page.editable.display_order.page(params[:page_number])
       flash.now[:notice] = "Page successfully created."
       render :index
     else
@@ -27,7 +27,7 @@ class Admin::PagesController < Admin::AdminController
 
   def update
     if @page.update_attributes(page_params)
-      @pages = Page.display_order.page(params[:page_number])
+      @pages = Page.editable.display_order.page(params[:page_number])
       flash.now[:notice] = "Page successfully updated."
       render :index
     else
@@ -37,7 +37,7 @@ class Admin::PagesController < Admin::AdminController
 
   def destroy
     @page.destroy
-    @pages = Page.display_order.page(params[:page_number])
+    @pages = Page.editable.display_order.page(params[:page_number])
     flash.now[:notice] = "Page successfully deleted."
     render :index
   end
@@ -45,7 +45,7 @@ class Admin::PagesController < Admin::AdminController
   private
 
   def find_page
-    @page = Page.find(params[:id])
+    @page = Page.editable.find(params[:id])
   end
 
   def page_params

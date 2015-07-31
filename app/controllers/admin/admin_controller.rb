@@ -2,7 +2,7 @@ class Admin::AdminController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @pages = Page.display_order.page(params[:page_number])
+    @pages = Page.editable.display_order.page(params[:page_number])
   end
 
   def refresh_player

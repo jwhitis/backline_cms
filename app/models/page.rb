@@ -23,4 +23,12 @@ class Page < ActiveRecord::Base
     where(published: true)
   end
 
+  def self.editable
+    where(editable: true)
+  end
+
+  def self.uneditable
+    where(editable: false)
+  end
+
 end
