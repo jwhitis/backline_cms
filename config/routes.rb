@@ -4,12 +4,10 @@ Rails.application.routes.draw do
       patch :reorder, on: :collection
     end
 
-    get "/",                     to: "admin#index"
-    get "refresh_nav_links",     to: "admin#refresh_nav_links"
-    get "refresh_player_tracks", to: "admin#refresh_player_tracks"
-    get "sign-in",               to: "sessions#new", as: :sign_in
-    post "sign-in",              to: "sessions#create"
-    delete "sign-out",           to: "sessions#destroy", as: :sign_out
+    get "/",           to: "admin#index"
+    get "sign-in",     to: "sessions#new", as: :sign_in
+    post "sign-in",    to: "sessions#create"
+    delete "sign-out", to: "sessions#destroy", as: :sign_out
     resources :pages, except: :show
     resources :nav_links, concerns: :orderable, except: :show
     resources :shows, except: :show

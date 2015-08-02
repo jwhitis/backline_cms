@@ -1,3 +1,4 @@
 $("div#admin nav a").removeClass("active");
 $("a[href='/admin/player_tracks']").addClass("active");
 $("div#admin-content").html("<%=j render 'index' %>");
+<%= render "refresh_nav" unless action_name == "index" %>
