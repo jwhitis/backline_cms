@@ -20,7 +20,7 @@
     <div id="main">
       <div class="container">
         <div id="content">
-          <%= yield %>
+          <%= content_for?(:content) ? content_for(:content) : yield %>
         </div>
       </div>
     </div>
