@@ -1,6 +1,5 @@
 class Admin::PagesController < Admin::AdminController
   before_action :find_page, only: [:edit, :update, :destroy]
-  respond_to :js
 
   def index
     @pages = Page.editable.display_order.page(params[:page_number])

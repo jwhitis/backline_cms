@@ -1,6 +1,5 @@
 class Admin::PhotosController < Admin::AdminController
   before_action :find_photo, only: [:edit, :update, :destroy]
-  respond_to :js
 
   def index
     @photos = Photo.display_order.page(params[:page])

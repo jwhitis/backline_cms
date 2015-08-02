@@ -1,6 +1,5 @@
 class Admin::NavLinksController < Admin::AdminController
   before_action :find_nav_link, only: [:edit, :update, :destroy]
-  respond_to :js
 
   def index
     @nav_links = NavLink.display_order

@@ -1,7 +1,6 @@
 class Admin::AlbumTracksController < Admin::AdminController
   before_action :find_album
   before_action :find_album_track, only: [:edit, :update, :destroy]
-  respond_to :js
 
   def index
     @album_tracks = @album.tracks.display_order

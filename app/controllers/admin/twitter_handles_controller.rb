@@ -1,5 +1,4 @@
 class Admin::TwitterHandlesController < Admin::AdminController
-  respond_to :js
 
   def index
     @twitter_handles = TwitterHandle.display_order

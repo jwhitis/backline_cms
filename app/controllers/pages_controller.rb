@@ -6,7 +6,6 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.published.find_by_slug(params[:slug])
-    respond_to :html, :js
   end
 
 end

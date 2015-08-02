@@ -1,5 +1,4 @@
 class Admin::PlayerTracksController < Admin::AdminController
-  respond_to :js
 
   def index
     @player_track = PlayerTrack.new

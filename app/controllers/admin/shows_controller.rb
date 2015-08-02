@@ -1,6 +1,5 @@
 class Admin::ShowsController < Admin::AdminController
   before_action :find_show, only: [:edit, :update, :destroy]
-  respond_to :js
 
   def index
     @shows = Show.display_order.page(params[:page])

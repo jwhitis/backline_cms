@@ -1,6 +1,5 @@
 class Admin::VideosController < Admin::AdminController
   before_action :find_video, only: [:edit, :update, :destroy]
-  respond_to :js
 
   def index
     @videos = Video.display_order.page(params[:page])

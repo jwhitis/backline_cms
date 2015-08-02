@@ -1,5 +1,4 @@
 class Admin::TweetsController < Admin::AdminController
-  respond_to :js
 
   def refresh
     TweetRefresher.refresh

@@ -1,6 +1,5 @@
 class Admin::AlbumsController < Admin::AdminController
   before_action :find_album, only: [:edit, :update, :destroy]
-  respond_to :js
 
   def index
     @albums = Album.display_order.page(params[:page])
