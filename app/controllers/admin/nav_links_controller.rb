@@ -28,7 +28,7 @@ class Admin::NavLinksController < Admin::AdminController
   def update
     if @nav_link.update_attributes(nav_link_params)
       @nav_links = NavLink.display_order
-      flash.now[:notice] = "Nav Link successfully updated."
+      flash.now[:notice] = "Nav link successfully updated."
       render :index
     else
       render :edit

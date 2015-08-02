@@ -27,3 +27,13 @@
   <%= submit_btn %>
   <%= link_to "Cancel", admin_nav_links_path, remote: true, class: "cancel" %>
 <% end %>
+
+<script type="text/javascript">
+  $("select#nav_link_page_id").change(function() {
+    $("input#nav_link_external_url").val("");
+  });
+
+  $("input#nav_link_external_url").change(function() {
+    $("select#nav_link_page_id").val("");
+  });
+</script>

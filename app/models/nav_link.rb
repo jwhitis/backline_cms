@@ -5,26 +5,27 @@ class NavLink < ActiveRecord::Base
 
   validates :text, presence: true, length: { maximum: 15 }, uniqueness: true
   validates :external_url, url: true, allow_blank: true
-  validate :external_url_or_page_must_be_present
+  validate :page_or_external_url_must_be_present
 
-  before_validation :set_page
-
-  def external_url_or_page_must_be_present
-    unless self.external_url.present? || self.page
-      self.errors[:base] << "You must choose a page or enter a URL"
+  def page_or_external_url_must_be_present
+    unless page_or_external_url_present? && page_or_external_url_blank?
+      self.errors[:base] << "You must either choose a page or enter a URL"
     end
   end
 
-  def set_page
-    self.page = nil if self.external_url.present?
-    true # Object becomes invalid if a callback returns false
+  def page_or_external_url_present?
+    self.page || self.external_url.present?
+  end
+
+  def page_or_external_url_blank?
+    self.page.nil? || self.external_url.blank?
   end
 
   def url
-    if self.external_url.present?
-      self.external_url
-    elsif self.page
+    if self.page
       "/#{self.page.slug}"
+    elsif self.external_url.present?
+      self.external_url
     end
   end
 

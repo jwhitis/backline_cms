@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def expose_nav_links
-    @nav_links = NavLink.display_order
+    @nav_links = NavLink.display_order.includes(:page)
   end
 
   def expose_tweets
