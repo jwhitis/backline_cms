@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <script src="//cdn.ckeditor.com/4.5.1/standard/ckeditor.js"></script>
+<% end %>
+
 <%= render "shared/validation_errors", resource: @page %>
 
 <%= form_for [:admin, @page], remote: true do |f| %>
@@ -65,3 +69,7 @@
   <%= submit_btn %>
   <%= link_to "Cancel", admin_pages_path, remote: true, class: "cancel" %>
 <% end %>
+
+<script type="text/javascript">
+  CKEDITOR.replace("page_body");
+</script>

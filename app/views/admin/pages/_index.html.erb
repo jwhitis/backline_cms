@@ -1,4 +1,5 @@
-<%= link_to fa_icon("plus"), new_admin_page_path, remote: true, class: "btn-blue corner-btn" %>
+<%= link_to fa_icon("plus"), new_admin_page_path, class: "btn-blue corner-btn",
+  data: { no_turbolink: true } %>
 
 <%= render "flash_messages" %>
 
@@ -20,7 +21,7 @@
         <td><%= page.title %></td>
         <td class="hidden-xs"><%= page.slug %></td>
         <td class="edit">
-          <%= link_to fa_icon("edit"), edit_admin_page_path(page), remote: true %>
+          <%= link_to fa_icon("edit"), edit_admin_page_path(page), data: { no_turbolink: true } %>
           <%= link_to fa_icon("trash-o"), admin_page_path(page), method: :delete, remote: true,
             data: { confirm: "Are you sure you want to delete this page?" } %>
         </td>
