@@ -3,3 +3,9 @@
     <%= render partial: "tweets/tweet", collection: tweets %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $("div#twitter-stream a.tweet").hover(function() {
+    $(this).find("div.overlay").stop().fadeToggle(300);
+  });
+</script>

@@ -22,3 +22,13 @@
     </div>
   </div>
 </nav>
+
+<script type="text/javascript">
+  var path = window.location.pathname;
+  $("ul.navbar-nav a[href='" + path + "']").addClass("active");
+
+  $("ul.navbar-nav a").click(function() {
+    $("ul.navbar-nav a").removeClass("active");
+    $(this).addClass("active");
+  });
+</script>

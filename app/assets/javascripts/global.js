@@ -10,18 +10,6 @@ $(document).on("ready page:load", function() {
     $("div#flash-modal").modal("show");
   }
 
-  // Highlight active tab
-  $("ul.navbar-nav a[href='" + path + "']").addClass("active");
-  $("ul.navbar-nav a").click(function() {
-    $("ul.navbar-nav a").removeClass("active");
-    $(this).addClass("active");
-  });
-
-  // Show tweet profile image on hover
-  $("div#twitter-stream a.tweet").hover(function() {
-    $(this).find("div.overlay").stop().fadeToggle(300);
-  });
-
   // Show album notes on hover
   $("div#content").on({
     mouseenter: toggleAlbumNotes,

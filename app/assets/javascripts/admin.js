@@ -55,6 +55,23 @@ $(document).on("ajaxSuccess", function() {
     }
   });
 
+  // Clear external URL or page ID field when the other field changes
+  $("select#nav_link_page_id").change(function() {
+    $("input#nav_link_external_url").val("");
+  });
+  $("input#nav_link_external_url").change(function() {
+    $("select#nav_link_page_id").val("");
+  });
+
+  // Show downloadable checkbox if audio has been chosen
+  $("input#album_track_audio").on("change", function() {
+    if ($(this).val()) {
+      $("div.downloadable").fadeIn(300);
+    } else {
+      $("div.downloadable").fadeOut(300);
+    }
+  });
+
 });
 
 function fadeOutAlerts() {

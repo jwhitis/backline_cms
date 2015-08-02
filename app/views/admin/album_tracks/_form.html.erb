@@ -41,13 +41,3 @@
 <% end %>
 
 <%= render "shared/inline_player" %>
-
-<script type="text/javascript">
-  $("input#album_track_audio").on("change", function() {
-    if ($(this).val()) {
-      $("div.downloadable").fadeIn(300);
-    } else {
-      $("div.downloadable").fadeOut(300);
-    }
-  });
-</script>
