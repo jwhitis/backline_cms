@@ -1,0 +1,19 @@
+@import "variables";
+
+// Dialog OK button
+a.cke_dialog_ui_button.cke_dialog_ui_button_ok {
+  border-color: rgba(black, .15);
+  border-bottom-color: rgba(black, .3);
+  background: $blue;
+  box-shadow: 0 1px 0 rgba(white, .5);
+
+  &:hover {
+    border-color: rgba(black, .15);
+    border-bottom-color: rgba(black, .3);
+    background: darken($blue, 5%);
+  }
+
+  span.cke_dialog_ui_button {
+    text-shadow: 0 1px 0 rgba(black, .15);
+  }
+}

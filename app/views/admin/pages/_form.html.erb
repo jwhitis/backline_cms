@@ -1,6 +1,4 @@
-<% content_for :head do %>
-  <script src="//cdn.ckeditor.com/4.5.1/standard/ckeditor.js"></script>
-<% end %>
+<% content_for :head, ckeditor_script_tag %>
 
 <%= render "shared/validation_errors", resource: @page %>
 
@@ -25,7 +23,8 @@
 
   <div class="form-group">
     <%= f.label :body %>
-    <%= f.text_area :body, rows: 3, class: "form-control" %>
+    <i class="instructions">Only use the <b>Source</b> tool if you are comfortable editing HTML.</i>
+    <%= f.text_area :body, class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -71,5 +70,8 @@
 <% end %>
 
 <script type="text/javascript">
-  CKEDITOR.replace("page_body");
+  CKEDITOR.replace("page_body", {
+    customConfig: "/ckeditor/config.js",
+    contentsCss: ["<%= asset_path('application.css') %>", "/ckeditor/contents.css"]
+  });
 </script>

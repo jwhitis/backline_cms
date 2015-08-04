@@ -10,6 +10,9 @@ $(document).on("ready page:load", function() {
     $("div#flash-modal").modal("show");
   }
 
+  // Links inside of page container open in a new window
+  setPageLinkTarget();
+
   // Show album notes on hover
   $("div#content").on({
     mouseenter: toggleAlbumNotes,
@@ -48,6 +51,9 @@ $(document).on("ajaxSuccess", function(event, xhr, settings) {
     $("body").scrollTop(315);
   }
 
+  // Links inside of page container open in a new window
+  setPageLinkTarget();
+
   // Initialize Masonry and Fancybox for photo gallery
   if (url.match(/^\/photos/)) {
     initializeMasonry();
@@ -55,6 +61,16 @@ $(document).on("ajaxSuccess", function(event, xhr, settings) {
   }
 
 });
+
+function setPageLinkTarget() {
+  $("div#page-container a").each(function() {
+    var href = $(this).attr("href");
+
+    if (href && href.match(/^http/) {
+      $(this).attr("target", "_blank");
+    }
+  });
+}
 
 function toggleAlbumNotes() {
   toggleElement("div.album-notes");
