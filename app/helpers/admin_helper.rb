@@ -14,7 +14,7 @@ module AdminHelper
   end
 
   def file_btn checked = false, text = "Choose File"
-    btn_classes = ["btn-white", "file-btn"]
+    btn_classes = ["file-btn", "btn-white"]
     btn_classes << "checked" if checked
 
     content_tag(:button, type: "button", class: btn_classes.join(" ")) do

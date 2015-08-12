@@ -44,3 +44,37 @@
     background-color: darken($light-grey, 20%);
   }
 }
+
+.file-btn {
+  @extend %btn-base;
+
+  i.fa-check {
+    margin: 0 -5px 0 5px;
+    display: none;
+    font-size: 16px;
+    color: $success;
+    transition: all .3s ease;
+  }
+
+  &.checked i.fa-check {
+    display: inline;
+  }
+
+  &:hover i.fa-check {
+    color: darken($success, 15%);
+  }
+
+  & ~ input[type="file"] {
+    display: none;
+  }
+}
+
+.submit-btn {
+  @extend %btn-base;
+
+  i.fa-spinner {
+    margin: 0 -3px 0 8px;
+    display: none;
+    font-size: 16px;
+  }
+}
