@@ -44,12 +44,13 @@ $(document).on("ajaxSuccess", function() {
     axis: "y",
     containment: "table.sortable",
     stop: function() {
-      var resourceIds = $(this).sortable("toArray");
       var url = $(this).parent("table.sortable").data("url");
+      var resourceIds = $(this).sortable("toArray");
+
       $.ajax({
         method: "PATCH",
-        data: { resource_ids: resourceIds },
         url: url,
+        data: { resource_ids: resourceIds },
         dataType: "script"
       });
     }

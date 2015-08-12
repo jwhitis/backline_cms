@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <%= f.label :title, class: "required" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="form-group">
+      <%= f.label :slug %>
+      <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
+        title: "This is the part of the page URL that makes it unique. If you don't enter anything, the page title will be used instead.") %>
+      <%= f.text_field :slug, class: "form-control" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :body %>
+  <i class="instructions">Only use the <b>Source</b> tool if you are comfortable editing HTML.</i>
+  <%= f.text_area :body, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :image %>
+  <i class="instructions">Please choose an image in one of these formats: JPG, JPEG, GIF, PNG</i>
+  <%= file_btn(@page.image_changed?, "Choose Image") %>
+  <%= f.file_field :image %>
+  <%= f.hidden_field :image_cache %>
+</div>
+
+<% if @page.image.present? %>
+  <div class="preview">
+    <label><%= @page.image.file.filename %></label>
+    <div class="checkbox">
+      <%= f.label :remove_image do %>
+        <%= f.check_box :remove_image %> Remove image?
+      <% end %>
+    </div>
+    <%= image_tag @page.image.display.url %>
+  </div>
+<% end %>
+
+<div class="form-group">
+  <%= f.label :video_embed %>
+  <i class="instructions">Please copy and paste the embed code from a video hosting site such as YouTube or Vimeo.</i>
+  <%= f.text_area :video_embed, rows: 3, class: "form-control" %>
+</div>
+
+<% if @page.video_embed.present? %>
+  <div class="preview">
+    <%== @page.video_embed %>
+  </div>
+<% end %>
+
+<div class="checkbox published <%= "checked" if @page.published? %>">
+  <%= f.label :published do %>
+    <%= f.check_box :published %> Publish this page?
+  <% end %>
+</div>

@@ -1,3 +1,4 @@
 $("div#admin nav a").removeClass("active");
 $("a[href='/admin/pages']").addClass("active");
 $("div#admin-content").html("<%=j render 'index' %>");
+<%= render "refresh_nav" if action_name == "destroy" %>

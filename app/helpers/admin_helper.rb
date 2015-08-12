@@ -22,8 +22,12 @@ module AdminHelper
     end
   end
 
-  def submit_btn text = "Save"
-    content_tag(:button, type: "submit", class: "btn-blue submit-btn") do
+  def submit_btn text = "Save", html_options = {}
+    options = { type: "submit", name: "commit", value: text, class: "submit-btn btn-blue" }
+    options[:class].sub!("btn-blue", html_options.delete(:class)) if html_options[:class]
+    options.merge!(html_options)
+
+    content_tag(:button, options) do
       text.html_safe + fa_icon("spinner spin")
     end
   end

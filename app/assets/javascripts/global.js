@@ -66,7 +66,7 @@ function setPageLinkTarget() {
   $("div#page-container a").each(function() {
     var href = $(this).attr("href");
 
-    if (href && href.match(/^http/) {
+    if (href && href.match(/^http/)) {
       $(this).attr("target", "_blank");
     }
   });

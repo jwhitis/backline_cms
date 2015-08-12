@@ -12,6 +12,12 @@ class Admin::PagesController < Admin::AdminController
   def create
     @page = Page.new(page_params)
 
+    if @page.valid? && params[:preview]
+      render(:preview, layout: "application") and return
+    elsif params[:edit]
+      render :new and return
+    end
+
     if @page.save
       @pages = Page.editable.display_order.page(params[:page_number])
       flash.now[:notice] = "Page successfully created."
@@ -25,7 +31,15 @@ class Admin::PagesController < Admin::AdminController
   end
 
   def update
-    if @page.update_attributes(page_params)
+    @page.assign_attributes(page_params)
+
+    if @page.valid? && params[:preview]
+      render(:preview, layout: "application") and return
+    elsif params[:edit]
+      render :edit and return
+    end
+
+    if @page.save
       @pages = Page.editable.display_order.page(params[:page_number])
       flash.now[:notice] = "Page successfully updated."
       render :index

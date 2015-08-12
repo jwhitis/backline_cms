@@ -1,0 +1,16 @@
+<div id="page-preview">
+  <header class="fixed-width clearfix">
+    <h2><%= @page.title %></h2>
+
+    <%= form_for [:admin, @page] do |f| %>
+      <div class="hidden">
+        <%= render "form_fields", f: f %>
+      </div>
+
+      <%= submit_btn %>
+      <%= submit_btn "Edit", name: "edit", class: "btn-white" %>
+    <% end %>
+  </header>
+
+  <%= render "pages/show" %>
+</div>
