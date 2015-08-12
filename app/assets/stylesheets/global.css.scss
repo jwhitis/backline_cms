@@ -28,6 +28,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $header-font;
   font-size: 32px;
   letter-spacing: 1px;
+  text-transform: uppercase;
   color: $light-grey;
   text-shadow: 0 1px 1px rgba(black, .35);
 }
