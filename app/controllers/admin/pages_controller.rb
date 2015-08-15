@@ -13,7 +13,7 @@ class Admin::PagesController < Admin::AdminController
     @page = Page.new(page_params)
 
     if @page.valid? && params[:preview]
-      render(:preview, layout: "application") and return
+      render :preview and return
     elsif params[:edit]
       render :new and return
     end
@@ -34,7 +34,7 @@ class Admin::PagesController < Admin::AdminController
     @page.assign_attributes(page_params)
 
     if @page.valid? && params[:preview]
-      render(:preview, layout: "application") and return
+      render :preview and return
     elsif params[:edit]
       render :edit and return
     end
