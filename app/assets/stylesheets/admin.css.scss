@@ -160,6 +160,10 @@ div#admin {
 
     i.instructions {
       margin: -5px 0 5px 0;
+
+      small {
+        text-transform: uppercase;
+      }
     }
 
     div.date-fields {

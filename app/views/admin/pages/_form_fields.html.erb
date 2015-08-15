@@ -18,13 +18,13 @@
 
 <div class="form-group">
   <%= f.label :body, "Text" %>
-  <i class="instructions">Only use the <b>Source</b> tool if you are comfortable editing HTML.</i>
+  <i class="instructions">Use the <small>Source</small> tool if you wish to edit the HTML directly.</i>
   <%= f.text_area :body, class: "form-control" %>
 </div>
 
 <div class="form-group">
   <%= f.label :scss, "Custom Styles" %>
-  <i class="instructions">This field is intended for developers. It accepts SCSS or CSS. These styles will only affect elements inside the page container.</i>
+  <i class="instructions">This field accepts SCSS or CSS. These styles will only affect elements inside the page container.</i>
   <%= f.text_area :scss, rows: 10, class: "form-control" %>
 </div>
 
