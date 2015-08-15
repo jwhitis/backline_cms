@@ -63,7 +63,7 @@ class Admin::PagesController < Admin::AdminController
 
   def page_params
     params.require(:page).permit(:title, :slug, :body, :image, :image_cache, :remove_image,
-      :video_embed, :published)
+      :video_embed, :published, :scss)
   end
 
 end

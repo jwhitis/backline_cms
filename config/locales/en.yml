@@ -29,5 +29,7 @@ en:
         itunes_url: "iTunes URL"
       nav_link:
         external_url: "URL"
+      page:
+        scss: "Custom styles"
       twitter_handle:
         handle: "Username"
