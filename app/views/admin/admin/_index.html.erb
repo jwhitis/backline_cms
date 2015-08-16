@@ -1,1 +1,5 @@
-<h1>admin#index</h1>
+<div id="admin-home">
+  <% admin_nav_links.each do |text, url| %>
+    <%= link_to text, url, remote: true, class: "btn-blue" %>
+  <% end %>
+</div>

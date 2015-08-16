@@ -1,6 +1,5 @@
 <% if @album.persisted? %>
-  <%= link_to fa_icon("list"), admin_album_album_tracks_path(@album), remote: true,
-    class: "btn-blue corner-btn" %>
+  <%= corner_btn("Tracklist", admin_album_album_tracks_path(@album)) %>
 <% end %>
 
 <%= render "shared/validation_errors", resource: @album %>

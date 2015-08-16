@@ -1,5 +1,4 @@
-<%= link_to fa_icon("plus"), new_admin_album_album_track_path(@album), remote: true,
-  class: "btn-blue corner-btn" %>
+<%= corner_btn("New Track", new_admin_album_album_track_path(@album)) %>
 
 <%= render "flash_messages" %>
 

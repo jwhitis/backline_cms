@@ -1,5 +1,4 @@
-<%= link_to fa_icon("refresh"), admin_refresh_tweets_path, method: :patch, remote: true,
-  class: "btn-blue corner-btn" %>
+<%= corner_btn("Refresh Tweets", admin_refresh_tweets_path, method: :patch) %>
 
 <%= render "flash_messages" %>
 

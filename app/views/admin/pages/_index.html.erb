@@ -1,5 +1,4 @@
-<%= link_to fa_icon("plus"), new_admin_page_path, class: "btn-blue corner-btn",
-  data: { no_turbolink: true } %>
+<%= corner_btn("New Page", new_admin_page_path, remote: false, data: { no_turbolink: true }) %>
 
 <%= render "flash_messages" %>
 

@@ -1,5 +1,26 @@
 module AdminHelper
 
+  def admin_nav_links
+    {
+      "Pages" => admin_pages_path,
+      "Nav" => admin_nav_links_path,
+      "Shows" => admin_shows_path,
+      "Albums" => admin_albums_path,
+      "Photos" => admin_photos_path,
+      "Videos" => admin_videos_path,
+      "Audio" => admin_player_tracks_path,
+      "Twitter" => admin_twitter_handles_path
+    }
+  end
+
+  def corner_btn text, url, html_options = {}
+    options = { remote: true, class: "corner-btn btn-blue" }
+    options[:class].sub!("btn-blue", html_options.delete(:class)) if html_options[:class]
+    options.merge!(html_options)
+
+    link_to(text, url, options)
+  end
+
   def ckeditor_script_tag
     content_tag(:script, nil, src: "//cdn.ckeditor.com/4.5.1/standard/ckeditor.js")
   end

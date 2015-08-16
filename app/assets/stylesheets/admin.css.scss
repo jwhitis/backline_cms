@@ -3,26 +3,65 @@
 div#admin {
   position: relative;
 
-  nav {
-    padding-right: 40px;
+  %nav-element {
+    max-width: 345px;
+    width: 100%;
+  }
 
-    a {
-      width: 85px;
-      margin: 0 15px 15px 0;
-      float: left;
+  div#admin-nav {
+    margin-bottom: 15px;
+
+    button.dropdown-toggle {
+      @extend %nav-element;
+      position: relative;
+
+      &:hover {
+        color: $blue;
+        background-color: $light-grey;
+      }
+
+      i.fa-caret-down {
+        position: absolute;
+        top: 10px;
+        right: 8px;
+      }
+    }
+
+    ul.dropdown-menu {
+      @extend %nav-element;
+      text-align: center;
+      border-width: 0 0 1px 0;
+      border-bottom: 1px solid rgba(black, .4);
+      text-transform: uppercase;
+      text-shadow: 0 1px 1px rgba(black, .15);
+      background-color: $light-grey;
+      background-clip: border-box;
+
+      a {
+        padding: 6px 12px;
+        font-weight: bold;
+        color: $blue;
+
+        &:hover {
+          color: white;
+          background-color: $blue;
+        }
+      }
     }
   }
 
   a.corner-btn {
-    width: 40px;
-    padding-left: 0;
-    padding-right: 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    text-align: center;
-    font-size: 18px;
-    line-height: 20px;
+    @extend %nav-element;
+    margin-bottom: 15px;
+  }
+
+  @media (min-width: 768px) {
+    a.corner-btn {
+      width: initial;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
 
   h2 {
