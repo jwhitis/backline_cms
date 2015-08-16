@@ -3,15 +3,17 @@ $(document).on("ready page:load", function() {
   // Fade out alerts after 3 seconds
   fadeOutAlerts();
 
-  // Clicking link in admin nav dropdown changes text
+  // Clicking link on admin homepage sets active nav link
+  $("div#admin-home a").click(function() {
+    var href = $(this).attr("href");
+    var selector = "div#admin-nav a[href='" + href + "']";
+    setActiveAdminNavLink(selector);
+  });
+
+  // Clicking link in admin nav changes active nav link
   $("div#admin-nav a").click(function() {
     $("div#admin-nav button.dropdown-toggle").dropdown("toggle");
-
-    var text = $(this).text();
-    $("div#admin-nav span.active").text(text);
-
-    $("div#admin-nav a").removeClass("hidden");
-    $(this).addClass("hidden");
+    setActiveAdminNavLink(this);
   });
 
   // Clicking file button opens file dialog
@@ -93,4 +95,12 @@ function fadeOutAlerts() {
   window.setTimeout(function() {
     $("div.alert.timer").alert("close");
   }, 3000);
+}
+
+function setActiveAdminNavLink(selector) {
+  var text = $(selector).text();
+  $("div#admin-nav span.active").text(text);
+
+  $("div#admin-nav a").removeClass("hidden");
+  $(selector).addClass("hidden");
 }
