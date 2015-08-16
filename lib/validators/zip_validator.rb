@@ -1,4 +1,4 @@
-class ZiplValidator < ActiveModel::EachValidator
+class ZipValidator < ActiveModel::EachValidator
   VALID_ZIP_REGEX = /\A\d{5}(?:-\d{4})?\z/
 
   def validate_each record, attribute, value
