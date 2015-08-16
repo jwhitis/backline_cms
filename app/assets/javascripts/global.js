@@ -48,7 +48,8 @@ $(document).on("ajaxSuccess", function(event, xhr, settings) {
 
   // Set vertical scroll position on page change (not including pagination)
   if (!url.match(/page=\d+/)) {
-    $("body").scrollTop(315);
+    var bannerHeight = $("a#banner").height();
+    $("body").scrollTop(bannerHeight);
   }
 
   // Links inside of page container open in a new window

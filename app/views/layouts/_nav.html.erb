@@ -10,7 +10,7 @@
       </button>
     </div>
 
-    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+    <div class="collapse navbar-collapse" data-toggle="false" id="my-navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <% if admin_signed_in? %>
           <li><%= link_to "Admin", admin_path %></li>

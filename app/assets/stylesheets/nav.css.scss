@@ -21,6 +21,7 @@ nav.navbar {
   }
 
   div.navbar-collapse {
+    max-height: none;
     border: none;
     background-color: $red;
     box-shadow: none;
