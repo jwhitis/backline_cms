@@ -1,16 +1,16 @@
 module AdminHelper
 
   def admin_nav_links
-    {
-      "Pages" => admin_pages_path,
-      "Nav" => admin_nav_links_path,
-      "Shows" => admin_shows_path,
-      "Albums" => admin_albums_path,
-      "Photos" => admin_photos_path,
-      "Videos" => admin_videos_path,
-      "Audio" => admin_player_tracks_path,
-      "Twitter" => admin_twitter_handles_path
-    }
+    [
+      ["Pages", admin_pages_path, "file"],
+      ["Nav", admin_nav_links_path, "list"],
+      ["Shows", admin_shows_path, "ticket"],
+      ["Albums", admin_albums_path, "dot-circle-o"],
+      ["Photos", admin_photos_path, "camera"],
+      ["Videos", admin_videos_path, "video-camera"],
+      ["Audio", admin_player_tracks_path, "music"],
+      ["Twitter", admin_twitter_handles_path, "twitter"]
+    ]
   end
 
   def corner_btn text, url, html_options = {}

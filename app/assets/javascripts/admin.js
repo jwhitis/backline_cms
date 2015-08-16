@@ -14,11 +14,6 @@ $(document).on("ready page:load", function() {
     $(this).addClass("hidden");
   });
 
-  // Clicking link on admin homepage shows admin nav
-  $("div#admin-home a").click(function() {
-    $("div#admin-nav").removeClass("hidden");
-  });
-
   // Clicking file button opens file dialog
   $("div#content").on("click", "button.file-btn", function() {
     $(this).siblings("input[type='file']").click();
@@ -45,6 +40,9 @@ $(document).on("ajaxSuccess", function() {
 
   // Fade out alerts after 3 seconds
   fadeOutAlerts();
+
+  // Show admin nav
+  $("div#admin-nav").removeClass("hidden");
 
   // Initialize datepickers
   $("input.datepicker").datepicker({
