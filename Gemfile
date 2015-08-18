@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 gem 'autoprefixer-rails'
+gem 'bootstrap-sass', '~> 3.3.5'
 gem 'carrierwave'
 gem 'country_select', github: 'stefanpenner/country_select'
 gem 'fog'

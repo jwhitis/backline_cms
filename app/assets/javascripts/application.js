@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require jquery.remotipart
 //= require turbolinks
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require jquery.jplayer.min
 //= require jquery-ui-1.11.4.custom
 //= require jquery.fancybox
