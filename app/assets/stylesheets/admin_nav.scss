@@ -19,17 +19,17 @@ div#admin {
       text-transform: uppercase;
       color: white;
       text-shadow: 2px 2px 2px rgba(black, .25);
-      background-color: rgba(black, .6);
       box-shadow: 0 2px 5px rgba(black, .5);
       transition: all .3s ease;
 
-      $colors: #16a085, #27ae60, #2980b9, #8e44ad, #2c3e50, #f39c12, #d35400, #c0392b;
+      $colors: #16A085, #27AE60, #2980B9, #8E44AD, #2C3E50, #F39C12, #D35400, #C0392B, #191919;
 
       @for $i from 1 through length($colors) {
         $color: nth($colors, $i);
+        $rgba: rgba($color, .95);
 
         &:nth-child(#{$i}) {
-          background: linear-gradient(to bottom right, rgba($color, .95) 0%, rgba($color, .95) 50%, darken(rgba($color, .95), 10%) 100%);
+          background: linear-gradient(to bottom right, $rgba 0%, $rgba 50%, darken($rgba, 10%) 100%);
 
           &:hover {
             color: #CCCCCC;

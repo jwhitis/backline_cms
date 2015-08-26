@@ -1,0 +1,37 @@
+<%= corner_btn("New User", new_admin_subscriber_path) %>
+
+<%= render "flash_messages" %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th class="hidden-xs">Added</th>
+      <th class="hidden-xs">Name</th>
+      <th>Email Address</th>
+      <th class="hidden-xs">Free Content?</th>
+      <th class="edit"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subscribers.each do |subscriber| %>
+      <tr>
+        <td class="hidden-xs"><%= subscriber.created_at.to_s(:numeric) %></td>
+        <td class="hidden-xs"><%= subscriber.full_name %></td>
+        <td><%= subscriber.email %></td>
+        <td class="hidden-xs"><%= subscriber.can_access_free_content? ? "Yes" : "No" %></td>
+        <td class="edit">
+          <%= link_to fa_icon("edit"), edit_admin_subscriber_path(subscriber), remote: true %>
+          <%= link_to fa_icon("trash-o"), admin_subscriber_path(subscriber), method: :delete,
+            remote: true, data: { confirm: "Are you sure you want to delete this user?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="pagination-links clearfix">
+  <%= link_to_previous_page @subscribers, "#{fa_icon("caret-left")} PREV".html_safe,
+    params: { controller: "/admin/subscribers" }, remote: true %>
+  <%= link_to_next_page @subscribers, "NEXT #{fa_icon("caret-right")}".html_safe,
+    params: { controller: "/admin/subscribers" }, remote: true %>
+</div>

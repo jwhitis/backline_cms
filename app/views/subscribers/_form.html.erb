@@ -1,5 +1,3 @@
-<%= render "shared/validation_errors", resource: @subscriber %>
-
 <%= form_for @subscriber do |f| %>
   <div class="form-group">
     <%= f.label :first_name, "First Name", class: "sr-only" %>
@@ -22,8 +20,8 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :zip, "Postal Code (US only)", class: "sr-only" %>
-    <%= f.text_field :zip, placeholder: "Postal Code (US only)", class: "form-control" %>
+    <%= f.label :zip, "Postal Code (optional)", class: "sr-only" %>
+    <%= f.text_field :zip, placeholder: "Postal Code (optional)", class: "form-control" %>
   </div>
 
   <%= hidden_field_tag :request_path, params[:request_path] %>

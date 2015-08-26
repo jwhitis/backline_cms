@@ -24,7 +24,13 @@ module Toddfarrell
     config.active_record.raise_in_transactional_callbacks = true
 
     # Override default behavior of wrapping fields with errors in DIVs.
-    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      return html_tag unless html_tag =~ /<(label|input|textarea|select)/
+
+      fragment = Nokogiri::HTML::DocumentFragment.parse(html_tag)
+      fragment.children.add_class("field-with-errors")
+      fragment.to_s.html_safe
+    end
 
     # Define additional autoload paths.
     config.autoload_paths += %W(#{config.root}/lib/validators)

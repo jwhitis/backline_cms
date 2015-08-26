@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_subscribed?
-    !!session[:subscriber_email]
+    !!cookies.signed[:subscriber_id]
   end
 
 end

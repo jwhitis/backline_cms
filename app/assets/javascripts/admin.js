@@ -38,13 +38,17 @@ $(document).on("ready page:load", function() {
 
 });
 
-$(document).on("ajaxSuccess", function() {
+$(document).on("ajaxSuccess", function(event, xhr, settings) {
+
+  var url = settings.url;
 
   // Fade out alerts after 3 seconds
   fadeOutAlerts();
 
-  // Show admin nav
-  $("div#admin-nav").removeClass("hidden");
+  // Show admin nav when leaving admin homepage
+  if (!url.match(/^\/newsletter_subscribers/)) {
+    $("div#admin-nav").removeClass("hidden");
+  }
 
   // Initialize datepickers
   $("input.datepicker").datepicker({
@@ -60,12 +64,12 @@ $(document).on("ajaxSuccess", function() {
     axis: "y",
     containment: "table.sortable",
     stop: function() {
-      var url = $(this).parent("table.sortable").data("url");
+      var reorderUrl = $(this).parent("table.sortable").data("url");
       var resourceIds = $(this).sortable("toArray");
 
       $.ajax({
         method: "PATCH",
-        url: url,
+        url: reorderUrl,
         data: { resource_ids: resourceIds },
         dataType: "script"
       });

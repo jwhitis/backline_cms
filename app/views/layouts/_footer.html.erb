@@ -1,7 +1,13 @@
 <footer>
   <div class="container">
     <%= render "layouts/twitter_stream", tweets: @tweets %>
+  </div>
 
+  <div id="newsletter-signup">
+    <%= render "subscribers/newsletter_form" %>
+  </div>
+
+  <div class="container">
     <div class="copyright">
       &copy; <%= Time.now.year %> BENCHMARKS
       <span class="admin"><%= admin_link %></span>

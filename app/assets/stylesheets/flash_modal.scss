@@ -1,8 +1,18 @@
 div#flash-modal {
   z-index: 9999;
 
+  &.modal-notice div.col-xs-3 {
+    background-color: $blue;
+  }
+
+  &.modal-alert div.col-xs-3 {
+    background-color: $red;
+  }
+
   div.modal-dialog {
-    width: 320px;
+    max-width: 100%;
+    width: 375px;
+    margin: 0 auto;
     padding: 110px 15px 15px 15px;
   }
 
@@ -15,11 +25,10 @@ div#flash-modal {
       padding: 0;
     }
 
-    div.col-xs-4 {
+    div.col-xs-3 {
       height: 100%;
       font-size: 22px;
       color: white;
-      background-color: $blue;
 
       span.fa-stack {
         margin: -1em 0 0 -1em;
@@ -29,7 +38,7 @@ div#flash-modal {
       }
     }
 
-    div.col-xs-8 {
+    div.col-xs-9 {
       padding-top: 50px;
       text-align: center;
       font-size: 16px;

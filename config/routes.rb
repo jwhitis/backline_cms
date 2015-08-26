@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :player_tracks, concerns: :orderable, only: [:index, :create, :destroy]
     resources :twitter_handles, only: [:index, :create, :destroy]
     patch "tweets/refresh", to: "tweets#refresh", as: :refresh_tweets
+    resources :subscribers, except: :show
   end
 
   resources :shows, only: :index
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
   resources :photos, only: :index
   resources :videos, only: :index
   resources :subscribers, only: [:new, :create]
+  post "newsletter_subscribers", to: "subscribers#newsletter"
   get ":slug", to: "pages#show", as: :page
   root "pages#index"
 

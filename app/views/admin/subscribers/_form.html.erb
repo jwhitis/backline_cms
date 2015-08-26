@@ -1,0 +1,35 @@
+<%= render "shared/validation_errors", resource: @subscriber %>
+
+<%= form_for [:admin, @subscriber], remote: true do |f| %>
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <%= f.label :first_name, "First Name" %>
+      <%= f.text_field :first_name, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-sm-6">
+      <%= f.label :last_name, "Last Name" %>
+      <%= f.text_field :last_name, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <%= f.label :email, "Email Address", class: "required" %>
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :country %>
+      <%= f.country_select :country, { priority_countries: ["US"] }, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-sm-3">
+      <%= f.label :zip, "Postal Code (optional)" %>
+      <%= f.text_field :zip, class: "form-control" %>
+    </div>
+  </div>
+
+  <%= submit_btn %>
+  <%= link_to "Cancel", admin_subscribers_path, remote: true, class: "cancel" %>
+<% end %>
