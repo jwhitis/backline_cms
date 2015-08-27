@@ -1,3 +1,5 @@
+require "csv"
+
 class Subscriber < ActiveRecord::Base
   PROFILE_ATTRIBUTES = [:first_name, :last_name, :country]
 
@@ -16,6 +18,23 @@ class Subscriber < ActiveRecord::Base
 
   def self.display_order
     order(created_at: :desc)
+  end
+
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << ["Added", "Name", "Email Address", "Country", "Postal Code", "Free Content?"]
+
+      all.each do |subscriber|
+        row = []
+        row << subscriber.created_at.to_s(:numeric)
+        row << subscriber.full_name
+        row << subscriber.email
+        row << ISO3166::Country[subscriber.country].try(:name)
+        row << subscriber.zip
+        row << subscriber.can_access_free_content? ? "Yes" : "No"
+        csv << row
+      end
+    end
   end
 
 end

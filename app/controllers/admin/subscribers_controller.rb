@@ -3,6 +3,11 @@ class Admin::SubscribersController < Admin::AdminController
 
   def index
     @subscribers = Subscriber.display_order.page(params[:page])
+
+    respond_to do |format|
+      format.js
+      format.csv { send_data @subscribers.to_csv, filename: filename }
+    end
   end
 
   def new
@@ -42,6 +47,14 @@ class Admin::SubscribersController < Admin::AdminController
   end
 
   private
+
+  def filename
+    "subscribers_#{timestamp}.csv"
+  end
+
+  def timestamp
+    Time.now.strftime("%Y%m%d")
+  end
 
   def find_subscriber
     @subscriber = Subscriber.find(params[:id])
