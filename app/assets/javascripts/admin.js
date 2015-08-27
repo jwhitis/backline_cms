@@ -105,6 +105,6 @@ function setActiveAdminNavLink(selector) {
   var text = $(selector).text();
   $("div#admin-nav span.active").text(text);
 
-  $("div#admin-nav a").removeClass("hidden");
-  $(selector).addClass("hidden");
+  $("div#admin-nav li").removeClass("hidden");
+  $(selector).parent("li").addClass("hidden");
 }
