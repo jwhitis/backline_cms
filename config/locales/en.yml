@@ -31,5 +31,8 @@ en:
         external_url: "URL"
       page:
         scss: "Custom styles"
+      subscriber:
+        email: "Email address"
+        zip: "Postal code"
       twitter_handle:
         handle: "Username"
