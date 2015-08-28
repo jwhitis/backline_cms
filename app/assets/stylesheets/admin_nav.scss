@@ -2,8 +2,8 @@ div#admin {
   position: relative;
 
   %nav-element {
-    max-width: 345px;
-    width: 100%;
+    max-width: 100%;
+    width: 345px;
   }
 
   div#admin-home {
@@ -90,25 +90,35 @@ div#admin {
   a.corner-btn {
     @extend %nav-element;
     margin-bottom: 15px;
+    display: block;
   }
 
   @media (min-width: 768px) {
     div#admin-home {
-      margin-right: -20px;
-
       a {
-        margin-right: 20px;
         padding: 25px 0;
         float: left;
         font-size: 55px;
+
+        &:nth-child(odd) {
+          margin-right: 30px;
+        }
       }
     }
 
-    a.corner-btn {
-      width: initial;
+    div.corner-container {
       position: absolute;
       top: 0;
       right: 0;
+
+      a.corner-btn {
+        width: initial;
+        float: left;
+
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
+      }
     }
   }
 }

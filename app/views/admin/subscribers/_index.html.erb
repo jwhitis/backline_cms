@@ -1,4 +1,7 @@
-<%= corner_btn("New User", new_admin_subscriber_path) %>
+<div class="corner-container">
+  <%= corner_btn("Export Users", admin_subscribers_path(format: :csv)) %>
+  <%= corner_btn("New User", new_admin_subscriber_path) %>
+</div>
 
 <%= render "flash_messages" %>
 

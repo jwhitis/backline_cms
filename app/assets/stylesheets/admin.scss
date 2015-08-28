@@ -7,13 +7,14 @@ div#admin {
   }
 
   i.instructions {
+    margin: 0 0 5px 8px;
     display: block;
     font-weight: lighter;
     font-style: normal;
   }
 
   table {
-    margin: 10px 0;
+    margin-bottom: 15px;
     border-collapse: separate;
     text-shadow: 0 1px 1px rgba(black, .35);
 
@@ -94,15 +95,23 @@ div#admin {
   }
 
   form {
-    margin-top: 15px;
-
     &.inline-custom {
-      div.form-group {
-        margin-right: 15px;
-        float: left;
+      input[type="text"] {
+        max-width: 100%;
+        width: 345px;
+      }
 
-        input[type="text"] {
-          width: 185px;
+      button.file-btn {
+        margin-right: 11px;
+      }
+
+      @media (min-width: 768px) {
+        div.form-group {
+          display: inline-block;
+
+          &:not(:last-child) {
+            margin-right: 11px;
+          }
         }
       }
     }
