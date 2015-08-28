@@ -1,6 +1,6 @@
 <% content_for :content do %>
   <div id="admin" class="fixed-width">
-    <div class="dropdown hidden" id="admin-nav">
+    <div class="dropdown <%= "hidden" if admin_nav_hidden? %>" id="admin-nav">
       <button type="button" data-toggle="dropdown" class="dropdown-toggle btn-white">
         <span class="active">Pages</span>
         <%= fa_icon("caret-down") %>

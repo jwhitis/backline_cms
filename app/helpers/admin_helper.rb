@@ -1,5 +1,9 @@
 module AdminHelper
 
+  def admin_nav_hidden?
+    %w(admin sessions).include?(controller_name)
+  end
+
   def admin_nav_links
     [
       ["Pages", admin_pages_path, "file"],
