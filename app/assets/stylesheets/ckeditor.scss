@@ -15,3 +15,12 @@ a.cke_dialog_ui_button.cke_dialog_ui_button_ok {
     text-shadow: 0 1px 0 rgba(black, .15);
   }
 }
+
+// Editor source pane
+textarea.cke_source {
+  padding: 10px !important;
+  box-sizing: border-box;
+  font-family: "Inconsolata", monospace !important;
+  font-size: 14px !important;
+  color: #333333;
+}
