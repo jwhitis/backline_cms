@@ -1,3 +1,12 @@
+// Editor source pane
+textarea.cke_source {
+  padding: 10px !important;
+  box-sizing: border-box;
+  font-family: "Inconsolata", monospace !important;
+  font-size: 14px !important;
+  color: #333333;
+}
+
 // Dialog OK button
 a.cke_dialog_ui_button.cke_dialog_ui_button_ok {
   border-color: rgba(black, .15);
@@ -16,11 +25,7 @@ a.cke_dialog_ui_button.cke_dialog_ui_button_ok {
   }
 }
 
-// Editor source pane
-textarea.cke_source {
-  padding: 10px !important;
-  box-sizing: border-box;
-  font-family: "Inconsolata", monospace !important;
-  font-size: 14px !important;
-  color: #333333;
+// Dialog backdrop
+div.cke_dialog_background_cover {
+  background-color: black !important;
 }

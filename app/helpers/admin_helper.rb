@@ -27,7 +27,7 @@ module AdminHelper
   end
 
   def ckeditor_script_tag
-    content_tag(:script, nil, src: "//cdn.ckeditor.com/4.5.1/standard/ckeditor.js")
+    content_tag(:script, nil, src: "//cdn.ckeditor.com/4.5.1/full/ckeditor.js")
   end
 
   def grouped_page_options_for_select selected_page_id = nil

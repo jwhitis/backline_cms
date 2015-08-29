@@ -1,5 +1,6 @@
 class Admin::PagesController < Admin::AdminController
   before_action :find_page, only: [:edit, :update, :destroy]
+  after_action :delete_unused_images!, only: [:create, :update]
 
   def index
     @pages = Page.editable.display_order.page(params[:page_number])
@@ -59,6 +60,22 @@ class Admin::PagesController < Admin::AdminController
 
   def find_page
     @page = Page.editable.find(params[:id])
+  end
+
+  def delete_unused_images!
+    image_filenames.each do |filename|
+      unless @page.body.include?(filename)
+        uploader = Ckeditor::ImageUploader.new
+        uploader.retrieve_from_store!(filename)
+        uploader.remove!
+      end
+    end
+
+    cookies.delete(:ckeditor_images)
+  end
+
+  def image_filenames
+    cookies.signed[:ckeditor_images].try(:split, ",") || []
   end
 
   def page_params

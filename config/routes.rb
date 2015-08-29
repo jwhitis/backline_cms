@@ -22,6 +22,10 @@ Rails.application.routes.draw do
     resources :subscribers, except: :show
   end
 
+  namespace :ckeditor do
+    resources :images, only: :create
+  end
+
   resources :shows, only: :index
   get "music",                     to: "albums#index", as: :albums
   get "albums/:id/download",       to: "albums#download", as: :download_album
