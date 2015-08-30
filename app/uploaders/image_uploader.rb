@@ -64,7 +64,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def display? image
-    [Page, Photo].include?(model.class)
+    model.is_a?(Photo)
   end
 
   def square? image

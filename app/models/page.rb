@@ -1,8 +1,6 @@
 class Page < ActiveRecord::Base
   DEFAULT_SLUGS = %w(shows music photos videos)
 
-  mount_uploader :image, ImageUploader
-
   has_one :nav_link, dependent: :destroy
 
   validates :title, presence: true, uniqueness: true

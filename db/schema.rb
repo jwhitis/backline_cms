@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820113118) do
+ActiveRecord::Schema.define(version: 20150830120105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,15 +43,13 @@ ActiveRecord::Schema.define(version: 20150820113118) do
   add_index "nav_links", ["text"], name: "index_nav_links_on_text", unique: true, using: :btree
 
   create_table "pages", force: :cascade do |t|
-    t.string   "title",                       null: false
-    t.string   "slug",                        null: false
+    t.string   "title",                      null: false
+    t.string   "slug",                       null: false
     t.text     "body"
-    t.string   "image"
-    t.text     "video_embed"
-    t.boolean  "published",   default: false, null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.boolean  "editable",    default: true,  null: false
+    t.boolean  "published",  default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "editable",   default: true,  null: false
     t.text     "scss"
     t.text     "css"
   end
