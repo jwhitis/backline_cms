@@ -16,16 +16,29 @@
   </div>
 </div>
 
-<div class="form-group">
-  <%= f.label :body, "Text" %>
-  <i class="instructions">Use the <small>Source</small> tool if you wish to edit the HTML directly.</i>
-  <%= f.text_area :body, class: "form-control" %>
-</div>
+<div class="form-group page-editor">
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+      <%= link_to "Body", "#body", role: "tab", data: { toggle: "tab" } %>
+    </li>
+    <li role="presentation">
+      <%= link_to "Styles", "#styles", role: "tab", data: { toggle: "tab" } %>
+    </li>
+  </ul>
 
-<div class="form-group">
-  <%= f.label :scss, "Custom Styles" %>
-  <i class="instructions">This field accepts SCSS or CSS. These styles will only affect elements inside the page container.</i>
-  <%= f.text_area :scss, rows: 10, class: "form-control" %>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="body">
+      <%= f.label :body, class: "sr-only" %>
+      <i class="instructions">Use the <small>Source</small> tool if you wish to edit the HTML directly.</i>
+      <%= f.text_area :body %>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="styles">
+      <%= f.label :scss, "Styles", class: "sr-only" %>
+      <i class="instructions">This field accepts SCSS or CSS. These styles will only affect elements inside the page container.</i>
+      <%= f.text_area :scss, class: "form-control" %>
+    </div>
+  </div>
 </div>
 
 <div class="checkbox published <%= "checked" if @page.published? %>">
