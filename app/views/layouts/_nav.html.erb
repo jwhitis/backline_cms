@@ -24,7 +24,7 @@
 </nav>
 
 <script type="text/javascript">
-  var path = window.location.pathname;
+  var path = window.location.pathname.match(/^\/[\w\-]+/)[0];
   $("ul.navbar-nav a[href='" + path + "']").addClass("active");
 
   $("ul.navbar-nav a").click(function() {
