@@ -30,6 +30,10 @@ module AdminHelper
     content_tag(:script, nil, src: "//cdn.ckeditor.com/4.5.1/full/ckeditor.js")
   end
 
+  def ace_editor_script_tag
+    content_tag(:script, nil, src: "//cdn.jsdelivr.net/ace/1.2.0/min/ace.js")
+  end
+
   def grouped_page_options_for_select selected_page_id = nil
     grouped_pages = {
       "Custom Pages" => Page.published.map { |page| [page.title, page.id] },

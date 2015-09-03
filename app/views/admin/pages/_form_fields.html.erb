@@ -34,10 +34,23 @@
     </div>
 
     <div role="tabpanel" class="tab-pane" id="styles">
+      <div class="editor-controls">
+        <%= link_to "javascript:void(0)", class: "theme-toggle" do %>
+          <%= fa_icon("moon-o") %>
+          <%= fa_icon("sun-o", class: "hidden") %>
+        <% end %>
+
+        <%= link_to fa_icon("arrows-alt"), "javascript:void(0)", class: "full-screen-toggle" %>
+      </div>
+
       <%= f.label :scss, "Styles", class: "sr-only" %>
       <i class="instructions">This field accepts SCSS or CSS. These styles will only affect elements inside the page container.</i>
-      <%= f.text_area :scss, class: "form-control" %>
+      <%= f.text_area :scss %>
+      <div id="scss-editor" class="editor"></div>
     </div>
+
+    <%= hidden_field_tag :selected_tab, params[:selected_tab] %>
+    <%= hidden_field_tag :editor_theme, params[:editor_theme] %>
   </div>
 </div>
 

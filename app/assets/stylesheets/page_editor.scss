@@ -24,17 +24,60 @@ div#admin div.page-editor {
 
   div.tab-pane {
     padding-top: 10px;
+    position: relative;
+
+    div.editor-controls {
+      margin-left: 15px;
+      float: right;
+
+      a {
+        float: left;
+        font-size: 18px;
+        line-height: 20px;
+        color: white;
+        transition: all .3s ease;
+
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+
+        &:hover {
+          color: #CCCCCC;
+        }
+      }
+    }
 
     i.instructions {
       margin: 0 0 10px 0;
     }
 
-    textarea {
+    textarea#page_scss {
+      display: none;
+    }
+
+    div.editor {
       height: 600px;
-      padding: 10px 15px;
-      border-radius: 0;
+      position: relative;
       font-family: $code-font;
       font-size: 15px;
+    }
+
+    &.full-screen {
+      padding: 10px 15px 15px 15px;
+      position: fixed;
+      top: 72px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background-image: url(http://toddfarrell-production.s3.amazonaws.com/images/background1.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center bottom;
+
+      div.editor {
+        height: calc(100% - 30px);
+      }
     }
   }
 }
