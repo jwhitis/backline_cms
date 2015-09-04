@@ -6,9 +6,9 @@ div.pagination-links {
     width: 80px;
     padding: 4px 10px;
     display: inline-block;
-    border: 2px solid #CCCCCC;
+    border: 2px solid $grey;
     font-size: 16px;
-    color: #CCCCCC;
+    color: $grey;
     background-color: darken($red, 5%);
     box-shadow: 0 2px 5px rgba(black, .5);
     transition: all .3s ease;

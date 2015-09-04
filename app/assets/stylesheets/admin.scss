@@ -65,7 +65,7 @@ div#admin {
         }
 
         &.fa-ellipsis-h {
-          color: #CCCCCC;
+          color: $grey;
         }
       }
 
@@ -132,7 +132,7 @@ div#admin {
       line-height: 20px;
       font-weight: lighter;
       text-decoration: underline;
-      color: #CCCCCC;
+      color: $grey;
       cursor: pointer;
     }
 

@@ -32,7 +32,7 @@ div#admin {
           background: linear-gradient(to bottom right, $rgba 0%, $rgba 50%, darken($rgba, 10%) 100%);
 
           &:hover {
-            color: #CCCCCC;
+            color: $grey;
           }
         }
       }
