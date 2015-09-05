@@ -14,22 +14,13 @@
 <% end %>
 
 <script type="text/javascript">
-  // Click the previously selected tab
-  var selectedTab = $("input#selected_tab").val();
-  $("a[href='" + selectedTab + "']").click();
-
-  // Clicking tab inserts tab ID into form
-  $("div.page-editor ul.nav-tabs a").click(function() {
-    var selectedTab = $(this).attr("href");
-    $("input#selected_tab").val(selectedTab);
-  });
-
   // Initialize CKEditor
   CKEDITOR.replace("page_body", {
     customConfig: "/ckeditor/config.js",
     contentsCss: ["<%= asset_path('application.css') %>", "/ckeditor/contents.css"]
   });
 
+  // Initialize Ace Editor
   var lightTheme = "ace/theme/github";
   var darkTheme = "ace/theme/chaos";
   var selectedTheme = $("input#editor_theme").val() || lightTheme;
@@ -41,21 +32,29 @@
   }
 
   var sessionOptions = {
-    mode: "ace/mode/scss",
     tabSize: 2,
     wrap: true
   }
 
-  // Initialize Ace Editor
   var scssEditor = ace.edit("scss-editor");
   scssEditor.setOptions(editorOptions);
+  scssEditor.getSession().setMode("ace/mode/scss");
   scssEditor.getSession().setOptions(sessionOptions);
-  scssEditor.setValue("<%=j @page.scss %>", 1);
+  scssEditor.setValue("<%==j @page.scss %>", 1);
+
+  var javascriptEditor = ace.edit("javascript-editor");
+  javascriptEditor.setOptions(editorOptions);
+  javascriptEditor.getSession().setMode("ace/mode/javascript");
+  javascriptEditor.getSession().setOptions(sessionOptions);
+  javascriptEditor.setValue("<%==j @page.javascript %>", 1);
 
   // Insert values from editors into form on submit
   $("form.page-form").submit(function() {
     var scss = scssEditor.getValue();
     $("textarea#page_scss").val(scss);
+
+    var javascript = javascriptEditor.getValue();
+    $("textarea#page_javascript").val(javascript);
   });
 
   // Clicking theme icon toggles editor theme
@@ -63,6 +62,7 @@
     $(this).find("i.fa").toggleClass("hidden");
     var theme = scssEditor.getTheme() == lightTheme ? darkTheme : lightTheme;
     scssEditor.setTheme(theme);
+    javascriptEditor.setTheme(theme);
     $("input#editor_theme").val(theme);
   });
 

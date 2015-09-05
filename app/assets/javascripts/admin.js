@@ -16,6 +16,16 @@ $(document).on("ready page:load", function() {
     setActiveAdminNavLink(this);
   });
 
+  // Click the previously selected page editor tab
+  var selectedTab = $("input#selected_tab").val();
+  $("div.page-editor ul.nav-tabs a[href='" + selectedTab + "']").click();
+
+  // Clicking page editor tab inserts tab ID into form
+  $("div.page-editor ul.nav-tabs a").click(function() {
+    var selectedTab = $(this).attr("href");
+    $("input#selected_tab").val(selectedTab);
+  });
+
   // Clicking file button opens file dialog
   $("div#content").on("click", "button.file-btn", function() {
     $(this).siblings("input[type='file']").click();
