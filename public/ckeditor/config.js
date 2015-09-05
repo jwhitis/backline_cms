@@ -68,6 +68,7 @@ CKEDITOR.editorConfig = function(config) {
 
     if (dialogName == "image") {
       var infoTab = dialogDefinition.getContents("info");
+      infoTab.remove("ratioLock");
       infoTab.remove("txtBorder");
       infoTab.remove("txtHSpace");
       infoTab.remove("txtVSpace");
