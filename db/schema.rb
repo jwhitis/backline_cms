@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904123154) do
+ActiveRecord::Schema.define(version: 20150906201757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20150904123154) do
     t.integer  "tracks_count", default: 0,     null: false
     t.string   "archive"
   end
+
+  create_table "configurations", force: :cascade do |t|
+    t.integer  "homepage_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "configurations", ["homepage_id"], name: "index_configurations_on_homepage_id", using: :btree
 
   create_table "nav_links", force: :cascade do |t|
     t.string   "text",         null: false
@@ -134,6 +142,7 @@ ActiveRecord::Schema.define(version: 20150904123154) do
     t.boolean  "published"
   end
 
+  add_foreign_key "configurations", "pages", column: "homepage_id"
   add_foreign_key "nav_links", "pages"
   add_foreign_key "tracks", "albums"
 end
