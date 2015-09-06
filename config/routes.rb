@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :twitter_handles, only: [:index, :create, :destroy]
     patch "tweets/refresh", to: "tweets#refresh", as: :refresh_tweets
     resources :subscribers, except: :show
+    resource :configuration, only: [:edit, :update]
   end
 
   namespace :ckeditor do

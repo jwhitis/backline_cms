@@ -1,0 +1,12 @@
+<%= render "shared/validation_errors", resource: @configuration %>
+
+<%= form_for @configuration, url: admin_configuration_path do |f| %>
+  <div class="form-group">
+    <%= f.label :homepage_id, "Home Page" %>
+    <%= f.select :homepage_id, grouped_page_options_for_select(@configuration.homepage_id),
+      {}, class: "form-control" %>
+  </div>
+
+  <%= submit_btn %>
+  <%= link_to "Cancel", admin_path, class: "cancel" %>
+<% end %>

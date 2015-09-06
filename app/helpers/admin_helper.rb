@@ -14,7 +14,8 @@ module AdminHelper
       ["Videos", admin_videos_path, "video-camera"],
       ["Audio", admin_player_tracks_path, "music"],
       ["Twitter", admin_twitter_handles_path, "twitter"],
-      ["Users", admin_subscribers_path, "users"]
+      ["Users", admin_subscribers_path, "users"],
+      ["Settings", edit_admin_configuration_path, "cog"]
     ]
   end
 
