@@ -1,0 +1,14 @@
+<div class="dropdown <%= "hidden" if admin_nav_hidden? %>" id="admin-nav">
+  <button type="button" data-toggle="dropdown" class="dropdown-toggle btn-white">
+    <span class="active">Pages</span>
+    <%= fa_icon("caret-down") %>
+  </button>
+
+  <ul class="dropdown-menu">
+    <% admin_nav_links.each_with_index do |(text, url, _icon), index| %>
+      <li class="<%= "hidden" if index.zero? %>">
+        <%= link_to text, url, remote: true %>
+      </li>
+    <% end %>
+  </ul>
+</div>
