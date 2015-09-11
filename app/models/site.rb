@@ -1,4 +1,4 @@
-class Configuration < ActiveRecord::Base
+class Site < ActiveRecord::Base
   validates_presence_of :homepage_id
 
   def reload options = nil

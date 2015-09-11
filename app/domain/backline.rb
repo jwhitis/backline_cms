@@ -1,9 +1,9 @@
 module Backline
   class << self
-    delegate :reload, to: :configuration
+    delegate :reload, to: :site
 
-    def configuration
-      @configuration ||= Configuration.first
+    def site
+      @site ||= Site.first
     end
 
   end

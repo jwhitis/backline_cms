@@ -12,4 +12,4 @@ Page::DEFAULT_SLUGS.each do |slug|
 end
 
 homepage = Page.find_by_slug!(Page::DEFAULT_SLUGS.first)
-Configuration.create_with(homepage_id: homepage.id).first_or_create!
+Site.create_with(homepage_id: homepage.id).first_or_create!
