@@ -7,7 +7,7 @@ class Admin::ConfigurationsController < Admin::AdminController
   def update
     if @configuration.update_attributes(configuration_params)
       Backline.reload
-      redirect_to admin_path, notice: "Settings successfully updated."
+      redirect_to admin_root_path, notice: "Settings successfully updated."
     else
       render :edit
     end

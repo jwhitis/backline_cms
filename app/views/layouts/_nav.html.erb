@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" data-toggle="false" id="my-navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <% if admin_signed_in? %>
-          <li><%= link_to "Admin", admin_path %></li>
+          <li><%= link_to "Admin", admin_root_path %></li>
         <% end %>
         <% @nav_links.each do |nav_link| %>
           <li><%= link_to nav_link.text, nav_link.url, remote: !!nav_link.page %></li>
