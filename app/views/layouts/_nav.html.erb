@@ -16,7 +16,7 @@
           <li><%= link_to "Admin", admin_root_path %></li>
         <% end %>
         <% @nav_links.each do |nav_link| %>
-          <li><%= link_to nav_link.text, nav_link.url, remote: !!nav_link.page %></li>
+          <li><%= nav_link_to(nav_link) %></li>
         <% end %>
       </ul>
     </div>

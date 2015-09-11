@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Benchmarks</title>
-  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,700|Oswald", media: "all" %>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-  <%= content_for :head %>
-</head>
+<%= render "layouts/head" %>
 <body>
   <div id="wrapper">
     <%= render "layouts/nav" %>
@@ -17,12 +9,14 @@
       <%= image_tag "http://toddfarrell-production.s3.amazonaws.com/images/banner_website.jpg" %>
     <% end %>
 
-    <div id="main">
-      <div class="container">
-        <div id="content">
-          <%= content_for?(:content) ? content_for(:content) : yield %>
-        </div>
-      </div>
+    <%= render "layouts/main" %>
+
+    <div class="container">
+      <%= render "layouts/twitter_stream", tweets: @tweets %>
+    </div>
+
+    <div id="newsletter-signup">
+      <%= render "subscribers/newsletter_form" %>
     </div>
 
     <%= render "layouts/footer" %>

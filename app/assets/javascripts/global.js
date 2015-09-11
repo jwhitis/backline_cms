@@ -5,10 +5,8 @@ $(document).on("ready page:load", function() {
   // Initialize Transformicons
   transformicons.add(".tcon");
 
-  // Show flash modal on non-admin pages
-  if (!path.match(/^\/admin/)) {
-    $("div#flash-modal").modal("show");
-  }
+  // Show flash modal if it exists
+  $("div#flash-modal").modal("show");
 
   // Links inside of page container open in a new window
   setPageLinkTarget();
@@ -36,6 +34,9 @@ $(document).on("ready page:load", function() {
     initializeFancybox();
   }
 
+  // Set page height to cover viewport
+  setPageHeight();
+
 });
 
 $(document).on("ajaxSuccess", function(event, xhr, settings) {
@@ -46,12 +47,6 @@ $(document).on("ajaxSuccess", function(event, xhr, settings) {
   $("div#my-navbar-collapse").collapse("hide");
   transformicons.revert(".tcon");
 
-  // Set vertical scroll position on page change (not including pagination)
-  if (!url.match(/page=\d+/)) {
-    var bannerHeight = $("a#banner").height();
-    $("body").scrollTop(bannerHeight);
-  }
-
   // Links inside of page container open in a new window
   setPageLinkTarget();
 
@@ -59,6 +54,15 @@ $(document).on("ajaxSuccess", function(event, xhr, settings) {
   if (url.match(/^\/photos/)) {
     initializeMasonry();
     initializeFancybox();
+  }
+
+  // Set page height to cover viewport
+  setPageHeight();
+
+  // Scroll past banner on page change (not including pagination)
+  if (!url.match(/page=\d+/)) {
+    var bannerHeight = $("a#banner").height();
+    $("body").scrollTop(bannerHeight);
   }
 
 });
@@ -119,4 +123,17 @@ function initializeFancybox() {
   if ($(window).width() >= 768) {
     $("a.photo").fancybox(fancyboxOptions);
   }
+}
+
+function setPageHeight() {
+  var elements = ["nav.navbar", "a#banner", "div#twitter-stream", "div#newsletter-signup", "footer"];
+  var difference = 0;
+
+  for (var i = 0; i < elements.length; i++) {
+    difference += $(elements[i]).outerHeight(true);
+  }
+
+  var minHeight = $("body").height() - difference;
+  minHeight = minHeight > 0 ? minHeight : 0;
+  $("div#main").css("min-height", minHeight);
 }

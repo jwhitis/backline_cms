@@ -48,17 +48,13 @@ $(document).on("ready page:load", function() {
 
 });
 
-$(document).on("ajaxSuccess", function(event, xhr, settings) {
-
-  var url = settings.url;
+$(document).on("ajaxSuccess", function() {
 
   // Fade out alerts after 3 seconds
   fadeOutAlerts();
 
   // Show admin nav when leaving admin homepage
-  if (!url.match(/^\/newsletter_subscribers/)) {
-    $("div#admin-nav").removeClass("hidden");
-  }
+  $("div#admin-nav").removeClass("hidden");
 
   // Initialize datepickers
   $("input.datepicker").datepicker({

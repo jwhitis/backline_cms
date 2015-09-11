@@ -8,4 +8,14 @@
   </div>
 <% end %>
 
-<%= render template: "layouts/application" %>
+<!DOCTYPE html>
+<html>
+<%= render "layouts/head" %>
+<body>
+  <div id="wrapper">
+    <%= render "layouts/nav" %>
+    <%= render "layouts/main" %>
+    <%= render "layouts/footer" %>
+  </div>
+</body>
+</html>

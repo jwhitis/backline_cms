@@ -11,6 +11,7 @@ body {
 div#wrapper {
   min-height: 100%;
   padding-top: $nav-height;
+  padding-bottom: $footer-height;
   position: relative;
   background-color: $light-grey;
 }
@@ -76,7 +77,11 @@ div#main {
 }
 
 footer {
-  padding: 35px 0 40px 0;
+  width: 100%;
+  height: $footer-height;
+  padding: 60px 0;
+  position: absolute;
+  bottom: 0;
 
   div.copyright {
     text-align: center;
