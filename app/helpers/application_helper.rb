@@ -15,7 +15,7 @@ module ApplicationHelper
   end
 
   def current_page_is_admin?
-    @current_page_is_admin ||= request.fullpath.starts_with?("/admin")
+    @current_page_is_admin ||= request.path.starts_with?("/admin")
   end
 
   def formatted_tweet_time tweet

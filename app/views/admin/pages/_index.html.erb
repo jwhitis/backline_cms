@@ -1,5 +1,6 @@
 <div class="corner-container">
-  <%= corner_btn("New Page", new_admin_page_path, remote: false, data: { no_turbolink: true }) %>
+  <%= corner_btn("New Page", new_admin_custom_page_path, remote: false,
+    data: { no_turbolink: true }) %>
 </div>
 
 <%= render "flash_messages" %>
@@ -22,9 +23,12 @@
         <td><%= page.title %></td>
         <td class="hidden-xs"><%= page.slug %></td>
         <td class="edit">
-          <%= link_to fa_icon("edit"), edit_admin_page_path(page), data: { no_turbolink: true } %>
-          <%= link_to fa_icon("trash-o"), admin_page_path(page), method: :delete, remote: true,
-            data: { confirm: "Are you sure you want to delete this page?" } %>
+          <%= link_to fa_icon("edit"), polymorphic_path([:admin, page], action: :edit),
+            remote: page.is_a?(DefaultPage), data: { no_turbolink: true } %>
+          <% if page.is_a?(CustomPage) %>
+            <%= link_to fa_icon("trash-o"), admin_custom_page_path(page), method: :delete,
+              remote: true, data: { confirm: "Are you sure you want to delete this page?" } %>
+          <% end %>
         </td>
       </tr>
     <% end %>

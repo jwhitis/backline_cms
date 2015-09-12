@@ -18,10 +18,12 @@ Rails.application.routes.draw do
     get    "sign-in",  to: "sessions#new",     as: :sign_in
     post   "sign-in",  to: "sessions#create"
     delete "sign-out", to: "sessions#destroy", as: :sign_out
-    resources :pages,     except: :show
-    resources :nav_links, except: :show, concerns: :orderable
-    resources :shows,     except: :show
-    resources :albums,    except: :show do
+    resources :pages,         only: :index
+    resources :custom_pages,  except: [:index, :show]
+    resources :default_pages, only: [:edit, :update]
+    resources :nav_links,     except: :show, concerns: :orderable
+    resources :shows,         except: :show
+    resources :albums,        except: :show do
       resources :album_tracks, except: :show, concerns: :orderable
     end
     resources :photos,          except: :show

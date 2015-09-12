@@ -4,9 +4,9 @@
   <%= ace_editor_script_tag %>
 <% end %>
 
-<%= render "shared/validation_errors", resource: @page %>
+<%= render "shared/validation_errors", resource: @custom_page %>
 
-<%= form_for [:admin, @page], remote: true, html: { class: "page-form" } do |f| %>
+<%= form_for [:admin, @custom_page], remote: true, html: { class: "page-form" } do |f| %>
   <%= render "form_fields", f: f %>
 
   <%= submit_btn %>
@@ -16,7 +16,7 @@
 
 <script type="text/javascript">
   // Initialize CKEditor
-  CKEDITOR.replace("page_body", {
+  CKEDITOR.replace("custom_page_body", {
     customConfig: "/ckeditor/config.js",
     contentsCss: ["<%= asset_path('application.css') %>", "/ckeditor/contents.css"]
   });
@@ -41,21 +41,21 @@
   scssEditor.setOptions(editorOptions);
   scssEditor.getSession().setMode("ace/mode/scss");
   scssEditor.getSession().setOptions(sessionOptions);
-  scssEditor.setValue("<%==j @page.scss %>", 1);
+  scssEditor.setValue("<%==j @custom_page.scss %>", 1);
 
   var javascriptEditor = ace.edit("javascript-editor");
   javascriptEditor.setOptions(editorOptions);
   javascriptEditor.getSession().setMode("ace/mode/javascript");
   javascriptEditor.getSession().setOptions(sessionOptions);
-  javascriptEditor.setValue("<%==j @page.javascript %>", 1);
+  javascriptEditor.setValue("<%==j @custom_page.javascript %>", 1);
 
   // Insert values from editors into form on submit
   $("form.page-form").submit(function() {
     var scss = scssEditor.getValue();
-    $("textarea#page_scss").val(scss);
+    $("textarea#custom_page_scss").val(scss);
 
     var javascript = javascriptEditor.getValue();
-    $("textarea#page_javascript").val(javascript);
+    $("textarea#custom_page_javascript").val(javascript);
   });
 
   // Clicking theme icon toggles editor theme

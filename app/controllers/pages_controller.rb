@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def show
-    @page = Page.published.find_by_slug!(params[:slug])
+    @custom_page = CustomPage.published.find_by_slug!(params[:slug])
   end
 
   private
