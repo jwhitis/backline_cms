@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Page::DEFAULT_SLUGS.each do |slug|
-  page = Page.uneditable.find_or_create_by!(title: slug.titleize, slug: slug)
+DefaultPage::SLUGS.each do |slug|
+  page = DefaultPage.published.find_or_create_by!(title: slug.titleize, slug: slug)
   page.create_nav_link!(text: page.title) unless page.nav_link
 end
 
-homepage = Page.find_by_slug!(Page::DEFAULT_SLUGS.first)
+homepage = DefaultPage.find_by_slug!(DefaultPage::SLUGS.first)
 Site.create_with(homepage_id: homepage.id).first_or_create!
