@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
     @tweets = Tweet.display_order.limit(7)
   end
 
+  def find_default_page
+    slug = request.path.sub(/\A\//, "")
+    @default_page = DefaultPage.published.find_by_slug!(slug)
+  end
+
   def admin_signed_in?
     !!session[:admin_id]
   end
