@@ -4,8 +4,8 @@ module ApplicationHelper
     options = {}
 
     if target_page = nav_link.page
-      if current_page_is_admin? && target_page.javascript.present?
-        options[:data] = { no_turbolink: true }
+      if current_page_is_admin?
+        options[:data] = { no_turbolink: true } if target_page.javascript.present?
       else
         options[:remote] = true
       end
