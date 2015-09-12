@@ -1,1 +1,9 @@
-<%= render "index" %>
+<%= render "flash_messages" %>
+
+<div id="admin-home" class="clearfix">
+  <% admin_nav_links.each do |text, url, icon| %>
+    <%= link_to url, remote: true do %>
+      <%= text.html_safe + fa_icon(icon) %>
+    <% end %>
+  <% end %>
+</div>

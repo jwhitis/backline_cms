@@ -3,7 +3,6 @@ class Admin::AdminController < ApplicationController
   layout "admin"
 
   def index
-    @pages = Page.editable.display_order.page(params[:page_number])
   end
 
   private
