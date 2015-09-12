@@ -1,5 +1,5 @@
 class Admin::SessionsController < Admin::AdminController
-  skip_before_action :authenticate_admin!, only: [:new, :create]
+  skip_before_action :authenticate_admin!, except: :destroy
 
   def new
     redirect_to admin_root_path if admin_signed_in?

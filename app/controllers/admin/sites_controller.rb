@@ -1,5 +1,5 @@
 class Admin::SitesController < Admin::AdminController
-  before_action :find_site, only: [:edit, :update]
+  before_action :find_site
 
   def edit
   end
