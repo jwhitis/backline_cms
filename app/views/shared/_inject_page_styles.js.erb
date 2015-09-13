@@ -1,5 +1,5 @@
 var pageStyles = $("style#page-css");
-var newStyles = "<%=j page_style_tag(custom_page) %>";
+var newStyles = "<%=j page_style_tag(page) %>";
 
 if (pageStyles.length) {
   pageStyles.replaceWith(newStyles);

@@ -1,11 +1,11 @@
 class Admin::DefaultPagesController < Admin::AdminController
-  before_action :find_default_page
+  before_action :find_page
 
   def edit
   end
 
   def update
-    if @default_page.update_attributes(default_page_params)
+    if @page.update_attributes(page_params)
       @pages = Page.display_order.page(params[:page_number])
       flash.now[:notice] = "Page successfully updated."
       render "admin/pages/index"
@@ -16,12 +16,12 @@ class Admin::DefaultPagesController < Admin::AdminController
 
   private
 
-  def find_default_page
-    @default_page = DefaultPage.find(params[:id])
+  def find_page
+    @page = DefaultPage.find(params[:id])
   end
 
-  def default_page_params
-    params.require(:default_page).permit(:title, :published)
+  def page_params
+    params.require(:page).permit(:title, :published)
   end
 
 end

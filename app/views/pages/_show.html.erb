@@ -1,8 +1,8 @@
 <% content_for :head do %>
-  <%= page_style_tag(@custom_page) %>
-  <%= page_script_tag(@custom_page) %>
+  <%= page_style_tag(@page) %>
+  <%= page_script_tag(@page) %>
 <% end %>
 
 <div id="page-container" class="fixed-width">
-  <%== @custom_page.body %>
+  <%== @page.body %>
 </div>

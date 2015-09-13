@@ -1,12 +1,10 @@
-<%= render "shared/validation_errors", resource: @default_page %>
+<%= render "shared/validation_errors", resource: @page %>
 
-<%= form_for [:admin, @default_page], remote: true do |f| %>
-  <div class="row">
+<%= form_for [:admin, @page], as: :page, remote: true do |f| %>
+  <div class="form-group row">
     <div class="col-sm-6">
-      <div class="form-group">
-        <%= f.label :title, class: "required" %>
-        <%= f.text_field :title, class: "form-control" %>
-      </div>
+      <%= f.label :title, class: "required" %>
+      <%= f.text_field :title, class: "form-control" %>
     </div>
 
     <div class="col-sm-6">
@@ -19,7 +17,7 @@
     </div>
   </div>
 
-  <div class="checkbox published <%= "checked" if @default_page.published? %>">
+  <div class="checkbox published <%= "checked" if @page.published? %>">
     <%= f.label :published do %>
       <%= f.check_box :published %> Publish this page?
     <% end %>
