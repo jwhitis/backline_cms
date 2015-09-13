@@ -18,6 +18,15 @@ module ApplicationHelper
     @current_page_is_admin ||= request.path.starts_with?("/admin")
   end
 
+  def pagination_links collection, options = {}
+    options = { remote: true }.merge(options)
+
+    links = link_to_previous_page(collection, "#{fa_icon("caret-left")} PREV".html_safe,
+      options) || "".html_safe
+    links += link_to_next_page(collection, "NEXT #{fa_icon("caret-right")}".html_safe,
+      options) || ""
+  end
+
   def formatted_tweet_time tweet
     time_with_zone = tweet.posted_at.in_time_zone("Central Time (US & Canada)")
     time_in_words = time_ago_in_words(time_with_zone).sub(/\Aabout /, "")

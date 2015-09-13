@@ -21,9 +21,6 @@
   </div>
 
   <div class="pagination-links clearfix">
-    <%= link_to_previous_page @shows, "#{fa_icon("caret-left")} PREV".html_safe,
-      remote: true %>
-    <%= link_to_next_page @shows, "NEXT #{fa_icon("caret-right")}".html_safe,
-      remote: true %>
+    <%= pagination_links(@shows) %>
   </div>
 </div>

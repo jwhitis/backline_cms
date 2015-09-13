@@ -24,7 +24,7 @@ module AdminHelper
     options[:class].sub!("btn-blue", html_options.delete(:class)) if html_options[:class]
     options.merge!(html_options)
 
-    link_to(text, url, options)
+    link_to text, url, options
   end
 
   def edit_link *parents, resource

@@ -32,8 +32,5 @@
 </table>
 
 <div class="pagination-links clearfix">
-  <%= link_to_previous_page @subscribers, "#{fa_icon("caret-left")} PREV".html_safe,
-    params: { controller: "/admin/subscribers" }, remote: true %>
-  <%= link_to_next_page @subscribers, "NEXT #{fa_icon("caret-right")}".html_safe,
-    params: { controller: "/admin/subscribers" }, remote: true %>
+  <%= pagination_links(@subscribers, params: { controller: "/admin/subscribers" }) %>
 </div>
