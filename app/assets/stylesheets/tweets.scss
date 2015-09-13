@@ -58,7 +58,8 @@ div#twitter-stream {
       line-height: 16px;
       color: $slate;
       text-shadow: 0 1px 1px rgba(black, .25);
-      background: linear-gradient(to bottom right, rgba($red, .95) 0%, rgba($red, .95) 50%, darken(rgba($red, .95), 10%) 100%);
+      $rgba-red: rgba($red, .95);
+      background: linear-gradient(to bottom right, $rgba-red 0%, $rgba-red 50%, darken($rgba-red, 10%) 100%);
 
       div.name {
         height: 25px;

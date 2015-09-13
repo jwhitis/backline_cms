@@ -194,11 +194,9 @@ div#admin {
 
     div.filename {
       @extend %status-box;
-      color: $light-grey;
-      background-color: rgba(black, .6);
+      background-color: rgba($info, .85);
 
       &.checked {
-        color: white;
         background-color: rgba($danger, .85);
       }
 
@@ -213,9 +211,9 @@ div#admin {
       }
     }
 
-    div.published, div.downloadable {
+    div.published, div.downloadable, div.standalone {
       @extend %status-box;
-      background-color: rgba($warning, .85);
+      background-color: rgba(#B3B3B3, .85);
 
       &.checked {
         background-color: rgba($success, .85);

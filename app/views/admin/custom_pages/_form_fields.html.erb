@@ -12,6 +12,12 @@
   </div>
 </div>
 
+<div class="checkbox standalone <%= "checked" if @page.standalone? %>">
+  <%= f.label :standalone do %>
+    <%= f.check_box :standalone %> Make this a stand-alone page?
+  <% end %>
+</div>
+
 <div class="form-group page-editor">
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
