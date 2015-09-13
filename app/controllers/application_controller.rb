@@ -1,15 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :expose_nav_links
-  before_action :expose_tweets
+  before_action :find_nav_links
+  before_action :find_tweets
 
   protected
 
-  def expose_nav_links
+  def find_nav_links
     @nav_links = NavLink.display_order.includes(:page)
   end
 
-  def expose_tweets
+  def find_tweets
     @tweets = Tweet.display_order.limit(7)
   end
 

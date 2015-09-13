@@ -8,12 +8,10 @@
     </div>
 
     <div class="col-sm-6">
-      <div class="form-group">
-        <%= f.label :slug %>
-        <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
-          title: "This is the part of the page URL that makes it unique. It cannot be edited for this page.") %>
-        <%= f.text_field :slug, disabled: true, class: "form-control" %>
-      </div>
+      <%= f.label :slug %>
+      <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
+        title: "This is the part of the page URL that makes it unique. It cannot be edited for this page.") %>
+      <%= f.text_field :slug, disabled: true, class: "form-control" %>
     </div>
   </div>
 

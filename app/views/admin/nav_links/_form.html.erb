@@ -1,15 +1,15 @@
 <%= render "shared/validation_errors", resource: @nav_link %>
 
 <%= form_for [:admin, @nav_link], remote: true do |f| %>
-  <div class="row">
-    <div class="form-group col-sm-6">
+  <div class="form-group row">
+    <div class="col-sm-6">
       <%= f.label :text, class: "required" %>
       <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
         title: "The link text must be 15 characters or less in length.") %>
       <%= f.text_field :text, class: "form-control" %>
     </div>
 
-    <div class="form-group col-sm-6">
+    <div class="col-sm-6">
       <%= f.label :page_id, "Page" %>
       <%= f.select :page_id, grouped_page_options_for_select(@nav_link.page_id),
         { include_blank: "None" }, class: "form-control" %>

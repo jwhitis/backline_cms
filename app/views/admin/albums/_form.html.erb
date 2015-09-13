@@ -5,13 +5,13 @@
 <%= render "shared/validation_errors", resource: @album %>
 
 <%= form_for [:admin, @album], remote: true do |f| %>
-  <div class="row">
-    <div class="form-group col-sm-7">
+  <div class="form-group row">
+    <div class="col-sm-7">
       <%= f.label :title, class: "required" %>
       <%= f.text_field :title, class: "form-control" %>
     </div>
 
-    <div class="form-group col-sm-5">
+    <div class="col-sm-5">
       <%= f.label :release_date, "Release Date", class: "required" %>
       <div class="date-fields clearfix">
         <%= f.date_select :release_date, { start_year: Date.today.year, end_year: 1970,
@@ -20,15 +20,15 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="form-group col-sm-6">
+  <div class="form-group row">
+    <div class="col-sm-6">
       <%= f.label :bandcamp_url, "Bandcamp URL" %>
       <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
         title: "The URL must begin with http:// or https://.") %>
       <%= f.text_field :bandcamp_url, class: "form-control" %>
     </div>
 
-    <div class="form-group col-sm-6">
+    <div class="col-sm-6">
       <%= f.label :itunes_url, "iTunes URL" %>
       <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
         title: "The URL must begin with http:// or https://.") %>

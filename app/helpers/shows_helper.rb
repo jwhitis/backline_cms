@@ -5,14 +5,11 @@ module ShowsHelper
   end
 
   def venue_link show
-    return show.venue_name if show.venue_url.blank?
-
-    # In order for the link to open properly, the venue URL must contain the protocol.
-    link_to show.venue_name, show.venue_url, target: "_blank"
+    link_to_if show.venue_url.present?, show.venue_name, show.venue_url, target: "_blank"
   end
 
   def google_maps_link show
-    return nil if show.address.blank?
+    return "" if show.address.blank?
 
     query = "#{show.address}, #{show.city}, #{show.state} #{show.zip}".to_query("q")
     link_to fa_icon("map-marker"), "https://maps.google.com?#{query}", target: "_blank",
