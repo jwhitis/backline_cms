@@ -17,8 +17,7 @@
           <%= player_track.title %>
         </td>
         <td class="edit">
-          <%= link_to fa_icon("times-circle"), admin_player_track_path(player_track), method: :delete,
-            remote: true, data: { confirm: "Are you sure you want to remove this track?" } %>
+          <%= delete_link(player_track, icon: "times-circle", name: "track") %>
         </td>
       </tr>
     <% end %>

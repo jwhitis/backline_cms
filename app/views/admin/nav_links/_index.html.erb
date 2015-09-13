@@ -15,9 +15,8 @@
           <%= nav_link.text %>
         </td>
         <td class="edit">
-          <%= link_to fa_icon("edit"), edit_admin_nav_link_path(nav_link), remote: true %>
-          <%= link_to fa_icon("trash-o"), admin_nav_link_path(nav_link), method: :delete,
-            remote: true, data: { confirm: "Are you sure you want to remove this nav link?" } %>
+          <%= edit_link(nav_link) %>
+          <%= delete_link(nav_link) %>
         </td>
       </tr>
     <% end %>

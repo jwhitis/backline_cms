@@ -15,8 +15,7 @@
           <%= twitter_handle.handle %>
         </td>
         <td class="edit">
-          <%= link_to fa_icon("times-circle"), admin_twitter_handle_path(twitter_handle), method: :delete,
-            remote: true, data: { confirm: "Are you sure you want to remove this username?" } %>
+          <%= delete_link(twitter_handle, icon: "times-circle", name: "username") %>
         </td>
       </tr>
     <% end %>

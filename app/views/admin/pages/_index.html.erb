@@ -23,12 +23,8 @@
         <td><%= page.title %></td>
         <td class="hidden-xs"><%= page.slug %></td>
         <td class="edit">
-          <%= link_to fa_icon("edit"), polymorphic_path([:admin, page], action: :edit),
-            remote: page.is_a?(DefaultPage), data: { no_turbolink: true } %>
-          <% if page.is_a?(CustomPage) %>
-            <%= link_to fa_icon("trash-o"), admin_custom_page_path(page), method: :delete,
-              remote: true, data: { confirm: "Are you sure you want to delete this page?" } %>
-          <% end %>
+          <%= edit_link(page) %>
+          <%= delete_link(page, name: "page") %>
         </td>
       </tr>
     <% end %>

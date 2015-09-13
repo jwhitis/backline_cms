@@ -25,10 +25,8 @@
           <%= album_track.title %>
         </td>
         <td class="edit">
-          <%= link_to fa_icon("edit"), edit_admin_album_album_track_path(@album, album_track),
-            remote: true %>
-          <%= link_to fa_icon("trash-o"), admin_album_album_track_path(@album, album_track),
-            method: :delete, remote: true, data: { confirm: "Are you sure you want to remove this track?" } %>
+          <%= edit_link(@album, album_track) %>
+          <%= delete_link(@album, album_track, name: "track") %>
         </td>
       </tr>
     <% end %>

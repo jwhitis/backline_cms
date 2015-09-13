@@ -20,9 +20,8 @@
         <td class="hidden-xs"><%= video.created_at.to_s(:numeric) %></td>
         <td><%= video.title %></td>
         <td class="edit">
-          <%= link_to fa_icon("edit"), edit_admin_video_path(video), remote: true %>
-          <%= link_to fa_icon("trash-o"), admin_video_path(video), method: :delete, remote: true,
-            data: { confirm: "Are you sure you want to delete this video?" } %>
+          <%= edit_link(video) %>
+          <%= delete_link(video) %>
         </td>
       </tr>
     <% end %>

@@ -27,6 +27,25 @@ module AdminHelper
     link_to(text, url, options)
   end
 
+  def edit_link *parents, resource
+    options = {}
+    options[:remote] = true unless resource.is_a?(CustomPage)
+    options[:data] = { no_turbolink: true } if resource.is_a?(CustomPage)
+
+    link_to fa_icon("edit"), polymorphic_path([:admin, *parents, resource], action: :edit),
+      options
+  end
+
+  def delete_link *parents, resource, icon: nil, name: nil
+    return "" if resource.is_a?(DefaultPage)
+
+    icon ||= "trash-o"
+    name ||= resource.class.to_s.titleize.downcase
+
+    link_to fa_icon(icon), polymorphic_path([:admin, *parents, resource]), method: :delete,
+      remote: true, data: { confirm: "Are you sure you want to delete this #{name}?" }
+  end
+
   def ckeditor_script_tag
     content_tag(:script, nil, src: "//cdn.ckeditor.com/4.5.1/full/ckeditor.js")
   end

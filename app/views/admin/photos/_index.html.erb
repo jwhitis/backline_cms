@@ -25,9 +25,8 @@
             data: { fancybox_href: photo.image.display.url, fancybox_title: photo_caption(photo) } %>
         </td>
         <td class="edit">
-          <%= link_to fa_icon("edit"), edit_admin_photo_path(photo), remote: true %>
-          <%= link_to fa_icon("trash-o"), admin_photo_path(photo), method: :delete, remote: true,
-            data: { confirm: "Are you sure you want to delete this photo?" } %>
+          <%= edit_link(photo) %>
+          <%= delete_link(photo) %>
         </td>
       </tr>
     <% end %>

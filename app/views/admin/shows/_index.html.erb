@@ -22,9 +22,8 @@
         <td><%= show.venue_name %></td>
         <td class="hidden-xs"><%= show.location %></td>
         <td class="edit">
-          <%= link_to fa_icon("edit"), edit_admin_show_path(show), remote: true %>
-          <%= link_to fa_icon("trash-o"), admin_show_path(show), method: :delete, remote: true,
-            data: { confirm: "Are you sure you want to delete this show?" } %>
+          <%= edit_link(show) %>
+          <%= delete_link(show) %>
         </td>
       </tr>
     <% end %>

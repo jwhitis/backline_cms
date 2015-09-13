@@ -29,9 +29,8 @@
           <%= link_to "Tracklist", admin_album_album_tracks_path(album), remote: true %>
         </td>
         <td class="edit">
-          <%= link_to fa_icon("edit"), edit_admin_album_path(album), remote: true %>
-          <%= link_to fa_icon("trash-o"), admin_album_path(album), method: :delete, remote: true,
-            data: { confirm: "Are you sure you want to delete this album?" } %>
+          <%= edit_link(album) %>
+          <%= delete_link(album) %>
         </td>
       </tr>
     <% end %>
