@@ -1,17 +1,24 @@
 module ApplicationHelper
 
   def nav_link_to nav_link
-    options = {}
+    link_to nav_link.text, nav_link.url, nav_link_options(nav_link)
+  end
 
-    if target_page = nav_link.page
-      if current_page_is_admin?
-        options[:data] = { no_turbolink: true } if target_page.javascript.present?
-      else
-        options[:remote] = true
-      end
+  def nav_link_options nav_link
+    options = {}
+    return options unless page = nav_link.page
+
+    if changing_layouts?(page)
+      options[:data] = { no_turbolink: true } if page.has_styles_or_scripts?
+    else
+      options[:remote] = true
     end
 
-    link_to nav_link.text, nav_link.url, options
+    options
+  end
+
+  def changing_layouts? page
+    current_page_is_admin? || page.standalone?
   end
 
   def current_page_is_admin?

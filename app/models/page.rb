@@ -4,6 +4,10 @@ class Page < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :slug, presence: true, slug: true, uniqueness: true
 
+  def has_styles_or_scripts?
+    self.css.present? || self.javascript.present?
+  end
+
   def self.display_order
     order(created_at: :desc)
   end
