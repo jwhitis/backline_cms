@@ -55,21 +55,11 @@ div#albums {
         float: left;
       }
 
-      a.download {
+      a.btn-main {
         padding: 0 8px;
         float: right;
-        font-family: $header-font;
         font-size: 11px;
         line-height: 22px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        color: white;
-        background-color: rgba(black, .6);
-        transition: all .3s ease;
-
-        &:hover {
-          background-color: darken($red, 5%);
-        }
       }
     }
   }
@@ -83,13 +73,12 @@ div#albums {
         margin-bottom: 15px;
       }
 
-      div.button {
+      div.btn-main {
         height: 70px;
-        background-color: rgba(black, .6);
+        padding: 20px 15px;
         background-repeat: no-repeat;
         background-size: auto 110%;
         background-position: center;
-        transition: all .3s ease;
 
         &.bandcamp {
           background-image: url(http://toddfarrell-production.s3.amazonaws.com/images/bandcamp_transparent.png);
@@ -97,20 +86,6 @@ div#albums {
 
         &.itunes {
           background-image: url(http://toddfarrell-production.s3.amazonaws.com/images/itunes_transparent.png);
-        }
-
-        &.download {
-          padding: 20px 15px;
-          text-align: center;
-          font-family: $header-font;
-          font-size: 22px;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-          color: white;
-        }
-
-        &:hover {
-          background-color: darken($red, 5%);
         }
       }
     }

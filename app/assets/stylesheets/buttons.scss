@@ -1,3 +1,21 @@
+.btn-main {
+  padding: 5px 25px;
+  text-align: center;
+  border: none;
+  font-family: $header-font;
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: white;
+  background-color: rgba(black, .6);
+  transition: all .3s ease;
+
+  &:hover {
+    color: white;
+    background-color: darken($red, 5%);
+  }
+}
+
 %btn-base {
   padding: 6px 12px;
   display: inline-block;

@@ -1,23 +1,6 @@
 div#subscribers {
   form {
     margin-top: 5px;
-
-    input[type="submit"] {
-      width: 100%;
-      padding: 5px 25px;
-      border: none;
-      font-family: $header-font;
-      font-size: 22px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: white;
-      background-color: rgba(black, .6);
-      transition: all .3s ease;
-
-      &:hover {
-        background-color: darken($red, 5%);
-      }
-    }
   }
 
   p {
@@ -84,22 +67,10 @@ div#newsletter-signup {
       color: #777777;
     }
 
-    input[type="submit"] {
+    input.btn-main {
       width: 55px;
       height: 34px;
       padding: 0;
-      border: none;
-      font-family: $header-font;
-      font-size: 22px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: white;
-      background-color: rgba(black, .8);
-      transition: all .3s ease;
-
-      &:hover {
-        background-color: darken($red, 5%);
-      }
     }
   }
 }
