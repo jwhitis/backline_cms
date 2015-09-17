@@ -21,17 +21,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $main-font;
 }
 
-.page-title {
-  margin: 0 0 20px 0;
-  text-align: center;
-  font-family: $header-font;
-  font-size: 32px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: $light-grey;
-  text-shadow: 0 1px 1px rgba(black, .35);
-}
-
 a:hover, a:focus {
   text-decoration: none;
 }
@@ -69,11 +58,6 @@ div#main {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
-}
-
-.fixed-width {
-  max-width: 720px;
-  margin: 0 auto;
 }
 
 footer {

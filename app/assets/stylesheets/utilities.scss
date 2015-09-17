@@ -1,0 +1,30 @@
+%max-width {
+  margin: 0 auto;
+  display: block;
+}
+
+.max-width-xs {
+  @extend %max-width;
+  max-width: 345px;
+}
+
+.max-width-sm {
+  @extend %max-width;
+  max-width: 720px;
+}
+
+.max-width-md {
+  @extend %max-width;
+  max-width: 940px;
+}
+
+.page-title {
+  margin: 0 0 20px 0;
+  text-align: center;
+  font-family: $header-font;
+  font-size: 32px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $light-grey;
+  text-shadow: 0 1px 1px rgba(black, .35);
+}
