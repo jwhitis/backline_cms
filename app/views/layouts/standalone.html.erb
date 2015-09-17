@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <%= render "layouts/head" %>
-<body>
-  <%= yield %>
+<body class="standalone">
+  <div id="wrapper">
+    <%= link_to root_path, class: "flash-main" do %>
+      Enter the official Benchmarks website
+    <% end %>
+
+    <%= render "layouts/main" %>
+  </div>
 </body>
 </html>

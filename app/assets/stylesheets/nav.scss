@@ -3,7 +3,7 @@ nav.navbar {
   height: $nav-height;
   position: fixed;
   top: 0;
-  z-index: 8000; // Must be less than z-index of Fancybox.
+  z-index: 8000; // Must be less than z-index of Fancybox
   margin: 0;
   border: none;
   border-bottom: 2px solid rgba(black, .25);
