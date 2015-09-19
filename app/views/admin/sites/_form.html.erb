@@ -1,10 +1,24 @@
 <%= render "shared/validation_errors", resource: @site %>
 
 <%= form_for @site, url: admin_site_path do |f| %>
+  <div class="form-group row">
+    <div class="col-sm-6">
+      <%= f.label :title, "Site Title", class: "required" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="col-sm-6">
+      <%= f.label :homepage_id, "Home Page", class: "required" %>
+      <%= f.select :homepage_id, grouped_page_options_for_select(@site.homepage_id),
+        {}, class: "form-control" %>
+    </div>
+  </div>
+
   <div class="form-group">
-    <%= f.label :homepage_id, "Home Page" %>
-    <%= f.select :homepage_id, grouped_page_options_for_select(@site.homepage_id),
-      {}, class: "form-control" %>
+    <%= f.label :description, "Site Description" %>
+    <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
+      title: "This text may be used by search engines like Google to display a preview snippet of your website.") %>
+    <%= f.text_area :description, rows: 3, class: "form-control" %>
   </div>
 
   <%= submit_btn %>

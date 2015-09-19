@@ -1,9 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :find_site
   before_action :find_nav_links
   before_action :find_tweets
 
   protected
+
+  def find_site
+    @site = Backline.site
+  end
 
   def find_nav_links
     @nav_links = NavLink.display_order.includes(:page)

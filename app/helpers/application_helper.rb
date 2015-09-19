@@ -1,5 +1,11 @@
 module ApplicationHelper
 
+  def description_meta_tag site
+    return "" if site.description.blank?
+
+    tag(:meta, name: "description", content: site.description)
+  end
+
   def nav_link_to nav_link
     link_to nav_link.text, nav_link.url, nav_link_options(nav_link)
   end

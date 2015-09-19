@@ -7,9 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 DefaultPage::SLUGS.each do |slug|
-  page = DefaultPage.published.find_or_create_by!(title: slug.titleize, slug: slug)
+  page = DefaultPage.create_with(title: slug.titleize, published: true).
+                     find_or_create_by!(slug: slug)
   page.create_nav_link!(text: page.title) unless page.nav_link
 end
 
-homepage = DefaultPage.find_by_slug!(DefaultPage::SLUGS.first)
-Site.create_with(homepage_id: homepage.id).first_or_create!
+homepage = Page.published.order(:created_at).first
+Site.create_with(title: "New Site", homepage_id: homepage.id).first_or_create!

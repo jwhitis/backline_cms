@@ -1,5 +1,4 @@
 class Admin::SitesController < Admin::AdminController
-  before_action :find_site
 
   def edit
   end
@@ -15,12 +14,8 @@ class Admin::SitesController < Admin::AdminController
 
   private
 
-  def find_site
-    @site = Backline.site
-  end
-
   def site_params
-    params.require(:site).permit(:homepage_id)
+    params.require(:site).permit(:homepage_id, :title, :description)
   end
 
 end
