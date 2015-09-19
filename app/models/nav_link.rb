@@ -29,4 +29,8 @@ class NavLink < ActiveRecord::Base
     end
   end
 
+  def self.published
+    joins(:page).where(pages: { published: true })
+  end
+
 end

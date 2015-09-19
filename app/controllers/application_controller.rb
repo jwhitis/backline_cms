@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def find_nav_links
-    @nav_links = NavLink.display_order.includes(:page)
+    @nav_links = NavLink.published.display_order.includes(:page)
   end
 
   def find_tweets
