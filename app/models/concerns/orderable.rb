@@ -4,19 +4,19 @@ module Orderable
   included do
     before_validation :set_position
     after_destroy :decrement_positions!
-  end
 
-  def set_position
-    self.position ||= self.class.where(order_scope).count + 1
-  end
+    def set_position
+      self.position ||= self.class.where(order_scope).count + 1
+    end
 
-  def decrement_positions!
-    resources = self.class.where(order_scope).where("position > ?", self.position)
-    resources.update_all("position = position - 1")
-  end
+    def decrement_positions!
+      resources = self.class.where(order_scope).where("position > ?", self.position)
+      resources.update_all("position = position - 1")
+    end
 
-  def order_scope
-    {} # Override this to scope the resources to be ordered.
+    def order_scope
+      {} # Override this to scope the resources to be ordered.
+    end
   end
 
   class_methods do
