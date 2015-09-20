@@ -3,7 +3,8 @@ class NavLink < ActiveRecord::Base
 
   belongs_to :page
 
-  validates :text, presence: true, length: { maximum: 15 }, uniqueness: true
+  validates :text, presence: true, length: { maximum: 15 },
+    uniqueness: { case_sensitive: false }
   validates :external_url, url: true, allow_blank: true
   validate :page_or_external_url_must_be_present
 
@@ -27,10 +28,6 @@ class NavLink < ActiveRecord::Base
     elsif self.external_url.present?
       self.external_url
     end
-  end
-
-  def self.published
-    joins(:page).where(pages: { published: true })
   end
 
 end

@@ -1,8 +1,8 @@
 class Page < ActiveRecord::Base
   has_one :nav_link, dependent: :destroy
 
-  validates :title, presence: true, uniqueness: true
-  validates :slug, presence: true, slug: true, uniqueness: true
+  validates_presence_of :title
+  validates :slug, presence: true, slug: true, uniqueness: { case_sensitive: false }
 
   def has_styles_or_scripts?
     self.css.present? || self.javascript.present?
@@ -16,12 +16,13 @@ class Page < ActiveRecord::Base
     where(published: true)
   end
 
-  def self.editable
-    where(editable: true)
+  def self.accessible
+    where(id: accessible_ids)
   end
 
-  def self.uneditable
-    where(editable: false)
+  def self.accessible_ids
+    page_ids = CustomPage.published.pluck(:id)
+    page_ids + DefaultPage.published.feature_activated.pluck(:id)
   end
 
 end

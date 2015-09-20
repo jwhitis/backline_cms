@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150917123818) do
+ActiveRecord::Schema.define(version: 20150920122620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,25 @@ ActiveRecord::Schema.define(version: 20150917123818) do
     t.integer  "tracks_count", default: 0,     null: false
     t.string   "archive"
   end
+
+  create_table "feature_activations", force: :cascade do |t|
+    t.integer  "site_id",    null: false
+    t.integer  "feature_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "feature_activations", ["feature_id", "site_id"], name: "index_feature_activations_on_feature_id_and_site_id", unique: true, using: :btree
+  add_index "feature_activations", ["feature_id"], name: "index_feature_activations_on_feature_id", using: :btree
+  add_index "feature_activations", ["site_id"], name: "index_feature_activations_on_site_id", using: :btree
+
+  create_table "features", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "features", ["name"], name: "index_features_on_name", unique: true, using: :btree
 
   create_table "nav_links", force: :cascade do |t|
     t.string   "text",         null: false
@@ -54,10 +73,11 @@ ActiveRecord::Schema.define(version: 20150917123818) do
     t.text     "javascript"
     t.string   "type",                       null: false
     t.boolean  "standalone", default: false, null: false
+    t.integer  "feature_id"
   end
 
+  add_index "pages", ["feature_id"], name: "index_pages_on_feature_id", using: :btree
   add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true, using: :btree
-  add_index "pages", ["title"], name: "index_pages_on_title", unique: true, using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.text     "caption"
@@ -145,7 +165,10 @@ ActiveRecord::Schema.define(version: 20150917123818) do
     t.boolean  "published"
   end
 
+  add_foreign_key "feature_activations", "features"
+  add_foreign_key "feature_activations", "sites"
   add_foreign_key "nav_links", "pages"
+  add_foreign_key "pages", "features"
   add_foreign_key "sites", "pages", column: "homepage_id"
   add_foreign_key "tracks", "albums"
 end

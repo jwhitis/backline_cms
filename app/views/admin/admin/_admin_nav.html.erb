@@ -6,9 +6,11 @@
 
   <ul class="dropdown-menu">
     <% admin_nav_links.each_with_index do |(text, url, _icon), index| %>
-      <li class="<%= "hidden" if index.zero? %>">
-        <%= link_to text, url, remote: true %>
-      </li>
+      <% if admin_section_available?(text) %>
+        <li class="<%= "hidden" if index.zero? %>">
+          <%= link_to text, url, remote: true %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </div>

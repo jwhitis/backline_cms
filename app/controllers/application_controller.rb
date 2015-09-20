@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :find_nav_links
   before_action :find_tweets
 
+  helper_method :feature_activated?, :admin_signed_in?
+
   protected
 
   def find_site
@@ -11,7 +13,8 @@ class ApplicationController < ActionController::Base
   end
 
   def find_nav_links
-    @nav_links = NavLink.published.display_order.includes(:page)
+    page_ids = Page.accessible_ids
+    @nav_links = NavLink.where(page_id: page_ids).display_order.includes(:page)
   end
 
   def find_tweets
@@ -26,7 +29,21 @@ class ApplicationController < ActionController::Base
   def admin_signed_in?
     !!session[:admin_id]
   end
-  helper_method :admin_signed_in?
+
+  def verify_feature_activated!
+    unless feature_activated?(feature_name)
+      render file: "#{Rails.root}/public/404", layout: false, status: :not_found
+      return
+    end
+  end
+
+  def feature_activated? name
+    @site.feature_names.include?(name)
+  end
+
+  def feature_name
+    controller_name.titleize
+  end
 
   def verify_subscription!
     unless user_subscribed?

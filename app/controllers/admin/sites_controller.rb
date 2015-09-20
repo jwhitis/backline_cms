@@ -15,7 +15,7 @@ class Admin::SitesController < Admin::AdminController
   private
 
   def site_params
-    params.require(:site).permit(:homepage_id, :title, :description)
+    params.require(:site).permit(:homepage_id, :title, :description, feature_ids: [])
   end
 
 end

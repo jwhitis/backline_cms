@@ -6,7 +6,7 @@ class Subscriber < ActiveRecord::Base
   attr_accessor :validate_profile
 
   validates_presence_of *PROFILE_ATTRIBUTES, if: :validate_profile
-  validates :email, presence: true, email: true, uniqueness: true
+  validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
 
   def can_access_free_content?
     PROFILE_ATTRIBUTES.all? { |attribute| self.send(attribute) }

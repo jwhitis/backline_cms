@@ -211,7 +211,7 @@ div#admin {
       }
     }
 
-    div.published, div.downloadable, div.standalone {
+    div.published, div.downloadable, div.standalone, div.activated {
       @extend %status-box;
       background-color: rgba(#B3B3B3, .85);
 
