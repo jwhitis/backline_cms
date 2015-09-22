@@ -13,4 +13,9 @@ class Admin::AdminController < ApplicationController
     end
   end
 
+  def reorder_nav_links!
+    ids = NavLink.with_accessible_url.display_order.pluck(:id)
+    NavLink.reorder!(ids)
+  end
+
 end

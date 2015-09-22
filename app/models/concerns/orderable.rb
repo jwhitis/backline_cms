@@ -25,8 +25,17 @@ module Orderable
     end
 
     def reorder! resource_ids, scope = {}
-      resource_ids.each_with_index do |resource_id, index|
-        where(scope).find(resource_id).update_attribute(:position, index + 1)
+      assign_positions!(resource_ids, scope)
+
+      # Send any remaining resources to the bottom of the list
+      remaining_ids = where(scope).pluck(:id) - resource_ids.map(&:to_i)
+      assign_positions!(remaining_ids, scope, resource_ids.size)
+    end
+
+    def assign_positions! ids, scope = {}, starting_position = 0
+      ids.each_with_index do |id, index|
+        position = starting_position + index + 1
+        where(scope).find(id).update_attribute(:position, position)
       end
     end
   end

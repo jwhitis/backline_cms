@@ -16,13 +16,15 @@ class Page < ActiveRecord::Base
     where(published: true)
   end
 
-  def self.accessible
-    where(id: accessible_ids)
+  def self.with_activated_feature
+    # Pages that are not linked to a feature or are linked to an activated feature
+    joins("LEFT OUTER JOIN features ON features.id = pages.feature_id").
+      joins("LEFT OUTER JOIN feature_activations ON feature_activations.feature_id = features.id").
+      where("pages.feature_id IS NULL OR feature_activations.site_id = ?", Backline.site.id)
   end
 
-  def self.accessible_ids
-    page_ids = CustomPage.published.pluck(:id)
-    page_ids + DefaultPage.published.feature_activated.pluck(:id)
+  def self.accessible
+    published.with_activated_feature
   end
 
 end

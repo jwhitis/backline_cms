@@ -61,7 +61,7 @@ module AdminHelper
   def grouped_page_options_for_select selected_page_id = nil
     grouped_pages = {
       "Custom Pages" => CustomPage.published.map { |page| [page.title, page.id] },
-      "Default Pages" => DefaultPage.published.map { |page| [page.title, page.id] }
+      "Default Pages" => DefaultPage.accessible.map { |page| [page.title, page.id] }
     }
 
     grouped_options_for_select(grouped_pages, selected_page_id)

@@ -20,4 +20,4 @@ end
 
 homepage = Page.published.order(:created_at).first
 site = Site.create_with(title: "New Site", homepage_id: homepage.id).first_or_create!
-site.features << Feature.all
+site.features << Feature.unactivated

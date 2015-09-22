@@ -13,8 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def find_nav_links
-    page_ids = Page.accessible_ids
-    @nav_links = NavLink.where(page_id: page_ids).display_order.includes(:page)
+    @nav_links = NavLink.with_accessible_url.display_order.includes(:page)
   end
 
   def find_tweets

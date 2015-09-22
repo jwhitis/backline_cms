@@ -2,7 +2,7 @@ class Admin::NavLinksController < Admin::AdminController
   before_action :find_nav_link, only: [:edit, :update, :destroy]
 
   def index
-    @nav_links = NavLink.display_order
+    @nav_links = NavLink.with_accessible_url.display_order
   end
 
   def new
@@ -13,7 +13,8 @@ class Admin::NavLinksController < Admin::AdminController
     @nav_link = NavLink.new(nav_link_params)
 
     if @nav_link.save
-      @nav_links = NavLink.display_order
+      reorder_nav_links!
+      @nav_links = NavLink.with_accessible_url.display_order
       flash.now[:notice] = "Nav link successfully added."
       render :index
     else
@@ -26,7 +27,7 @@ class Admin::NavLinksController < Admin::AdminController
 
   def update
     if @nav_link.update_attributes(nav_link_params)
-      @nav_links = NavLink.display_order
+      @nav_links = NavLink.with_accessible_url.display_order
       flash.now[:notice] = "Nav link successfully updated."
       render :index
     else
@@ -36,22 +37,22 @@ class Admin::NavLinksController < Admin::AdminController
 
   def destroy
     @nav_link.destroy
-    @nav_link = NavLink.new
-    @nav_links = NavLink.display_order
+    reorder_nav_links!
+    @nav_links = NavLink.with_accessible_url.display_order
     flash.now[:notice] = "Nav link successfully removed."
     render :index
   end
 
   def reorder
     NavLink.reorder!(params[:resource_ids])
-    @nav_links = NavLink.display_order
+    @nav_links = NavLink.with_accessible_url.display_order
     render :index
   end
 
   private
 
   def find_nav_link
-    @nav_link = NavLink.find(params[:id])
+    @nav_link = NavLink.with_accessible_url.find(params[:id])
   end
 
   def nav_link_params
