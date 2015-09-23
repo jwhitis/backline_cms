@@ -26,6 +26,14 @@ $(document).on("ready page:load", function() {
     $("input#selected_tab").val(selectedTab);
   });
 
+  // Clear external URL or page ID field when the other field changes
+  $("div#content").on("change", "select#nav_link_page_id", function() {
+    $("input#nav_link_external_url").val("");
+  });
+  $("div#content").on("change", "input#nav_link_external_url", function() {
+    $("select#nav_link_page_id").val("");
+  });
+
   // Clicking file button opens file dialog
   $("div#content").on("click", "button.file-btn", function() {
     $(this).siblings("input[type='file']").click();
@@ -34,6 +42,15 @@ $(document).on("ready page:load", function() {
   // Add check mark to file button when file input changes
   $("div#content").on("change", "input[type='file']", function() {
     $(this).siblings("button.file-btn").find("i.fa-check").fadeIn(300);
+  });
+
+  // Show downloadable checkbox if audio has been chosen
+  $("div#content").on("change", "input#album_track_audio", function() {
+    if ($(this).val()) {
+      $("div.downloadable").fadeIn(300);
+    } else {
+      $("div.downloadable").fadeOut(300);
+    }
   });
 
   // Clicking checkbox toggles checked class on parent
@@ -84,23 +101,6 @@ $(document).on("ajaxSuccess", function() {
         data: { resource_ids: resourceIds },
         dataType: "script"
       });
-    }
-  });
-
-  // Clear external URL or page ID field when the other field changes
-  $("select#nav_link_page_id").change(function() {
-    $("input#nav_link_external_url").val("");
-  });
-  $("input#nav_link_external_url").change(function() {
-    $("select#nav_link_page_id").val("");
-  });
-
-  // Show downloadable checkbox if audio has been chosen
-  $("input#album_track_audio").change(function() {
-    if ($(this).val()) {
-      $("div.downloadable").fadeIn(300);
-    } else {
-      $("div.downloadable").fadeOut(300);
     }
   });
 
