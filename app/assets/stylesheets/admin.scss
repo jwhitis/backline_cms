@@ -220,13 +220,18 @@ div#admin {
       }
     }
 
-    div.save-to-add-tracks {
+    div.info-box {
       @extend %status-box;
       background-color: rgba($info, .85);
 
       i.fa-exclamation-circle {
-        margin-right: 2px;
+        margin-right: 5px;
         font-size: 16px;
+      }
+
+      a {
+        text-decoration: underline;
+        color: white;
       }
     }
 

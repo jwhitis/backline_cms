@@ -82,10 +82,7 @@
   </div>
 
   <% if @album.new_record? %>
-    <div class="save-to-add-tracks">
-      <%= fa_icon("exclamation-circle") %>
-      Once you save this album, you'll be able to add tracks.
-    </div>
+    <%= info_box("Once you save this album, you'll be able to add tracks.") %>
   <% end %>
 
   <%= submit_btn %>

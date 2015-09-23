@@ -67,6 +67,12 @@ module AdminHelper
     grouped_options_for_select(grouped_pages, selected_page_id)
   end
 
+  def info_box text
+    content_tag(:div, class: "info-box") do
+      fa_icon("exclamation-circle") + text.html_safe
+    end
+  end
+
   def file_btn checked = false, text = "Choose File"
     btn_classes = ["file-btn", "btn-white"]
     btn_classes << "checked" if checked

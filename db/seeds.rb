@@ -11,8 +11,7 @@ Feature::NAMES.each do |name|
 end
 
 DefaultPage::SLUGS.each do |slug|
-  page = DefaultPage.create_with(title: slug.titleize, published: true).
-                     find_or_create_by!(slug: slug)
+  page = DefaultPage.create_with(title: slug.titleize).find_or_create_by!(slug: slug)
   page.create_nav_link!(text: page.title) unless page.nav_link
   page.feature ||= Feature.find_by_name!(slug.titleize)
   page.save!

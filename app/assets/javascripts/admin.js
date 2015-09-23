@@ -41,6 +41,11 @@ $(document).on("ready page:load", function() {
     $(this).parents("div.checkbox, div.filename").toggleClass("checked");
   });
 
+  // Clicking settings link changes active nav link
+  $("div#content").on("click", "a.settings", function() {
+    $("div#admin-nav a[href='/admin/site/edit']").click();
+  });
+
   // Add spinner to submit button on click
   $("div#content").on("click", "button.submit-btn", function() {
     $(this).find("i.fa-spinner").fadeIn(300);
@@ -91,7 +96,7 @@ $(document).on("ajaxSuccess", function() {
   });
 
   // Show downloadable checkbox if audio has been chosen
-  $("input#album_track_audio").on("change", function() {
+  $("input#album_track_audio").change(function() {
     if ($(this).val()) {
       $("div.downloadable").fadeIn(300);
     } else {
