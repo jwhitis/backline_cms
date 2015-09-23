@@ -1,9 +1,9 @@
 class AlbumsController < ApplicationController
+  before_action :verify_feature_activated!
   before_action :verify_user_subscribed!, only: :download
 
   def index
     @albums = Album.published.display_order.includes(:tracks)
-    respond_to :html, :js
   end
 
   def download
@@ -27,6 +27,10 @@ class AlbumsController < ApplicationController
 
   def file_type
     @album.archive.content_type
+  end
+
+  def feature_name
+    "Music"
   end
 
 end

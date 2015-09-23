@@ -1,4 +1,5 @@
 class Admin::SubscribersController < Admin::AdminController
+  before_action :verify_feature_activated!
   before_action :find_subscriber, only: [:edit, :update, :destroy]
 
   def index
@@ -62,6 +63,10 @@ class Admin::SubscribersController < Admin::AdminController
 
   def subscriber_params
     params.require(:subscriber).permit(:email, :first_name, :last_name, :country, :zip)
+  end
+
+  def feature_name
+    "Users"
   end
 
 end

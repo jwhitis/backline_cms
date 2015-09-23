@@ -11,13 +11,17 @@
 
     <%= render "layouts/main" %>
 
-    <div class="container">
-      <%= render "layouts/twitter_stream", tweets: @tweets %>
-    </div>
+    <% if feature_activated?("Twitter") %>
+      <div class="container">
+        <%= render "layouts/twitter_stream", tweets: @tweets %>
+      </div>
+    <% end %>
 
-    <div id="newsletter-signup">
-      <%= render "subscribers/newsletter_form" %>
-    </div>
+    <% if feature_activated?("Users") %>
+      <div id="newsletter-signup">
+        <%= render "subscribers/newsletter_form" %>
+      </div>
+    <% end %>
 
     <%= render "layouts/footer" %>
   </div>

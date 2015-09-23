@@ -1,4 +1,5 @@
 class Admin::PlayerTracksController < Admin::AdminController
+  before_action :verify_feature_activated!
 
   def index
     @player_track = PlayerTrack.new
@@ -37,6 +38,10 @@ class Admin::PlayerTracksController < Admin::AdminController
 
   def player_track_params
     params.require(:player_track).permit(:title, :audio, :audio_cache)
+  end
+
+  def feature_name
+    "Audio"
   end
 
 end

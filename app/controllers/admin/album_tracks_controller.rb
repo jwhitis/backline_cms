@@ -1,4 +1,5 @@
 class Admin::AlbumTracksController < Admin::AdminController
+  before_action :verify_feature_activated!
   before_action :find_album
   before_action :find_album_track, only: [:edit, :update, :destroy]
 
@@ -61,6 +62,10 @@ class Admin::AlbumTracksController < Admin::AdminController
 
   def album_track_params
     params.require(:album_track).permit(:title, :audio, :audio_cache, :remove_audio, :downloadable)
+  end
+
+  def feature_name
+    "Music"
   end
 
 end

@@ -1,4 +1,5 @@
 class Admin::AlbumsController < Admin::AdminController
+  before_action :verify_feature_activated!
   before_action :find_album, only: [:edit, :update, :destroy]
 
   def index
@@ -50,6 +51,10 @@ class Admin::AlbumsController < Admin::AdminController
   def album_params
     params.require(:album).permit(:title, :release_date, :notes, :bandcamp_url, :itunes_url,
       :cover_art, :cover_art_cache, :published, :archive, :archive_cache, :remove_archive)
+  end
+
+  def feature_name
+    "Music"
   end
 
 end

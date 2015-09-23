@@ -1,4 +1,5 @@
 class Admin::VideosController < Admin::AdminController
+  before_action :verify_feature_activated!
   before_action :find_video, only: [:edit, :update, :destroy]
 
   def index

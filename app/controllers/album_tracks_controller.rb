@@ -1,4 +1,5 @@
 class AlbumTracksController < ApplicationController
+  before_action :verify_feature_activated!
   before_action :verify_user_subscribed!, only: :download
 
   def download
@@ -20,6 +21,10 @@ class AlbumTracksController < ApplicationController
 
   def file_type
     @album_track.audio.content_type
+  end
+
+  def feature_name
+    "Music"
   end
 
 end

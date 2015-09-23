@@ -17,16 +17,12 @@ class ApplicationController < ActionController::Base
   end
 
   def find_tweets
-    @tweets = Tweet.display_order.limit(7)
+    @tweets = Tweet.display_order.limit(7) if feature_activated?("Twitter")
   end
 
   def find_page
     slug = request.path.sub(/\A\//, "")
     @page = Page.published.find_by_slug!(slug)
-  end
-
-  def admin_signed_in?
-    !!session[:admin_id]
   end
 
   def verify_feature_activated!
@@ -37,6 +33,10 @@ class ApplicationController < ActionController::Base
   end
 
   def feature_activated? name
+    unless Feature::NAMES.include?(name)
+      raise ArgumentError, "#{name} is not a valid feature."
+    end
+
     @site.feature_names.include?(name)
   end
 
@@ -45,13 +45,17 @@ class ApplicationController < ActionController::Base
   end
 
   def verify_user_subscribed!
-    unless user_subscribed?
+    if feature_activated?("Users") && !user_subscribed?
       redirect_to new_subscriber_path(request_path: request.fullpath)
     end
   end
 
   def user_subscribed?
     !!cookies.signed[:subscriber_id]
+  end
+
+  def admin_signed_in?
+    !!session[:admin_id]
   end
 
 end
