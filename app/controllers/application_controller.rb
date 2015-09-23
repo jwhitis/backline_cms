@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
     controller_name.titleize
   end
 
-  def verify_subscription!
+  def verify_user_subscribed!
     unless user_subscribed?
       redirect_to new_subscriber_path(request_path: request.fullpath)
     end

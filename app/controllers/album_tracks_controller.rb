@@ -1,5 +1,5 @@
 class AlbumTracksController < ApplicationController
-  before_action :verify_subscription!, only: :download
+  before_action :verify_user_subscribed!, only: :download
 
   def download
     @album_track = AlbumTrack.downloadable.find(params[:id])
