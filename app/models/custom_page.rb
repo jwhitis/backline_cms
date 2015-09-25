@@ -1,6 +1,7 @@
 class CustomPage < Page
   validate :scss_compiles_to_css
 
+  after_initialize :set_published
   before_validation :format_slug
 
   def scss_compiles_to_css
@@ -11,6 +12,11 @@ class CustomPage < Page
 
   def scoped_scss
     "div#page-container { #{self.scss} }"
+  end
+
+  def set_published
+    self.published = false if self.published.nil?
+    true # Object becomes invalid if a callback returns false
   end
 
   def format_slug
