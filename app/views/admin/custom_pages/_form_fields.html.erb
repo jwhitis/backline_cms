@@ -1,10 +1,10 @@
-<div class="form-group row">
-  <div class="col-sm-6">
+<div class="row">
+  <div class="form-group col-sm-6">
     <%= f.label :title, class: "required" %>
     <%= f.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="col-sm-6">
+  <div class="form-group col-sm-6">
     <%= f.label :slug %>
     <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
       title: "This is the part of the page URL that makes it unique. If you don't enter anything, the page title will be used instead.") %>

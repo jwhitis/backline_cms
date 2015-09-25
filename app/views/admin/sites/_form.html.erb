@@ -1,13 +1,13 @@
 <%= render "shared/validation_errors", resource: @site %>
 
 <%= form_for @site, url: admin_site_path do |f| %>
-  <div class="form-group row">
-    <div class="col-sm-6">
+  <div class="row">
+    <div class="form-group col-sm-6">
       <%= f.label :title, "Site Title", class: "required" %>
       <%= f.text_field :title, class: "form-control" %>
     </div>
 
-    <div class="col-sm-6">
+    <div class="form-group col-sm-6">
       <%= f.label :homepage_id, "Home Page", class: "required" %>
       <%= f.select :homepage_id, grouped_page_options_for_select(@site.homepage_id),
         {}, class: "form-control" %>
