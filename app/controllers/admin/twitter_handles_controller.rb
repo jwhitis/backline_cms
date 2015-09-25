@@ -34,7 +34,7 @@ class Admin::TwitterHandlesController < Admin::AdminController
   end
 
   def feature_name
-    "Twitter"
+    :twitter_feed
   end
 
 end

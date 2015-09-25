@@ -24,7 +24,7 @@ class AlbumTracksController < ApplicationController
   end
 
   def feature_name
-    "Music"
+    :albums
   end
 
 end

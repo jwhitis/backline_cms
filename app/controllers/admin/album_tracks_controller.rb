@@ -65,7 +65,7 @@ class Admin::AlbumTracksController < Admin::AdminController
   end
 
   def feature_name
-    "Music"
+    :albums
   end
 
 end

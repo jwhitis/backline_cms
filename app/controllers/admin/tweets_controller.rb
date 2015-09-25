@@ -12,7 +12,7 @@ class Admin::TweetsController < Admin::AdminController
   private
 
   def feature_name
-    "Twitter"
+    :twitter_feed
   end
 
 end

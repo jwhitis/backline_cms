@@ -9,17 +9,18 @@ module AdminHelper
       ["Pages", admin_pages_path, "file"],
       ["Nav", admin_nav_links_path, "list"],
       ["Shows", admin_shows_path, "ticket"],
-      ["Music", admin_albums_path, "dot-circle-o"],
+      ["Albums", admin_albums_path, "dot-circle-o"],
       ["Photos", admin_photos_path, "camera"],
       ["Videos", admin_videos_path, "video-camera"],
-      ["Audio", admin_player_tracks_path, "music"],
-      ["Twitter", admin_twitter_handles_path, "twitter"],
-      ["Users", admin_subscribers_path, "users"],
+      ["Audio Player", admin_player_tracks_path, "music"],
+      ["Twitter Feed", admin_twitter_handles_path, "twitter"],
+      ["Mailing List", admin_subscribers_path, "envelope"],
       ["Settings", edit_admin_site_path, "cog"]
     ]
   end
 
   def admin_section_available? name
+    name = name.parameterize.underscore
     Feature::NAMES.exclude?(name) || feature_activated?(name)
   end
 

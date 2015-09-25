@@ -1,5 +1,5 @@
 class DefaultPage < Page
-  SLUGS = %w(shows music photos videos)
+  SLUGS = %w(shows albums photos videos)
 
   belongs_to :feature
 

@@ -29,8 +29,4 @@ class AlbumsController < ApplicationController
     @album.archive.content_type
   end
 
-  def feature_name
-    "Music"
-  end
-
 end

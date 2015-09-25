@@ -1,5 +1,5 @@
 class Feature < ActiveRecord::Base
-  NAMES = %w(Shows Music Photos Videos Audio Twitter Users)
+  NAMES = %w(shows albums photos videos audio_player twitter_feed mailing_list)
 
   has_many :feature_activations, dependent: :destroy
 

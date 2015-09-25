@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root "pages#index"
-  resources :shows, only: :index
-  get "music",                     to: "albums#index",          as: :albums
-  get "albums/:id/download",       to: "albums#download",       as: :download_album
+  resources :shows,  only: :index
+  resources :albums, only: :index do
+    get :download, on: :member
+  end
   get "album_tracks/:id/download", to: "album_tracks#download", as: :download_album_track
   resources :photos,      only: :index
   resources :videos,      only: :index

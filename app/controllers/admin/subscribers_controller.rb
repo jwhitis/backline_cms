@@ -66,7 +66,7 @@ class Admin::SubscribersController < Admin::AdminController
   end
 
   def feature_name
-    "Users"
+    :mailing_list
   end
 
 end

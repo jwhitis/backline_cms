@@ -126,7 +126,7 @@ function initializeFancybox() {
 }
 
 function setPageHeight() {
-  var elements = ["nav.navbar", "a#banner", "div#twitter-stream", "div#newsletter-signup", "footer"];
+  var elements = ["nav.navbar", "a#banner", "div#twitter-feed", "div#newsletter-signup", "footer"];
   var difference = 0;
 
   for (var i = 0; i < elements.length; i++) {

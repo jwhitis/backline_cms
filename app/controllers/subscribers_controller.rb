@@ -57,7 +57,7 @@ class SubscribersController < ApplicationController
   end
 
   def feature_name
-    "Users"
+    :mailing_list
   end
 
 end

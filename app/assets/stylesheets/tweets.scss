@@ -5,7 +5,7 @@ $tweet-gutter: 10px;
   width: (($tweet-width + $tweet-gutter) * $tweets) + $tweet-gutter;
 }
 
-div#twitter-stream {
+div#twitter-feed {
   margin: 30px (-$tweet-gutter) 25px (-$tweet-gutter);
   text-align: center;
 

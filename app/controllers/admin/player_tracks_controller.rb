@@ -41,7 +41,7 @@ class Admin::PlayerTracksController < Admin::AdminController
   end
 
   def feature_name
-    "Audio"
+    :audio_player
   end
 
 end

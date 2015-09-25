@@ -11,13 +11,13 @@
 
     <%= render "layouts/main" %>
 
-    <% if feature_activated?("Twitter") %>
+    <% if feature_activated?(:twitter_feed) %>
       <div class="container">
-        <%= render "layouts/twitter_stream", tweets: @tweets %>
+        <%= render "layouts/twitter_feed", tweets: @tweets %>
       </div>
     <% end %>
 
-    <% if feature_activated?("Users") %>
+    <% if feature_activated?(:mailing_list) %>
       <div id="newsletter-signup">
         <%= render "subscribers/newsletter_form" %>
       </div>

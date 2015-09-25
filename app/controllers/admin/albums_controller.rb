@@ -53,8 +53,4 @@ class Admin::AlbumsController < Admin::AdminController
       :cover_art, :cover_art_cache, :published, :archive, :archive_cache, :remove_archive)
   end
 
-  def feature_name
-    "Music"
-  end
-
 end
