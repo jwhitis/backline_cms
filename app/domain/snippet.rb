@@ -1,10 +1,10 @@
 class Snippet
   EXTENSIONS = %w(js css scss html)
 
-  attr_reader :name, :body, :extension
+  attr_reader :title, :body, :extension
 
-  def initialize name, body, extension
-    @name      = name
+  def initialize title, body, extension
+    @title     = title
     @body      = body
     @extension = extension
   end
@@ -25,7 +25,7 @@ class Snippet
     end
 
     file_paths(extension).map do |path|
-      Snippet.new(name_for(path), body_for(path), extension)
+      Snippet.new(title_for(path), body_for(path), extension)
     end
   end
 
@@ -39,7 +39,7 @@ class Snippet
     File.join(Rails.root, "lib", "assets", "snippets", extension)
   end
 
-  def self.name_for file_path
+  def self.title_for file_path
     File.basename(file_path, ".*").titleize
   end
 
