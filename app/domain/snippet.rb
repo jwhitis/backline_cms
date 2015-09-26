@@ -1,5 +1,5 @@
 class Snippet
-  EXTENSIONS = [:js, :css, :scss]
+  EXTENSIONS = %w(js css scss html)
 
   attr_reader :name, :body, :extension
 
@@ -10,12 +10,16 @@ class Snippet
   end
 
   def self.grouped_by_extension
-    EXTENSIONS.each_with_object({}) do |extension, hash|
+    snippets_hash = HashWithIndifferentAccess.new
+
+    EXTENSIONS.each_with_object(snippets_hash) do |extension, hash|
       hash[extension] = with_extension(extension)
     end
   end
 
   def self.with_extension extension
+    extension = extension.to_s
+
     if EXTENSIONS.exclude?(extension)
       raise ArgumentError, "#{extension} is not a valid extension."
     end
@@ -32,22 +36,7 @@ class Snippet
   end
 
   def self.base_path extension
-    File.join(assets_directory, assets_subdirectory(extension), "snippets")
-  end
-
-  def self.assets_directory
-    File.join(Rails.root, "lib", "assets")
-  end
-
-  def self.assets_subdirectory extension
-    case extension.to_sym
-    when :js
-      "javascripts"
-    when :css
-      "stylesheets"
-    when :scss
-      "stylesheets"
-    end
+    File.join(Rails.root, "lib", "assets", "snippets", extension)
   end
 
   def self.name_for file_path
