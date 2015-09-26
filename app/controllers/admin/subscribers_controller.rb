@@ -3,10 +3,10 @@ class Admin::SubscribersController < Admin::AdminController
   before_action :find_subscriber, only: [:edit, :update, :destroy]
 
   def index
-    @subscribers = Subscriber.display_order.page(params[:page])
+    @subscribers = Subscriber.display_order
 
     respond_to do |format|
-      format.js
+      format.js  { @subscribers = @subscribers.page(params[:page]) }
       format.csv { send_data @subscribers.to_csv, filename: filename }
     end
   end
