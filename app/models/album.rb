@@ -15,7 +15,7 @@ class Album < ActiveRecord::Base
 
   def archive_size
     if downloadable? && self.archive.file.size > ARCHIVE_SIZE_LIMIT
-      errors.add(:archive, "can't be larger than #{number_to_human_size(ARCHIVE_SIZE_LIMIT)}")
+      self.errors.add(:archive, "can't be larger than #{number_to_human_size(ARCHIVE_SIZE_LIMIT)}")
     end
   end
 

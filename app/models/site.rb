@@ -7,7 +7,7 @@ class Site < ActiveRecord::Base
 
   def homepage_must_be_published
     unless Page.published.find_by(id: self.homepage_id)
-      errors.add(:homepage_id, "must be a published page")
+      self.errors.add(:homepage_id, "must be a published page")
     end
   end
 
