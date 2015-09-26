@@ -1,0 +1,52 @@
+div#admin {
+  %status-box {
+    margin: 15px 0;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(black, .35);
+    box-shadow: 0 1px 2px rgba(black, .15);
+  }
+
+  div.filename {
+    @extend %status-box;
+    background-color: rgba($info, .85);
+
+    &.checked {
+      background-color: rgba($danger, .85);
+    }
+
+    div.inline-controls {
+      margin-right: 8px;
+      float: left;
+    }
+
+    div.checkbox {
+      margin: 0;
+      float: right;
+    }
+  }
+
+  div.published, div.downloadable, div.standalone, div.activated {
+    @extend %status-box;
+    background-color: rgba(#B3B3B3, .85);
+
+    &.checked {
+      background-color: rgba($success, .85);
+    }
+  }
+
+  div.info-box {
+    @extend %status-box;
+    background-color: rgba($info, .85);
+
+    i.fa-exclamation-circle {
+      margin-right: 5px;
+      font-size: 16px;
+    }
+
+    a {
+      text-decoration: underline;
+      color: white;
+    }
+  }
+}

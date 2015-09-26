@@ -1,0 +1,22 @@
+div#page-preview {
+  header {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(white, .15);
+
+    h2 {
+      margin: 0;
+      float: left;
+    }
+
+    form {
+      float: right;
+
+      button.submit-btn {
+        &:not(:last-child) {
+          margin-right: 11px;
+        }
+      }
+    }
+  }
+}

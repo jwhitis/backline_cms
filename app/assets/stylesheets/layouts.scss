@@ -16,33 +16,6 @@ div#wrapper {
   background-color: $light-grey;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 10px 0;
-  font-family: $main-font;
-}
-
-a:hover, a:focus {
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-}
-
-iframe {
-  max-width: 100%;
-  border: none;
-}
-
-div.tooltip-inner {
-  padding: 6px 8px;
-}
-
-.field-with-errors:not(label) {
-  border: 1px solid $danger;
-  box-shadow: inset 0 0 5px rgba($danger, .5);
-}
-
 a#banner {
   display: block;
 

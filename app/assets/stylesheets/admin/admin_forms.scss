@@ -1,0 +1,99 @@
+div#admin form {
+  &.inline-custom {
+    input[type="text"] {
+      max-width: 100%;
+      width: 345px;
+    }
+
+    button.file-btn {
+      margin-right: 11px;
+    }
+
+    @media (min-width: 768px) {
+      div.form-group {
+        display: inline-block;
+
+        &:not(:last-child) {
+          margin-right: 11px;
+        }
+      }
+    }
+  }
+
+  label {
+    font-weight: normal;
+    text-shadow: 0 1px 1px rgba(black, .35);
+
+    &.required:after {
+      content: "*";
+      margin-left: 3px;
+    }
+  }
+
+  span.hint {
+    float: right;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: lighter;
+    text-decoration: underline;
+    color: $grey;
+    cursor: pointer;
+  }
+
+  i.fa-info-circle {
+    margin-left: 2px;
+    font-size: 16px;
+  }
+
+  i.instructions {
+    margin: -5px 0 5px 0;
+
+    small {
+      text-transform: uppercase;
+    }
+  }
+
+  div.date-fields {
+    select {
+      width: auto;
+      float: left;
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  div.preview {
+    margin-bottom: 15px;
+    position: relative;
+
+    label {
+      display: block;
+    }
+
+    div.checkbox {
+      margin: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    img, iframe {
+      box-shadow: 0 2px 5px rgba(black, .5);
+    }
+  }
+
+  div.checkbox {
+    margin: 15px 0;
+  }
+
+  button.submit-btn {
+    margin-right: 11px;
+  }
+
+  a.cancel {
+    text-decoration: underline;
+    color: white;
+  }
+}

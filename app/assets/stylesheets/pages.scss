@@ -1,52 +1,5 @@
-div#page-preview {
-  header {
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(white, .15);
-
-    h2 {
-      margin: 0;
-      float: left;
-    }
-
-    form {
-      float: right;
-
-      button.submit-btn {
-        &:not(:last-child) {
-          margin-right: 11px;
-        }
-      }
-    }
-  }
-}
-
 div#page-container {
   img {
     height: initial !important; // Ensures that images scale based on width
-  }
-}
-
-body.standalone {
-  div#wrapper {
-    padding: 0;
-
-    a.flash-main {
-      position: absolute;
-      top: 0;
-      font-family: $header-font;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: all .3s ease;
-
-      &:hover {
-        color: white;
-        background-color: darken($red, 5%);
-      }
-    }
-
-    div#main {
-      padding-top: 76px;
-    }
   }
 }
