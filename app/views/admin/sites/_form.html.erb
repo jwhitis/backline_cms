@@ -22,7 +22,7 @@
   </div>
 
   <%= f.collection_check_boxes :feature_ids, Feature.all, :id, :name do |b| %>
-    <div class="checkbox activated <%= "checked" if feature_activated?(b.text) %>">
+    <div class="checkbox status-box <%= "checked" if feature_activated?(b.text) %>">
       <%= b.label { b.check_box + b.text.titleize } %>
     </div>
   <% end %>

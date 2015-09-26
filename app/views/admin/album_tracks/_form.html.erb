@@ -15,7 +15,7 @@
   </div>
 
   <% if @album_track.audio.present? %>
-    <div class="filename">
+    <div class="file-box">
       <div class="inline-controls" data-audio-url="<%= @album_track.audio.url %>">
         <%= fa_stacked_icon "play", base: "circle-thin", class: "play" %>
         <%= fa_stacked_icon "stop", base: "circle-thin", class: "stop" %>
@@ -29,7 +29,7 @@
     </div>
   <% end %>
 
-  <div class="checkbox downloadable <%= "checked" if @album_track.downloadable? %>"
+  <div class="checkbox status-box <%= "checked" if @album_track.downloadable? %> downloadable"
     style="<%= "display: none;" if @album_track.audio.blank? %>">
     <%= f.label :downloadable do %>
       <%= f.check_box :downloadable %> Make this track available for download?

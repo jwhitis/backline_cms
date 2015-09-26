@@ -55,7 +55,7 @@ $(document).on("ready page:load", function() {
 
   // Clicking checkbox toggles checked class on parent
   $("div#content").on("change", "input[type='checkbox']", function() {
-    $(this).parents("div.checkbox, div.filename").toggleClass("checked");
+    $(this).parents("div.checkbox, div.file-box").toggleClass("checked");
   });
 
   // Clicking settings link changes active nav link
