@@ -21,7 +21,7 @@
 <div class="form-group page-editor">
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
-      <%= link_to "Body", "#body", role: "tab", data: { toggle: "tab" } %>
+      <%= link_to "Contents", "#contents", role: "tab", data: { toggle: "tab" } %>
     </li>
     <li role="presentation">
       <%= link_to "Styles", "#styles", role: "tab", data: { toggle: "tab" } %>
@@ -32,10 +32,10 @@
   </ul>
 
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="body">
-      <%= f.label :body, class: "sr-only" %>
+    <div role="tabpanel" class="tab-pane active" id="contents">
+      <%= f.label :html, class: "sr-only" %>
       <i class="instructions">Use the <small>Source</small> tool if you wish to edit the HTML directly.</i>
-      <%= f.text_area :body %>
+      <%= f.text_area :html %>
     </div>
 
     <div role="tabpanel" class="tab-pane" id="styles">

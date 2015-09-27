@@ -66,7 +66,7 @@ class Admin::CustomPagesController < Admin::AdminController
 
   def delete_unused_images!
     image_filenames.each do |filename|
-      unless @page.body.include?(filename)
+      unless @page.html.include?(filename)
         uploader = Ckeditor::ImageUploader.new
         uploader.retrieve_from_store!(filename)
         uploader.remove!
@@ -81,7 +81,7 @@ class Admin::CustomPagesController < Admin::AdminController
   end
 
   def page_params
-    params.require(:page).permit(:title, :slug, :body, :published, :scss, :javascript,
+    params.require(:page).permit(:title, :slug, :html, :published, :scss, :javascript,
       :standalone)
   end
 
