@@ -1,0 +1,18 @@
+<% if grouped_snippets.present? %>
+  <div class="snippets">
+    <% grouped_snippets.each do |extension, snippets| %>
+      <h3>
+        <%= snippets_heading(extension) %>
+        <%= fa_icon("plus-circle", class: "hidden-lg") %>
+      </h3>
+
+      <ul>
+        <% snippets.each do |snippet| %>
+          <li class="snippet" data-contents="<%= snippet.contents %>">
+            <%= snippet.title %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+<% end %>

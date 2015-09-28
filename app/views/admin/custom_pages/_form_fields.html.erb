@@ -36,6 +36,8 @@
       <%= f.label :html, class: "sr-only" %>
       <i class="instructions">Use the <small>Source</small> tool if you wish to edit the HTML directly.</i>
       <%= f.text_area :html %>
+
+      <%= render "snippets", grouped_snippets: @content_snippets %>
     </div>
 
     <div role="tabpanel" class="tab-pane" id="styles">
@@ -45,6 +47,8 @@
       <i class="instructions">This field accepts CSS and SCSS. These styles will only affect elements inside the page container.</i>
       <%= f.text_area :scss %>
       <div id="scss-editor" class="editor"></div>
+
+      <%= render "snippets", grouped_snippets: @style_snippets %>
     </div>
 
     <div role="tabpanel" class="tab-pane" id="scripts">
@@ -54,6 +58,8 @@
       <i class="instructions">This field accepts JavaScript and jQuery. These scripts will run once the page has finished loading.</i>
       <%= f.text_area :javascript %>
       <div id="javascript-editor" class="editor"></div>
+
+      <%= render "snippets", grouped_snippets: @script_snippets %>
     </div>
 
     <%= hidden_field_tag :selected_tab, params[:selected_tab] %>

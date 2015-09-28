@@ -1,4 +1,5 @@
 class Admin::CustomPagesController < Admin::AdminController
+  before_action :find_grouped_snippets, only: [:new, :edit]
   before_action :find_page, only: [:edit, :update, :destroy]
   after_action :delete_unused_images!, only: [:create, :update]
 
@@ -12,6 +13,7 @@ class Admin::CustomPagesController < Admin::AdminController
     if @page.valid? && params[:preview]
       render :preview and return
     elsif params[:edit]
+      find_grouped_snippets
       render :new and return
     end
 
@@ -20,6 +22,7 @@ class Admin::CustomPagesController < Admin::AdminController
       flash.now[:notice] = "Page successfully created."
       render "admin/pages/index"
     else
+      find_grouped_snippets
       render :new
     end
   end
@@ -33,6 +36,7 @@ class Admin::CustomPagesController < Admin::AdminController
     if @page.valid? && params[:preview]
       render :preview and return
     elsif params[:edit]
+      find_grouped_snippets
       render :edit and return
     end
 
@@ -42,6 +46,7 @@ class Admin::CustomPagesController < Admin::AdminController
       flash.now[:notice] = "Page successfully updated."
       render "admin/pages/index"
     else
+      find_grouped_snippets
       render :edit
     end
   end
@@ -55,6 +60,12 @@ class Admin::CustomPagesController < Admin::AdminController
   end
 
   private
+
+  def find_grouped_snippets
+    @content_snippets = Snippet.grouped_by_extension(:txt, :html)
+    @style_snippets   = Snippet.grouped_by_extension(:css, :scss)
+    @script_snippets  = Snippet.grouped_by_extension(:js)
+  end
 
   def find_page
     @page = CustomPage.find(params[:id])

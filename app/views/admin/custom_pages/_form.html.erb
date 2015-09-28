@@ -71,4 +71,23 @@
   $("a.full-screen-toggle").click(function() {
     $(this).parents("div.tab-pane").toggleClass("full-screen");
   });
+
+  // Clicking snippet title inserts snippet contents into editor
+  $("div.page-editor li.snippet").click(function() {
+    var tabPaneId = $(this).parents("div.tab-pane").attr("id");
+    var snippetContents = $(this).data("contents");
+
+    switch (tabPaneId) {
+      case "contents":
+        var htmlEditor = CKEDITOR.instances["page_html"];
+        htmlEditor.insertHtml(snippetContents);
+        break;
+      case "styles":
+        scssEditor.insert(snippetContents);
+        break;
+      case "scripts":
+        javascriptEditor.insert(snippetContents);
+        break;
+    }
+  });
 </script>

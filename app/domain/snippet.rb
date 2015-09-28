@@ -9,11 +9,13 @@ class Snippet
     @extension = extension
   end
 
-  def self.grouped_by_extension
-    snippets_hash = HashWithIndifferentAccess.new
+  def self.grouped_by_extension *extensions
+    extensions = extensions.any? ? extensions.map(&:to_s) : EXTENSIONS.dup
+    grouped_snippets = HashWithIndifferentAccess.new
 
-    EXTENSIONS.each_with_object(snippets_hash) do |extension, hash|
-      hash[extension] = with_extension(extension)
+    extensions.each_with_object(grouped_snippets) do |extension, grouped_snippets|
+      snippets = with_extension(extension)
+      grouped_snippets[extension] = snippets if snippets.any?
     end
   end
 

@@ -26,6 +26,13 @@ $(document).on("ready page:load", function() {
     $("input#selected_tab").val(selectedTab);
   });
 
+  // Clicking heading in snippets list expands collapsed snippet titles
+  $("div.page-editor div.snippets h3").click(function() {
+    if ($(window).width() < 1200) {
+      $(this).next("ul").slideToggle();
+    }
+  });
+
   // Clear external URL or page ID field when the other field changes
   $("div#content").on("change", "select#nav_link_page_id", function() {
     $("input#nav_link_external_url").val("");
