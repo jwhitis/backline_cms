@@ -1,5 +1,5 @@
 class Snippet
-  EXTENSIONS = %w(js css scss html)
+  EXTENSIONS = %w(txt html css scss js)
 
   attr_reader :title, :contents, :extension
 
