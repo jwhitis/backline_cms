@@ -60,15 +60,13 @@ module AdminHelper
   end
 
   def snippets_heading extension
-    snippet_type = case extension.to_s
+    case extension.to_s
     when "txt"  then "Text"
     when "html" then "HTML"
     when "css"  then "CSS"
     when "scss" then "SCSS"
     when "js"   then "JavaScript"
     end
-
-    "#{snippet_type} Snippets"
   end
 
   def grouped_page_options_for_select selected_page_id = nil

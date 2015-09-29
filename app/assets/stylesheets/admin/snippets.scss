@@ -1,5 +1,12 @@
+div#admin div.snippets-container {
+  padding-top: 10px;
+
+  label {
+    text-transform: uppercase;
+  }
+}
+
 div#admin div.snippets {
-  margin: 15px 0;
   border: 1px solid #B6B6B6;
   color: #333333;
   background-color: white;
@@ -17,11 +24,9 @@ div#admin div.snippets {
     background: linear-gradient(to bottom, #F5F5F5, #CFD1CF);
     cursor: pointer;
 
-    i.fa-plus-circle {
-      position: relative;
-      top: 1px;
+    i.fa {
       float: right;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 22px;
     }
   }
@@ -49,14 +54,16 @@ div#admin div.snippets {
 }
 
 @media (min-width: 1200px) {
+  div#admin div.snippets-container {
+    position: absolute;
+    top: 0;
+    right: -225px;
+  }
+
   div#admin div.snippets {
     width: 210px;
     max-height: 600px;
     overflow-y: scroll;
-    margin: 0;
-    position: absolute;
-    top: 40px;
-    right: -225px;
 
     h3 {
       cursor: default;

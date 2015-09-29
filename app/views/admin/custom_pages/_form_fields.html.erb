@@ -12,12 +12,6 @@
   </div>
 </div>
 
-<div class="checkbox status-box <%= "checked" if @page.standalone? %>">
-  <%= f.label :standalone do %>
-    <%= f.check_box :standalone %> Make this a stand-alone page?
-  <% end %>
-</div>
-
 <div class="form-group page-editor">
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
@@ -65,6 +59,12 @@
     <%= hidden_field_tag :selected_tab, params[:selected_tab] %>
     <%= hidden_field_tag :editor_theme, params[:editor_theme] %>
   </div>
+</div>
+
+<div class="checkbox status-box <%= "checked" if @page.standalone? %>">
+  <%= f.label :standalone do %>
+    <%= f.check_box :standalone %> Make this a stand-alone page?
+  <% end %>
 </div>
 
 <div class="checkbox status-box <%= "checked" if @page.published? %>">

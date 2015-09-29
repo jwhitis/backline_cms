@@ -29,7 +29,8 @@ $(document).on("ready page:load", function() {
   // Clicking heading in snippets list expands collapsed snippet titles
   $("div.page-editor div.snippets h3").click(function() {
     if ($(window).width() < 1200) {
-      $(this).next("ul").slideToggle();
+      $(this).find("i.fa").toggleClass("hidden");
+      $(this).next("ul").stop().slideToggle();
     }
   });
 
