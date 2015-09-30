@@ -11,6 +11,7 @@ gem 'kaminari'
 gem 'mini_magick'
 gem 'newrelic_rpm'
 gem 'remotipart', '~> 1.2'
+gem 'switchery-rails'
 gem 'twitter'
 
 group :development do

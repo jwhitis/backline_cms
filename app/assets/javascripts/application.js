@@ -7,5 +7,6 @@
 //= require transformicons
 //= require masonry
 //= require imagesloaded
+//= require switchery
 //= require fancybox_options
 //= require main
