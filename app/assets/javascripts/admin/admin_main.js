@@ -112,6 +112,16 @@ $(document).on("ajaxSuccess", function() {
     }
   });
 
+  // Initialize checkbox switches
+  $("input.switch").each(function() {
+    new Switchery(this, {
+      color: "#44B359",
+      secondaryColor: "#CCCCCC",
+      speed: ".3s",
+      size: "small"
+    });
+  });
+
 });
 
 function fadeOutAlerts() {

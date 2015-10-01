@@ -88,6 +88,51 @@ div#admin form {
     margin: 15px 0;
   }
 
+  div.features {
+    margin-bottom: 15px;
+    border: 1px solid #B6B6B6;
+    color: #333333;
+    background-color: white;
+    box-shadow: 0 0 3px rgba(black, .15);
+
+    h3 {
+      margin: 0;
+      padding: 10px;
+      border-bottom: 1px solid #B6B6B6;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $blue;
+      background: linear-gradient(to bottom, #F5F5F5, #CFD1CF);
+    }
+
+    div.feature-fields {
+      padding: 10px;
+
+      div.feature {
+        width: 50%;
+        padding: 7px 0;
+        float: left;
+
+        label {
+          margin: 0;
+          text-shadow: none;
+
+          span.switchery {
+            margin-right: 7px;
+          }
+        }
+      }
+
+      @media (min-width: 768px) {
+        div.feature {
+          width: 25%;
+        }
+      }
+    }
+  }
+
   button.submit-btn {
     margin-right: 11px;
   }
