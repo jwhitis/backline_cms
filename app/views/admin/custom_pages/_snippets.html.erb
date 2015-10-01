@@ -3,7 +3,7 @@
     <label>Snippets</label>
     <%= fa_icon("info-circle", data: { toggle: "tooltip" }, title: "Click on a snippet to insert it at the current cursor position. This feature does not work in Source mode.") %>
 
-    <div class="snippets">
+    <div class="snippets heading-box">
       <% grouped_snippets.each do |extension, snippets| %>
         <h3>
           <%= snippets_heading(extension) %>
