@@ -1,3 +1,5 @@
+<h2><%= form_title(@page, "Page") %></h2>
+
 <%= render "shared/validation_errors", resource: @page %>
 
 <%= form_for [:admin, @page], as: :page, remote: true do |f| %>

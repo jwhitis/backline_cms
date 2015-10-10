@@ -1,3 +1,5 @@
+<h2><%= form_title(@album_track, "Track") %></h2>
+
 <%= render "shared/validation_errors", resource: @album_track %>
 
 <%= form_for [:admin, @album, @album_track], remote: true do |f| %>

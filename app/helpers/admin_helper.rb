@@ -59,6 +59,11 @@ module AdminHelper
     content_tag(:script, nil, src: "//cdn.jsdelivr.net/ace/1.2.0/min/ace.js")
   end
 
+  def form_title resource, name = nil
+    name ||= resource.class.to_s.titleize
+    resource.new_record? ? "Add #{name}" : "Edit #{name}"
+  end
+
   def snippets_heading extension
     case extension.to_s
     when "txt"  then "Text"

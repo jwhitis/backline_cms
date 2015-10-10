@@ -1,3 +1,5 @@
+<h2><%= form_title(@nav_link, "Link") %></h2>
+
 <%= render "shared/validation_errors", resource: @nav_link %>
 
 <%= form_for [:admin, @nav_link], remote: true do |f| %>

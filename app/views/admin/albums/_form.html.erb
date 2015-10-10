@@ -1,6 +1,10 @@
 <% if @album.persisted? %>
-  <%= corner_btn("Tracklist", admin_album_album_tracks_path(@album)) %>
+  <div class="corner-container">
+    <%= corner_btn("Tracklist", admin_album_album_tracks_path(@album)) %>
+  </div>
 <% end %>
+
+<h2><%= form_title(@album) %></h2>
 
 <%= render "shared/validation_errors", resource: @album %>
 

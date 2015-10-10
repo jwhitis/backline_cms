@@ -81,7 +81,7 @@ div#admin {
   }
 
   div#admin-sidebar {
-    width: 210px;
+    width: 205px;
     position: absolute;
     top: 0;
     left: -225px;
@@ -152,12 +152,8 @@ div#admin {
       }
     }
   }
-}
 
-@media (min-width: 1200px) {
-  div#admin {
-    padding-top: 48px;
-
+  @media (min-width: 1200px) {
     div#admin-dropdown {
       display: none;
     }

@@ -1,3 +1,5 @@
+<h2><%= form_title(@subscriber) %></h2>
+
 <%= render "shared/validation_errors", resource: @subscriber %>
 
 <%= form_for [:admin, @subscriber], remote: true do |f| %>
