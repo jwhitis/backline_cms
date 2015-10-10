@@ -3,17 +3,17 @@ $(document).on("ready page:load", function() {
   // Fade out alerts after 3 seconds
   fadeOutAlerts();
 
-  // Clicking link on admin homepage sets active nav link
-  $("div#admin-home a").click(function() {
-    var href = $(this).attr("href");
-    var selector = "div#admin-nav a[href='" + href + "']";
-    setActiveAdminNavLink(selector);
-  });
-
   // Clicking link in admin nav changes active nav link
-  $("div#admin-nav a").click(function() {
-    $("div#admin-nav button.dropdown-toggle").dropdown("toggle");
-    setActiveAdminNavLink(this);
+  $("div.admin-nav a").click(function() {
+    var container = $(this).parents("div.admin-nav");
+
+    if (container.is("div#admin-dropdown")) {
+      container.find("button.dropdown-toggle").dropdown("toggle");
+    }
+
+    var href = $(this).attr("href");
+    var selector = "a[href='" + href + "']";
+    setActiveAdminNavLink(selector);
   });
 
   // Click the previously selected page editor tab
@@ -68,7 +68,7 @@ $(document).on("ready page:load", function() {
 
   // Clicking settings link changes active nav link
   $("div#content").on("click", "a.settings", function() {
-    $("div#admin-nav a[href='/admin/site/edit']").click();
+    $("div#admin-dropdown a[href='/admin/site/edit']").click();
   });
 
   // Add spinner to submit button on click
@@ -83,8 +83,8 @@ $(document).on("ajaxSuccess", function() {
   // Fade out alerts after 3 seconds
   fadeOutAlerts();
 
-  // Show admin nav when leaving admin homepage
-  $("div#admin-nav").removeClass("hidden");
+  // Show admin nav elements when leaving admin homepage
+  $("div.admin-nav").removeClass("hidden");
 
   // Initialize datepickers
   $("input.datepicker").datepicker({
@@ -131,9 +131,12 @@ function fadeOutAlerts() {
 }
 
 function setActiveAdminNavLink(selector) {
-  var text = $(selector).text();
-  $("div#admin-nav span.active").text(text);
+  var text = $("div#admin-dropdown").find(selector).text();
+  $("div#admin-dropdown span.active").text(text);
 
-  $("div#admin-nav li").removeClass("hidden");
-  $(selector).parent("li").addClass("hidden");
+  $("div#admin-dropdown li").removeClass("hidden");
+  $("div#admin-dropdown").find(selector).parent("li").addClass("hidden");
+
+  $("div#admin-sidebar a").removeClass("active");
+  $("div#admin-sidebar").find(selector).addClass("active");
 }

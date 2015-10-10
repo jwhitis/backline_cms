@@ -38,7 +38,7 @@ div#admin {
     }
   }
 
-  div#admin-nav {
+  div#admin-dropdown {
     margin-bottom: 15px;
 
     button.dropdown-toggle {
@@ -80,6 +80,44 @@ div#admin {
     }
   }
 
+  div#admin-sidebar {
+    width: 210px;
+    position: absolute;
+    top: 0;
+    left: -225px;
+    display: none;
+
+    ul {
+      margin: 0;
+      padding: 5px 0;
+      list-style: none;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      a {
+        margin: 0 -1px;
+        padding: 7px 10px;
+        display: block;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #666666;
+
+        &:hover {
+          color: white;
+          background-color: #AAAAAA;
+        }
+
+        &.active {
+          color: white;
+          background-color: $red;
+          cursor: default;
+        }
+      }
+    }
+  }
+
   a.corner-btn {
     @extend %nav-element;
     margin-bottom: 15px;
@@ -112,6 +150,20 @@ div#admin {
           margin-right: 15px;
         }
       }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  div#admin {
+    padding-top: 48px;
+
+    div#admin-dropdown {
+      display: none;
+    }
+
+    div#admin-sidebar {
+      display: block;
     }
   }
 }

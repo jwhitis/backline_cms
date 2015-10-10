@@ -1,6 +1,6 @@
 <%= render "flash_messages" %>
 
-<div id="admin-home" class="clearfix">
+<div id="admin-home" class="admin-nav clearfix">
   <% admin_nav_links.each do |text, url, icon| %>
     <% if admin_section_available?(text) %>
       <%= link_to url, remote: true do %>

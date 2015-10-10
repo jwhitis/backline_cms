@@ -1,4 +1,4 @@
-<div class="dropdown <%= "hidden" if admin_nav_hidden? %>" id="admin-nav">
+<div class="dropdown admin-nav <%= "hidden" if admin_nav_hidden? %>" id="admin-dropdown">
   <button type="button" data-toggle="dropdown" class="dropdown-toggle btn-white">
     <span class="active">Pages</span>
     <%= fa_icon("caret-down") %>
@@ -10,6 +10,18 @@
         <li class="<%= "hidden" if index.zero? %>">
           <%= link_to text, url, remote: true %>
         </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="heading-box admin-nav <%= "hidden" if admin_nav_hidden? %>" id="admin-sidebar">
+  <h3>Admin</h3>
+
+  <ul>
+    <% admin_nav_links.each do |(text, url, _icon)| %>
+      <% if admin_section_available?(text) %>
+        <li><%= link_to text, url, remote: true %></li>
       <% end %>
     <% end %>
   </ul>
