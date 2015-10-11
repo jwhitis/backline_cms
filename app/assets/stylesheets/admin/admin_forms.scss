@@ -89,40 +89,28 @@ div#admin form {
   }
 
   div.features {
-    margin-bottom: 15px;
+    div.switch-container {
+      width: 50%;
+      float: left;
+    }
 
-    div.feature-fields {
-      padding: 10px;
-
-      div.feature {
-        width: 50%;
-        padding: 7px 0;
-        float: left;
-
-        label {
-          margin: 0;
-          text-shadow: none;
-
-          span.switchery {
-            margin-right: 7px;
-          }
-        }
+    @media (min-width: 768px) {
+      div.switch-container {
+        width: 25%;
       }
+    }
+  }
 
-      @media (min-width: 768px) {
-        div.feature {
-          width: 25%;
-        }
-      }
+  @media (min-width: 1200px) {
+    div.status {
+      width: 205px;
+      position: absolute;
+      top: 0;
+      right: -225px;
     }
   }
 
   button.submit-btn {
     margin-right: 11px;
-  }
-
-  a.cancel {
-    text-decoration: underline;
-    color: white;
   }
 }

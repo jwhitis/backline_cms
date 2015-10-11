@@ -1,10 +1,13 @@
 <% if @album.persisted? %>
-  <div class="corner-container">
-    <%= corner_btn("Tracklist", admin_album_album_tracks_path(@album)) %>
-  </div>
+  <%= corner_btn("Tracklist", admin_album_album_tracks_path(@album),
+    class: "btn-blue visible-xs") %>
 <% end %>
 
 <h2><%= form_title(@album) %></h2>
+
+<% if @album.new_record? %>
+  <%= info_box("You'll be able to add tracks once you save this album.") %>
+<% end %>
 
 <%= render "shared/validation_errors", resource: @album %>
 
@@ -79,16 +82,25 @@
     </div>
   <% end %>
 
-  <div class="checkbox status-box <%= "checked" if @album.published? %>">
-    <%= f.label :published do %>
-      <%= f.check_box :published %> Publish this album?
-    <% end %>
+  <div class="status heading-box">
+    <h3>Status</h3>
+
+    <div class="switches">
+      <div class="switch-container">
+        <%= f.label :published do %>
+          <%= f.check_box :published, class: "switch" %> Publish this album?
+        <% end %>
+      </div>
+    </div>
   </div>
 
-  <% if @album.new_record? %>
-    <%= info_box("Once you save this album, you'll be able to add tracks.") %>
-  <% end %>
+  <div class="corner-container">
+    <% if @album.persisted? %>
+      <%= corner_btn("Tracklist", admin_album_album_tracks_path(@album),
+        class: "btn-blue hidden-xs") %>
+    <% end %>
 
-  <%= submit_btn %>
-  <%= link_to "Cancel", admin_albums_path, remote: true, class: "cancel" %>
+    <%= submit_btn %>
+    <%= link_to "Cancel", admin_albums_path, remote: true, class: "btn-white" %>
+  </div>
 <% end %>

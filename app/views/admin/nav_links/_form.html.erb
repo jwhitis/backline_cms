@@ -26,6 +26,8 @@
     <%= f.text_field :external_url, class: "form-control" %>
   </div>
 
-  <%= submit_btn %>
-  <%= link_to "Cancel", admin_nav_links_path, remote: true, class: "cancel" %>
+  <div class="corner-container">
+    <%= submit_btn %>
+    <%= link_to "Cancel", admin_nav_links_path, remote: true, class: "btn-white" %>
+  </div>
 <% end %>

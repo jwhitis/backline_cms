@@ -38,8 +38,10 @@
     <% end %>
   </div>
 
-  <%= submit_btn %>
-  <%= link_to "Cancel", admin_album_album_tracks_path(@album), remote: true, class: "cancel" %>
+  <div class="corner-container">
+    <%= submit_btn %>
+    <%= link_to "Cancel", admin_album_album_tracks_path(@album), remote: true, class: "btn-white" %>
+  </div>
 <% end %>
 
 <%= render "shared/inline_player" %>

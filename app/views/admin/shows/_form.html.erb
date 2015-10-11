@@ -62,12 +62,20 @@
     <%= f.text_area :notes, rows: 3, class: "form-control" %>
   </div>
 
-  <div class="checkbox status-box <%= "checked" if @show.published? %>">
-    <%= f.label :published do %>
-      <%= f.check_box :published %> Publish this show?
-    <% end %>
+  <div class="status heading-box">
+    <h3>Status</h3>
+
+    <div class="switches">
+      <div class="switch-container">
+        <%= f.label :published do %>
+          <%= f.check_box :published, class: "switch" %> Publish this show?
+        <% end %>
+      </div>
+    </div>
   </div>
 
-  <%= submit_btn %>
-  <%= link_to "Cancel", admin_shows_path, remote: true, class: "cancel" %>
+  <div class="corner-container">
+    <%= submit_btn %>
+    <%= link_to "Cancel", admin_shows_path, remote: true, class: "btn-white" %>
+  </div>
 <% end %>

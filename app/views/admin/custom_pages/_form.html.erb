@@ -11,9 +11,11 @@
 <%= form_for [:admin, @page], as: :page, remote: true, html: { class: "page-form" } do |f| %>
   <%= render "form_fields", f: f %>
 
-  <%= submit_btn %>
-  <%= submit_btn "Preview", name: "preview", class: "btn-white" %>
-  <%= link_to "Cancel", admin_pages_path, remote: true, class: "cancel" %>
+  <div class="corner-container">
+    <%= submit_btn "Preview", name: "preview" %>
+    <%= submit_btn %>
+    <%= link_to "Cancel", admin_pages_path, remote: true, class: "btn-white" %>
+  </div>
 <% end %>
 
 <script type="text/javascript">

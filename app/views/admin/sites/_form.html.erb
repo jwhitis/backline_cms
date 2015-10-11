@@ -26,15 +26,19 @@
   <div class="features heading-box">
     <h3>Features</h3>
 
-    <div class="feature-fields clearfix">
+    <div class="switches clearfix">
       <%= f.collection_check_boxes :feature_ids, Feature.all, :id, :name do |b| %>
-        <div class="feature">
-          <%= b.label { b.check_box(class: "switch") + b.text.titleize } %>
+        <div class="switch-container">
+          <%= b.label do %>
+            <%= b.check_box(class: "switch") %> <%= b.text.titleize %>
+          <% end %>
         </div>
       <% end %>
     </div>
   </div>
 
-  <%= submit_btn %>
-  <%= link_to "Cancel", admin_root_path, class: "cancel" %>
+  <div class="corner-container">
+    <%= submit_btn %>
+    <%= link_to "Cancel", admin_root_path, class: "btn-white" %>
+  </div>
 <% end %>

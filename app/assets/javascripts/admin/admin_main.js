@@ -1,7 +1,14 @@
 $(document).on("ready page:load", function() {
 
+  var path = window.location.pathname;
+
   // Fade out alerts after 3 seconds
   fadeOutAlerts();
+
+  // Set active admin nav link for custom pages
+  if (path.match(/^\/admin\/custom_pages/)) {
+    setActiveAdminNavLink("/admin/pages");
+  }
 
   // Clicking link in admin nav changes active nav link
   $("div.admin-nav a").click(function() {
@@ -12,8 +19,7 @@ $(document).on("ready page:load", function() {
     }
 
     var href = $(this).attr("href");
-    var selector = "a[href='" + href + "']";
-    setActiveAdminNavLink(selector);
+    setActiveAdminNavLink(href);
   });
 
   // Click the previously selected page editor tab
@@ -66,6 +72,9 @@ $(document).on("ready page:load", function() {
     $(this).parents("div.checkbox, div.file-box").toggleClass("checked");
   });
 
+  // Initialize checkbox switches
+  initializeSwitchery();
+
   // Clicking settings link changes active nav link
   $("div#content").on("click", "a.settings", function() {
     $("div#admin-dropdown a[href='/admin/site/edit']").click();
@@ -86,14 +95,6 @@ $(document).on("ajaxSuccess", function() {
   // Show admin nav elements when leaving admin homepage
   $("div.admin-nav").removeClass("hidden");
 
-  // Initialize datepickers
-  $("input.datepicker").datepicker({
-    dateFormat: "DD, MM d, yy"
-  });
-
-  // Initialize Fancybox for image previews
-  $("a.image-preview").fancybox(fancyboxOptions);
-
   // Initialize sortable tables
   $("table.sortable tbody").sortable({
     items: "tr",
@@ -112,14 +113,15 @@ $(document).on("ajaxSuccess", function() {
     }
   });
 
+  // Initialize Fancybox for image previews
+  $("a.image-preview").fancybox(fancyboxOptions);
+
   // Initialize checkbox switches
-  $("input.switch").each(function() {
-    new Switchery(this, {
-      color: "#44B359",
-      secondaryColor: "#CCCCCC",
-      speed: ".3s",
-      size: "small"
-    });
+  initializeSwitchery();
+
+  // Initialize datepickers
+  $("input.datepicker").datepicker({
+    dateFormat: "DD, MM d, yy"
   });
 
 });
@@ -130,7 +132,9 @@ function fadeOutAlerts() {
   }, 3000);
 }
 
-function setActiveAdminNavLink(selector) {
+function setActiveAdminNavLink(href) {
+  var selector = "a[href='" + href + "']";
+
   var text = $("div#admin-dropdown").find(selector).text();
   $("div#admin-dropdown span.active").text(text);
 
@@ -139,4 +143,15 @@ function setActiveAdminNavLink(selector) {
 
   $("div#admin-sidebar a").removeClass("active");
   $("div#admin-sidebar").find(selector).addClass("active");
+}
+
+function initializeSwitchery() {
+  $("input.switch").each(function() {
+    new Switchery(this, {
+      color: "#44B359",
+      secondaryColor: "#CCCCCC",
+      speed: ".3s",
+      size: "small"
+    });
+  });
 }

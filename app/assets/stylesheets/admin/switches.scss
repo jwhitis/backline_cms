@@ -1,0 +1,16 @@
+div#admin div.switches {
+  padding: 10px;
+
+  div.switch-container {
+    padding: 7px 0;
+
+    label {
+      margin: 0;
+      text-shadow: none;
+
+      span.switchery {
+        margin-right: 3px;
+      }
+    }
+  }
+}
