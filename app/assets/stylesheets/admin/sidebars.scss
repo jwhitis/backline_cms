@@ -1,0 +1,19 @@
+div#admin {
+  @media (min-width: 1200px) {
+    %sidebar {
+      width: 205px;
+      position: absolute;
+      top: 0;
+    }
+
+    div.sidebar-left {
+      @extend %sidebar;
+      left: -225px;
+    }
+
+    div.sidebar-right {
+      @extend %sidebar;
+      right: -225px;
+    }
+  }
+}

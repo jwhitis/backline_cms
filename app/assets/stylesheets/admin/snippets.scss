@@ -40,14 +40,7 @@ div#admin div.snippets {
 }
 
 @media (min-width: 1200px) {
-  div#admin div.snippets-container {
-    position: absolute;
-    top: 0;
-    right: -225px;
-  }
-
   div#admin div.snippets {
-    width: 205px;
     max-height: 600px;
     overflow-y: scroll;
 

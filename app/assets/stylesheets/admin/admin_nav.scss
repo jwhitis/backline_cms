@@ -81,10 +81,6 @@ div#admin {
   }
 
   div#admin-sidebar {
-    width: 205px;
-    position: absolute;
-    top: 0;
-    left: -225px;
     display: none;
 
     ul {
@@ -111,7 +107,7 @@ div#admin {
 
         &.active {
           color: white;
-          background-color: $red;
+          background-color: $blue;
           cursor: default;
         }
       }
