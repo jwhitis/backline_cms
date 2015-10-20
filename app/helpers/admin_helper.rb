@@ -15,6 +15,7 @@ module AdminHelper
       ["Audio Player", admin_player_tracks_path, "music"],
       ["Twitter Feed", admin_twitter_handles_path, "twitter"],
       ["Mailing List", admin_subscribers_path, "envelope"],
+      ["Design", edit_admin_design_path, "paint-brush"],
       ["Settings", edit_admin_site_path, "cog"]
     ]
   end
@@ -96,6 +97,11 @@ module AdminHelper
     content_tag(:button, type: "button", class: btn_classes.join(" ")) do
       text.html_safe + fa_icon("check")
     end
+  end
+
+  def file_box_text resource, attribute
+    filename = resource.send(attribute).file.filename
+    "Filename: #{filename}"
   end
 
   def submit_btn text = "Save", html_options = {}

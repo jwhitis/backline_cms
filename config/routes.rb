@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     resources :twitter_handles, only: [:index, :create, :destroy]
     patch "tweets/refresh", to: "tweets#refresh", as: :refresh_tweets
     resources :subscribers, except: :show
+    resource  :design,      only: [:edit, :update]
     resource  :site,        only: [:edit, :update]
   end
 

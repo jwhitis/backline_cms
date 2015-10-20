@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150927121036) do
+ActiveRecord::Schema.define(version: 20151011181242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(version: 20150927121036) do
     t.integer  "tracks_count", default: 0,     null: false
     t.string   "archive"
   end
+
+  create_table "designs", force: :cascade do |t|
+    t.string   "background_image"
+    t.string   "banner_image"
+    t.string   "logo"
+    t.string   "favicon"
+    t.integer  "site_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "designs", ["site_id"], name: "index_designs_on_site_id", using: :btree
 
   create_table "feature_activations", force: :cascade do |t|
     t.integer  "site_id",    null: false
@@ -165,6 +177,7 @@ ActiveRecord::Schema.define(version: 20150927121036) do
     t.boolean  "published"
   end
 
+  add_foreign_key "designs", "sites"
   add_foreign_key "feature_activations", "features"
   add_foreign_key "feature_activations", "sites"
   add_foreign_key "nav_links", "pages"

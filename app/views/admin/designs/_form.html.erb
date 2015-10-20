@@ -1,0 +1,155 @@
+<h2>Design</h2>
+
+<%= render "shared/validation_errors", resource: @design %>
+
+<%= form_for @design, url: admin_design_path do |f| %>
+  <div class="form-group design-editor">
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active">
+        <%= link_to "Colors", "#colors", role: "tab", data: { toggle: "tab" } %>
+      </li>
+      <li role="presentation">
+        <%= link_to "Images", "#images", role: "tab", data: { toggle: "tab" } %>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="colors">
+        <!-- Color fields will go here. -->
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="images">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="image-field">
+              <div class="form-group">
+                <%= f.label :background_image, "Background" %>
+                <%= file_btn(@design.background_image_changed?, "Choose Background") %>
+                <%= f.file_field :background_image %>
+                <%= f.hidden_field :background_image_cache %>
+              </div>
+
+              <div class="requirements clearfix">
+                <%= extension_tags(@design, :background_image) %>
+                <%= dimensions_tag(1280, 800) %>
+              </div>
+
+              <% if @design.background_image.present? %>
+                <div class="file-box">
+                  <%= file_box_text(@design, :background_image) %>
+
+                  <div class="checkbox">
+                    <%= f.label :remove_background_image do %>
+                      <%= f.check_box :remove_background_image %> Remove background?
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+
+              <%= image_tag @design.background_image.url %>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="image-field">
+              <div class="form-group">
+                <%= f.label :banner_image, "Banner" %>
+                <%= file_btn(@design.banner_image_changed?, "Choose Banner") %>
+                <%= f.file_field :banner_image %>
+                <%= f.hidden_field :banner_image_cache %>
+              </div>
+
+              <div class="requirements clearfix">
+                <%= extension_tags(@design, :banner_image) %>
+                <%= dimensions_tag(1280, 300) %>
+              </div>
+
+              <% if @design.banner_image.present? %>
+                <div class="file-box">
+                  <%= file_box_text(@design, :banner_image) %>
+
+                  <div class="checkbox">
+                    <%= f.label :remove_banner_image do %>
+                      <%= f.check_box :remove_banner_image %> Remove banner?
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+
+              <%= image_tag @design.banner_image.url %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="image-field">
+              <div class="form-group">
+                <%= f.label :logo %>
+                <%= file_btn(@design.logo_changed?, "Choose Logo") %>
+                <%= f.file_field :logo %>
+                <%= f.hidden_field :logo_cache %>
+              </div>
+
+              <div class="requirements clearfix">
+                <%= extension_tags(@design, :logo) %>
+                <%= dimensions_tag(200, 200) %>
+              </div>
+
+              <% if @design.logo.present? %>
+                <div class="file-box">
+                  <%= file_box_text(@design, :logo) %>
+
+                  <div class="checkbox">
+                    <%= f.label :remove_logo do %>
+                      <%= f.check_box :remove_logo %> Remove logo?
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+
+              <%= image_tag @design.logo.url %>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="image-field">
+              <div class="form-group">
+                <%= f.label :favicon %>
+                <%= file_btn(@design.favicon_changed?, "Choose Favicon") %>
+                <%= f.file_field :favicon %>
+                <%= f.hidden_field :favicon_cache %>
+              </div>
+
+              <div class="requirements clearfix">
+                <%= extension_tags(@design, :favicon) %>
+                <%= dimensions_tag(16, 16) %>
+              </div>
+
+              <% if @design.favicon.present? %>
+                <div class="file-box">
+                  <%= file_box_text(@design, :favicon) %>
+
+                  <div class="checkbox">
+                    <%= f.label :remove_favicon do %>
+                      <%= f.check_box :remove_favicon %> Remove favicon?
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+
+              <%= image_tag @design.favicon.url %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%#= hidden_field_tag :selected_tab, params[:selected_tab] %>
+    </div>
+  </div>
+
+  <div class="corner-container">
+    <%= submit_btn %>
+    <%= link_to "Cancel", admin_root_path, class: "btn-white" %>
+  </div>
+<% end %>

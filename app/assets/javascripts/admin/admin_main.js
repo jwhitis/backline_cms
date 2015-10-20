@@ -75,6 +75,18 @@ $(document).on("ready page:load", function() {
   // Initialize checkbox switches
   initializeSwitchery();
 
+  // Set design editor image fields to equal height
+  if ($(window).width() >= 768) {
+    $("div#content").on("shown.bs.tab", "div.design-editor ul.nav-tabs a[href='#images']", function() {
+      var rowCount = $("div#images div.row").length;
+
+      for (var i = 0; i < rowCount; i++) {
+        var selector = "div#images div.row:nth-child(" + (i + 1) + ") div.image-field";
+        setEqualHeight(selector);
+      }
+    });
+  }
+
   // Clicking settings link changes active nav link
   $("div#content").on("click", "a.settings", function() {
     $("div#admin-dropdown a[href='/admin/site/edit']").click();
@@ -154,4 +166,18 @@ function initializeSwitchery() {
       size: "small"
     });
   });
+}
+
+function setEqualHeight(selector) {
+  var heightMax = 0;
+
+  $(selector).each(function() {
+    var height = $(this).height();
+
+    if (height > heightMax) {
+      heightMax = height;
+    }
+  });
+
+  $(selector).height(heightMax);
 }

@@ -42,7 +42,12 @@ div#admin {
 
     div.checkbox {
       margin: 0;
-      float: right;
+    }
+
+    @media (min-width: 768px) {
+      div.checkbox {
+        float: right;
+      }
     }
   }
 

@@ -1,6 +1,7 @@
 class Site < ActiveRecord::Base
   has_many :feature_activations, dependent: :destroy
   has_many :features, through: :feature_activations
+  has_one :design
 
   validates_presence_of :title, :homepage_id
   validate :homepage_must_be_published

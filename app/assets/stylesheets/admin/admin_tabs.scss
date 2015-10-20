@@ -1,0 +1,22 @@
+div#admin ul.nav-tabs {
+  border-bottom: 3px solid $light-grey;
+
+  li {
+    a {
+      text-transform: uppercase;
+      color: white;
+
+      &:hover {
+        border-color: transparent;
+        background-color: transparent;
+      }
+    }
+
+    &.active a {
+      border-color: $light-grey;
+      font-weight: bold;
+      color: $blue;
+      background-color: $light-grey;
+    }
+  }
+}

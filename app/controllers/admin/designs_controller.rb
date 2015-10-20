@@ -1,0 +1,32 @@
+class Admin::DesignsController < Admin::AdminController
+  before_action :find_design
+
+  def edit
+    # Backline.reload
+  end
+
+  def update
+    if @design.update_attributes(design_params)
+      Backline.reload
+      redirect_to admin_root_path, notice: "Design successfully updated."
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def find_design
+    @design = @site.design
+  end
+
+  def design_params
+    params.require(:design).permit(
+      :background_image, :background_image_cache, :remove_background_image,
+      :banner_image, :banner_image_cache, :remove_banner_image,
+      :logo, :logo_cache, :remove_logo,
+      :favicon, :favicon_cache, :remove_favicon
+    )
+  end
+
+end
