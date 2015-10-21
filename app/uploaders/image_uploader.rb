@@ -42,6 +42,19 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [500, 500]
   end
 
+  version :background, if: :background? do
+    process resize_to_fill: [1280, 800]
+  end
+
+  version :banner, if: :banner? do
+    process resize_to_fill: [1280, 300]
+  end
+
+  version :logo, if: :logo? do
+    # The width is arbitrarily large so that the height always constrains the image.
+    process resize_to_fit: [9999, 70]
+  end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
@@ -66,6 +79,18 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def square? image
     model.is_a?(Album)
+  end
+
+  def background? image
+    model.is_a?(Design) && mounted_as == :background_image
+  end
+
+  def banner? image
+    model.is_a?(Design) && mounted_as == :banner_image
+  end
+
+  def logo? image
+    model.is_a?(Design) && mounted_as == :logo
   end
 
 end
