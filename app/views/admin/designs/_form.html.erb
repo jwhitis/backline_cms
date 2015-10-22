@@ -116,6 +116,8 @@
             <div class="image-field">
               <div class="form-group">
                 <%= f.label :favicon %>
+                <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
+                  title: "This is the tiny image that appears in the corner of the browser tab.") %>
                 <%= file_btn(@design.favicon_changed?, "Choose Favicon") %>
                 <%= f.file_field :favicon %>
                 <%= f.hidden_field :favicon_cache %>
