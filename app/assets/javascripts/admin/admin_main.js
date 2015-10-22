@@ -80,8 +80,8 @@ $(document).on("ready page:load", function() {
     $("div#content").on("shown.bs.tab", "div.design-editor ul.nav-tabs a[href='#images']", function() {
       var rowCount = $("div#images div.row").length;
 
-      for (var i = 0; i < rowCount; i++) {
-        var selector = "div#images div.row:nth-child(" + (i + 1) + ") div.image-field";
+      for (var i = 1; i <= rowCount; i++) {
+        var selector = "div#images div.row:nth-child(" + i + ") div.image-field";
         setEqualHeight(selector);
       }
     });
