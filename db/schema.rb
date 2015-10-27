@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 20151025140227) do
     t.integer  "site_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "theme",            null: false
+    t.string   "display_font",     null: false
+    t.string   "body_font",        null: false
   end
 
   add_index "designs", ["site_id"], name: "index_designs_on_site_id", using: :btree
