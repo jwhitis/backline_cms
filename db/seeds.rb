@@ -20,4 +20,5 @@ end
 homepage = Page.published.order(:created_at).first
 site = Site.create_with(title: "New Site", homepage_id: homepage.id).first_or_create!
 site.features << Feature.unactivated
-site.create_design! unless site.design
+design = site.design || site.create_design!
+design.create_color_scheme! unless design.color_scheme

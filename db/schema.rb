@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151011181242) do
+ActiveRecord::Schema.define(version: 20151025140227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(version: 20151011181242) do
     t.integer  "tracks_count", default: 0,     null: false
     t.string   "archive"
   end
+
+  create_table "color_schemes", force: :cascade do |t|
+    t.string   "background", null: false
+    t.string   "foreground", null: false
+    t.string   "accent",     null: false
+    t.string   "text",       null: false
+    t.integer  "design_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "color_schemes", ["design_id"], name: "index_color_schemes_on_design_id", using: :btree
 
   create_table "designs", force: :cascade do |t|
     t.string   "background_image"
@@ -177,6 +189,7 @@ ActiveRecord::Schema.define(version: 20151011181242) do
     t.boolean  "published"
   end
 
+  add_foreign_key "color_schemes", "designs"
   add_foreign_key "designs", "sites"
   add_foreign_key "feature_activations", "features"
   add_foreign_key "feature_activations", "sites"
