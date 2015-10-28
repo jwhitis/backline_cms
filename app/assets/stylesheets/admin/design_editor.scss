@@ -1,27 +1,93 @@
 div#admin div.design-editor {
   margin-top: 15px;
 
-  div#images {
-    padding-top: 15px;
+  div#theme {
+    div.theme-field {
+      select {
+        width: calc(100% - 80px);
+        float: left;
+      }
 
-    div.row {
-      margin: 0 -7.5px;
+      button {
+        width: 70px;
+        float: right;
+      }
+    }
 
-      div.col-sm-6 {
-        margin-bottom: 15px;
-        padding: 0 7.5px;
+    @media (min-width: 768px) {
+      div.theme-field {
+        width: calc(50% - 15px);
+      }
+    }
 
-        @media (min-width: 768px) {
-          div.file-box div.checkbox {
-            float: none;
-          }
+    div.color-field {
+      div.minicolors {
+        width: calc(100% - 44px);
+        float: left;
+
+        &.minicolors-position-bottom div.minicolors-panel {
+          top: 34px; // Must be specified because select boxes are floated
         }
       }
 
-      @media (max-width: 767px) {
-        &:last-child div.col-sm-6:last-child {
-          margin-bottom: 0;
+      div.theme-color {
+        width: 34px;
+        float: right;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    div.font-field {
+      select {
+        width: calc(100% - 130px);
+        float: left;
+      }
+
+      div.theme-font {
+        width: 120px;
+        overflow: hidden;
+        padding: 6px 8px;
+        float: right;
+        white-space: nowrap;
+      }
+    }
+
+    div.font-preview {
+      padding: 10px;
+      background-color: rgba(white, .1);
+
+      &#display-font-preview {
+        margin-bottom: 10px;
+        font-size: 32px;
+        line-height: 36px;
+      }
+
+      @media (min-width: 768px) {
+        &#display-font-preview {
+          margin-bottom: 18px;
         }
+      }
+    }
+  }
+
+  div#images div.row {
+    margin: 0 -7.5px;
+
+    div.col-sm-6 {
+      margin-bottom: 15px;
+      padding: 0 7.5px;
+
+      @media (min-width: 768px) {
+        div.file-box div.checkbox {
+          float: none;
+        }
+      }
+    }
+
+    @media (max-width: 767px) {
+      &:last-child div.col-sm-6:last-child {
+        margin-bottom: 0;
       }
     }
   }

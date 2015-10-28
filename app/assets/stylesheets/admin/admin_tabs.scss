@@ -1,22 +1,28 @@
-div#admin ul.nav-tabs {
-  border-bottom: 3px solid $light-grey;
+div#admin {
+  ul.nav-tabs {
+    border-bottom: 3px solid $light-grey;
 
-  li {
-    a {
-      text-transform: uppercase;
-      color: white;
+    li {
+      a {
+        text-transform: uppercase;
+        color: white;
 
-      &:hover {
-        border-color: transparent;
-        background-color: transparent;
+        &:hover {
+          border-color: transparent;
+          background-color: transparent;
+        }
+      }
+
+      &.active a {
+        border-color: $light-grey;
+        font-weight: bold;
+        color: $blue;
+        background-color: $light-grey;
       }
     }
+  }
 
-    &.active a {
-      border-color: $light-grey;
-      font-weight: bold;
-      color: $blue;
-      background-color: $light-grey;
-    }
+  div.tab-pane {
+    padding-top: 15px;
   }
 }

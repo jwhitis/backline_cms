@@ -35,7 +35,8 @@
     $("div#inline-player").jPlayer("setMedia", {
       mp3: currentInlineTrack
     });
-    if (options.play) {
+
+    if (options && options.play) {
       $("div#inline-player").jPlayer("play");
     }
   }

@@ -3,7 +3,7 @@
 <div id="admin-home" class="admin-nav clearfix">
   <% admin_nav_links.each do |text, url, icon| %>
     <% if admin_section_available?(text) %>
-      <%= link_to url, remote: true do %>
+      <%= admin_nav_link_to(url) do %>
         <%= text.html_safe + fa_icon(icon) %>
       <% end %>
     <% end %>

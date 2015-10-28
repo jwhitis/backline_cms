@@ -25,6 +25,20 @@ module AdminHelper
     Feature::NAMES.exclude?(name) || feature_activated?(name)
   end
 
+  def admin_nav_link_to text, url = nil, &block
+    url = text if block_given?
+
+    options = {}
+    options[:remote] = true unless url == edit_admin_design_path
+    options[:data] = { no_turbolink: true } if url == edit_admin_design_path
+
+    if block_given?
+      link_to url, options, &block
+    else
+      link_to text, url, options
+    end
+  end
+
   def corner_btn text, url, html_options = {}
     options = { remote: true, class: "corner-btn btn-blue" }
     options[:class].sub!("btn-blue", html_options.delete(:class)) if html_options[:class]

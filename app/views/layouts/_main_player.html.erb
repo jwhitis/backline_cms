@@ -80,10 +80,12 @@
 
   function setMainTrack(options) {
     $("span#track-title").text(currentMainTrackTitle());
+
     $("div#main-player").jPlayer("setMedia", {
       mp3: currentMainTrack
     });
-    if (options.play) {
+
+    if (options && options.play) {
       $("div#main-player").jPlayer("play");
     }
   }

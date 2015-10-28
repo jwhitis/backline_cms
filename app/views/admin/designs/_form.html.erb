@@ -6,7 +6,7 @@
   <div class="form-group design-editor">
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active">
-        <%= link_to "Colors", "#colors", role: "tab", data: { toggle: "tab" } %>
+        <%= link_to "Theme", "#theme", role: "tab", data: { toggle: "tab" } %>
       </li>
       <li role="presentation">
         <%= link_to "Images", "#images", role: "tab", data: { toggle: "tab" } %>
@@ -14,8 +14,19 @@
     </ul>
 
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="colors">
-        <!-- Color fields will go here. -->
+      <div role="tabpanel" class="tab-pane active" id="theme">
+        <div class="form-group">
+          <%= f.label :theme, class: "sr-only" %>
+          <i class="instructions">Choose a theme to start from, then customize your design.</i>
+
+          <div class="theme-field clearfix">
+            <%= f.select :theme, theme_options_for_select(@design.theme), {},
+              class: "form-control" %>
+            <button type="button" id="apply-theme" class="btn-white">Apply</button>
+          </div>
+        </div>
+
+        <%= render "admin/color_schemes/form_fields", f: f %>
       </div>
 
       <div role="tabpanel" class="tab-pane" id="images">

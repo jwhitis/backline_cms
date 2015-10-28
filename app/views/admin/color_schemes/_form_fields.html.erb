@@ -1,0 +1,136 @@
+<% content_for :head, google_fonts_preview_link_tags %>
+
+<div class="row">
+  <div class="col-sm-6">
+    <%= f.fields_for :color_scheme do |c| %>
+      <div class="form-group">
+        <%= c.label :background, "Background Color", class: "required" %>
+
+        <div class="color-field clearfix">
+          <%= c.text_field :background, class: "form-control" %>
+          <div id="theme-background-color" class="form-control theme-color"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= c.label :foreground, "Foreground Color", class: "required" %>
+
+        <div class="color-field clearfix">
+          <%= c.text_field :foreground, class: "form-control" %>
+          <div id="theme-foreground-color" class="form-control theme-color"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= c.label :accent, "Accent Color", class: "required" %>
+
+        <div class="color-field clearfix">
+          <%= c.text_field :accent, class: "form-control" %>
+          <div id="theme-accent-color" class="form-control theme-color"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= c.label :text, "Text Color", class: "required" %>
+
+        <div class="color-field clearfix">
+          <%= c.text_field :text, class: "form-control" %>
+          <div id="theme-text-color" class="form-control theme-color"></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="form-group">
+      <%= f.label :display_font, "Display Font", class: "required" %>
+
+      <div class="font-field clearfix">
+        <%= f.collection_select :display_font, GoogleFonts::DISPLAY_FONTS, :to_s, :to_s, {},
+          class: "form-control" %>
+        <div id="theme-display-font" class="form-control theme-font"></div>
+      </div>
+    </div>
+
+    <div id="display-font-preview" class="font-preview">
+      <%= display_font_preview_text %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :body_font, "Body Font", class: "required" %>
+
+      <div class="font-field clearfix">
+        <%= f.collection_select :body_font, GoogleFonts::BODY_FONTS, :to_s, :to_s, {},
+          class: "form-control" %>
+        <div id="theme-body-font" class="form-control theme-font"></div>
+      </div>
+    </div>
+
+    <div id="body-font-preview" class="font-preview">
+      <%= body_font_preview_text %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $("div.color-field input").minicolors({ theme: "bootstrap" });
+
+  selectTheme();
+
+  var displayFont = $("select#design_display_font").val();
+  var bodyFont = $("select#design_body_font").val();
+  previewFonts(displayFont, bodyFont);
+
+  $("select#design_theme").change(function() {
+    selectTheme({ previewFonts: true });
+  });
+
+  $("button#apply-theme").click(function() {
+    var attributes = selectedThemeAttributes();
+
+    $("input#design_color_scheme_attributes_background").minicolors("value", attributes.backgroundColor);
+    $("input#design_color_scheme_attributes_foreground").minicolors("value", attributes.foregroundColor);
+    $("input#design_color_scheme_attributes_accent").minicolors("value", attributes.accentColor);
+    $("input#design_color_scheme_attributes_text").minicolors("value", attributes.textColor);
+    $("select#design_display_font").val(attributes.displayFont);
+    $("select#design_body_font").val(attributes.bodyFont);
+
+    $("div#display-font-preview").css("font-family", attributes.displayFont);
+    $("div#body-font-preview").css("font-family", attributes.bodyFont);
+  });
+
+  $("select#design_display_font").change(function() {
+    var font = $(this).val();
+    $("div#display-font-preview").css("font-family", font);
+  });
+
+  $("select#design_body_font").change(function() {
+    var font = $(this).val();
+    $("div#body-font-preview").css("font-family", font);
+  });
+
+  function selectTheme(options) {
+    var attributes = selectedThemeAttributes();
+
+    $("div#theme-background-color").css("background-color", attributes.backgroundColor);
+    $("div#theme-foreground-color").css("background-color", attributes.foregroundColor);
+    $("div#theme-accent-color").css("background-color", attributes.accentColor);
+    $("div#theme-text-color").css("background-color", attributes.textColor);
+    $("div#theme-display-font").text(attributes.displayFont);
+    $("div#theme-body-font").text(attributes.bodyFont);
+
+    if (options && options.previewFonts) {
+      previewFonts(attributes.displayFont, attributes.bodyFont);
+    }
+  }
+
+  function selectedThemeAttributes() {
+    var themeTitle = $("select#design_theme").val();
+    return $("option[value='" + themeTitle + "']").data();
+  }
+
+  function previewFonts(displayFont, bodyFont) {
+    $("div#display-font-preview").css("font-family", displayFont);
+    $("div#body-font-preview").css("font-family", bodyFont);
+  }
+</script>

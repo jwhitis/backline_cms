@@ -4,9 +4,8 @@ module DesignsHelper
     extensions = resource.send(attribute).extension_white_list
 
     content_tag(:div, class: "extensions") do
-      extensions.reduce("".html_safe) do |tags, extension|
-        tags + content_tag(:span, extension.upcase)
-      end
+      extensions.map! { |extension| content_tag(:span, extension.upcase) }
+      extensions.join.html_safe
     end
   end
 
@@ -16,6 +15,14 @@ module DesignsHelper
     content_tag(:span, class: "dimensions") do
       "#{width}#{unit_tag} : #{height}#{unit_tag}".html_safe
     end
+  end
+
+  def theme_options_for_select selected_theme_title
+    themes = Theme.hashes.map do |title, attributes|
+      [title.titleize, title, { data: attributes }]
+    end
+
+    options_for_select(themes, selected_theme_title)
   end
 
 end

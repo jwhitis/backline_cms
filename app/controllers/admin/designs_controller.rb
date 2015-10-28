@@ -22,6 +22,8 @@ class Admin::DesignsController < Admin::AdminController
 
   def design_params
     params.require(:design).permit(
+      :theme, :display_font, :body_font,
+      { color_scheme_attributes: [:background, :foreground, :accent, :text] },
       :background_image, :background_image_cache, :remove_background_image,
       :banner_image, :banner_image_cache, :remove_banner_image,
       :logo, :logo_cache, :remove_logo,

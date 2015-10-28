@@ -24,8 +24,8 @@
         <td class="hidden-xs"><%= album.release_date.to_s(:numeric) %></td>
         <td><%= album.title %></td>
         <td class="hidden-xs">
-          <%= link_to "Cover Art", "javascript:void(0)", rel: "album-previews", class: "image-preview",
-            data: { fancybox_href: album.cover_art.square.url } %>
+          <%= link_to "Cover Art", "javascript:void(0)", rel: "album-previews",
+            class: "image-preview", data: { fancybox_href: album.cover_art.square.url } %>
         </td>
         <td class="hidden-xs">
           <%= link_to "Tracklist", admin_album_album_tracks_path(album), remote: true %>

@@ -8,7 +8,7 @@
     <% admin_nav_links.each_with_index do |(text, url, _icon), index| %>
       <% if admin_section_available?(text) %>
         <li class="<%= "hidden" if index.zero? %>">
-          <%= link_to text, url, remote: true %>
+          <%= admin_nav_link_to(text, url) %>
         </li>
       <% end %>
     <% end %>
@@ -22,7 +22,7 @@
   <ul>
     <% admin_nav_links.each do |(text, url, _icon)| %>
       <% if admin_section_available?(text) %>
-        <li><%= link_to text, url, remote: true %></li>
+        <li><%= admin_nav_link_to(text, url) %></li>
       <% end %>
     <% end %>
   </ul>
