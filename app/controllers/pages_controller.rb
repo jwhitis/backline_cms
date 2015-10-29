@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   private
 
   def homepage_path
-    homepage = Backline.site.homepage
+    homepage = @site.homepage
     "/#{homepage.slug}"
   end
 

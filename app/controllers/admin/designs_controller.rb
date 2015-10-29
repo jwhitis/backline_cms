@@ -2,7 +2,6 @@ class Admin::DesignsController < Admin::AdminController
   before_action :find_design
 
   def edit
-    # Backline.reload
   end
 
   def update
@@ -17,7 +16,8 @@ class Admin::DesignsController < Admin::AdminController
   private
 
   def find_design
-    @design = @site.design
+    design_id = @site.design.id
+    @design = Design.find(design_id)
   end
 
   def design_params

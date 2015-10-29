@@ -1,8 +1,8 @@
 <h2>Settings</h2>
 
-<%= render "shared/validation_errors", resource: @site %>
+<%= render "shared/validation_errors", resource: @editable_site %>
 
-<%= form_for @site, url: admin_site_path do |f| %>
+<%= form_for @editable_site, url: admin_site_path do |f| %>
   <div class="row">
     <div class="form-group col-sm-6">
       <%= f.label :title, "Site Title", class: "required" %>
@@ -11,7 +11,7 @@
 
     <div class="form-group col-sm-6">
       <%= f.label :homepage_id, "Home Page", class: "required" %>
-      <%= f.select :homepage_id, grouped_page_options_for_select(@site.homepage_id),
+      <%= f.select :homepage_id, grouped_page_options_for_select(@editable_site.homepage_id),
         {}, class: "form-control" %>
     </div>
   </div>
