@@ -1,4 +1,4 @@
-<% content_for :head, google_fonts_preview_link_tags %>
+<% content_for :head, google_fonts_admin_link_tags %>
 
 <div class="row">
   <div class="col-sm-6">
@@ -52,8 +52,8 @@
       </div>
     </div>
 
-    <div id="display-font-preview" class="font-preview">
-      <%= display_font_preview_text %>
+    <div id="display-font-sample" class="font-sample">
+      <%= display_font_sample_text %>
     </div>
 
     <div class="form-group">
@@ -66,71 +66,8 @@
       </div>
     </div>
 
-    <div id="body-font-preview" class="font-preview">
-      <%= body_font_preview_text %>
+    <div id="body-font-sample" class="font-sample">
+      <%= body_font_sample_text %>
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  $("div.color-field input").minicolors({ theme: "bootstrap" });
-
-  selectTheme();
-
-  var displayFont = $("select#design_display_font").val();
-  var bodyFont = $("select#design_body_font").val();
-  previewFonts(displayFont, bodyFont);
-
-  $("select#design_theme").change(function() {
-    selectTheme({ previewFonts: true });
-  });
-
-  $("button#apply-theme").click(function() {
-    var attributes = selectedThemeAttributes();
-
-    $("input#design_color_scheme_attributes_background").minicolors("value", attributes.backgroundColor);
-    $("input#design_color_scheme_attributes_foreground").minicolors("value", attributes.foregroundColor);
-    $("input#design_color_scheme_attributes_accent").minicolors("value", attributes.accentColor);
-    $("input#design_color_scheme_attributes_text").minicolors("value", attributes.textColor);
-    $("select#design_display_font").val(attributes.displayFont);
-    $("select#design_body_font").val(attributes.bodyFont);
-
-    $("div#display-font-preview").css("font-family", attributes.displayFont);
-    $("div#body-font-preview").css("font-family", attributes.bodyFont);
-  });
-
-  $("select#design_display_font").change(function() {
-    var font = $(this).val();
-    $("div#display-font-preview").css("font-family", font);
-  });
-
-  $("select#design_body_font").change(function() {
-    var font = $(this).val();
-    $("div#body-font-preview").css("font-family", font);
-  });
-
-  function selectTheme(options) {
-    var attributes = selectedThemeAttributes();
-
-    $("div#theme-background-color").css("background-color", attributes.backgroundColor);
-    $("div#theme-foreground-color").css("background-color", attributes.foregroundColor);
-    $("div#theme-accent-color").css("background-color", attributes.accentColor);
-    $("div#theme-text-color").css("background-color", attributes.textColor);
-    $("div#theme-display-font").text(attributes.displayFont);
-    $("div#theme-body-font").text(attributes.bodyFont);
-
-    if (options && options.previewFonts) {
-      previewFonts(attributes.displayFont, attributes.bodyFont);
-    }
-  }
-
-  function selectedThemeAttributes() {
-    var themeTitle = $("select#design_theme").val();
-    return $("option[value='" + themeTitle + "']").data();
-  }
-
-  function previewFonts(displayFont, bodyFont) {
-    $("div#display-font-preview").css("font-family", displayFont);
-    $("div#body-font-preview").css("font-family", bodyFont);
-  }
-</script>

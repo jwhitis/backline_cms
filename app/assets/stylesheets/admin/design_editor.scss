@@ -53,18 +53,18 @@ div#admin div.design-editor {
       }
     }
 
-    div.font-preview {
+    div.font-sample {
       padding: 10px;
       background-color: rgba(white, .1);
 
-      &#display-font-preview {
+      &#display-font-sample {
         margin-bottom: 10px;
         font-size: 32px;
         line-height: 36px;
       }
 
       @media (min-width: 768px) {
-        &#display-font-preview {
+        &#display-font-sample {
           margin-bottom: 18px;
         }
       }
