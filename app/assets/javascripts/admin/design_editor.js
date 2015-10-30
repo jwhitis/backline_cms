@@ -59,6 +59,7 @@ $(document).ready(function() {
 
 function viewThemeAttributes(options) {
   var attributes = selectedThemeAttributes();
+  if (!attributes) { return false };
 
   $("div#theme-background-color").css("background-color", attributes.backgroundColor);
   $("div#theme-foreground-color").css("background-color", attributes.foregroundColor);
