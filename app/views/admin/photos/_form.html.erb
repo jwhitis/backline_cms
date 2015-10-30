@@ -3,24 +3,35 @@
 <%= render "shared/validation_errors", resource: @photo %>
 
 <%= form_for [:admin, @photo], remote: true do |f| %>
-  <div class="form-group">
-    <%= f.label :image, class: "required" %>
-    <i class="instructions">Please choose an image in one of these formats: JPG, JPEG, GIF, PNG</i>
-    <%= file_btn(@photo.image_changed?, "Choose Image") %>
-    <%= f.file_field :image %>
-    <%= f.hidden_field :image_cache %>
-  </div>
-
-  <% if @photo.image.present? %>
-    <div class="preview">
-      <label><%= @photo.image.file.filename %></label>
-      <%= image_tag @photo.image.thumb.url %>
+  <div class="image-field">
+    <div class="form-group">
+      <%= f.label :image, class: "required" %>
+      <%= file_btn(@photo.image_changed?, "Choose Image") %>
+      <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
     </div>
-  <% end %>
 
-  <div class="form-group">
-    <%= f.label :caption %>
-    <%= f.text_area :caption, rows: 3, class: "form-control" %>
+    <div class="requirements clearfix">
+      <%= extension_tags(@photo, :image) %>
+      <%= dimensions_tag(720, 560) %>
+    </div>
+
+    <% if @photo.image.present? %>
+      <div class="file-box">
+        <%= file_box_text(@photo, :image) %>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <%= image_tag @photo.image.url %>
+      </div>
+
+      <div class="col-sm-6">
+        <%= f.label :caption %>
+        <%= f.text_area :caption, rows: 3, class: "form-control" %>
+      </div>
+    </div>
   </div>
 
   <div class="heading-box sidebar-right">

@@ -1,4 +1,5 @@
 div#admin div.image-field {
+  margin-bottom: 15px;
   padding: 15px;
   position: relative;
   background-color: rgba(white, .1);
@@ -62,5 +63,19 @@ div#admin div.image-field {
 
   div.file-box {
     margin: 10px 0;
+  }
+
+  div.row {
+    margin: 0 -7.5px;
+
+    div.col-sm-6 {
+      padding: 0 7.5px;
+    }
+
+    @media (max-width: 767px) {
+      div.col-sm-6:first-child {
+        margin-bottom: 15px;
+      }
+    }
   }
 }
