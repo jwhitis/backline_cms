@@ -3,7 +3,7 @@
 <%= render "shared/validation_errors", resource: @photo %>
 
 <%= form_for [:admin, @photo], remote: true do |f| %>
-  <div class="image-field">
+  <div class="image-panel">
     <div class="form-group">
       <%= f.label :image, class: "required" %>
       <%= file_btn(@photo.image_changed?, "Choose Image") %>
@@ -16,22 +16,22 @@
       <%= dimensions_tag(720, 560) %>
     </div>
 
+    <div class="row">
+      <div class="col-sm-6">
+        <%= image_tag @photo.image.display.url, class: "equal-height" %>
+      </div>
+
+      <div class="col-sm-6">
+        <%= f.label :caption, class: "neg-margin-top" %>
+        <%= f.text_area :caption, rows: 3, class: "form-control equal-height" %>
+      </div>
+    </div>
+
     <% if @photo.image.present? %>
       <div class="file-box">
         <%= file_box_text(@photo, :image) %>
       </div>
     <% end %>
-
-    <div class="row">
-      <div class="col-sm-6">
-        <%= image_tag @photo.image.url %>
-      </div>
-
-      <div class="col-sm-6">
-        <%= f.label :caption %>
-        <%= f.text_area :caption, rows: 3, class: "form-control" %>
-      </div>
-    </div>
   </div>
 
   <div class="heading-box sidebar-right">

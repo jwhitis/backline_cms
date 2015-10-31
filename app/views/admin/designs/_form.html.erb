@@ -32,7 +32,7 @@
       <div role="tabpanel" class="tab-pane" id="images">
         <div class="row">
           <div class="col-sm-6">
-            <div class="image-field">
+            <div class="image-panel">
               <div class="form-group">
                 <%= f.label :background_image, "Background" %>
                 <%= file_btn(@design.background_image_changed?, "Choose Background") %>
@@ -45,6 +45,8 @@
                 <%= dimensions_tag(1280, 800) %>
               </div>
 
+              <%= image_tag @design.background_image.background.url %>
+
               <% if @design.background_image.present? %>
                 <div class="file-box">
                   <%= file_box_text(@design, :background_image) %>
@@ -56,13 +58,11 @@
                   </div>
                 </div>
               <% end %>
-
-              <%= image_tag @design.background_image.url %>
             </div>
           </div>
 
           <div class="col-sm-6">
-            <div class="image-field">
+            <div class="image-panel">
               <div class="form-group">
                 <%= f.label :banner_image, "Banner" %>
                 <%= file_btn(@design.banner_image_changed?, "Choose Banner") %>
@@ -75,6 +75,8 @@
                 <%= dimensions_tag(1280, 300) %>
               </div>
 
+              <%= image_tag @design.banner_image.banner.url %>
+
               <% if @design.banner_image.present? %>
                 <div class="file-box">
                   <%= file_box_text(@design, :banner_image) %>
@@ -86,15 +88,13 @@
                   </div>
                 </div>
               <% end %>
-
-              <%= image_tag @design.banner_image.url %>
             </div>
           </div>
         </div>
 
         <div class="row">
           <div class="col-sm-6">
-            <div class="image-field">
+            <div class="image-panel">
               <div class="form-group">
                 <%= f.label :logo %>
                 <%= file_btn(@design.logo_changed?, "Choose Logo") %>
@@ -107,6 +107,8 @@
                 <%= dimensions_tag(70, 70) %>
               </div>
 
+              <%= image_tag @design.logo.logo.url %>
+
               <% if @design.logo.present? %>
                 <div class="file-box">
                   <%= file_box_text(@design, :logo) %>
@@ -118,13 +120,11 @@
                   </div>
                 </div>
               <% end %>
-
-              <%= image_tag @design.logo.url %>
             </div>
           </div>
 
           <div class="col-sm-6">
-            <div class="image-field">
+            <div class="image-panel">
               <div class="form-group">
                 <%= f.label :favicon %>
                 <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
@@ -139,6 +139,8 @@
                 <%= dimensions_tag(16, 16) %>
               </div>
 
+              <%= image_tag @design.favicon.display.url %>
+
               <% if @design.favicon.present? %>
                 <div class="file-box">
                   <%= file_box_text(@design, :favicon) %>
@@ -150,8 +152,6 @@
                   </div>
                 </div>
               <% end %>
-
-              <%= image_tag @design.favicon.url %>
             </div>
           </div>
         </div>

@@ -8,34 +8,38 @@
     <%= f.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :audio %>
-    <i class="instructions">Please choose an MP3 file if you wish to enable streaming for this song.</i>
-    <%= file_btn(@album_track.audio_changed?, "Choose MP3") %>
-    <%= f.file_field :audio %>
-    <%= f.hidden_field :audio_cache %>
-  </div>
-
-  <% if @album_track.audio.present? %>
-    <div class="file-box">
-      <div class="inline-controls" data-audio-url="<%= @album_track.audio.url %>">
-        <%= fa_stacked_icon "play", base: "circle-thin", class: "play" %>
-        <%= fa_stacked_icon "stop", base: "circle-thin", class: "stop" %>
-      </div>
-      <%= @album_track.audio.file.filename %>
-      <div class="checkbox">
-        <%= f.label :remove_audio do %>
-          <%= f.check_box :remove_audio %> Remove MP3?
-        <% end %>
-      </div>
+  <div class="file-panel">
+    <div class="form-group">
+      <%= f.label :audio %>
+      <i class="instructions">Please choose an MP3 file if you wish to enable streaming for this song.</i>
+      <%= file_btn(@album_track.audio_changed?, "Choose MP3") %>
+      <%= f.file_field :audio %>
+      <%= f.hidden_field :audio_cache %>
     </div>
-  <% end %>
 
-  <div class="checkbox status-box <%= "checked" if @album_track.downloadable? %> downloadable"
-    style="<%= "display: none;" if @album_track.audio.blank? %>">
-    <%= f.label :downloadable do %>
-      <%= f.check_box :downloadable %> Make this track available for download?
+    <% if @album_track.audio.present? %>
+      <div class="file-box">
+        <div class="inline-controls" data-audio-url="<%= @album_track.audio.url %>">
+          <%= fa_stacked_icon "play", base: "circle-thin", class: "play" %>
+          <%= fa_stacked_icon "stop", base: "circle-thin", class: "stop" %>
+        </div>
+
+        <%= file_box_text(@album_track, :audio) %>
+
+        <div class="checkbox">
+          <%= f.label :remove_audio do %>
+            <%= f.check_box :remove_audio %> Remove MP3?
+          <% end %>
+        </div>
+      </div>
     <% end %>
+
+    <div class="checkbox status-box <%= "checked" if @album_track.downloadable? %> downloadable"
+      style="<%= "display: none;" if @album_track.audio.blank? %>">
+      <%= f.label :downloadable do %>
+        <%= f.check_box :downloadable %> Make this track available for download?
+      <% end %>
+    </div>
   </div>
 
   <div class="corner-container">

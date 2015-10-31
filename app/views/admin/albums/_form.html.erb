@@ -43,44 +43,58 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :cover_art, "Cover Art", class: "required" %>
-    <i class="instructions">Please choose an image in one of these formats: JPG, JPEG, GIF, PNG</i>
-    <%= file_btn(@album.cover_art_changed?, "Choose Image") %>
-    <%= f.file_field :cover_art %>
-    <%= f.hidden_field :cover_art_cache %>
-  </div>
-
-  <% if @album.cover_art.present? %>
-    <div class="preview">
-      <label><%= @album.cover_art.file.filename %></label>
-      <%= image_tag @album.cover_art.square.url %>
+  <div class="file-panel">
+    <div class="form-group">
+      <%= f.label :archive, "Download" %>
+      <i class="instructions">Please choose a ZIP file if you wish to make this album available for download. There is a <%= number_to_human_size(Album::ARCHIVE_SIZE_LIMIT) %> size limit.</i>
+      <%= file_btn(@album.archive_changed?, "Choose ZIP") %>
+      <%= f.file_field :archive %>
+      <%= f.hidden_field :archive_cache %>
     </div>
-  <% end %>
 
-  <div class="form-group">
-    <%= f.label :notes %>
-    <%= f.text_area :notes, rows: 3, class: "form-control" %>
+    <% if @album.archive.present? %>
+      <div class="file-box">
+        <%= file_box_text(@album, :archive) %>
+
+        <div class="checkbox">
+          <%= f.label :remove_archive do %>
+            <%= f.check_box :remove_archive %> Remove ZIP?
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :archive, "Download" %>
-    <i class="instructions">Please choose a ZIP file if you wish to make this album available for download. There is a <%= number_to_human_size(Album::ARCHIVE_SIZE_LIMIT) %> size limit.</i>
-    <%= file_btn(@album.archive_changed?, "Choose ZIP") %>
-    <%= f.file_field :archive %>
-    <%= f.hidden_field :archive_cache %>
-  </div>
+  <div class="image-panel">
+    <div class="form-group">
+      <%= f.label :cover_art, "Cover Art", class: "required" %>
+      <%= file_btn(@album.cover_art_changed?, "Choose Image") %>
+      <%= f.file_field :cover_art %>
+      <%= f.hidden_field :cover_art_cache %>
+    </div>
 
-  <% if @album.archive.present? %>
-    <div class="file-box">
-      <%= @album.archive.file.filename %>
-      <div class="checkbox">
-        <%= f.label :remove_archive do %>
-          <%= f.check_box :remove_archive %> Remove ZIP?
-        <% end %>
+    <div class="requirements clearfix">
+      <%= extension_tags(@album, :cover_art) %>
+      <%= dimensions_tag(500, 500) %>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <%= image_tag @album.cover_art.square.url, class: "equal-height" %>
+      </div>
+
+      <div class="col-sm-6">
+        <%= f.label :notes, class: "neg-margin-top" %>
+        <%= f.text_area :notes, rows: 6, class: "form-control equal-height" %>
       </div>
     </div>
-  <% end %>
+
+    <% if @album.cover_art.present? %>
+      <div class="file-box">
+        <%= file_box_text(@album, :cover_art) %>
+      </div>
+    <% end %>
+  </div>
 
   <div class="heading-box sidebar-right">
     <h3>Status</h3>

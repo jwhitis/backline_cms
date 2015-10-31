@@ -64,6 +64,13 @@ div#admin form {
     }
   }
 
+  @media (min-width: 768px) {
+    div.image-panel label.neg-margin-top {
+      display: block;
+      margin-top: -25px;
+    }
+  }
+
   div.preview {
     margin-bottom: 15px;
 

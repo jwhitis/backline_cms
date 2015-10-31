@@ -2,7 +2,12 @@
   span.fa-stack {
     width: 20px;
     height: 20px;
+    display: block;
     transition: all .3s ease;
+
+    &.stop {
+      display: none;
+    }
 
     &:hover {
       color: $slate;
@@ -23,17 +28,13 @@
     }
   }
 
-  span.stop {
-    display: none;
-  }
-
   &.playing {
     span.play {
       display: none;
     }
 
     span.stop {
-      display: inline-block;
+      display: block;
     }
   }
 }

@@ -1,0 +1,99 @@
+div#admin {
+  %generic-panel {
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: rgba(white, .1);
+
+    div.form-group {
+      margin-bottom: 10px;
+    }
+
+    div.file-box, div.status-box {
+      margin: 10px 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  div.file-panel {
+    @extend %generic-panel;
+
+    div.form-group {
+      margin: 0;
+    }
+  }
+
+  div.image-panel {
+    @extend %generic-panel;
+    position: relative;
+
+    button.file-btn {
+      display: block;
+    }
+
+    div.requirements {
+      margin-bottom: 10px;
+
+      span {
+        padding: 0 4px;
+        display: inline-block;
+        border: 1px solid rgba(black, .15);
+        line-height: 18px;
+
+        &.dimensions {
+          background-color: $red;
+
+          small {
+            margin-left: 1px;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      div.extensions {
+        margin-bottom: 5px;
+
+        span {
+          background-color: $blue;
+
+          &:not(:last-child) {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      div.requirements {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+
+        div.extensions {
+          float: right;
+        }
+
+        span.dimensions {
+          float: right;
+          clear: right;
+        }
+      }
+    }
+
+    div.row {
+      margin: 0 -5px;
+
+      div.col-sm-6 {
+        padding: 0 5px;
+      }
+
+      @media (max-width: 767px) {
+        div.col-sm-6:first-child {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

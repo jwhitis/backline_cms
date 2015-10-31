@@ -43,13 +43,13 @@ $(document).ready(function() {
     $("div#body-font-sample").css("font-family", font);
   });
 
-  // Set image fields to equal height
+  // Set image panels to equal height
   if ($(window).width() >= 768) {
     $("div.design-editor ul.nav-tabs a[href='#images']").on("shown.bs.tab", function() {
       var rowCount = $("div#images div.row").length;
 
       for (var i = 1; i <= rowCount; i++) {
-        var selector = "div#images div.row:nth-child(" + i + ") div.image-field";
+        var selector = "div#images div.row:nth-child(" + i + ") div.image-panel";
         setEqualHeight(selector);
       }
     });
@@ -81,18 +81,4 @@ function selectedThemeAttributes() {
 function viewFontSamples(displayFont, bodyFont) {
   $("div#display-font-sample").css("font-family", displayFont);
   $("div#body-font-sample").css("font-family", bodyFont);
-}
-
-function setEqualHeight(selector) {
-  var heightMax = 0;
-
-  $(selector).each(function() {
-    var height = $(this).height();
-
-    if (height > heightMax) {
-      heightMax = height;
-    }
-  });
-
-  $(selector).height(heightMax);
 }
