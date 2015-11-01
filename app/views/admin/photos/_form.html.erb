@@ -18,12 +18,12 @@
 
     <div class="row">
       <div class="col-sm-6">
-        <%= image_tag @photo.image.display.url, class: "equal-height" %>
+        <%= f.label :caption %>
+        <%= f.text_area :caption, rows: 3, class: "form-control equal-height" %>
       </div>
 
       <div class="col-sm-6">
-        <%= f.label :caption, class: "neg-margin-top" %>
-        <%= f.text_area :caption, rows: 3, class: "form-control equal-height" %>
+        <%= image_tag @photo.image.display.url, class: "equal-height" %>
       </div>
     </div>
 

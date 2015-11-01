@@ -80,12 +80,12 @@
 
     <div class="row">
       <div class="col-sm-6">
-        <%= image_tag @album.cover_art.square.url, class: "equal-height" %>
+        <%= f.label :notes %>
+        <%= f.text_area :notes, rows: 6, class: "form-control equal-height" %>
       </div>
 
       <div class="col-sm-6">
-        <%= f.label :notes, class: "neg-margin-top" %>
-        <%= f.text_area :notes, rows: 6, class: "form-control equal-height" %>
+        <%= image_tag @album.cover_art.square.url, class: "equal-height" %>
       </div>
     </div>
 

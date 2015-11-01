@@ -64,25 +64,6 @@ div#admin form {
     }
   }
 
-  @media (min-width: 768px) {
-    div.image-panel label.neg-margin-top {
-      display: block;
-      margin-top: -25px;
-    }
-  }
-
-  div.preview {
-    margin-bottom: 15px;
-
-    label {
-      display: block;
-    }
-
-    img, iframe {
-      box-shadow: 0 2px 5px rgba(black, .5);
-    }
-  }
-
   div.checkbox {
     margin: 15px 0;
   }

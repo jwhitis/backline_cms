@@ -8,22 +8,24 @@
     <%= f.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :caption %>
-    <%= f.text_area :caption, rows: 3, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :embed, class: "required" %>
-    <i class="instructions">Please copy and paste the embed code from a video hosting site such as YouTube or Vimeo.</i>
-    <%= f.text_area :embed, rows: 3, class: "form-control" %>
-  </div>
-
-  <% if @video.embed.present? %>
-    <div class="preview">
-      <%== @video.embed %>
+  <div class="video-panel">
+    <div class="form-group">
+      <%= f.label :embed, class: "required" %>
+      <i class="instructions">Please copy and paste the embed code from a video hosting site such as YouTube or Vimeo.</i>
+      <%= f.text_area :embed, rows: 3, class: "form-control" %>
     </div>
-  <% end %>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <%= f.label :caption %>
+        <%= f.text_area :caption, rows: 3, class: "form-control equal-height" %>
+      </div>
+
+      <div class="col-sm-6">
+        <%== video_embed_preview(@video, class: "equal-height") %>
+      </div>
+    </div>
+  </div>
 
   <div class="heading-box sidebar-right">
     <h3>Status</h3>

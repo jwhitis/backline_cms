@@ -124,9 +124,10 @@ $(document).on("ajaxSuccess", function() {
     dateFormat: "DD, MM d, yy"
   });
 
-  // Set image panel elements to equal height
+  // Set panel elements to equal height
   if ($(window).width() >= 768) {
     setEqualHeight("div.image-panel .equal-height");
+    setEqualHeight("div.video-panel .equal-height");
   }
 
 });

@@ -17,6 +17,30 @@ div#admin {
     }
   }
 
+  %split-panel {
+    @extend %generic-panel;
+
+    div.row {
+      margin: 0 -5px;
+
+      div.col-sm-6 {
+        padding: 0 5px;
+
+        @media (min-width: 768px) {
+          img, iframe {
+            margin-top: 25px;
+          }
+        }
+      }
+
+      @media (max-width: 767px) {
+        div.col-sm-6:first-child {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
   div.file-panel {
     @extend %generic-panel;
 
@@ -26,7 +50,7 @@ div#admin {
   }
 
   div.image-panel {
-    @extend %generic-panel;
+    @extend %split-panel;
     position: relative;
 
     button.file-btn {
@@ -34,7 +58,7 @@ div#admin {
     }
 
     div.requirements {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
 
       span {
         padding: 0 4px;
@@ -81,19 +105,9 @@ div#admin {
         }
       }
     }
+  }
 
-    div.row {
-      margin: 0 -5px;
-
-      div.col-sm-6 {
-        padding: 0 5px;
-      }
-
-      @media (max-width: 767px) {
-        div.col-sm-6:first-child {
-          margin-bottom: 10px;
-        }
-      }
-    }
+  div.video-panel {
+    @extend %split-panel;
   }
 }
