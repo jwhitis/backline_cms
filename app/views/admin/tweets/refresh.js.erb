@@ -1,2 +1,2 @@
 $("div#twitter-feed").replaceWith("<%=j render 'layouts/twitter_feed', tweets: @tweets %>");
-$("div#admin-content").prepend("<%=j render 'flash_messages' %>");
+$("div#admin-content h2").after("<%=j render 'flash_messages' %>");
