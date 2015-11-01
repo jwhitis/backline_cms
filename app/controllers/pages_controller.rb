@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.published.find_by_slug!(params[:slug])
-    render layout: "standalone" if @page.standalone?
+    render layout: "blank" if @page.blank_layout?
   end
 
   private

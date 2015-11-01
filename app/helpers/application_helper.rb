@@ -24,7 +24,7 @@ module ApplicationHelper
   end
 
   def changing_layouts? page
-    current_page_is_admin? || page.standalone?
+    current_page_is_admin? || page.blank_layout?
   end
 
   def current_page_is_admin?
