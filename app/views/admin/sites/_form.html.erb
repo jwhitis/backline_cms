@@ -3,16 +3,24 @@
 <%= render "shared/validation_errors", resource: @editable_site %>
 
 <%= form_for @editable_site, url: admin_site_path do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "Site Title", class: "required" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
   <div class="row">
     <div class="form-group col-sm-6">
-      <%= f.label :title, "Site Title", class: "required" %>
-      <%= f.text_field :title, class: "form-control" %>
+      <%= f.label :home_page_id, "Home Page", class: "required" %>
+      <%= f.select :home_page_id, grouped_page_options_for_select(@editable_site.home_page_id),
+        {}, class: "form-control" %>
     </div>
 
     <div class="form-group col-sm-6">
-      <%= f.label :homepage_id, "Home Page", class: "required" %>
-      <%= f.select :homepage_id, grouped_page_options_for_select(@editable_site.homepage_id),
-        {}, class: "form-control" %>
+      <%= f.label :splash_page_id, "Splash Page" %>
+      <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
+        title: "This is the first page that users see when they come to your site. You can use any page with a blank layout as your splash page. If no page is selected, users are sent directly to the home page.") %>
+      <%= f.collection_select :splash_page_id, CustomPage.with_blank_layout, :id, :title,
+        { include_blank: "None" }, class: "form-control" %>
     </div>
   </div>
 

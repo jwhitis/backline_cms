@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :find_nav_links
   before_action :find_tweets
 
-  helper_method :feature_activated?, :admin_signed_in?
+  helper_method :feature_activated?, :home_page_path, :admin_signed_in?
 
   protected
 
@@ -52,6 +52,11 @@ class ApplicationController < ActionController::Base
 
   def user_subscribed?
     !!cookies.signed[:subscriber_id]
+  end
+
+  def home_page_path
+    home_page = @site.home_page
+    "/#{home_page.slug}"
   end
 
   def admin_signed_in?

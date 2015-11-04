@@ -92,7 +92,7 @@ $(document).on("ajaxSuccess", function() {
   // Fade out alerts after 3 seconds
   fadeOutAlerts();
 
-  // Show admin nav elements when leaving admin homepage
+  // Show admin nav elements when leaving admin home page
   $("div.admin-nav").removeClass("hidden");
 
   // Initialize sortable tables

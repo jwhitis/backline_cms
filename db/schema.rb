@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151101144423) do
+ActiveRecord::Schema.define(version: 20151101230952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,14 +131,16 @@ ActiveRecord::Schema.define(version: 20151101144423) do
   end
 
   create_table "sites", force: :cascade do |t|
-    t.integer  "homepage_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "title",       null: false
+    t.integer  "home_page_id",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "title",          null: false
     t.text     "description"
+    t.integer  "splash_page_id"
   end
 
-  add_index "sites", ["homepage_id"], name: "index_sites_on_homepage_id", using: :btree
+  add_index "sites", ["home_page_id"], name: "index_sites_on_home_page_id", using: :btree
+  add_index "sites", ["splash_page_id"], name: "index_sites_on_splash_page_id", using: :btree
 
   create_table "subscribers", force: :cascade do |t|
     t.string   "email",      null: false
@@ -198,6 +200,7 @@ ActiveRecord::Schema.define(version: 20151101144423) do
   add_foreign_key "feature_activations", "sites"
   add_foreign_key "nav_links", "pages"
   add_foreign_key "pages", "features"
-  add_foreign_key "sites", "pages", column: "homepage_id"
+  add_foreign_key "sites", "pages", column: "home_page_id"
+  add_foreign_key "sites", "pages", column: "splash_page_id"
   add_foreign_key "tracks", "albums"
 end

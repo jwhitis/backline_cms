@@ -32,8 +32,8 @@ module Orderable
       assign_positions!(remaining_ids, scope, resource_ids.size)
     end
 
-    def assign_positions! ids, scope = {}, starting_position = 0
-      ids.each_with_index do |id, index|
+    def assign_positions! resource_ids, scope = {}, starting_position = 0
+      resource_ids.each_with_index do |id, index|
         position = starting_position + index + 1
         where(scope).find(id).update_attribute(:position, position)
       end

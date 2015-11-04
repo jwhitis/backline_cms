@@ -32,7 +32,8 @@ en:
       page:
         scss: "Custom styles"
       site:
-        homepage_id: "Home page"
+        home_page_id: "Home page"
+        splash_page_id: "Splash page"
       subscriber:
         email: "Email address"
         zip: "Postal code"

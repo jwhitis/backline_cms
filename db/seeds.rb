@@ -17,8 +17,8 @@ DefaultPage::SLUGS.each do |slug|
   page.save!
 end
 
-homepage = Page.published.order(:created_at).first
-site = Site.create_with(title: "New Site", homepage_id: homepage.id).first_or_create!
+home_page = Page.published.order(:created_at).first
+site = Site.create_with(title: "New Site", home_page_id: home_page.id).first_or_create!
 site.features << Feature.unactivated
 design = site.design || site.create_design!
 design.create_color_scheme! unless design.color_scheme
