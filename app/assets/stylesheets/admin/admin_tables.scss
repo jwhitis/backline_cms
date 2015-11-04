@@ -63,6 +63,11 @@ div#admin table {
       color: white;
       transition: all .3s ease;
 
+      &.disabled {
+        color: #999999;
+        cursor: not-allowed;
+      }
+
       &:hover {
         color: $slate;
       }

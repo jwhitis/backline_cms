@@ -62,8 +62,23 @@ module AdminHelper
     icon ||= "trash-o"
     name ||= resource.class.to_s.titleize.downcase
 
-    link_to fa_icon(icon), polymorphic_path([:admin, *parents, resource]), method: :delete,
-      remote: true, data: { confirm: "Are you sure you want to delete this #{name}?" }
+    link_to fa_icon(icon), nil, delete_link_options(*parents, resource, name)
+  end
+
+  def delete_link_options *parents, resource, name
+    options = { method: :delete, remote: true }
+
+    if resource == @site.home_page || resource == @site.splash_page
+      options[:href] = "javascript:void(0)"
+      options[:data] = { toggle: "tooltip", placement: "left", container: "body" }
+      options[:title] = "This page cannot be deleted because it is set as the home page or the splash page."
+      options[:class] = "disabled"
+    else
+      options[:href] = polymorphic_path([:admin, *parents, resource])
+      options[:data] = { confirm: "Are you sure you want to delete this #{name}?" }
+    end
+
+    options
   end
 
   def ckeditor_script_tag
