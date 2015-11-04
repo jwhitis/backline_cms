@@ -1,73 +1,37 @@
-<% content_for :head, google_fonts_admin_link_tags %>
+<%= f.fields_for :color_scheme do |c| %>
+  <div class="form-group">
+    <%= c.label :background, "Background Color", class: "required" %>
 
-<div class="row">
-  <div class="col-sm-6">
-    <%= f.fields_for :color_scheme do |c| %>
-      <div class="form-group">
-        <%= c.label :background, "Background Color", class: "required" %>
-
-        <div class="color-field clearfix">
-          <%= c.text_field :background, class: "form-control" %>
-          <div id="theme-background-color" class="form-control theme-color"></div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <%= c.label :foreground, "Foreground Color", class: "required" %>
-
-        <div class="color-field clearfix">
-          <%= c.text_field :foreground, class: "form-control" %>
-          <div id="theme-foreground-color" class="form-control theme-color"></div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <%= c.label :accent, "Accent Color", class: "required" %>
-
-        <div class="color-field clearfix">
-          <%= c.text_field :accent, class: "form-control" %>
-          <div id="theme-accent-color" class="form-control theme-color"></div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <%= c.label :text, "Text Color", class: "required" %>
-
-        <div class="color-field clearfix">
-          <%= c.text_field :text, class: "form-control" %>
-          <div id="theme-text-color" class="form-control theme-color"></div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="col-sm-6">
-    <div class="form-group">
-      <%= f.label :display_font, "Display Font", class: "required" %>
-
-      <div class="font-field clearfix">
-        <%= f.collection_select :display_font, GoogleFonts::DISPLAY_FONTS, :to_s, :to_s, {},
-          class: "form-control" %>
-        <div id="theme-display-font" class="form-control theme-font"></div>
-      </div>
-    </div>
-
-    <div id="display-font-sample" class="font-sample">
-      <%= display_font_sample_text %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :body_font, "Body Font", class: "required" %>
-
-      <div class="font-field clearfix">
-        <%= f.collection_select :body_font, GoogleFonts::BODY_FONTS, :to_s, :to_s, {},
-          class: "form-control" %>
-        <div id="theme-body-font" class="form-control theme-font"></div>
-      </div>
-    </div>
-
-    <div id="body-font-sample" class="font-sample">
-      <%= body_font_sample_text %>
+    <div class="color-field clearfix">
+      <%= c.text_field :background, class: "form-control" %>
+      <div id="theme-background-color" class="form-control theme-color"></div>
     </div>
   </div>
-</div>
+
+  <div class="form-group">
+    <%= c.label :foreground, "Foreground Color", class: "required" %>
+
+    <div class="color-field clearfix">
+      <%= c.text_field :foreground, class: "form-control" %>
+      <div id="theme-foreground-color" class="form-control theme-color"></div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= c.label :accent, "Accent Color", class: "required" %>
+
+    <div class="color-field clearfix">
+      <%= c.text_field :accent, class: "form-control" %>
+      <div id="theme-accent-color" class="form-control theme-color"></div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= c.label :text, "Text Color", class: "required" %>
+
+    <div class="color-field clearfix">
+      <%= c.text_field :text, class: "form-control" %>
+      <div id="theme-text-color" class="form-control theme-color"></div>
+    </div>
+  </div>
+<% end %>

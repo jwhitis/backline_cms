@@ -1,3 +1,5 @@
+<% content_for :head, google_fonts_admin_link_tags %>
+
 <h2>Design</h2>
 
 <%= render "shared/validation_errors", resource: @design %>
@@ -26,7 +28,41 @@
           </div>
         </div>
 
-        <%= render "admin/color_schemes/form_fields", f: f %>
+        <div class="row">
+          <div class="col-sm-6">
+            <%= render "admin/color_schemes/form_fields", f: f %>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :display_font, "Display Font", class: "required" %>
+
+              <div class="font-field clearfix">
+                <%= f.collection_select :display_font, GoogleFonts::DISPLAY_FONTS, :to_s, :to_s, {},
+                  class: "form-control" %>
+                <div id="theme-display-font" class="form-control theme-font"></div>
+              </div>
+            </div>
+
+            <div id="display-font-sample" class="font-sample">
+              <%= display_font_sample_text %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :body_font, "Body Font", class: "required" %>
+
+              <div class="font-field clearfix">
+                <%= f.collection_select :body_font, GoogleFonts::BODY_FONTS, :to_s, :to_s, {},
+                  class: "form-control" %>
+                <div id="theme-body-font" class="form-control theme-font"></div>
+              </div>
+            </div>
+
+            <div id="body-font-sample" class="font-sample">
+              <%= body_font_sample_text %>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div role="tabpanel" class="tab-pane" id="images">
