@@ -104,13 +104,21 @@ module AdminHelper
     end
   end
 
-  def grouped_page_options_for_select selected_page_id = nil
-    grouped_pages = {
-      "Custom Pages" => CustomPage.published.map { |page| [page.title, page.id] },
-      "Default Pages" => DefaultPage.accessible.map { |page| [page.title, page.id] }
-    }
+  def grouped_page_options_for_select selected_page_id, page_scope = {}
+    scope = { published: true }.merge(page_scope)
+
+    custom_pages = CustomPage.where(scope)
+    default_pages = DefaultPage.with_activated_feature.where(scope)
+
+    grouped_pages = {}
+    grouped_pages["Custom Pages"] = page_option_value_pairs(custom_pages) if custom_pages.any?
+    grouped_pages["Default Pages"] = page_option_value_pairs(default_pages) if default_pages.any?
 
     grouped_options_for_select(grouped_pages, selected_page_id)
+  end
+
+  def page_option_value_pairs pages
+    pages.map { |page| [page.title, page.id] }
   end
 
   def info_box text

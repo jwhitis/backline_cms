@@ -23,8 +23,4 @@ class Page < ActiveRecord::Base
       where("pages.feature_id IS NULL OR feature_activations.site_id = ?", Backline.site.id)
   end
 
-  def self.accessible
-    published.with_activated_feature
-  end
-
 end

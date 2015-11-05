@@ -36,8 +36,7 @@ class NavLink < ActiveRecord::Base
     joins("LEFT OUTER JOIN pages ON pages.id = nav_links.page_id").
       joins("LEFT OUTER JOIN features ON features.id = pages.feature_id").
       joins("LEFT OUTER JOIN feature_activations ON feature_activations.feature_id = features.id").
-      where("nav_links.page_id IS NULL OR (pages.published = true AND (pages.feature_id IS NULL OR feature_activations.site_id = ?))",
-      Backline.site.id)
+      where("nav_links.page_id IS NULL OR (pages.published = true AND (pages.feature_id IS NULL OR feature_activations.site_id = ?))", Backline.site.id)
   end
 
 end

@@ -26,8 +26,4 @@ class CustomPage < Page
     end
   end
 
-  def self.with_blank_layout
-    where(blank_layout: true)
-  end
-
 end
