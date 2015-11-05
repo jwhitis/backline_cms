@@ -5,6 +5,7 @@ class Site < ActiveRecord::Base
 
   validates_presence_of :title, :home_page_id
   validate :referenced_pages_must_be_published
+  validate :home_page_must_not_have_blank_layout
   validate :splash_page_must_have_blank_layout
 
   def referenced_pages_must_be_published
@@ -17,10 +18,16 @@ class Site < ActiveRecord::Base
     end
   end
 
-  def splash_page_must_have_blank_layout
-    return unless page_id = self.splash_page_id
+  def home_page_must_not_have_blank_layout
+    if Page.find(self.home_page_id).blank_layout?
+      self.errors.add(:home_page_id, "must not have a blank layout")
+    end
+  end
 
-    unless Page.find(page_id).blank_layout?
+  def splash_page_must_have_blank_layout
+    return unless self.splash_page_id
+
+    unless Page.find(self.splash_page_id).blank_layout?
       self.errors.add(:splash_page_id, "must have a blank layout")
     end
   end
@@ -39,8 +46,8 @@ class Site < ActiveRecord::Base
   end
 
   def reload options = nil
-    @home_page     = nil
-    @splash_page   = nil
+    @home_page = nil
+    remove_instance_variable(:@splash_page) if defined?(@splash_page)
     @feature_names = nil
     super
   end

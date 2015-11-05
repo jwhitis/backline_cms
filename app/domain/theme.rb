@@ -17,7 +17,7 @@ class Theme
 
     def reload
       @defaults = nil
-      @hashes   = nil
+      @hashes = nil
     end
 
     private
