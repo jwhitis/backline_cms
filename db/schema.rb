@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151101230952) do
+ActiveRecord::Schema.define(version: 20151105122211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 20151101230952) do
     t.string   "theme",            null: false
     t.string   "display_font",     null: false
     t.string   "body_font",        null: false
+    t.text     "scss"
+    t.text     "css"
   end
 
   add_index "designs", ["site_id"], name: "index_designs_on_site_id", using: :btree
