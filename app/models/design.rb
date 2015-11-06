@@ -1,4 +1,6 @@
 class Design < ActiveRecord::Base
+  include Styleable
+
   mount_uploader :background_image, ImageUploader
   mount_uploader :banner_image, ImageUploader
   mount_uploader :logo, ImageUploader

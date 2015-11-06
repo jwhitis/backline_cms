@@ -1,14 +1,8 @@
 class CustomPage < Page
-  validate :scss_compiles_to_css
+  include Styleable
 
   after_initialize :set_published
   before_validation :format_slug
-
-  def scss_compiles_to_css
-    self.css = Sass.compile(scoped_scss) if self.scss_changed?
-  rescue Sass::SyntaxError => exception
-    self.errors[:base] << exception.message
-  end
 
   def scoped_scss
     "div#page-container { #{self.scss} }"
