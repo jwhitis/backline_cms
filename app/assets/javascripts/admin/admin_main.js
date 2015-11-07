@@ -5,12 +5,14 @@ $(document).on("ready page:load", function() {
   // Fade out alerts after 3 seconds
   fadeOutAlerts();
 
-  // Set active admin nav link for custom pages
+  // Set active admin nav link for non-AJAX pages
   if (path.match(/^\/admin\/custom_pages/)) {
     setActiveAdminNavLink("/admin/pages");
+  } else if (path == "/admin/design/edit") {
+    setActiveAdminNavLink(path);
   }
 
-  // Clicking link in admin nav changes active nav link
+  // Clicking admin nav link changes active nav link
   $("div.admin-nav a").click(function() {
     var container = $(this).parents("div.admin-nav");
 
