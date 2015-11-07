@@ -8,7 +8,7 @@
 
 <%= render "shared/validation_errors", resource: @page %>
 
-<%= form_for [:admin, @page], as: :page, remote: true, html: { class: "page-form" } do |f| %>
+<%= form_for [:admin, @page], as: :page, remote: true do |f| %>
   <%= render "form_fields", f: f %>
 
   <div class="corner-container">
@@ -20,78 +20,17 @@
 
 <script type="text/javascript">
   // Initialize CKEditor
-  CKEDITOR.replace("page_html", {
+  var htmlEditor = CKEDITOR.replace("page_html", {
     customConfig: "/ckeditor/config.js",
     contentsCss: ["<%= asset_path('application.css') %>", "/ckeditor/contents.css"]
   });
 
-  // Initialize Ace Editor
-  var lightTheme = "ace/theme/github";
-  var darkTheme = "ace/theme/chaos";
-  var selectedTheme = $("input#editor_theme").val() || lightTheme;
-
-  var editorOptions = {
-    theme: selectedTheme,
-    showInvisibles: true,
-    showPrintMargin: false
-  }
-
-  var sessionOptions = {
-    tabSize: 2,
-    wrap: true
-  }
-
-  var scssEditor = ace.edit("scss-editor");
-  scssEditor.setOptions(editorOptions);
-  scssEditor.getSession().setMode("ace/mode/scss");
-  scssEditor.getSession().setOptions(sessionOptions);
-  scssEditor.setValue("<%==j @page.scss %>", 1);
-
-  var javascriptEditor = ace.edit("javascript-editor");
-  javascriptEditor.setOptions(editorOptions);
-  javascriptEditor.getSession().setMode("ace/mode/javascript");
-  javascriptEditor.getSession().setOptions(sessionOptions);
-  javascriptEditor.setValue("<%==j @page.javascript %>", 1);
-
-  // Insert values from editors into form on submit
-  $("form.page-form").submit(function() {
-    var scss = scssEditor.getValue();
-    $("textarea#page_scss").val(scss);
-
-    var javascript = javascriptEditor.getValue();
-    $("textarea#page_javascript").val(javascript);
-  });
-
-  // Clicking theme icon toggles editor theme
-  $("a.theme-toggle").click(function() {
-    $(this).find("i.fa").toggleClass("hidden");
-    var theme = scssEditor.getTheme() == lightTheme ? darkTheme : lightTheme;
-    scssEditor.setTheme(theme);
-    javascriptEditor.setTheme(theme);
-    $("input#editor_theme").val(theme);
-  });
-
-  // Clicking full-screen icon toggles full-screen mode
-  $("a.full-screen-toggle").click(function() {
-    $(this).parents("div.tab-pane").toggleClass("full-screen");
-  });
-
-  // Clicking snippet title inserts snippet contents into editor
-  $("div.page-editor li.snippet").click(function() {
-    var tabPaneId = $(this).parents("div.tab-pane").attr("id");
+  // Clicking HTML snippet inserts contents into HTML editor
+  $("div#contents li.snippet").click(function() {
     var snippetContents = $(this).data("contents");
-
-    switch (tabPaneId) {
-      case "contents":
-        var htmlEditor = CKEDITOR.instances["page_html"];
-        htmlEditor.insertHtml(snippetContents);
-        break;
-      case "styles":
-        scssEditor.insert(snippetContents);
-        break;
-      case "scripts":
-        javascriptEditor.insert(snippetContents);
-        break;
-    }
+    htmlEditor.insertHtml(snippetContents);
   });
+
+  initializeAceEditor("scss-editor", "<%==j @page.scss %>", "scss", "page_scss");
+  initializeAceEditor("javascript-editor", "<%==j @page.javascript %>", "javascript", "page_javascript");
 </script>

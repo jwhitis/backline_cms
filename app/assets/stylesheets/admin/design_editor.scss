@@ -1,5 +1,7 @@
-div#admin div.design-editor {
-  margin-top: 15px;
+div#admin div.design-fields {
+  &.editor-container {
+    margin-top: 15px;
+  }
 
   div#theme {
     div.theme-field {

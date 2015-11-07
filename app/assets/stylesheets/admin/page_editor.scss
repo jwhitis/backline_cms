@@ -1,14 +1,13 @@
-div#admin div.page-editor {
-  margin-top: 5px;
+div#admin div.editor-container {
+  margin: 5px 0 15px 0;
 
   div.tab-pane {
-    padding-top: 10px;
     position: relative;
 
     div.editor-controls {
       margin-left: 15px;
       position: relative;
-      top: -3px;
+      top: -8px;
       float: right;
 
       a {
@@ -28,14 +27,6 @@ div#admin div.page-editor {
       }
     }
 
-    i.instructions {
-      margin-top: 0;
-    }
-
-    textarea#page_scss, textarea#page_javascript {
-      display: none;
-    }
-
     div.editor {
       height: 600px;
       position: relative;
@@ -44,7 +35,7 @@ div#admin div.page-editor {
     }
 
     &.full-screen {
-      padding: 10px 15px 15px 15px;
+      padding: 15px;
       position: fixed;
       top: $nav-height;
       bottom: 0;

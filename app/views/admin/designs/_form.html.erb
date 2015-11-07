@@ -1,17 +1,24 @@
-<% content_for :head, google_fonts_admin_link_tags %>
+<% content_for :head do %>
+  <%= google_fonts_admin_link_tags %>
+  <%= code_font_link_tag %>
+  <%= ace_editor_script_tag %>
+<% end %>
 
 <h2>Design</h2>
 
 <%= render "shared/validation_errors", resource: @design %>
 
 <%= form_for @design, url: admin_design_path do |f| %>
-  <div class="form-group design-editor">
+  <div class="editor-container design-fields">
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active">
         <%= link_to "Theme", "#theme", role: "tab", data: { toggle: "tab" } %>
       </li>
       <li role="presentation">
         <%= link_to "Images", "#images", role: "tab", data: { toggle: "tab" } %>
+      </li>
+      <li role="presentation">
+        <%= link_to "Styles", "#styles", role: "tab", data: { toggle: "tab" } %>
       </li>
     </ul>
 
@@ -192,6 +199,17 @@
           </div>
         </div>
       </div>
+
+      <div role="tabpanel" class="tab-pane" id="styles">
+        <%= render "editor_controls" %>
+
+        <%= f.label :scss, "Styles", class: "sr-only" %>
+        <i class="instructions">This field accepts CSS and SCSS. These styles will be applied to the entire site.</i>
+        <%= f.text_area :scss, class: "hidden" %>
+        <div id="scss-editor" class="editor"></div>
+
+        <%= render "snippets", grouped_snippets: @style_snippets %>
+      </div>
     </div>
   </div>
 
@@ -200,3 +218,7 @@
     <%= link_to "Cancel", admin_root_path, class: "btn-white" %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  initializeAceEditor("scss-editor", "<%==j @design.scss %>", "scss", "design_scss");
+</script>

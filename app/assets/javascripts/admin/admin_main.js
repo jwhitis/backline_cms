@@ -22,18 +22,17 @@ $(document).on("ready page:load", function() {
     setActiveAdminNavLink(href);
   });
 
-  // Click the previously selected page editor tab
-  var selectedTab = $("input#selected_tab").val();
-  $("div.page-editor ul.nav-tabs a[href='" + selectedTab + "']").click();
+  // Restore the previously selected editor tab
+  restoreSelectedEditorTab();
 
-  // Clicking page editor tab inserts tab ID into form
-  $("div.page-editor ul.nav-tabs a").click(function() {
+  // Clicking editor tab inserts tab ID into form
+  $("div#content").on("click", "div.editor-container ul.nav-tabs a", function() {
     var selectedTab = $(this).attr("href");
     $("input#selected_tab").val(selectedTab);
   });
 
-  // Clicking heading in snippets list expands collapsed snippet titles
-  $("div.page-editor div.snippets h3").click(function() {
+  // Clicking heading in snippets list expands collapsed snippets
+  $("div#content").on("click", "div.editor-container div.snippets h3", function() {
     if ($(window).width() < 1200) {
       $(this).find("i.fa").toggleClass("hidden");
       $(this).next("ul").stop().slideToggle();
@@ -116,6 +115,9 @@ $(document).on("ajaxSuccess", function() {
   // Initialize Fancybox for image previews
   $("a.image-preview").fancybox(fancyboxOptions);
 
+  // Restore the previously selected editor tab
+  restoreSelectedEditorTab();
+
   // Initialize checkbox switches
   initializeSwitchery();
 
@@ -149,6 +151,11 @@ function setActiveAdminNavLink(href) {
 
   $("div#admin-sidebar a").removeClass("active");
   $("div#admin-sidebar").find(selector).addClass("active");
+}
+
+function restoreSelectedEditorTab() {
+  var selectedTab = $("input#selected_tab").val();
+  $("div.editor-container ul.nav-tabs a[href='" + selectedTab + "']").click();
 }
 
 function initializeSwitchery() {

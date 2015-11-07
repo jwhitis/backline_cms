@@ -3,4 +3,5 @@
 //= require switchery
 //= require jquery.minicolors
 //= require ./admin_main
+//= require ./admin_editors
 //= require ./design_fields

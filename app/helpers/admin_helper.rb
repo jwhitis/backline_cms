@@ -108,6 +108,13 @@ module AdminHelper
     end
   end
 
+  def snippet_target snippet
+    case snippet.extension
+    when "css", "scss" then "scss-editor"
+    when "js"          then "javascript-editor"
+    end
+  end
+
   def grouped_page_options_for_select selected_page_id, page_scope = {}
     scope = { published: true }.merge(page_scope)
 

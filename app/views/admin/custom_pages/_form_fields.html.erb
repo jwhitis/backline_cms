@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<div class="form-group page-editor">
+<div class="editor-container">
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
       <%= link_to "Contents", "#contents", role: "tab", data: { toggle: "tab" } %>
@@ -38,8 +38,8 @@
       <%= render "editor_controls" %>
 
       <%= f.label :scss, "Styles", class: "sr-only" %>
-      <i class="instructions">This field accepts CSS and SCSS. These styles will only affect elements inside the page container.</i>
-      <%= f.text_area :scss %>
+      <i class="instructions">This field accepts CSS and SCSS. These styles will only be applied to the contents of this page.</i>
+      <%= f.text_area :scss, class: "hidden" %>
       <div id="scss-editor" class="editor"></div>
 
       <%= render "snippets", grouped_snippets: @style_snippets %>
@@ -50,7 +50,7 @@
 
       <%= f.label :javascript, "Scripts", class: "sr-only" %>
       <i class="instructions">This field accepts JavaScript and jQuery. These scripts will run once the page has finished loading.</i>
-      <%= f.text_area :javascript %>
+      <%= f.text_area :javascript, class: "hidden" %>
       <div id="javascript-editor" class="editor"></div>
 
       <%= render "snippets", grouped_snippets: @script_snippets %>
