@@ -3,18 +3,18 @@
 @import "jquery.minicolors";
 @import "variables";
 @import "admin_boxes";
+@import "admin_editors";
 @import "admin_forms";
 @import "admin_nav";
 @import "admin_panels";
+@import "admin_sidebars";
+@import "admin_snippets";
+@import "admin_switches";
 @import "admin_tables";
 @import "admin_tabs";
 @import "ckeditor";
-@import "design_editor";
-@import "page_editor";
+@import "design_fields";
 @import "page_preview";
-@import "sidebars";
-@import "snippets";
-@import "switches";
 @import "validation_errors";
 
 div#admin {
