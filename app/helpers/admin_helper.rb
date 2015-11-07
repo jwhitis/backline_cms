@@ -81,12 +81,16 @@ module AdminHelper
     options
   end
 
+  def code_font_link_tag
+    stylesheet_link_tag("https://fonts.googleapis.com/css?family=Inconsolata", media: "all")
+  end
+
   def ckeditor_script_tag
-    content_tag(:script, nil, src: "//cdn.ckeditor.com/4.5.1/full/ckeditor.js")
+    javascript_include_tag("//cdn.ckeditor.com/4.5.1/full/ckeditor.js")
   end
 
   def ace_editor_script_tag
-    content_tag(:script, nil, src: "//cdn.jsdelivr.net/ace/1.2.0/min/ace.js")
+    javascript_include_tag("//cdn.jsdelivr.net/ace/1.2.0/min/ace.js")
   end
 
   def form_title resource, name = nil
