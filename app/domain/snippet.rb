@@ -1,11 +1,11 @@
 class Snippet
   EXTENSIONS = %w(txt html css scss js)
 
-  attr_reader :title, :contents, :extension
+  attr_reader :title, :content, :extension
 
-  def initialize title, contents, extension
+  def initialize title, content, extension
     @title     = title
-    @contents  = contents
+    @content   = content
     @extension = extension
   end
 
@@ -27,7 +27,7 @@ class Snippet
     end
 
     file_paths(extension).map do |path|
-      Snippet.new(title_for(path), contents_for(path), extension)
+      Snippet.new(title_for(path), content_for(path), extension)
     end
   end
 
@@ -45,7 +45,7 @@ class Snippet
     File.basename(file_path, ".*").titleize
   end
 
-  def self.contents_for file_path
+  def self.content_for file_path
     File.read(file_path)
   end
 

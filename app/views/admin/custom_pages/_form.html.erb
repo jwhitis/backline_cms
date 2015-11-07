@@ -25,10 +25,10 @@
     contentsCss: ["<%= asset_path('application.css') %>", "/ckeditor/contents.css"]
   });
 
-  // Clicking HTML snippet inserts contents into HTML editor
+  // Clicking HTML snippet inserts content into HTML editor
   $("div#contents li.snippet").click(function() {
-    var snippetContents = $(this).data("contents");
-    htmlEditor.insertHtml(snippetContents);
+    var snippetContent = $(this).data("content");
+    htmlEditor.insertHtml(snippetContent);
   });
 
   initializeAceEditor("scss-editor", "<%==j @page.scss %>", "scss", "page_scss");

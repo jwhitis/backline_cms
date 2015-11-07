@@ -14,7 +14,7 @@
         <ul>
           <% snippets.each do |snippet| %>
             <li class="snippet" data-target="<%= snippet_target(snippet) %>"
-              data-contents="<%= snippet.contents %>">
+              data-content="<%= snippet.content %>">
               <%= snippet.title %>
             </li>
           <% end %>

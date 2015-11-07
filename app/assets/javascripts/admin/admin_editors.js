@@ -54,13 +54,13 @@ function initializeAceEditor(editorId, initialValue, editorMode, textareaId) {
     $("input#editor_theme").val(theme);
   });
 
-  // Clicking snippet inserts contents into editor
+  // Clicking snippet inserts content into editor
   $("div.editor-container li.snippet").click(function() {
     var snippetTarget = $(this).data("target");
 
     if (snippetTarget == editorId) {
-      var snippetContents = $(this).data("contents");
-      editor.insert(snippetContents);
+      var snippetContent = $(this).data("content");
+      editor.insert(snippetContent);
     }
   });
 }
