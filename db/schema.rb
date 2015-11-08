@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105122211) do
+ActiveRecord::Schema.define(version: 20151108132725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,12 +133,13 @@ ActiveRecord::Schema.define(version: 20151105122211) do
   end
 
   create_table "sites", force: :cascade do |t|
-    t.integer  "home_page_id",   null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.string   "title",          null: false
+    t.integer  "home_page_id",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "title",              null: false
     t.text     "description"
     t.integer  "splash_page_id"
+    t.text     "subscriber_message"
   end
 
   add_index "sites", ["home_page_id"], name: "index_sites_on_home_page_id", using: :btree
