@@ -13,7 +13,7 @@
       <th class="hidden-xs">Added</th>
       <th class="hidden-xs">Name</th>
       <th>Email Address</th>
-      <th class="hidden-xs">Free Content?</th>
+      <th class="hidden-xs">Exclusive Content?</th>
       <th class="edit"></th>
     </tr>
   </thead>
@@ -23,7 +23,7 @@
         <td class="hidden-xs"><%= subscriber.created_at.to_s(:numeric) %></td>
         <td class="hidden-xs"><%= subscriber.full_name %></td>
         <td><%= subscriber.email %></td>
-        <td class="hidden-xs"><%= subscriber.can_access_free_content? ? "Yes" : "No" %></td>
+        <td class="hidden-xs"><%= subscriber.exclusive_content_in_words %></td>
         <td class="edit">
           <%= edit_link(subscriber) %>
           <%= delete_link(subscriber, name: "user") %>

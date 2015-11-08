@@ -8,8 +8,12 @@ class Subscriber < ActiveRecord::Base
   validates_presence_of *PROFILE_ATTRIBUTES, if: :validate_profile
   validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
 
-  def can_access_free_content?
+  def exclusive_content?
     PROFILE_ATTRIBUTES.all? { |attribute| self.send(attribute) }
+  end
+
+  def exclusive_content_in_words
+    exclusive_content? ? "Yes" : "No"
   end
 
   def full_name
@@ -22,7 +26,7 @@ class Subscriber < ActiveRecord::Base
 
   def self.to_csv
     CSV.generate do |csv|
-      csv << ["Added", "Name", "Email Address", "Country", "Postal Code", "Free Content?"]
+      csv << ["Added", "Name", "Email Address", "Country", "Postal Code", "Exclusive Content?"]
 
       all.each do |subscriber|
         row = []
@@ -31,7 +35,7 @@ class Subscriber < ActiveRecord::Base
         row << subscriber.email
         row << ISO3166::Country[subscriber.country].try(:name)
         row << subscriber.zip
-        row << subscriber.can_access_free_content? ? "Yes" : "No"
+        row << subscriber.exclusive_content_in_words
         csv << row
       end
     end

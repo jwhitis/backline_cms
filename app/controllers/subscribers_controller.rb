@@ -12,7 +12,7 @@ class SubscribersController < ApplicationController
 
     if !@subscriber.changed? || @subscriber.save
       store_subscriber_id!
-      flash[:notice] = "<strong>THANK YOU</strong><br />You now have access to free content."
+      flash[:notice] = "<strong>THANK YOU</strong><br />You now have access to exclusive content."
       redirect_to after_subscription_path
     else
       flash.now[:alert] = "<strong>SORRY</strong><br />Please fill in all of the required fields."
