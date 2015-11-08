@@ -1,8 +1,8 @@
-var flashModal = $("div#flash-modal");
+var $flashModal = $("div#flash-modal");
 var newModal = "<%=j render 'layouts/flash_modal' %>";
 
-if (flashModal.length) {
-  flashModal.replaceWith(newModal);
+if ($flashModal.length) {
+  $flashModal.replaceWith(newModal);
 } else {
   $("body").append(newModal);
 }
