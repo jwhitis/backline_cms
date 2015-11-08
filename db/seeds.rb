@@ -11,14 +11,15 @@ Feature::NAMES.each do |name|
 end
 
 DefaultPage::SLUGS.each do |slug|
-  page = DefaultPage.create_with(title: slug.titleize).find_or_create_by!(slug: slug)
+  feature = Feature.find_by_name!(slug)
+  page = DefaultPage.create_with(title: slug.titleize, feature: feature).
+                     find_or_create_by!(slug: slug)
   page.create_nav_link!(text: page.title) unless page.nav_link
-  page.feature ||= Feature.find_by_name!(slug)
-  page.save!
 end
 
 home_page = Page.published.order(:created_at).first
 site = Site.create_with(title: "New Site", home_page_id: home_page.id).first_or_create!
 site.features << Feature.unactivated
+
 design = site.design || site.create_design!
 design.create_color_scheme! unless design.color_scheme

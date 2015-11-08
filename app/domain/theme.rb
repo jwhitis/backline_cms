@@ -4,7 +4,8 @@ class Theme
     def defaults
       @defaults ||= begin
         theme = hashes.first
-        theme.last.symbolize_keys.merge(title: theme.first)
+        attributes = theme.last.symbolize_keys
+        attributes.merge(title: theme.first)
       end
     end
 
