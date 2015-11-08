@@ -32,7 +32,7 @@ class Admin::SitesController < Admin::AdminController
 
   def site_params
     params.require(:site).permit(:home_page_id, :title, :description, { feature_ids: [] },
-      :splash_page_id)
+      :splash_page_id, :subscriber_message)
   end
 
 end

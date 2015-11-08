@@ -3,11 +3,6 @@
 <%= render "shared/validation_errors", resource: @editable_site %>
 
 <%= form_for @editable_site, url: admin_site_path do |f| %>
-  <div class="form-group">
-    <%= f.label :title, "Site Title", class: "required" %>
-    <%= f.text_field :title, class: "form-control" %>
-  </div>
-
   <div class="row">
     <div class="form-group col-sm-6">
       <%= f.label :home_page_id, "Home Page", class: "required" %>
@@ -27,10 +22,22 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :title, "Site Title", class: "required" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :description, "Site Description" %>
     <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
       title: "This text may be used by search engines like Google to display a preview snippet of your website.") %>
     <%= f.text_area :description, rows: 3, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :subscriber_message, "Subscriber Message" %>
+    <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
+      title: "This message is displayed to users when they are asked to provide information about themselves in order to access exclusive content.") %>
+    <%= f.text_area :subscriber_message, rows: 3, class: "form-control" %>
   </div>
 
   <div class="features heading-box">
