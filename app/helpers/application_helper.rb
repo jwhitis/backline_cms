@@ -6,13 +6,24 @@ module ApplicationHelper
     tag(:meta, name: "description", content: @site.description)
   end
 
-  def nav_link_to nav_link
-    link_to nav_link.text, nav_link.url, nav_link_options(nav_link)
+  def link_to_home_page text = nil, options = {}, &block
+    options = text if block_given?
+    options = page_link_options(@site.home_page).merge(options)
+
+    if block_given?
+      link_to home_page_path, options, &block
+    else
+      link_to text, home_page_path, options
+    end
   end
 
-  def nav_link_options nav_link
+  def nav_link_to nav_link
+    link_to nav_link.text, nav_link.url, page_link_options(nav_link.page)
+  end
+
+  def page_link_options page
     options = {}
-    return options unless page = nav_link.page
+    return options if page.nil?
 
     if changing_layouts?(page)
       options[:data] = { no_turbolink: true } if page.has_styles_or_scripts?
@@ -23,12 +34,10 @@ module ApplicationHelper
     options
   end
 
-  def changing_layouts? page
-    current_page_is_admin? || page.blank_layout?
-  end
+  def changing_layouts? target_page
+    return true unless current_page = @page
 
-  def current_page_is_admin?
-    @current_page_is_admin ||= request.path.starts_with?("/admin")
+    current_page.blank_layout? != target_page.blank_layout?
   end
 
   def pagination_links collection, options = {}
