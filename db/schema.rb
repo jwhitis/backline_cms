@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108132725) do
+ActiveRecord::Schema.define(version: 20151110125130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,19 +117,19 @@ ActiveRecord::Schema.define(version: 20151108132725) do
   end
 
   create_table "shows", force: :cascade do |t|
-    t.string   "venue_name", limit: 255
+    t.string   "venue_name",  limit: 255
     t.date     "date"
-    t.string   "cover",      limit: 255
-    t.string   "address",    limit: 255
-    t.string   "city",       limit: 255
-    t.string   "state",      limit: 255
-    t.string   "zip",        limit: 255
+    t.string   "address",     limit: 255
+    t.string   "city",        limit: 255
+    t.string   "state",       limit: 255
+    t.string   "zip",         limit: 255
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "time",       limit: 255
+    t.string   "time",        limit: 255
     t.boolean  "published"
     t.string   "venue_url"
+    t.string   "tickets_url"
   end
 
   create_table "sites", force: :cascade do |t|
