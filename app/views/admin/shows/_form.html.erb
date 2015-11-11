@@ -24,14 +24,16 @@
         class: "form-control datepicker" %>
     </div>
 
-    <div class="form-group col-sm-4">
+    <div class="form-group col-sm-2">
       <%= f.label :time %>
       <%= f.text_field :time, class: "form-control" %>
     </div>
 
-    <div class="form-group col-sm-4">
-      <%= f.label :cover %>
-      <%= f.text_field :cover, class: "form-control" %>
+    <div class="form-group col-sm-6">
+      <%= f.label :tickets_url, "Tickets URL" %>
+      <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
+        title: "The URL must begin with http:// or https://.") %>
+      <%= f.text_field :tickets_url, class: "form-control" %>
     </div>
   </div>
 

@@ -49,7 +49,7 @@ class Admin::ShowsController < Admin::AdminController
   end
 
   def show_params
-    params.require(:show).permit(:venue_name, :venue_url, :date, :time, :cover,
+    params.require(:show).permit(:venue_name, :venue_url, :date, :time, :tickets_url,
       :address, :city, :state, :zip, :notes, :published)
   end
 

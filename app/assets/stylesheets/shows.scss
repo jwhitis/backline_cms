@@ -8,36 +8,77 @@ div#shows {
       &.show {
         line-height: 40px;
         font-weight: lighter;
+      }
 
-        div.notes {
-          font-size: 12px;
-          color: #DDDDDD;
+      div[class*="col"] {
+        padding: 5px;
+
+        &:first-child {
+          padding-left: 10px;
+        }
+
+        &:last-child {
+          padding-right: 10px;
         }
       }
 
       a {
-        text-decoration: underline;
         color: white;
         transition: all .3s ease;
 
         &:hover {
           color: $slate;
         }
-      }
 
-      div[class*="col"] {
-        padding: 5px;
-      }
+        &.venue-link {
+          text-decoration: underline;
+        }
 
-      div.location {
-        padding-left: 23px;
-        position: relative;
+        &.google-maps-link {
+          display: none;
+        }
 
-        a.google-maps-link {
-          position: absolute;
-          top: 3px;
-          left: 0;
+        &.tickets-link {
+          float: right;
+          display: none;
+
+          i.fa-ticket {
+            position: relative;
+            top: 9px;
+          }
+
+          span.btn-main {
+            padding: 0 15px;
+            display: inline-block;
+            font-size: 14px;
+          }
+        }
+
+        i.fa {
           font-size: 22px;
+        }
+      }
+
+      div.notes {
+        font-size: 12px;
+        color: #DDDDDD;
+      }
+
+      @media (min-width: 375px) {
+        div.location {
+          padding-left: 23px;
+          position: relative;
+
+          a.google-maps-link {
+            position: absolute;
+            top: 7px;
+            left: 0;
+            display: inline-block;
+          }
+
+          a.tickets-link {
+            display: inline-block;
+          }
         }
       }
     }
