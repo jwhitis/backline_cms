@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110125130) do
+ActiveRecord::Schema.define(version: 20151112122725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,24 +110,24 @@ ActiveRecord::Schema.define(version: 20151110125130) do
 
   create_table "photos", force: :cascade do |t|
     t.text     "caption"
-    t.string   "image"
-    t.boolean  "published"
+    t.string   "image",      null: false
+    t.boolean  "published",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "shows", force: :cascade do |t|
-    t.string   "venue_name",  limit: 255
-    t.date     "date"
+    t.string   "venue_name",  limit: 255, null: false
+    t.date     "date",                    null: false
     t.string   "address",     limit: 255
-    t.string   "city",        limit: 255
-    t.string   "state",       limit: 255
+    t.string   "city",        limit: 255, null: false
+    t.string   "state",       limit: 255, null: false
     t.string   "zip",         limit: 255
     t.text     "notes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "time",        limit: 255
-    t.boolean  "published"
+    t.boolean  "published",               null: false
     t.string   "venue_url"
     t.string   "tickets_url"
   end
@@ -171,15 +171,15 @@ ActiveRecord::Schema.define(version: 20151110125130) do
   add_index "tracks", ["album_id"], name: "index_tracks_on_album_id", using: :btree
 
   create_table "tweets", force: :cascade do |t|
-    t.string   "handle",      limit: 255
-    t.string   "image_url",   limit: 255
-    t.text     "text"
-    t.datetime "posted_at"
-    t.integer  "twitter_id",  limit: 8
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.string   "profile_url"
+    t.string   "handle",      limit: 255, null: false
+    t.string   "image_url",   limit: 255, null: false
+    t.text     "text",                    null: false
+    t.datetime "posted_at",               null: false
+    t.integer  "twitter_id",  limit: 8,   null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "name",                    null: false
+    t.string   "profile_url",             null: false
   end
 
   create_table "twitter_handles", force: :cascade do |t|
@@ -189,12 +189,12 @@ ActiveRecord::Schema.define(version: 20151110125130) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string   "title",      limit: 255
+    t.string   "title",      limit: 255, null: false
     t.text     "caption"
-    t.text     "embed"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "published"
+    t.text     "embed",                  null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.boolean  "published",              null: false
   end
 
   add_foreign_key "color_schemes", "designs"
