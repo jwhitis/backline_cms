@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112131437) do
+ActiveRecord::Schema.define(version: 20151112133556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,24 +110,24 @@ ActiveRecord::Schema.define(version: 20151112131437) do
 
   create_table "photos", force: :cascade do |t|
     t.text     "caption"
-    t.string   "image",      null: false
-    t.boolean  "published",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "image",                      null: false
+    t.boolean  "published",  default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "shows", force: :cascade do |t|
-    t.string   "venue_name",  null: false
-    t.date     "date",        null: false
+    t.string   "venue_name",                  null: false
+    t.date     "date",                        null: false
     t.string   "address"
-    t.string   "city",        null: false
-    t.string   "state",       null: false
+    t.string   "city",                        null: false
+    t.string   "state",                       null: false
     t.string   "zip"
     t.text     "notes"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "time"
-    t.boolean  "published",   null: false
+    t.boolean  "published",   default: false, null: false
     t.string   "venue_url"
     t.string   "tickets_url"
   end
@@ -189,12 +189,12 @@ ActiveRecord::Schema.define(version: 20151112131437) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string   "title",      null: false
+    t.string   "title",                      null: false
     t.text     "caption"
-    t.text     "embed",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean  "published",  null: false
+    t.text     "embed",                      null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "published",  default: false, null: false
   end
 
   add_foreign_key "color_schemes", "designs"
