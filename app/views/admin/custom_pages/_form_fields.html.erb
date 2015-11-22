@@ -6,8 +6,7 @@
 
   <div class="form-group col-sm-6">
     <%= f.label :slug %>
-    <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
-      title: "This is the part of the page URL that makes it unique. If you don't enter anything, the page title will be used instead.") %>
+    <%= info_tooltip("This is the part of the page URL that makes it unique. If you don't enter anything, the page title will be used instead.") %>
     <%= f.text_field :slug, class: "form-control" %>
   </div>
 </div>

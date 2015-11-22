@@ -30,15 +30,13 @@
   <div class="row">
     <div class="form-group col-sm-6">
       <%= f.label :bandcamp_url, "Bandcamp URL" %>
-      <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
-        title: "The URL must begin with http:// or https://.") %>
+      <%= info_tooltip("The URL must begin with http:// or https://.") %>
       <%= f.text_field :bandcamp_url, class: "form-control" %>
     </div>
 
     <div class="form-group col-sm-6">
       <%= f.label :itunes_url, "iTunes URL" %>
-      <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
-        title: "The URL must begin with http:// or https://.") %>
+      <%= info_tooltip("The URL must begin with http:// or https://.") %>
       <%= f.text_field :itunes_url, class: "form-control" %>
     </div>
   </div>

@@ -98,6 +98,16 @@ module AdminHelper
     resource.new_record? ? "Add #{name}" : "Edit #{name}"
   end
 
+  def info_box text
+    content_tag(:div, class: "info-box") do
+      fa_icon("exclamation-circle") + text.html_safe
+    end
+  end
+
+  def info_tooltip text, placement = "right"
+    fa_icon("info-circle", data: { toggle: "tooltip", placement: placement }, title: text)
+  end
+
   def snippets_heading extension
     case extension.to_s
     when "txt"  then "Text"
@@ -130,12 +140,6 @@ module AdminHelper
 
   def page_option_value_pairs pages
     pages.map { |page| [page.title, page.id] }
-  end
-
-  def info_box text
-    content_tag(:div, class: "info-box") do
-      fa_icon("exclamation-circle") + text.html_safe
-    end
   end
 
   def file_btn checked = false, text = "Choose File"

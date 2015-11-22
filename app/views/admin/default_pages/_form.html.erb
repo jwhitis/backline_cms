@@ -13,8 +13,7 @@
 
     <div class="form-group col-sm-6">
       <%= f.label :slug %>
-      <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
-        title: "This is the part of the page URL that makes it unique. It can't be edited for default pages.") %>
+      <%= info_tooltip("This is the part of the page URL that makes it unique. It can't be edited for default pages.") %>
       <%= f.text_field :slug, disabled: true, class: "form-control" %>
     </div>
   </div>

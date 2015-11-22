@@ -11,8 +11,7 @@
 
     <div class="form-group col-sm-6">
       <%= f.label :venue_url, "Venue URL" %>
-      <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
-        title: "The URL must begin with http:// or https://.") %>
+      <%= info_tooltip("The URL must begin with http:// or https://.") %>
       <%= f.text_field :venue_url, class: "form-control" %>
     </div>
   </div>
@@ -31,8 +30,7 @@
 
     <div class="form-group col-sm-6">
       <%= f.label :tickets_url, "Tickets URL" %>
-      <%= fa_icon("info-circle", data: { toggle: "tooltip", placement: "right" },
-        title: "The URL must begin with http:// or https://.") %>
+      <%= info_tooltip("The URL must begin with http:// or https://.") %>
       <%= f.text_field :tickets_url, class: "form-control" %>
     </div>
   </div>
