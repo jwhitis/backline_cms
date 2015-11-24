@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112133556) do
+ActiveRecord::Schema.define(version: 20151122222209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -171,15 +171,15 @@ ActiveRecord::Schema.define(version: 20151112133556) do
   add_index "tracks", ["album_id"], name: "index_tracks_on_album_id", using: :btree
 
   create_table "tweets", force: :cascade do |t|
-    t.string   "handle",      null: false
-    t.string   "image_url",   null: false
-    t.text     "text",        null: false
-    t.datetime "posted_at",   null: false
-    t.string   "twitter_id",  null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "name",        null: false
-    t.string   "profile_url", null: false
+    t.string   "handle",                null: false
+    t.string   "image_url",             null: false
+    t.text     "text",                  null: false
+    t.datetime "posted_at",             null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "name",                  null: false
+    t.string   "profile_url",           null: false
+    t.integer  "twitter_id",  limit: 8, null: false
   end
 
   create_table "twitter_handles", force: :cascade do |t|
