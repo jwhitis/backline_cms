@@ -10,6 +10,7 @@ class Admin::TwitterHandlesController < Admin::AdminController
     @twitter_handle = TwitterHandle.new(twitter_handle_params)
 
     if @twitter_handle.save
+      TwitterHandle.reload
       @twitter_handle = TwitterHandle.new
       flash.now[:notice] = "Username successfully added."
     end
@@ -21,6 +22,7 @@ class Admin::TwitterHandlesController < Admin::AdminController
   def destroy
     @twitter_handle = TwitterHandle.find(params[:id])
     @twitter_handle.destroy
+    TwitterHandle.reload
     @twitter_handle = TwitterHandle.new
     @twitter_handles = TwitterHandle.display_order
     flash.now[:notice] = "Username successfully removed."

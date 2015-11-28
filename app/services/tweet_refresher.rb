@@ -2,38 +2,42 @@ class TweetRefresher
   class << self
 
     def refresh
-      tweets.each do |tweet|
-        Tweet.create(tweet_params(tweet)) unless Tweet.exists?(twitter_id: tweet.id)
-      end
+      tweets = new_tweets(twitter_client)
+      return if tweets.empty?
+
+      params = tweets.map { |tweet| tweet_params(tweet) }
+      Tweet.create!(params)
       Tweet.outdated.destroy_all
+      Tweet.reload
     end
 
     private
 
-    def tweets
-      tweets = []
-      twitter_handles.each do |handle|
-        tweets.concat twitter_client.user_timeline(handle)
-      end
-      tweets.sort_by(&:created_at).reverse.take(Tweet::MAX_SAVED)
-    end
-
-    def twitter_handles
-      TwitterHandle.pluck(:handle)
-    end
-
     def twitter_client
       Twitter::REST::Client.new do |config|
-        config.consumer_key = ENV['TWITTER_KEY']
-        config.consumer_secret = ENV['TWITTER_SECRET']
-        config.access_token = ENV['ACCESS_TOKEN']
+        config.consumer_key        = ENV['TWITTER_KEY']
+        config.consumer_secret     = ENV['TWITTER_SECRET']
+        config.access_token        = ENV['ACCESS_TOKEN']
         config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
       end
     end
 
+    def new_tweets client
+      options = { count: Tweet::COUNT, exclude_replies: true }
+      options[:since_id] = Tweet.newest_twitter_id if Tweet.newest_twitter_id
+      tweets = []
+
+      TwitterHandle.handles.each do |handle|
+        user_tweets = client.user_timeline(handle, options)
+        tweets.concat(user_tweets)
+      end
+
+      tweets.sort_by(&:created_at).reverse.take(Tweet::COUNT)
+    end
+
     def tweet_params tweet
-      params = ActionController::Parameters.new(raw_params(tweet))
-      params.permit!
+      params = raw_params(tweet)
+      ActionController::Parameters.new(params).permit!
     end
 
     def raw_params tweet
