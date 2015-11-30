@@ -12,6 +12,12 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.published.find_by_slug!(params[:slug])
+
+    if @page.exclusive_content?
+      verify_user_subscribed!
+      return if performed?
+    end
+
     render_page
   end
 

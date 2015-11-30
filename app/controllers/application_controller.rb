@@ -46,7 +46,13 @@ class ApplicationController < ActionController::Base
 
   def verify_user_subscribed!
     if feature_activated?(:mailing_list) && !user_subscribed?
-      redirect_to new_subscriber_path(request_path: request.fullpath)
+      if request.xhr?
+        @subscriber = Subscriber.new
+        params[:request_path] = request.fullpath
+        render "subscribers/new"
+      else
+        redirect_to new_subscriber_path(request_path: request.fullpath)
+      end
     end
   end
 

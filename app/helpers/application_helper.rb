@@ -35,9 +35,14 @@ module ApplicationHelper
   end
 
   def changing_layouts? target_page
-    return true unless current_page = @page
+    return true if current_page.nil?
 
     current_page.blank_layout? != target_page.blank_layout?
+  end
+
+  def current_page
+    return @current_page if defined?(@current_page)
+    @current_page = request.path.starts_with?("admin") ? nil : @page
   end
 
   def pagination_links collection, options = {}
