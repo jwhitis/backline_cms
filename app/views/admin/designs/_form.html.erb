@@ -9,7 +9,7 @@
 <%= render "shared/validation_errors", resource: @design %>
 
 <%= form_for @design, url: admin_design_path do |f| %>
-  <div class="editor-container design-fields">
+  <div class="editor-container">
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active">
         <%= link_to "Theme", "#theme", role: "tab", data: { toggle: "tab" } %>

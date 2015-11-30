@@ -17,6 +17,13 @@ div#admin {
       color: $blue;
       background: linear-gradient(to bottom, #F5F5F5, #CFD1CF);
     }
+
+    i.fa-info-circle {
+      position: relative;
+      top: 1px;
+      font-size: 18px;
+      color: #B6B6B6;
+    }
   }
 
   %generic-box {

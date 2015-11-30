@@ -93,7 +93,7 @@ class Admin::CustomPagesController < Admin::AdminController
 
   def page_params
     params.require(:page).permit(:title, :slug, :html, :published, :scss, :javascript,
-      :blank_layout)
+      :blank_layout, :exclusive_content)
   end
 
 end

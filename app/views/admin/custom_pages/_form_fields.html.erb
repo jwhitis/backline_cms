@@ -71,6 +71,13 @@
     </div>
 
     <div class="switch-container">
+      <%= f.label :exclusive_content do %>
+        <%= f.check_box :exclusive_content, class: "switch" %> Exclusive content?
+        <%= info_tooltip("Enabling this option will require users to provide information about themselves in order to access this page.", "left") %>
+      <% end %>
+    </div>
+
+    <div class="switch-container">
       <%= f.label :published do %>
         <%= f.check_box :published, class: "switch" %> Publish this page?
       <% end %>
