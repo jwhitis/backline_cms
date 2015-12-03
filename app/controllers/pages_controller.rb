@@ -24,7 +24,9 @@ class PagesController < ApplicationController
   private
 
   def render_page
-    options = @page.blank_layout? ? { layout: "blank" } : {}
+    options = {}
+    options[:layout] = "blank" if @page.blank_layout?
+
     render :show, options
   end
 

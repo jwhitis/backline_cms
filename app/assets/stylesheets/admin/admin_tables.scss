@@ -52,6 +52,10 @@ div#admin table {
       &.fa-ellipsis-h {
         color: $grey;
       }
+
+      &.fa-desktop {
+        font-size: 16px;
+      }
     }
 
     span.position, span.number {

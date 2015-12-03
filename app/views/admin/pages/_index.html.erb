@@ -25,6 +25,7 @@
         <td><%= page.title %></td>
         <td class="hidden-xs"><%= page.slug %></td>
         <td class="edit">
+          <%= view_page_link(page) %>
           <%= edit_link(page) %>
           <%= delete_link(page, name: "page") %>
         </td>

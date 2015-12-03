@@ -8,6 +8,10 @@ class Page < ActiveRecord::Base
     self.css.present? || self.javascript.present?
   end
 
+  def path
+    "/#{self.slug}"
+  end
+
   def self.display_order
     order(:type, created_at: :desc)
   end

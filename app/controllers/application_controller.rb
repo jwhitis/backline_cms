@@ -62,8 +62,7 @@ class ApplicationController < ActionController::Base
   end
 
   def home_page_path
-    home_page = @site.home_page
-    "/#{home_page.slug}"
+    @site.home_page.path
   end
 
   def admin_signed_in?

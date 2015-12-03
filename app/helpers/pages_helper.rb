@@ -13,6 +13,13 @@ module PagesHelper
     content_tag(:script, javascript.html_safe, id: "page-javascript")
   end
 
+  def view_page_link page
+    options = {}
+    options[:data] = { no_turbolink: true } if page.has_styles_or_scripts?
+
+    link_to fa_icon("desktop"), page.path, options
+  end
+
   def default_page_info_box page
     feature_name = page.feature.name.titleize
     settings_link = link_to "Settings", "javascript:void(0)", class: "settings"

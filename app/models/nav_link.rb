@@ -23,7 +23,7 @@ class NavLink < ActiveRecord::Base
 
   def url
     if self.page
-      "/#{self.page.slug}"
+      self.page.path
     elsif self.external_url.present?
       self.external_url
     end
