@@ -1,5 +1,6 @@
 class SubscribersController < ApplicationController
   before_action :verify_feature_activated!
+  before_action :find_page, only: :new
   before_action :find_or_initialize_subscriber, only: [:create, :newsletter]
 
   def new

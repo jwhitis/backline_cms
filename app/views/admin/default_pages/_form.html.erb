@@ -3,7 +3,7 @@
 <%= render "shared/validation_errors", resource: @page %>
 
 <%= form_for [:admin, @page], as: :page, remote: true do |f| %>
-  <%= info_box("You can hide this page by disabling the #{@page.feature.name} feature on the #{link_to "Settings", "javascript:void(0)", class: "settings"} page.") %>
+  <%= default_page_info_box(@page) %>
 
   <div class="row">
     <div class="form-group col-sm-6">

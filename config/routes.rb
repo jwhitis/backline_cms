@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get "album_tracks/:id/download", to: "album_tracks#download", as: :download_album_track
   resources :photos,      only: :index
   resources :videos,      only: :index
-  resources :subscribers, only: [:new, :create]
+  get "exclusive-content", to: "subscribers#new", as: :new_subscriber
+  resources :subscribers, only: :create
   post "newsletter_subscribers", to: "subscribers#newsletter"
 
   namespace :admin do

@@ -9,7 +9,7 @@ class Page < ActiveRecord::Base
   end
 
   def self.display_order
-    order(created_at: :desc)
+    order(:type, created_at: :desc)
   end
 
   def self.published

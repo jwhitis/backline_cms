@@ -13,4 +13,11 @@ module PagesHelper
     content_tag(:script, javascript.html_safe, id: "page-javascript")
   end
 
+  def default_page_info_box page
+    feature_name = page.feature.name.titleize
+    settings_link = link_to "Settings", "javascript:void(0)", class: "settings"
+
+    info_box("You can hide this page by disabling the #{feature_name} feature on the #{settings_link} page.")
+  end
+
 end

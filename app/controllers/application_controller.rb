@@ -47,6 +47,7 @@ class ApplicationController < ActionController::Base
   def verify_user_subscribed!
     if feature_activated?(:mailing_list) && !user_subscribed?
       if request.xhr?
+        @page = Page.find_by_slug!("exclusive-content")
         @subscriber = Subscriber.new
         params[:request_path] = request.fullpath
         render "subscribers/new"

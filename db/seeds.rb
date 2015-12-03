@@ -11,10 +11,8 @@ Feature::NAMES.each do |name|
 end
 
 DefaultPage::SLUGS.each do |slug|
-  feature = Feature.find_by_name!(slug)
-  page = DefaultPage.create_with(title: slug.titleize, feature: feature).
-                     find_or_create_by!(slug: slug)
-  page.create_nav_link!(text: page.title) unless page.nav_link
+  page = DefaultPageCreator.new(slug).first_or_create!
+  NavLinkCreator.new(page).first_or_create!
 end
 
 home_page = Page.published.order(:created_at).first
