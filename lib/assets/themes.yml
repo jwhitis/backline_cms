@@ -3,12 +3,12 @@ classic:
   foreground_color: "#860B1D"
   accent_color: "#10608E"
   text_color: "#FFFFFF"
-  display_font: "Oswald"
-  body_font: "Open Sans"
+  display_font: Oswald
+  body_font: Open Sans
 geocities:
   background_color: "#0000FF"
   foreground_color: "#00FF00"
   accent_color: "#FFFF00"
   text_color: "#000000"
-  display_font: "Montserrat"
-  body_font: "Lato"
+  display_font: Montserrat
+  body_font: Lato

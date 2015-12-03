@@ -6,6 +6,8 @@ class UrlValidator < ActiveModel::EachValidator
     end
   end
 
+  private
+
   def valid? value
     uri = URI.parse(value)
     uri.kind_of?(URI::HTTP)
