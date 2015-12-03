@@ -42,7 +42,11 @@ module ApplicationHelper
 
   def current_page
     return @current_page if defined?(@current_page)
-    @current_page = request.path.starts_with?("admin") ? nil : @page
+    @current_page = admin_page? ? nil : @page
+  end
+
+  def admin_page?
+    request.path.starts_with?("/admin")
   end
 
   def pagination_links collection, options = {}
