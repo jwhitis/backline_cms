@@ -45,7 +45,7 @@ $(document).ready(function() {
 
   // Set image panels to equal height
   if ($(window).width() >= 768) {
-    $("div.design-editor ul.nav-tabs a[href='#images']").on("shown.bs.tab", function() {
+    $("div.editor-container ul.nav-tabs a[href='#images']").on("shown.bs.tab", function() {
       var rowCount = $("div#images div.row").length;
 
       for (var i = 1; i <= rowCount; i++) {
