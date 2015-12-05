@@ -8,6 +8,8 @@ class Site < ActiveRecord::Base
   validate :home_page_must_not_have_blank_layout
   validate :splash_page_must_have_blank_layout
 
+  delegate :background_image_url, :banner_image_url, to: :design
+
   def referenced_pages_must_be_published
     [:home_page_id, :splash_page_id].each do |attribute|
       next unless page_id = self.send(attribute)

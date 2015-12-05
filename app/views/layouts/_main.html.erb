@@ -1,7 +1,7 @@
-<div id="main">
+<%= main_section do %>
   <div class="container">
     <div id="content">
       <%= content_for?(:content) ? content_for(:content) : yield %>
     </div>
   </div>
-</div>
+<% end %>

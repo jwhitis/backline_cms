@@ -61,7 +61,7 @@ $(document).on("ajaxSuccess", function(event, xhr, settings) {
 
   // Scroll past banner on page change (not including pagination)
   if (!url.match(/page=\d+/)) {
-    var bannerHeight = $("a#banner").height();
+    var bannerHeight = $("div#banner:visible").height();
     $("body").scrollTop(bannerHeight);
   }
 
@@ -92,26 +92,14 @@ function toggleElement(selector) {
 }
 
 function initializeMasonry() {
-  // Change main background to solid color so background image
-  // doesn't change size when Masonry is initialized
-  $("div#main").css("background", "#152A35");
-
   $("div#photo-gallery").imagesLoaded(function() {
-    var msnry = new Masonry("div#photo-gallery", {
+    var masonry = new Masonry("div#photo-gallery", {
       itemSelector: "a.photo",
       gutter: 15,
       isFitWidth: true
     });
 
-    msnry.on("layoutComplete", function() {
-      // Change main background back to background image
-      $("div#main").css({
-        background: "linear-gradient(to right, rgba(8, 50, 73, .5) 0%, rgba(8, 50, 73, .5) 100%), url(http://toddfarrell-production.s3.amazonaws.com/images/night_sky_bw.jpeg)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center bottom"
-      });
-
+    masonry.on("layoutComplete", function() {
       $("div#photo-gallery").animate({
         opacity: 1
       }, 1000);
@@ -126,7 +114,7 @@ function initializeFancybox() {
 }
 
 function setPageHeight() {
-  var elements = ["nav.navbar", "a#banner", "div#twitter-feed", "div#newsletter-signup", "footer"];
+  var elements = ["nav.navbar", "div#banner:visible", "div#twitter-feed", "div#newsletter-signup", "footer"];
   var difference = 0;
 
   for (var i = 0; i < elements.length; i++) {

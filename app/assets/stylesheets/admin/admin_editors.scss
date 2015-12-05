@@ -42,10 +42,7 @@ div#admin div.editor-container {
       left: 0;
       right: 0;
       z-index: 9999;
-      background-image: url(http://toddfarrell-production.s3.amazonaws.com/images/background1.jpg);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center bottom;
+      background-image: url(admin_background.png);
 
       div.editor {
         height: calc(100% - 30px);

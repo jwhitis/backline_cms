@@ -23,4 +23,12 @@ class Design < ActiveRecord::Base
     self.body_font    ||= Theme.defaults[:body_font]
   end
 
+  def background_image_url
+    self.background_image.background.url
+  end
+
+  def banner_image_url
+    self.banner_image.banner.url
+  end
+
 end

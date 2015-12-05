@@ -12,7 +12,7 @@ var fancyboxOptions = {
     },
     overlay: {
       css: {
-        background: "rgba(8, 18, 24, .9)"
+        background: "rgba(0, 0, 0, .9)"
       }
     }
   }
