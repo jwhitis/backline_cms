@@ -5,7 +5,9 @@
   <div id="wrapper">
     <%= render "layouts/nav" %>
 
-    <div id="banner" class="hidden-xs" style="background-image: url(<%= @site.banner_image_url %>);"></div>
+    <% if @site.banner_image_url %>
+      <div id="banner" class="hidden-xs"></div>
+    <% end %>
 
     <%= render "layouts/main" %>
 

@@ -18,10 +18,20 @@
 @import "validation_errors";
 
 div#admin {
+  font-family: $admin-body-font;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $admin-body-font;
+  }
+
   h2 {
     margin-top: 0;
     color: $light-grey;
     text-shadow: 0 1px 1px rgba(black, .35);
+  }
+
+  .page-title {
+    font-family: $admin-display-font;
   }
 
   i.instructions {

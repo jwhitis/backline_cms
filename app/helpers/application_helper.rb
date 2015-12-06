@@ -49,18 +49,6 @@ module ApplicationHelper
     request.path.starts_with?("/admin")
   end
 
-  def main_section &block
-    options = { id: "main" }
-
-    if admin_page?
-      options[:class] = "admin"
-    else
-      options[:style] = "background-image: url(#{@site.background_image_url});"
-    end
-
-    content_tag :div, options, &block
-  end
-
   def pagination_links collection, options = {}
     options = { remote: true }.merge(options)
 

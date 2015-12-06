@@ -1,7 +1,5 @@
-<% content_for :head do %>
-  <%= page_style_tag(@page) %>
-  <%= page_script_tag(@page) %>
-<% end %>
+<% content_for :head, page_script_tag(@page) %>
+<% content_for :page_style_tag, page_style_tag(@page) %>
 
 <div id="page-container" class="max-width-md">
   <%== @page.html %>
