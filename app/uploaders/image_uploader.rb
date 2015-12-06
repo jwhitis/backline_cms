@@ -52,7 +52,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :logo, if: :logo? do
     # The width is arbitrarily large so that the height always constrains the image.
-    process resize_to_fit: [9999, 70]
+    process resize_to_fit: [9999, 50]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

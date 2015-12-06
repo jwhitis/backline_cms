@@ -44,7 +44,7 @@ $(document).on("ajaxSuccess", function(event, xhr, settings) {
   var url = settings.url;
 
   // Collapse navbar on page change
-  $("div#my-navbar-collapse").collapse("hide");
+  $("div#main-navbar-collapse").collapse("hide");
   transformicons.revert(".tcon");
 
   // Links inside of page container open in a new window

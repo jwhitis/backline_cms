@@ -1,3 +1,6 @@
+$nav-border-width: 2px;
+$nav-border: $nav-border-width solid rgba(black, .25);
+
 nav.navbar {
   width: 100%;
   height: $nav-height;
@@ -6,34 +9,49 @@ nav.navbar {
   z-index: 8000; // Must be less than z-index of Fancybox
   margin: 0;
   border: none;
-  border-bottom: 2px solid rgba(black, .25);
+  border-bottom: $nav-border;
   border-radius: 0;
   background-color: $red;
 
+  %navbar-link {
+    padding: 15px;
+    text-transform: uppercase;
+    color: white;
+  }
+
   div.navbar-header {
+    height: $nav-height - $nav-border-width;
     margin: 0;
 
+    a.navbar-brand {
+      padding: 0;
+      margin-left: 0;
+
+      span {
+        @extend %navbar-link;
+        padding-left: 0;
+        display: inline-block;
+        font-size: 20px;
+      }
+    }
+
     button.tcon {
-      margin-top: 12px;
+      margin-top: 2px;
     }
   }
 
   div.navbar-collapse {
     max-height: none;
-    border: none;
+    border-top: none;
+    border-bottom: $nav-border;
     background-color: $red;
     box-shadow: none;
 
     ul.navbar-nav {
-      margin: 0 -15px;
-
       a {
-        padding: 25px 15px;
+        @extend %navbar-link;
         text-align: center;
-        font-size: 16px;
         font-weight: bold;
-        text-transform: uppercase;
-        color: white;
         transition: all .3s ease;
 
         &.active {
