@@ -31,4 +31,12 @@ class Design < ActiveRecord::Base
     self.banner_image.banner.url
   end
 
+  def logo_url
+    self.logo.logo.url
+  end
+
+  def favicon_url
+    self.favicon.display.url
+  end
+
 end

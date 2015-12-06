@@ -83,7 +83,7 @@
       </div>
 
       <div class="col-sm-6">
-        <%= image_tag @album.cover_art.square.url, class: "equal-height" %>
+        <%= image_tag @album.cover_art_url || default_image_url, class: "equal-height" %>
       </div>
     </div>
 

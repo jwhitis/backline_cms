@@ -7,10 +7,6 @@ class FaviconUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore.pluralize}/#{model.id}/#{mounted_as}"
   end
 
-  def default_url
-    ActionController::Base.helpers.asset_path("default_image.png")
-  end
-
   version :display do
     process resize_to_fill: [16, 16]
   end

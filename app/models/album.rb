@@ -23,6 +23,10 @@ class Album < ActiveRecord::Base
     self.archive.present?
   end
 
+  def cover_art_url
+    self.cover_art.square.url
+  end
+
   def self.display_order
     order(release_date: :desc)
   end

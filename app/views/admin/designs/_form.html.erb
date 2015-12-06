@@ -88,7 +88,7 @@
                 <%= dimensions_tag(1280, 800) %>
               </div>
 
-              <%= image_tag @design.background_image.background.url %>
+              <%= image_tag @design.background_image_url || default_image_url %>
 
               <% if @design.background_image.present? %>
                 <div class="file-box">
@@ -118,7 +118,7 @@
                 <%= dimensions_tag(1280, 300) %>
               </div>
 
-              <%= image_tag @design.banner_image.banner.url %>
+              <%= image_tag @design.banner_image_url || default_image_url %>
 
               <% if @design.banner_image.present? %>
                 <div class="file-box">
@@ -150,7 +150,7 @@
                 <%= dimensions_tag(70, 70) %>
               </div>
 
-              <%= image_tag @design.logo.logo.url %>
+              <%= image_tag @design.logo_url || default_image_url %>
 
               <% if @design.logo.present? %>
                 <div class="file-box">
@@ -181,7 +181,7 @@
                 <%= dimensions_tag(16, 16) %>
               </div>
 
-              <%= image_tag @design.favicon.display.url %>
+              <%= image_tag @design.favicon_url || default_image_url %>
 
               <% if @design.favicon.present? %>
                 <div class="file-box">

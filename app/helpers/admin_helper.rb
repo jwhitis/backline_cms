@@ -151,6 +151,10 @@ module AdminHelper
     end
   end
 
+  def default_image_url
+    asset_path("default_image.png")
+  end
+
   def file_box_text resource, attribute
     filename = resource.send(attribute).file.filename
     "Filename: #{filename}"

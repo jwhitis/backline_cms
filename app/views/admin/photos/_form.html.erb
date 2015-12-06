@@ -23,7 +23,7 @@
       </div>
 
       <div class="col-sm-6">
-        <%= image_tag @photo.image.display.url, class: "equal-height" %>
+        <%= image_tag @photo.image_url || default_image_url, class: "equal-height" %>
       </div>
     </div>
 
