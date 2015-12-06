@@ -1,4 +1,4 @@
-module GoogleFonts
+class GoogleFonts
   DISPLAY_FONTS = ["Oswald", "Montserrat", "Playfair Display", "Vollkorn"]
   BODY_FONTS = ["Open Sans", "Lato", "Merriweather", "Josefin Slab"]
 
