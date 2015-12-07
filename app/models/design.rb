@@ -39,4 +39,20 @@ class Design < ActiveRecord::Base
     self.favicon.display.url
   end
 
+  def background_color
+    self.color_scheme.background
+  end
+
+  def foreground_color
+    self.color_scheme.foreground
+  end
+
+  def accent_color
+    self.color_scheme.accent
+  end
+
+  def text_color
+    self.color_scheme.text
+  end
+
 end
