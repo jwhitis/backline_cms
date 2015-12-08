@@ -10,6 +10,7 @@ class SiteCSSCompiler
       banner_image_css,
       display_font_css,
       body_font_css,
+      background_color_css,
       @site.css
     ].reject(&:blank?).join("\n")
   end
@@ -34,6 +35,10 @@ class SiteCSSCompiler
 
   def body_font_css
     "body, h1, h2, h3, h4, h5, h6 { font-family: #{@site.body_font}; }"
+  end
+
+  def background_color_css
+    "div#wrapper { background-color: #{@site.background_color}; }"
   end
 
 end
