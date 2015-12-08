@@ -13,6 +13,10 @@ body.blank {
         color: white;
         background-color: darken($red, 5%);
       }
+
+      &:focus {
+        color: white;
+      }
     }
 
     div#main {
