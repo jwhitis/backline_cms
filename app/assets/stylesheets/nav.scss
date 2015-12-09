@@ -16,7 +16,6 @@ nav.navbar {
   %navbar-link {
     padding: 15px;
     text-transform: uppercase;
-    color: white;
   }
 
   div.navbar-header {
@@ -55,6 +54,7 @@ nav.navbar {
         transition: all .3s ease;
 
         &.active {
+          color: inherit;
           background-color: rgba(black, .25);
           cursor: default;
         }

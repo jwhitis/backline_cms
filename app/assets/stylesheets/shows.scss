@@ -23,7 +23,6 @@ div#shows {
       }
 
       a {
-        color: white;
         transition: all .3s ease;
 
         &:hover {
@@ -61,7 +60,6 @@ div#shows {
 
       div.notes {
         font-size: 12px;
-        color: #DDDDDD;
       }
 
       @media (min-width: 375px) {

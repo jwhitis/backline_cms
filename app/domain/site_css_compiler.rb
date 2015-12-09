@@ -11,6 +11,7 @@ class SiteCSSCompiler
       display_font_css,
       body_font_css,
       background_color_css,
+      text_color_css,
       @site.css
     ].reject(&:blank?).join("\n")
   end
@@ -38,7 +39,11 @@ class SiteCSSCompiler
   end
 
   def background_color_css
-    "div#wrapper { background-color: #{@site.background_color}; }"
+    ".background-color, div#wrapper { background-color: #{@site.background_color}; }"
+  end
+
+  def text_color_css
+    ".text-color, body, a, a:hover { color: #{@site.text_color}; }"
   end
 
 end

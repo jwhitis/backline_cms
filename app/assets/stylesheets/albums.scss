@@ -29,6 +29,7 @@ div#albums {
       display: none;
       line-height: 24px;
       font-weight: lighter;
+      color: white;
       background-color: rgba(black, .6);
     }
   }
@@ -46,7 +47,6 @@ div#albums {
     div.track-list {
       margin-bottom: 15px;
       font-weight: lighter;
-      color: $light-grey;
 
       div.inline-controls {
         width: 20px;
