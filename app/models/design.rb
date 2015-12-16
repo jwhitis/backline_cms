@@ -39,20 +39,12 @@ class Design < ActiveRecord::Base
     self.favicon.display.url
   end
 
-  def background_color
-    self.color_scheme.background
+  ColorScheme::COLOR_ATTRIBUTES.each do |attribute|
+    define_method("#{attribute}_color") { self.color_scheme.send(attribute) }
   end
 
-  def foreground_color
-    self.color_scheme.foreground
-  end
-
-  def accent_color
-    self.color_scheme.accent
-  end
-
-  def text_color
-    self.color_scheme.text
+  def self.color_methods
+    self.instance_methods.select { |method_name| method_name.to_s.ends_with?("color") }
   end
 
 end

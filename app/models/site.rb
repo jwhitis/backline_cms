@@ -9,8 +9,7 @@ class Site < ActiveRecord::Base
   validate :splash_page_must_have_blank_layout
 
   delegate :background_image_url, :banner_image_url, :logo_url, :favicon_url,
-           :background_color, :foreground_color, :accent_color, :text_color,
-           :display_font, :body_font, :css, to: :design
+           *Design.color_methods, :display_font, :body_font, :css, to: :design
 
   def referenced_pages_must_be_published
     [:home_page_id, :splash_page_id].each do |attribute|
