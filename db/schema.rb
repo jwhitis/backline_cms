@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128185200) do
+ActiveRecord::Schema.define(version: 20151209001317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,13 +31,17 @@ ActiveRecord::Schema.define(version: 20151128185200) do
   end
 
   create_table "color_schemes", force: :cascade do |t|
-    t.string   "background", null: false
-    t.string   "foreground", null: false
-    t.string   "accent",     null: false
-    t.string   "text",       null: false
     t.integer  "design_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "nav_background",    null: false
+    t.string   "nav_text",          null: false
+    t.string   "main_background",   null: false
+    t.string   "main_text",         null: false
+    t.string   "footer_background", null: false
+    t.string   "footer_text",       null: false
+    t.string   "button_background", null: false
+    t.string   "button_text",       null: false
   end
 
   add_index "color_schemes", ["design_id"], name: "index_color_schemes_on_design_id", using: :btree

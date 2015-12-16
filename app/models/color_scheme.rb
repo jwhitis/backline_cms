@@ -1,19 +1,24 @@
 class ColorScheme < ActiveRecord::Base
+  COLOR_ATTRIBUTES = [:nav_background, :nav_text, :main_background, :main_text,
+    :footer_background, :footer_text, :button_background, :button_text]
+
   belongs_to :design
 
   validates_presence_of :design_id
-  validates :background, presence: true, hex_code: true
-  validates :foreground, presence: true, hex_code: true
-  validates :accent, presence: true, hex_code: true
-  validates :text, presence: true, hex_code: true
+
+  COLOR_ATTRIBUTES.each do |attribute|
+    validates attribute, presence: true, hex_code: true
+  end
 
   after_initialize :set_defaults
 
   def set_defaults
-    self.background ||= Theme.defaults[:background_color]
-    self.foreground ||= Theme.defaults[:foreground_color]
-    self.accent     ||= Theme.defaults[:accent_color]
-    self.text       ||= Theme.defaults[:text_color]
+    COLOR_ATTRIBUTES.each do |attribute|
+      if self.send(attribute).nil?
+        value = Theme.defaults.fetch(attribute)
+        self.send("#{attribute}=", value)
+      end
+    end
   end
 
 end
