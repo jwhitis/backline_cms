@@ -18,9 +18,9 @@ class Design < ActiveRecord::Base
   after_initialize :set_defaults
 
   def set_defaults
-    self.theme        ||= Theme.defaults[:title]
-    self.display_font ||= Theme.defaults[:display_font]
-    self.body_font    ||= Theme.defaults[:body_font]
+    self.theme        ||= Theme.defaults.fetch(:title)
+    self.display_font ||= Theme.defaults.fetch(:display_font)
+    self.body_font    ||= Theme.defaults.fetch(:body_font)
   end
 
   def background_image_url
