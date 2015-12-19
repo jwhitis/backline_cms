@@ -18,9 +18,7 @@
     <% end %>
 
     <% if feature_activated?(:mailing_list) %>
-      <div id="newsletter-signup">
-        <%= render "subscribers/newsletter_form" %>
-      </div>
+      <%= render "layouts/newsletter_signup" %>
     <% end %>
 
     <%= render "layouts/footer" %>

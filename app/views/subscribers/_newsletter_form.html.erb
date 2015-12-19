@@ -1,4 +1,5 @@
-<%= form_for Subscriber.new, url: newsletter_subscribers_path, remote: true do |f| %>
+<%= form_for Subscriber.new, url: newsletter_subscribers_path, remote: true,
+  html: { class: "clearfix" } do |f| %>
   <%= f.label :email, "Join Our Mailing List", class: "display-font" %>
   <%= f.email_field :email, placeholder: "Email Address", class: "form-control" %>
   <%= f.submit "Join", class: "btn-main" %>
