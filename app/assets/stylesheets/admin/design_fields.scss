@@ -1,5 +1,11 @@
 div#admin {
   div#theme {
+    div.border-bottom {
+      margin-bottom: 10px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(white, .15);
+    }
+
     div.theme-field {
       select {
         width: calc(100% - 80px);
@@ -31,7 +37,7 @@ div#admin {
       div.theme-color {
         width: 34px;
         float: right;
-        border: none;
+        border-color: rgba(white, .15);
         box-shadow: none;
       }
     }
@@ -56,15 +62,9 @@ div#admin {
       background-color: rgba(white, .1);
 
       &#display-font-sample {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         font-size: 32px;
         line-height: 36px;
-      }
-
-      @media (min-width: 768px) {
-        &#display-font-sample {
-          margin-bottom: 18px;
-        }
       }
     }
   }

@@ -24,7 +24,7 @@
 
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="theme">
-        <div class="form-group">
+        <div class="form-group border-bottom">
           <%= f.label :theme, class: "sr-only" %>
           <i class="instructions">Choose a theme to start from, then customize your design.</i>
 
@@ -41,13 +41,15 @@
           </div>
 
           <div class="col-sm-6">
+            <%= content_for :button_color_fields %>
+
             <div class="form-group">
               <%= f.label :display_font, "Display Font", class: "required" %>
 
               <div class="font-field clearfix">
                 <%= f.collection_select :display_font, GoogleFonts::DISPLAY_FONTS, :to_s, :to_s, {},
                   class: "form-control" %>
-                <div id="theme-display-font" class="form-control theme-font"></div>
+                <div id="display-font" class="form-control theme-font"></div>
               </div>
             </div>
 
@@ -61,7 +63,7 @@
               <div class="font-field clearfix">
                 <%= f.collection_select :body_font, GoogleFonts::BODY_FONTS, :to_s, :to_s, {},
                   class: "form-control" %>
-                <div id="theme-body-font" class="form-control theme-font"></div>
+                <div id="body-font" class="form-control theme-font"></div>
               </div>
             </div>
 

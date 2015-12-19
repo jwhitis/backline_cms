@@ -1,14 +1,22 @@
 classic:
-  background_color: "#F1F1F1"
-  foreground_color: "#860B1D"
-  accent_color: "#10608E"
-  text_color: "#FFFFFF"
+  nav_background_color: "#860B1D"
+  nav_text_color: "#FFFFFF"
+  main_background_color: "#F1F1F1"
+  main_text_color: "#333333"
+  footer_background_color: "#F1F1F1"
+  footer_text_color: "#333333"
+  button_background_color: "#333333"
+  button_text_color: "#FFFFFF"
   display_font: Oswald
   body_font: Open Sans
-geocities:
-  background_color: "#0000FF"
-  foreground_color: "#00FF00"
-  accent_color: "#FFFF00"
-  text_color: "#000000"
+uber:
+  nav_background_color: "#1A1A1A"
+  nav_text_color: "#FFFFFF"
+  main_background_color: "#1A1A1A"
+  main_text_color: "#FFFFFF"
+  footer_background_color: "#1A1A1A"
+  footer_text_color: "#FFFFFF"
+  button_background_color: "#1EACC7"
+  button_text_color: "#FFFFFF"
   display_font: Montserrat
   body_font: Lato

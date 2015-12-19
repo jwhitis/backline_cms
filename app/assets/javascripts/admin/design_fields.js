@@ -20,10 +20,14 @@ $(document).ready(function() {
   $("button#apply-theme").click(function() {
     var attributes = selectedThemeAttributes();
 
-    $("input#design_color_scheme_attributes_background").minicolors("value", attributes.backgroundColor);
-    $("input#design_color_scheme_attributes_foreground").minicolors("value", attributes.foregroundColor);
-    $("input#design_color_scheme_attributes_accent").minicolors("value", attributes.accentColor);
-    $("input#design_color_scheme_attributes_text").minicolors("value", attributes.textColor);
+    $("input#design_color_scheme_attributes_nav_background").minicolors("value", attributes.navBackgroundColor);
+    $("input#design_color_scheme_attributes_nav_text").minicolors("value", attributes.navTextColor);
+    $("input#design_color_scheme_attributes_main_background").minicolors("value", attributes.mainBackgroundColor);
+    $("input#design_color_scheme_attributes_main_text").minicolors("value", attributes.mainTextColor);
+    $("input#design_color_scheme_attributes_footer_background").minicolors("value", attributes.footerBackgroundColor);
+    $("input#design_color_scheme_attributes_footer_text").minicolors("value", attributes.footerTextColor);
+    $("input#design_color_scheme_attributes_button_background").minicolors("value", attributes.buttonBackgroundColor);
+    $("input#design_color_scheme_attributes_button_text").minicolors("value", attributes.buttonTextColor);
     $("select#design_display_font").val(attributes.displayFont);
     $("select#design_body_font").val(attributes.bodyFont);
 
@@ -61,12 +65,16 @@ function viewThemeAttributes(options) {
   var attributes = selectedThemeAttributes();
   if (!attributes) { return false };
 
-  $("div#theme-background-color").css("background-color", attributes.backgroundColor);
-  $("div#theme-foreground-color").css("background-color", attributes.foregroundColor);
-  $("div#theme-accent-color").css("background-color", attributes.accentColor);
-  $("div#theme-text-color").css("background-color", attributes.textColor);
-  $("div#theme-display-font").text(attributes.displayFont);
-  $("div#theme-body-font").text(attributes.bodyFont);
+  $("div#nav-background-color").css("background-color", attributes.navBackgroundColor);
+  $("div#nav-text-color").css("background-color", attributes.navTextColor);
+  $("div#main-background-color").css("background-color", attributes.mainBackgroundColor);
+  $("div#main-text-color").css("background-color", attributes.mainTextColor);
+  $("div#footer-background-color").css("background-color", attributes.footerBackgroundColor);
+  $("div#footer-text-color").css("background-color", attributes.footerTextColor);
+  $("div#button-background-color").css("background-color", attributes.buttonBackgroundColor);
+  $("div#button-text-color").css("background-color", attributes.buttonTextColor);
+  $("div#display-font").text(attributes.displayFont);
+  $("div#body-font").text(attributes.bodyFont);
 
   if (options && options.fontSamples) {
     viewFontSamples(attributes.displayFont, attributes.bodyFont);

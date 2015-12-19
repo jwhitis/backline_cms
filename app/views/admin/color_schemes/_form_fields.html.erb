@@ -1,37 +1,75 @@
 <%= f.fields_for :color_scheme do |c| %>
   <div class="form-group">
-    <%= c.label :background, "Background Color", class: "required" %>
+    <%= c.label :nav_background, "Nav Background Color", class: "required" %>
 
     <div class="color-field clearfix">
-      <%= c.text_field :background, class: "form-control" %>
-      <div id="theme-background-color" class="form-control theme-color"></div>
+      <%= c.text_field :nav_background, class: "form-control" %>
+      <div id="nav-background-color" class="form-control theme-color"></div>
+    </div>
+  </div>
+
+  <div class="form-group border-bottom">
+    <%= c.label :nav_text, "Nav Text Color", class: "required" %>
+
+    <div class="color-field clearfix">
+      <%= c.text_field :nav_text, class: "form-control" %>
+      <div id="nav-text-color" class="form-control theme-color"></div>
     </div>
   </div>
 
   <div class="form-group">
-    <%= c.label :foreground, "Foreground Color", class: "required" %>
+    <%= c.label :main_background, "Main Background Color", class: "required" %>
 
     <div class="color-field clearfix">
-      <%= c.text_field :foreground, class: "form-control" %>
-      <div id="theme-foreground-color" class="form-control theme-color"></div>
+      <%= c.text_field :main_background, class: "form-control" %>
+      <div id="main-background-color" class="form-control theme-color"></div>
+    </div>
+  </div>
+
+  <div class="form-group border-bottom">
+    <%= c.label :main_text, "Main Text Color", class: "required" %>
+
+    <div class="color-field clearfix">
+      <%= c.text_field :main_text, class: "form-control" %>
+      <div id="main-text-color" class="form-control theme-color"></div>
     </div>
   </div>
 
   <div class="form-group">
-    <%= c.label :accent, "Accent Color", class: "required" %>
+    <%= c.label :footer_background, "Footer Background Color", class: "required" %>
 
     <div class="color-field clearfix">
-      <%= c.text_field :accent, class: "form-control" %>
-      <div id="theme-accent-color" class="form-control theme-color"></div>
+      <%= c.text_field :footer_background, class: "form-control" %>
+      <div id="footer-background-color" class="form-control theme-color"></div>
     </div>
   </div>
 
   <div class="form-group">
-    <%= c.label :text, "Text Color", class: "required" %>
+    <%= c.label :footer_text, "Footer Text Color", class: "required" %>
 
     <div class="color-field clearfix">
-      <%= c.text_field :text, class: "form-control" %>
-      <div id="theme-text-color" class="form-control theme-color"></div>
+      <%= c.text_field :footer_text, class: "form-control" %>
+      <div id="footer-text-color" class="form-control theme-color"></div>
     </div>
   </div>
+
+  <% content_for :button_color_fields do %>
+    <div class="form-group">
+      <%= c.label :button_background, "Button Background Color", class: "required" %>
+
+      <div class="color-field clearfix">
+        <%= c.text_field :button_background, class: "form-control" %>
+        <div id="button-background-color" class="form-control theme-color"></div>
+      </div>
+    </div>
+
+    <div class="form-group border-bottom">
+      <%= c.label :button_text, "Button Text Color", class: "required" %>
+
+      <div class="color-field clearfix">
+        <%= c.text_field :button_text, class: "form-control" %>
+        <div id="theme-button-text-color" class="form-control theme-color"></div>
+      </div>
+    </div>
+  <% end %>
 <% end %>
