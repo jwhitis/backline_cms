@@ -14,6 +14,8 @@ class SiteCSSCompiler
       nav_text_color_css,
       main_background_color_css,
       main_text_color_css,
+      footer_background_color_css,
+      footer_text_color_css,
       @site.css
     ].reject(&:blank?).join("\n")
   end
@@ -54,6 +56,14 @@ class SiteCSSCompiler
 
   def main_text_color_css
     "div#wrapper, a, a:hover, a:focus { color: #{@site.main_text_color}; }"
+  end
+
+  def footer_background_color_css
+    "footer { background-color: #{@site.footer_background_color}; }"
+  end
+
+  def footer_text_color_css
+    "footer, footer a, footer a:hover, footer a:focus { color: #{@site.footer_text_color}; }"
   end
 
 end
