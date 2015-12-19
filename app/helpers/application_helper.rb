@@ -50,7 +50,7 @@ module ApplicationHelper
   end
 
   def pagination_links collection, options = {}
-    options = { remote: true }.merge(options)
+    options = { remote: true, class: "btn-main" }.merge(options)
 
     links = link_to_previous_page(collection, "#{fa_icon("caret-left")} PREV".html_safe,
       options) || "".html_safe

@@ -16,6 +16,8 @@ class SiteCSSCompiler
       main_text_color_css,
       footer_background_color_css,
       footer_text_color_css,
+      *button_background_color_css,
+      button_text_color_css,
       @site.css
     ].reject(&:blank?).join("\n")
   end
@@ -35,7 +37,7 @@ class SiteCSSCompiler
   end
 
   def display_font_css
-    ".display-font, .page-title, .btn-main, .flash-main { font-family: #{@site.display_font}; }"
+    ".display-font, .page-title, .btn-main { font-family: #{@site.display_font}; }"
   end
 
   def body_font_css
@@ -64,6 +66,17 @@ class SiteCSSCompiler
 
   def footer_text_color_css
     "footer, footer a, footer a:hover, footer a:focus { color: #{@site.footer_text_color}; }"
+  end
+
+  def button_background_color_css
+    [
+      ".btn-main { background-color: #{@site.button_background_color}; }",
+      ".btn-main:hover { opacity: .8; }"
+    ]
+  end
+
+  def button_text_color_css
+    ".btn-main, .btn-main:hover, .btn-main:focus { color: #{@site.button_text_color}; }"
   end
 
 end

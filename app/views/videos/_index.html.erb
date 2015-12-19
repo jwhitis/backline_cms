@@ -23,10 +23,10 @@
 
   <div class="pagination-links clearfix">
     <% if @videos.count > 1 %>
-      <%= link_to "#video-carousel", data: { slide: "prev" } do %>
+      <%= link_to "#video-carousel", data: { slide: "prev" }, class: "btn-main" do %>
         <%= fa_icon("caret-left") %> PREV
       <% end %>
-      <%= link_to "#video-carousel", data: { slide: "next" } do %>
+      <%= link_to "#video-carousel", data: { slide: "next" }, class: "btn-main" do %>
         NEXT <%= fa_icon("caret-right") %>
       <% end %>
     <% end %>

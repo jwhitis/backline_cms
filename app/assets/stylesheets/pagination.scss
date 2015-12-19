@@ -5,21 +5,11 @@ div.pagination-links {
   a {
     width: 80px;
     padding: 4px 10px;
-    display: inline-block;
-    border: 2px solid $grey;
     font-size: 16px;
-    color: $grey;
-    background-color: darken($red, 5%);
-    box-shadow: 0 2px 5px rgba(black, .5);
-    transition: all .3s ease;
+    box-shadow: 0 2px 5px rgba(black, .25);
 
     &:not(:last-child) {
       margin-right: 11px;
-    }
-
-    &:hover {
-      border-color: $slate;
-      color: $slate;
     }
 
     i.fa {
