@@ -12,6 +12,8 @@ class SiteCSSCompiler
       body_font_css,
       nav_background_color_css,
       nav_text_color_css,
+      main_background_color_css,
+      main_text_color_css,
       @site.css
     ].reject(&:blank?).join("\n")
   end
@@ -44,6 +46,14 @@ class SiteCSSCompiler
 
   def nav_text_color_css
     ".nav-text-color, nav.navbar, nav.navbar a { color: #{@site.nav_text_color}; }"
+  end
+
+  def main_background_color_css
+    "div#wrapper { background-color: #{@site.main_background_color}; }"
+  end
+
+  def main_text_color_css
+    "div#wrapper, a, a:hover, a:focus { color: #{@site.main_text_color}; }"
   end
 
 end
