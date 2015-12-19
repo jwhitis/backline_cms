@@ -1,4 +1,8 @@
 div#page-container {
+  a {
+    text-decoration: underline;
+  }
+
   img {
     height: initial !important; // Ensures that images scale based on width
   }
