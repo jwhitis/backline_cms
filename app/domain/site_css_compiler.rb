@@ -10,8 +10,8 @@ class SiteCSSCompiler
       banner_image_css,
       display_font_css,
       body_font_css,
-      background_color_css,
-      text_color_css,
+      nav_background_color_css,
+      nav_text_color_css,
       @site.css
     ].reject(&:blank?).join("\n")
   end
@@ -38,12 +38,12 @@ class SiteCSSCompiler
     "body, h1, h2, h3, h4, h5, h6 { font-family: #{@site.body_font}; }"
   end
 
-  def background_color_css
-    ".background-color, div#wrapper { background-color: #{@site.background_color}; }"
+  def nav_background_color_css
+    ".nav-background-color, nav.navbar, div.navbar-collapse { background-color: #{@site.nav_background_color}; }"
   end
 
-  def text_color_css
-    ".text-color, body, a, a:hover { color: #{@site.text_color}; }"
+  def nav_text_color_css
+    ".nav-text-color, nav.navbar, nav.navbar a { color: #{@site.nav_text_color}; }"
   end
 
 end
