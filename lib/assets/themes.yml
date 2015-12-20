@@ -19,4 +19,15 @@ uber:
   button_background_color: "#1EACC7"
   button_text_color: "#FFFFFF"
   display_font: Montserrat
+  body_font: Open Sans
+pen_and_paper:
+  nav_background_color: "#FFFFFF"
+  nav_text_color: "#333333"
+  main_background_color: "#FFFFFF"
+  main_text_color: "#333333"
+  footer_background_color: "#FFFFFF"
+  footer_text_color: "#333333"
+  button_background_color: "#333333"
+  button_text_color: "#FFFFFF"
+  display_font: Lora
   body_font: Lato
