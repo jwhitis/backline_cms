@@ -13,6 +13,7 @@ div#videos {
     height: 259px;
     position: relative;
     z-index: 2;
+    box-shadow: 0 1px 3px rgba(black, .5);
   }
 
   @media (min-width: 768px) {

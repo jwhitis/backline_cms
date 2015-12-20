@@ -11,14 +11,14 @@
 
     <%= render "layouts/main" %>
 
+    <% if feature_activated?(:mailing_list) %>
+      <%= render "layouts/newsletter_signup" %>
+    <% end %>
+
     <% if feature_activated?(:twitter_feed) %>
       <div class="container">
         <%= render "layouts/twitter_feed", tweets: @tweets %>
       </div>
-    <% end %>
-
-    <% if feature_activated?(:mailing_list) %>
-      <%= render "layouts/newsletter_signup" %>
     <% end %>
 
     <%= render "layouts/footer" %>

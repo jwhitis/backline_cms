@@ -16,7 +16,7 @@ div#albums {
 
     img {
       width: 100%;
-      box-shadow: 0 2px 5px rgba(black, .5);
+      box-shadow: 0 1px 3px rgba(black, .5);
     }
 
     div.album-notes {
@@ -35,22 +35,19 @@ div#albums {
   }
 
   div.album-details {
-    font-size: 16px;
-    text-shadow: 0 1px 1px rgba(black, .35);
-
     div.release-date {
       margin-bottom: 10px;
+      font-size: 16px;
       font-style: italic;
-      color: #999999;
+      opacity: .6;
     }
 
     div.track-list {
       margin-bottom: 15px;
-      font-weight: lighter;
 
       div.inline-controls {
         width: 20px;
-        height: 22px;
+        height: 20px;
         margin-right: 8px;
         float: left;
 
@@ -72,7 +69,6 @@ div#albums {
   div.store-links {
     a {
       display: block;
-      box-shadow: 0 2px 5px rgba(black, .25);
 
       &:not(:last-child) {
         margin-bottom: 15px;
@@ -80,7 +76,8 @@ div#albums {
 
       div.btn-main {
         height: 70px;
-        padding: 20px 15px;
+        margin-bottom: 5px;
+        padding: 20px 0;
         display: block;
         background-repeat: no-repeat;
         background-size: auto 110%;

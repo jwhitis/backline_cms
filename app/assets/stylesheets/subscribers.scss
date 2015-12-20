@@ -35,8 +35,8 @@ div#subscribers {
 
 div#newsletter-signup {
   padding: 30px 0;
-  border-top: 2px solid rgba(black, .25);
-  border-bottom: 2px solid rgba(black, .25);
+  border-top: 1px solid rgba(black, .25);
+  border-bottom: 1px solid rgba(black, .25);
 
   form {
     max-width: 100%;
@@ -50,7 +50,7 @@ div#newsletter-signup {
       line-height: 32px;
       letter-spacing: 1px;
       text-transform: uppercase;
-      text-shadow: 0 1px 1px rgba(black, .35);
+      text-shadow: 0 1px 1px rgba(black, .25);
     }
 
     input[type="email"] {

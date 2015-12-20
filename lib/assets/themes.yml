@@ -3,8 +3,8 @@ classic:
   nav_text_color: "#FFFFFF"
   main_background_color: "#F1F1F1"
   main_text_color: "#333333"
-  footer_background_color: "#F1F1F1"
-  footer_text_color: "#333333"
+  footer_background_color: "#333333"
+  footer_text_color: "#FFFFFF"
   button_background_color: "#333333"
   button_text_color: "#FFFFFF"
   display_font: Oswald
