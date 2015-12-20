@@ -1,12 +1,8 @@
 class GoogleFonts
-  DISPLAY_FONTS = ["Oswald", "Montserrat", "Playfair Display", "Vollkorn"]
-  BODY_FONTS = ["Open Sans", "Lato", "Merriweather", "Josefin Slab"]
+  DISPLAY_FONTS = ["Lora", "Montserrat", "Oswald", "Playfair Display", "Source Sans Pro", "Vollkorn"]
+  BODY_FONTS = ["Lato", "Merriweather", "Open Sans", "Raleway", "Roboto Slab", "Ubuntu"]
 
   class << self
-
-    def all_fonts
-      DISPLAY_FONTS + BODY_FONTS
-    end
 
     def base_url
       "https://fonts.googleapis.com/css"
