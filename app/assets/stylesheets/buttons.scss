@@ -26,7 +26,7 @@
   cursor: pointer;
 }
 
-.btn-blue, .btn-blue:focus {
+.btn-blue {
   @extend %btn-base;
   color: white;
   background-color: $blue;
@@ -34,6 +34,11 @@
   &:hover {
     color: darken(white, 15%);
     background-color: darken($blue, 5%);
+  }
+
+  &:focus {
+    color: white;
+    background-color: $blue;
   }
 
   &.active {
@@ -44,7 +49,7 @@
   }
 }
 
-.btn-white, .btn-white:focus {
+.btn-white {
   @extend %btn-base;
   border-bottom-color: rgba(black, .4);
   color: $blue;
@@ -53,6 +58,11 @@
   &:hover {
     color: darken($blue, 10%);
     background-color: darken($light-grey, 20%);
+  }
+
+  &:focus {
+    color: $blue;
+    background-color: $light-grey;
   }
 }
 
