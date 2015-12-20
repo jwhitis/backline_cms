@@ -4,7 +4,7 @@ module VideosHelper
     embed = video.embed.try(:dup)
 
     unless embed.present?
-      return image_tag asset_path("default_image.png"), html_options
+      return image_tag default_image_url, html_options
     end
 
     html_options.each do |attribute, value|

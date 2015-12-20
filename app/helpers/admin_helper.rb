@@ -152,7 +152,7 @@ module AdminHelper
   end
 
   def default_image_url
-    asset_path("default_image.png")
+    "http://backline-cms.s3.amazonaws.com/images/default_image.png"
   end
 
   def file_box_text resource, attribute

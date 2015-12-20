@@ -84,11 +84,11 @@ div#albums {
         background-position: center;
 
         &.bandcamp {
-          background-image: url(http://toddfarrell-production.s3.amazonaws.com/images/bandcamp_transparent.png);
+          background-image: url(http://backline-cms.s3.amazonaws.com/images/bandcamp_logo.png);
         }
 
         &.itunes {
-          background-image: url(http://toddfarrell-production.s3.amazonaws.com/images/itunes_transparent.png);
+          background-image: url(http://backline-cms.s3.amazonaws.com/images/itunes_logo.png);
         }
       }
     }

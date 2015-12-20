@@ -25,7 +25,7 @@ div#main {
   background-position: center top;
 
   body.admin & {
-    background-image: url(admin_background.png);
+    background-image: url(http://backline-cms.s3.amazonaws.com/images/admin_background.png);
     background-position: initial;
   }
 }
