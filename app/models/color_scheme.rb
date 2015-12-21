@@ -15,7 +15,7 @@ class ColorScheme < ActiveRecord::Base
   def set_defaults
     COLOR_ATTRIBUTES.each do |attribute|
       if self.send(attribute).nil?
-        value = Theme.defaults.fetch(attribute)
+        value = Theme.defaults.fetch(:"#{attribute}_color")
         self.send("#{attribute}=", value)
       end
     end
