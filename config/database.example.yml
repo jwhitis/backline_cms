@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username:
+  password:
+
+development:
+  <<: *default
+  database: backline_cms_development
+
+test:
+  <<: *default
+  database: backline_cms_test
+
+production:
+  <<: *default
+  database: backline_cms_production
