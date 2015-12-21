@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Toddfarrell::Application.load_tasks
+BacklineCms::Application.load_tasks
