@@ -1,11 +1,12 @@
-// This file was generated on 3/1/15 using the Transformicons builder:
+// This file was generated on 12/22/15 using the Transformicons builder:
 // http://www.transformicons.com/builder.html
 
 $tcon-size: 40px !default;
 $tcon-transition: .3s !default;
 $tcon-jstransform: 'tcon-transform' !default;
+
 $tcon-menu-radius: ($tcon-size / 14) !default;
-$tcon-menu-color: white !default;
+$tcon-menu-color: black !default;
 $tcon-menu-arrowleft-transformation: (
   transform: scale3d(.8, .8, .8) rotate3d(0, 0, 1, 90deg)
 ) !default;
@@ -24,16 +25,24 @@ $tcon-menu-arrow360left-transformation: (
   user-select: none;
   width: $tcon-size;
   background: transparent;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
   padding: 0;
 
   > * {
     display: block;
   }
 
+  &:hover,
   &:focus {
     outline: none; // see issue #36 https://github.com/grayghostvisuals/transformicons/issues/36
   }
+  &::-moz-focus-inner {
+    border: 0;
+  }
 }
+
 @mixin tcon-menu-lines {
   display: inline-block;
   height: ($tcon-size / 7);

@@ -1,4 +1,4 @@
-// This file was generated on 3/1/15 using the Transformicons builder:
+// This file was generated on 12/22/15 using the Transformicons builder:
 // http://www.transformicons.com/builder.html
 
 (function (root, factory) {
@@ -84,7 +84,7 @@
     for (var prop in DEFAULT_EVENTS) {
       eventLists[prop] = (events && events[prop]) ? getEventList(events[prop]) : DEFAULT_EVENTS[prop];
     }
-    
+
     // add or remove all events for all occasions to all elements
     while(currentElement--) {
       for (var occasion in eventLists) {
@@ -167,7 +167,7 @@
     });
     return tcon;
   };
-  
+
   /**
   * Toggles one or more elements between transformed and original state.
   * @public

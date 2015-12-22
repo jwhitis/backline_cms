@@ -11,7 +11,7 @@ class SiteCSSCompiler
       display_font_css,
       body_font_css,
       nav_background_color_css,
-      nav_text_color_css,
+      *nav_text_color_css,
       main_background_color_css,
       main_text_color_css,
       footer_background_color_css,
@@ -49,7 +49,10 @@ class SiteCSSCompiler
   end
 
   def nav_text_color_css
-    ".nav-text-color, nav.navbar, nav.navbar a { color: #{@site.nav_text_color}; }"
+    [
+      ".nav-text-color, nav.navbar, nav.navbar a { color: #{@site.nav_text_color}; }",
+      ".tcon-menu__lines, .tcon-menu__lines::before, .tcon-menu__lines::after { background: #{@site.nav_text_color}; }"
+    ]
   end
 
   def main_background_color_css
