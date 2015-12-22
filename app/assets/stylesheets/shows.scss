@@ -5,16 +5,20 @@ div#shows {
   div.shows-table {
     border-bottom: $light-border;
 
-    div.header {
-      border-bottom: $dark-border;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
+    div.row {
+      margin: 0;
 
-    div.show {
-      border-top: $light-border;
-      border-bottom: $dark-border;
-      line-height: 40px;
+      &.header {
+        border-bottom: $dark-border;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      &.show {
+        border-top: $light-border;
+        border-bottom: $dark-border;
+        line-height: 40px;
+      }
     }
 
     div[class*="col"] {
@@ -65,6 +69,12 @@ div#shows {
       }
     }
 
+    @media (min-width: 768px) {
+      div.multiline {
+        line-height: 20px;
+      }
+    }
+
     div.notes {
       font-size: 12px;
     }
@@ -88,13 +98,9 @@ div#shows {
     }
   }
 
-  @media (min-width: 768px) {
-    div.row {
-      margin: 0;
-
-      div.multiline {
-        line-height: 20px;
-      }
+  @media (max-width: 767px) {
+    div.shows-table {
+      margin: 0 -15px;
     }
   }
 }
