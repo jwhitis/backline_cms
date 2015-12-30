@@ -1,0 +1,24 @@
+default: &default
+  venue_name: Mercy Lounge
+  date: <%= 1.day.from_now %>
+  time: 9:00 PM
+  address: 1 Cannery Row
+  city: Nashville
+  state: TN
+  zip: 37203
+  notes: 21 and over
+  published: true
+  venue_url: http://www.mercylounge.com
+  tickets_url: http://www.ticketmaster.com
+
+first:
+  <<: *default
+  date: <%= 1.year.from_now %>
+
+last:
+  <<: *default
+  date: <%= 1.year.ago %>
+
+unpublished:
+  <<: *default
+  published: false

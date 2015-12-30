@@ -31,6 +31,9 @@ en:
         external_url: "URL"
       page:
         scss: "Custom styles"
+      show:
+        tickets_url: "Tickets URL"
+        venue_url: "Venue URL"
       site:
         home_page_id: "Home page"
         splash_page_id: "Splash page"
