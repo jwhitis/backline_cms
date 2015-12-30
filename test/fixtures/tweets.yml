@@ -1,0 +1,16 @@
+default: &default
+  handle: jwhitis
+  image_url: http://pbs.twimg.com/profile_images/560594376657616904/PgHswXk_.jpeg
+  text: Great round of interviews with @NashSoftware students this morning. Nashville has some awesome upcoming tech talent!
+  posted_at: <%= Time.now %>
+  name: Jack Whitis
+  profile_url: https://twitter.com/jwhitis
+  twitter_id: 444948979307282432
+
+first:
+  <<: *default
+  posted_at: <%= 1.year.from_now %>
+
+last:
+  <<: *default
+  posted_at: <%= 1.year.ago %>
