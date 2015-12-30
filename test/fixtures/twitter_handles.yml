@@ -1,0 +1,10 @@
+default: &default
+  handle: jwhitis
+
+first:
+  <<: *default
+  created_at: <%= 1.year.ago %>
+
+last:
+  <<: *default
+  created_at: <%= 1.year.from_now %>

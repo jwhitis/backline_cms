@@ -50,12 +50,12 @@ class ShowTest < ActiveSupport::TestCase
   end
 
   test "#location returns combined city and state" do
-    assert_equal @show.location, "Nashville, TN"
+    assert_equal "Nashville, TN", @show.location
   end
 
   test "Show#display_order returns last occurring shows first" do
-    assert_equal Show.display_order.first, shows(:first)
-    assert_equal Show.display_order.last, shows(:last)
+    assert_equal shows(:first), Show.display_order.first
+    assert_equal shows(:last), Show.display_order.last
   end
 
   test "Show#published returns only published shows" do

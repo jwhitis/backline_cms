@@ -16,8 +16,8 @@ class VideoTest < ActiveSupport::TestCase
   end
 
   test "Video#display_order returns newest videos first" do
-    assert_equal Video.display_order.first, videos(:first)
-    assert_equal Video.display_order.last, videos(:last)
+    assert_equal videos(:first), Video.display_order.first
+    assert_equal videos(:last), Video.display_order.last
   end
 
   test "Video#published returns only published videos" do
