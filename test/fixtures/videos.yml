@@ -1,0 +1,17 @@
+default: &default
+  title: Big Buck Bunny
+  caption: Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself.
+  embed: <iframe width="560" height="315" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
+  published: true
+
+first:
+  <<: *default
+  created_at: <%= 1.year.from_now %>
+
+last:
+  <<: *default
+  created_at: <%= 1.year.ago %>
+
+unpublished:
+  <<: *default
+  published: false
