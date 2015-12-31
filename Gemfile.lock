@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/amatsuda/kaminari.git
-  revision: 45ee71b74c7a21333e2b05ae8672a0e8c0625e38
-  specs:
-    kaminari (1.0.0.alpha)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
-
-GIT
   remote: git://github.com/stefanpenner/country_select.git
   revision: 20f83bda911abd7c1d5cb96fd37f9ea22d892f0e
   specs:
@@ -195,6 +187,9 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -324,7 +319,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-minicolors-rails
   jquery-rails
-  kaminari!
+  kaminari
   mini_magick
   newrelic_rpm
   pg
