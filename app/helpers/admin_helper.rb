@@ -126,10 +126,10 @@ module AdminHelper
   end
 
   def grouped_page_options_for_select selected_page_id, page_scope = {}
-    scope = { published: true }.merge(page_scope)
+    page_scope.reverse_merge!(published: true)
 
-    custom_pages = CustomPage.where(scope)
-    default_pages = DefaultPage.with_activated_feature.where(scope)
+    custom_pages = CustomPage.where(page_scope)
+    default_pages = DefaultPage.with_activated_feature.where(page_scope)
 
     grouped_pages = {}
     grouped_pages["Custom Pages"] = page_option_value_pairs(custom_pages) if custom_pages.any?

@@ -50,12 +50,12 @@ module ApplicationHelper
   end
 
   def pagination_links collection, options = {}
-    options = { remote: true, class: "btn-main" }.merge(options)
+    options.reverse_merge!(remote: true, class: "btn-main")
 
     links = link_to_previous_page(collection, "#{fa_icon("caret-left")} PREV".html_safe,
-      options) || "".html_safe
+      options.dup) || "".html_safe
     links += link_to_next_page(collection, "NEXT #{fa_icon("caret-right")}".html_safe,
-      options) || ""
+      options.dup) || ""
   end
 
   def formatted_tweet_time tweet
