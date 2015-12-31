@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.0'
 
+gem 'authlogic'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'carrierwave'
