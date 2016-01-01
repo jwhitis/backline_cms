@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :verify_feature_activated!
-  before_action :verify_user_subscribed!, only: :download
+  before_action :verify_subscriber_exists!, only: :download
 
   def index
     @albums = Album.published.display_order.includes(:tracks)

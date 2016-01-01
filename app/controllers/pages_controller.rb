@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     @page = Page.published.find_by_slug!(params[:slug])
 
     if @page.exclusive_content?
-      verify_user_subscribed!
+      verify_subscriber_exists!
       return if performed?
     end
 

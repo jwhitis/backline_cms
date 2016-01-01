@@ -44,8 +44,8 @@ class ApplicationController < ActionController::Base
     controller_name
   end
 
-  def verify_user_subscribed!
-    if feature_activated?(:mailing_list) && !user_subscribed?
+  def verify_subscriber_exists!
+    if feature_activated?(:mailing_list) && !subscriber_exists?
       if request.xhr?
         @page = Page.find_by_slug!("exclusive-content")
         @subscriber = Subscriber.new
@@ -57,7 +57,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def user_subscribed?
+  def subscriber_exists?
     !!cookies.signed[:subscriber_id]
   end
 
