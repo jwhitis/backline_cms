@@ -115,6 +115,11 @@ class ApplicationController < ActionController::Base
     user_signed_in? && Role::ADMIN_NAMES.include?(current_role.name)
   end
 
+  def self.feature_name name
+    name = name.to_s
+    define_method(:feature_name) { name }
+  end
+
   def self.authorized_roles *roles
     roles.map!(&:to_s)
     define_method(:authorized_roles) { roles }

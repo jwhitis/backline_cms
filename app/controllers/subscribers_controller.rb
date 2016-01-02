@@ -2,6 +2,7 @@ class SubscribersController < ApplicationController
   before_action :verify_feature_activated!
   before_action :find_page, only: :new
   before_action :find_or_initialize_subscriber, only: [:create, :newsletter]
+  feature_name :mailing_list
 
   def new
     @subscriber = Subscriber.new
@@ -54,10 +55,6 @@ class SubscribersController < ApplicationController
 
   def subscriber_params
     params.require(:subscriber).permit(:email, :first_name, :last_name, :country, :zip)
-  end
-
-  def feature_name
-    :mailing_list
   end
 
 end

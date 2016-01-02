@@ -1,5 +1,6 @@
 class Admin::TwitterHandlesController < Admin::AdminController
   before_action :verify_feature_activated!
+  feature_name :twitter_feed
 
   def index
     @twitter_handles = TwitterHandle.display_order
@@ -33,10 +34,6 @@ class Admin::TwitterHandlesController < Admin::AdminController
 
   def twitter_handle_params
     params.require(:twitter_handle).permit(:handle)
-  end
-
-  def feature_name
-    :twitter_feed
   end
 
 end

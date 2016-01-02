@@ -1,6 +1,7 @@
 class AlbumTracksController < ApplicationController
   before_action :verify_feature_activated!
   before_action :verify_subscriber_exists!, only: :download
+  feature_name :albums
 
   def download
     @album_track = AlbumTrack.downloadable.find(params[:id])
@@ -21,10 +22,6 @@ class AlbumTracksController < ApplicationController
 
   def file_type
     @album_track.audio.content_type
-  end
-
-  def feature_name
-    :albums
   end
 
 end
