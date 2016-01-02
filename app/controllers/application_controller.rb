@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :find_nav_links
   before_action :find_tweets
 
-  helper_method :feature_activated?, :home_page_path, :admin_signed_in?
+  helper_method :feature_activated?, :home_page_path, :user_signed_in?, :admin_signed_in?
 
   protected
 
@@ -65,8 +65,59 @@ class ApplicationController < ActionController::Base
     @site.home_page.path
   end
 
+  def current_session
+    return @current_session if defined?(@current_session)
+    @current_session = Session.find
+  end
+
+  def current_user
+    return @current_user if defined?(@current_user)
+    @current_user = current_session && current_session.user
+  end
+
+  def current_role
+    return @current_role if defined?(@current_role)
+    @current_role = current_user && current_user.roles.find_by_site_id!(@site.id)
+  end
+
+  def user_signed_in?
+    !!current_session
+  end
+
+  def authenticate_user!
+    unless user_signed_in?
+      if request.xhr?
+        @session = Session.new
+        render "sessions/new"
+      else
+        redirect_to sign_in_path
+      end
+    end
+  end
+
+  def authorize_user!
+    unless authorized_roles.include?(current_role.name)
+      flash[:alert] = "You are not authorized to access the page you requested."
+
+      if request.xhr?
+        render js: "location = '#{home_page_path}';"
+      else
+        redirect_to home_page_path
+      end
+    end
+  end
+
+  def authorized_roles
+    Role::NAMES
+  end
+
   def admin_signed_in?
-    !!session[:admin_id]
+    user_signed_in? && Role::ADMIN_NAMES.include?(current_role.name)
+  end
+
+  def self.authorized_roles *roles
+    roles.map!(&:to_s)
+    define_method(:authorized_roles) { roles }
   end
 
 end

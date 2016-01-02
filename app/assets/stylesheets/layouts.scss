@@ -52,14 +52,12 @@ footer {
     text-align: center;
     position: relative;
 
-    span.admin {
+    a.session {
       position: absolute;
       right: 0;
       font-size: 12px;
-
-      a {
-        text-decoration: underline;
-      }
+      text-transform: uppercase;
+      text-decoration: underline;
     }
   }
 }

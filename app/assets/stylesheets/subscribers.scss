@@ -56,17 +56,10 @@ div#newsletter-signup {
     input[type="email"] {
       width: calc(100% - 90px);
       float: left;
-      border-radius: 0;
-      letter-spacing: .5px;
-    }
-
-    input[type="email"]::-webkit-input-placeholder {
-      color: #777777;
     }
 
     input.btn-main {
       width: 80px;
-      height: 34px;
       padding: 0;
       float: right;
     }

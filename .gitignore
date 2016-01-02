@@ -21,8 +21,5 @@
 # Ignore Twitter credentials
 /config/initializers/twitter_credentials.rb
 
-# Ignore admin password
-/config/initializers/admin_password.rb
-
 # Ignore AWS credentials
 /config/initializers/aws_credentials.rb

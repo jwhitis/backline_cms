@@ -5,21 +5,23 @@ Rails.application.routes.draw do
     get :download, on: :member
   end
   get "album_tracks/:id/download", to: "album_tracks#download", as: :download_album_track
-  resources :photos,      only: :index
-  resources :videos,      only: :index
+  resources :photos, only: :index
+  resources :videos, only: :index
+
   get "exclusive-content", to: "subscribers#new", as: :new_subscriber
   resources :subscribers, only: :create
   post "newsletter_subscribers", to: "subscribers#newsletter"
+
+  get "sign-in", to: "sessions#new", as: :sign_in
+  resources :sessions, only: :create
+  delete "sign-out", to: "sessions#destroy", as: :sign_out
 
   namespace :admin do
     concern :orderable do
       patch :reorder, on: :collection
     end
 
-    root   "admin#index"
-    get    "sign-in",  to: "sessions#new",     as: :sign_in
-    post   "sign-in",  to: "sessions#create"
-    delete "sign-out", to: "sessions#destroy", as: :sign_out
+    root "admin#index"
     resources :pages,         only: :index
     resources :custom_pages,  except: [:index, :show]
     resources :default_pages, only: [:edit, :update]

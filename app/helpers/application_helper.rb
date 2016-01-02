@@ -52,9 +52,9 @@ module ApplicationHelper
   def pagination_links collection, options = {}
     options.reverse_merge!(remote: true, class: "btn-main")
 
-    links = link_to_previous_page(collection, "#{fa_icon("caret-left")} PREV".html_safe,
+    links = link_to_previous_page(collection, "#{fa_icon("caret-left")} Prev".html_safe,
       options.dup) || "".html_safe
-    links += link_to_next_page(collection, "NEXT #{fa_icon("caret-right")}".html_safe,
+    links += link_to_next_page(collection, "Next #{fa_icon("caret-right")}".html_safe,
       options.dup) || ""
   end
 
@@ -64,11 +64,14 @@ module ApplicationHelper
     "#{time_in_words} ago"
   end
 
-  def admin_link
-    if admin_signed_in?
-      link_to "SIGN OUT", admin_sign_out_path, method: :delete
+  def session_link
+    options = { class: "session" }
+
+    if user_signed_in?
+      options.merge!(method: :delete)
+      link_to "Sign Out", sign_out_path, options
     else
-      link_to "SIGN IN", admin_sign_in_path
+      link_to "Sign In", sign_in_path, options
     end
   end
 

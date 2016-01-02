@@ -1,0 +1,15 @@
+body:not(.admin) {
+  input[type="text"], input[type="email"], input[type="password"] {
+    border-radius: 0;
+    letter-spacing: .5px;
+  }
+
+  input::-webkit-input-placeholder {
+    color: #777777;
+  }
+
+  input.btn-main {
+    height: 34px;
+    padding: 0 12px;
+  }
+}

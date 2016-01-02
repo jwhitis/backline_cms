@@ -1,5 +1,6 @@
 class Role < ActiveRecord::Base
-  NAMES = %w(site_admin site_editor basic)
+  ADMIN_NAMES = %w(site_admin site_editor)
+  NAMES = ADMIN_NAMES + %w(basic)
 
   belongs_to :user
   belongs_to :site
