@@ -39,9 +39,10 @@ div#flash-modal {
     }
 
     div.col-xs-9 {
-      padding-top: 50px;
+      padding-top: 60px;
       text-align: center;
       font-size: 16px;
+      line-height: 20px;
       font-weight: lighter;
 
       a.close-btn {
@@ -56,10 +57,6 @@ div#flash-modal {
         &:hover {
           color: #999999;
         }
-      }
-
-      strong {
-        color: #777777;
       }
     }
   }

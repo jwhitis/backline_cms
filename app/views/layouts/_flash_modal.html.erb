@@ -10,7 +10,7 @@
             <%= link_to "CLOSE", "javascript:void(0)", data: { dismiss: "modal" }, class: "close-btn" %>
 
             <% flash.each do |name, message| %>
-              <div><%== message %></div>
+              <div><%= message %></div>
             <% end %>
           </div>
         </div>

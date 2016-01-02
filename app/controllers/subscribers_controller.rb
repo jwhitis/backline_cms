@@ -13,19 +13,18 @@ class SubscribersController < ApplicationController
 
     if !@subscriber.changed? || @subscriber.save
       store_subscriber_id!
-      flash[:notice] = "<strong>THANK YOU</strong><br />You now have access to exclusive content."
-      redirect_to after_subscription_path
+      redirect_to after_subscription_path, notice: "You now have access to exclusive content."
     else
-      flash.now[:alert] = "<strong>SORRY</strong><br />Please fill in all of the required fields."
+      flash.now[:alert] = "Please fill in all of the required fields."
       render :new
     end
   end
 
   def newsletter
     if @subscriber.persisted? || @subscriber.save
-      flash.now[:notice] = "<strong>THANK YOU</strong><br />You've been added to our mailing list."
+      flash.now[:notice] = "You've been added to our mailing list."
     else
-      flash.now[:alert] = "<strong>SORRY</strong><br />Please enter your email address and try again."
+      flash.now[:alert] = "Please enter your email address and try again."
     end
   end
 
