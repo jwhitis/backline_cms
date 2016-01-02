@@ -21,3 +21,10 @@ site.features << Feature.unactivated
 
 design = site.design || site.create_design!
 design.create_color_scheme! unless design.color_scheme
+
+user = User.create_with(
+  email: "admin@example.com",
+  password: "password",
+  password_confirmation: "password"
+).first_or_create!
+user.roles.create!(name: "site_admin", site: site)
