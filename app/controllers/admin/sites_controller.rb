@@ -1,6 +1,7 @@
 class Admin::SitesController < Admin::AdminController
   before_action :find_editable_site
   before_action :store_feature_ids, only: :update
+  authorized_roles :site_admin
 
   def edit
   end

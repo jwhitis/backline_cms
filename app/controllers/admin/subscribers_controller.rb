@@ -1,6 +1,7 @@
 class Admin::SubscribersController < Admin::AdminController
   before_action :verify_feature_activated!
   before_action :find_subscriber, only: [:edit, :update, :destroy]
+  authorized_roles :site_admin
   feature_name :mailing_list
 
   def index
