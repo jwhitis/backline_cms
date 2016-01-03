@@ -5,7 +5,7 @@
   </button>
 
   <ul class="dropdown-menu">
-    <% admin_nav_links.each_with_index do |(text, url, _icon), index| %>
+    <% admin_nav_links.each_with_index do |(text, url, _icon, _roles), index| %>
       <% if admin_section_available?(text) %>
         <li class="<%= "hidden" if index.zero? %>">
           <%= admin_nav_link_to(text, url) %>
@@ -20,7 +20,7 @@
   <h3>Admin</h3>
 
   <ul>
-    <% admin_nav_links.each do |(text, url, _icon)| %>
+    <% admin_nav_links.each do |(text, url, _icon, _roles)| %>
       <% if admin_section_available?(text) %>
         <li><%= admin_nav_link_to(text, url) %></li>
       <% end %>

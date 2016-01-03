@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :find_nav_links
   before_action :find_tweets
 
-  helper_method :feature_activated?, :home_page_path, :user_signed_in?, :admin_signed_in?
+  helper_method :feature_activated?, :home_page_path, :current_role, :user_signed_in?,
+                :admin_signed_in?
 
   protected
 

@@ -5,19 +5,7 @@ module AdminHelper
   end
 
   def admin_nav_links
-    [
-      ["Pages", admin_pages_path, "file"],
-      ["Nav", admin_nav_links_path, "list"],
-      ["Shows", admin_shows_path, "ticket"],
-      ["Albums", admin_albums_path, "dot-circle-o"],
-      ["Photos", admin_photos_path, "camera"],
-      ["Videos", admin_videos_path, "video-camera"],
-      ["Audio Player", admin_player_tracks_path, "music"],
-      ["Twitter Feed", admin_twitter_handles_path, "twitter"],
-      ["Mailing List", admin_subscribers_path, "envelope"],
-      ["Design", edit_admin_design_path, "paint-brush"],
-      ["Settings", edit_admin_site_path, "cog"]
-    ]
+    AdminNavLinks.for_role(current_role.name)
   end
 
   def admin_section_available? name
