@@ -4,8 +4,11 @@ class Site < ActiveRecord::Base
   has_many :roles, dependent: :destroy
   has_one :design, dependent: :destroy
 
-  validates_presence_of :title, :home_page_id
+  validates_presence_of :title
+  validates_presence_of :home_page_id, on: :update
   validate :referenced_pages_must_be_published
+  validate :referenced_pages_must_not_have_exclusive_content
+  validate :home_page_must_not_belong_to_unactivated_feature
   validate :home_page_must_not_have_blank_layout
   validate :splash_page_must_have_blank_layout
 
@@ -14,24 +17,47 @@ class Site < ActiveRecord::Base
 
   def referenced_pages_must_be_published
     [:home_page_id, :splash_page_id].each do |attribute|
-      next unless page_id = self.send(attribute)
+      page_id = self.send(attribute)
+      next unless page = Page.find_by_id(page_id)
 
-      unless Page.find(page_id).published?
+      unless page.published?
         self.errors.add(attribute, "must be a published page")
       end
     end
   end
 
+  def referenced_pages_must_not_have_exclusive_content
+    [:home_page_id, :splash_page_id].each do |attribute|
+      page_id = self.send(attribute)
+      next unless page = Page.find_by_id(page_id)
+
+      if page.exclusive_content?
+        self.errors.add(attribute, "must not have exclusive content")
+      end
+    end
+  end
+
+  def home_page_must_not_belong_to_unactivated_feature
+    return unless home_page = Page.find_by_id(self.home_page_id)
+    return unless feature = Feature.find_by_id(home_page.feature_id)
+
+    if self.feature_activations.where(feature: feature).empty?
+      self.errors.add(:home_page_id, "must not belong to an unactivated feature")
+    end
+  end
+
   def home_page_must_not_have_blank_layout
-    if Page.find(self.home_page_id).blank_layout?
+    return unless home_page = Page.find_by_id(self.home_page_id)
+
+    if home_page.blank_layout?
       self.errors.add(:home_page_id, "must not have a blank layout")
     end
   end
 
   def splash_page_must_have_blank_layout
-    return unless self.splash_page_id
+    return unless splash_page = Page.find_by_id(self.splash_page_id)
 
-    unless Page.find(self.splash_page_id).blank_layout?
+    unless splash_page.blank_layout?
       self.errors.add(:splash_page_id, "must have a blank layout")
     end
   end

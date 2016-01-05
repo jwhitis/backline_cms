@@ -6,17 +6,17 @@
   <div class="row">
     <div class="form-group col-sm-6">
       <%= f.label :home_page_id, "Home Page", class: "required" %>
-      <%= f.select :home_page_id,
-        grouped_page_options_for_select(@editable_site.home_page_id, blank_layout: false),
-        {}, class: "form-control" %>
+      <%= info_tooltip("You can use any page that does not have a blank layout or exclusive content as your home page.") %>
+      <%= f.select :home_page_id, grouped_page_options_for_select(@editable_site.home_page_id,
+        blank_layout: false, exclusive_content: false), {}, class: "form-control" %>
     </div>
 
     <div class="form-group col-sm-6">
       <%= f.label :splash_page_id, "Splash Page" %>
-      <%= info_tooltip("This is the first page that users see when they come to your site. You can use any page with a blank layout as your splash page. If no page is selected, users are sent directly to the home page.") %>
-      <%= f.select :splash_page_id,
-        grouped_page_options_for_select(@editable_site.splash_page_id, blank_layout: true),
-        { include_blank: "None" }, class: "form-control" %>
+      <%= info_tooltip("This is the first page that users see when they come to your site. You can use any page with a blank layout that does not have exclusive content as your splash page. If no page is selected, users are sent directly to the home page.") %>
+      <%= f.select :splash_page_id, grouped_page_options_for_select(@editable_site.splash_page_id,
+        blank_layout: true, exclusive_content: false), { include_blank: "None" },
+        class: "form-control" %>
     </div>
   </div>
 
