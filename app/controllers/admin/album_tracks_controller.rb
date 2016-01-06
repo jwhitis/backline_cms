@@ -1,5 +1,5 @@
 class Admin::AlbumTracksController < Admin::AdminController
-  before_action :verify_feature_activated!
+  before_action :verify_feature_active!
   before_action :find_album
   before_action :find_album_track, only: [:edit, :update, :destroy]
   feature_name :albums

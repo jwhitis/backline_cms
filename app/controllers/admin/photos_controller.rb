@@ -1,5 +1,5 @@
 class Admin::PhotosController < Admin::AdminController
-  before_action :verify_feature_activated!
+  before_action :verify_feature_active!
   before_action :find_photo, only: [:edit, :update, :destroy]
 
   def index

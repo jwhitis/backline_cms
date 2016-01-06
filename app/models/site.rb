@@ -8,7 +8,7 @@ class Site < ActiveRecord::Base
   validates_presence_of :home_page_id, on: :update
   validate :referenced_pages_must_be_published
   validate :referenced_pages_must_not_have_exclusive_content
-  validate :home_page_must_not_belong_to_unactivated_feature
+  validate :home_page_must_not_belong_to_inactive_feature
   validate :home_page_must_not_have_blank_layout
   validate :splash_page_must_have_blank_layout
 
@@ -37,12 +37,12 @@ class Site < ActiveRecord::Base
     end
   end
 
-  def home_page_must_not_belong_to_unactivated_feature
+  def home_page_must_not_belong_to_inactive_feature
     return unless home_page = Page.find_by_id(self.home_page_id)
     return unless feature = Feature.find_by_id(home_page.feature_id)
 
     if self.feature_activations.where(feature: feature).empty?
-      self.errors.add(:home_page_id, "must not belong to an unactivated feature")
+      self.errors.add(:home_page_id, "must not belong to an inactive feature")
     end
   end
 

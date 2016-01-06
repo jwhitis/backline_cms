@@ -6,7 +6,7 @@ class Admin::DefaultPagesController < Admin::AdminController
 
   def update
     if @page.update_attributes(page_params)
-      @pages = Page.with_activated_feature.display_order.page(params[:page_number])
+      @pages = Page.with_active_feature.display_order.page(params[:page_number])
       flash.now[:notice] = "Page successfully updated."
       render "admin/pages/index"
     else
@@ -17,7 +17,7 @@ class Admin::DefaultPagesController < Admin::AdminController
   private
 
   def find_page
-    @page = DefaultPage.with_activated_feature.find(params[:id])
+    @page = DefaultPage.with_active_feature.find(params[:id])
   end
 
   def page_params

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :find_nav_links
   before_action :find_tweets
 
-  helper_method :feature_activated?, :home_page_path, :current_role, :user_signed_in?,
+  helper_method :feature_active?, :home_page_path, :current_role, :user_signed_in?,
                 :admin_signed_in?
 
   protected
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def find_tweets
-    @tweets = Tweet.display_order.limit(7) if feature_activated?(:twitter_feed)
+    @tweets = Tweet.display_order.limit(7) if feature_active?(:twitter_feed)
   end
 
   def find_page
@@ -26,14 +26,14 @@ class ApplicationController < ActionController::Base
     @page = Page.published.find_by_slug!(slug)
   end
 
-  def verify_feature_activated!
-    unless feature_activated?(feature_name)
+  def verify_feature_active!
+    unless feature_active?(feature_name)
       render file: "#{Rails.root}/public/404", layout: false, status: :not_found
       return
     end
   end
 
-  def feature_activated? name
+  def feature_active? name
     if Feature::NAMES.exclude?(name.to_s)
       raise ArgumentError, "#{name} is not a valid feature."
     end
@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
   end
 
   def verify_subscriber_exists!
-    if feature_activated?(:mailing_list) && !subscriber_exists?
+    if feature_active?(:mailing_list) && !subscriber_exists?
       if request.xhr?
         @page = Page.find_by_slug!("exclusive-content")
         @subscriber = Subscriber.new

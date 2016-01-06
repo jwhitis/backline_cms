@@ -30,8 +30,8 @@ class NavLink < ActiveRecord::Base
   end
 
   def self.with_accessible_url
-    # Nav links that either have an external URL or belong to a page that is
-    # published and (if applicable) linked to an activated feature
+    # Nav links that either have an external URL or belong to a page that is published
+    # and either does not belong to a feature or belongs to an active feature
     joins("LEFT OUTER JOIN pages ON pages.id = nav_links.page_id").
       joins("LEFT OUTER JOIN features ON features.id = pages.feature_id").
       joins("LEFT OUTER JOIN feature_activations ON feature_activations.feature_id = features.id").

@@ -1,5 +1,5 @@
 class Admin::ShowsController < Admin::AdminController
-  before_action :verify_feature_activated!
+  before_action :verify_feature_active!
   before_action :find_show, only: [:edit, :update, :destroy]
 
   def index

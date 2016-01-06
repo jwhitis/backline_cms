@@ -18,7 +18,7 @@ class Admin::CustomPagesController < Admin::AdminController
     end
 
     if @page.save
-      @pages = Page.with_activated_feature.display_order.page(params[:page_number])
+      @pages = Page.with_active_feature.display_order.page(params[:page_number])
       flash.now[:notice] = "Page successfully created."
       render "admin/pages/index"
     else
@@ -42,7 +42,7 @@ class Admin::CustomPagesController < Admin::AdminController
 
     if @page.save
       reorder_nav_links! if @page.nav_link && page_status_changed?
-      @pages = Page.with_activated_feature.display_order.page(params[:page_number])
+      @pages = Page.with_active_feature.display_order.page(params[:page_number])
       flash.now[:notice] = "Page successfully updated."
       render "admin/pages/index"
     else
@@ -54,7 +54,7 @@ class Admin::CustomPagesController < Admin::AdminController
   def destroy
     @page.destroy
     reorder_nav_links! if @page.nav_link
-    @pages = Page.with_activated_feature.display_order.page(params[:page_number])
+    @pages = Page.with_active_feature.display_order.page(params[:page_number])
     flash.now[:notice] = "Page successfully deleted."
     render "admin/pages/index"
   end

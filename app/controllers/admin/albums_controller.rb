@@ -1,5 +1,5 @@
 class Admin::AlbumsController < Admin::AdminController
-  before_action :verify_feature_activated!
+  before_action :verify_feature_active!
   before_action :find_album, only: [:edit, :update, :destroy]
 
   def index

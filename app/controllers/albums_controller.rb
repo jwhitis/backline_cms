@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :verify_feature_activated!
+  before_action :verify_feature_active!
   before_action :verify_subscriber_exists!, only: :download
 
   def index

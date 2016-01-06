@@ -1,5 +1,5 @@
 class Admin::PlayerTracksController < Admin::AdminController
-  before_action :verify_feature_activated!
+  before_action :verify_feature_active!
   feature_name :audio_player
 
   def index

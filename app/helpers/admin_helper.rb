@@ -10,7 +10,7 @@ module AdminHelper
 
   def admin_section_available? name
     name = name.parameterize.underscore
-    Feature::NAMES.exclude?(name) || feature_activated?(name)
+    Feature::NAMES.exclude?(name) || feature_active?(name)
   end
 
   def admin_nav_link_to text, url = nil, &block
@@ -117,7 +117,7 @@ module AdminHelper
     page_scope.reverse_merge!(published: true)
 
     custom_pages = CustomPage.where(page_scope)
-    default_pages = DefaultPage.with_activated_feature.where(page_scope)
+    default_pages = DefaultPage.with_active_feature.where(page_scope)
 
     grouped_pages = {}
     grouped_pages["Custom Pages"] = page_option_value_pairs(custom_pages) if custom_pages.any?

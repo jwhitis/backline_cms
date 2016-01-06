@@ -1,5 +1,5 @@
 class Admin::TwitterHandlesController < Admin::AdminController
-  before_action :verify_feature_activated!
+  before_action :verify_feature_active!
   feature_name :twitter_feed
 
   def index

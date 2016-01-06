@@ -1,5 +1,5 @@
 class AlbumTracksController < ApplicationController
-  before_action :verify_feature_activated!
+  before_action :verify_feature_active!
   before_action :verify_subscriber_exists!, only: :download
   feature_name :albums
 
