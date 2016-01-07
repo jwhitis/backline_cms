@@ -21,6 +21,7 @@
       </div>
     <% end %>
 
+    <%= render "layouts/main_player" if feature_active?(:audio_player) %>
     <%= render "layouts/footer" %>
   </div>
 

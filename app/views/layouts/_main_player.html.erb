@@ -1,24 +1,14 @@
 <div id="main-player" class="jp-jplayer"></div>
 
-<div id="main-controls" class="clearfix">
-  <div id="prev">
-    <div class="arrow-left"></div>
-    <div class="arrow-left"></div>
-  </div>
-  <div id="circle">
-    <div id="play-container">
-      <div id="play"></div>
-    </div>
-    <div id="pause-container">
-      <div id="pause"></div>
-    </div>
-  </div>
-  <div id="next">
-    <div class="arrow-right"></div>
-    <div class="arrow-right"></div>
-  </div>
-  <div id="track-display" class="visible-lg">
-    Playing: <span id="track-title"></span>
+<div id="main-controls" class="hidden-xs">
+  <label>Streaming Now</label>
+  <div id="track-title" class="form-control"></div>
+
+  <div class="controls">
+    <%= fa_icon("backward", id: "prev") %>
+    <%= fa_stacked_icon("play", base: "circle-thin", id: "play") %>
+    <%= fa_stacked_icon("pause", base: "circle-thin", id: "pause") %>
+    <%= fa_icon("forward", id: "next") %>
   </div>
 </div>
 
@@ -38,15 +28,15 @@
     supplied: "mp3",
     cssSelectorAncestor: "div#main-controls",
     cssSelector: {
-      play: "div#play-container",
-      pause: "div#pause-container"
+      play: "span#play",
+      pause: "span#pause"
     },
     preload: "auto",
     keyEnabled: true
   });
 
-  $("div#prev").click(playPrevMainTrack);
-  $("div#next").click(playNextMainTrack);
+  $("i#prev").click(playPrevMainTrack);
+  $("i#next").click(playNextMainTrack);
 
   function playPrevMainTrack() {
     currentMainTrack = mainTrackUrls[prevMainTrackIndex()];
@@ -79,7 +69,7 @@
   }
 
   function setMainTrack(options) {
-    $("span#track-title").text(currentMainTrackTitle());
+    $("div#track-title").text(currentMainTrackTitle());
 
     $("div#main-player").jPlayer("setMedia", {
       mp3: currentMainTrack

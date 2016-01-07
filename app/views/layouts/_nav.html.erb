@@ -1,8 +1,6 @@
 <nav class="navbar" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <%#= render "layouts/main_player" if feature_active?(:audio_player) %>
-
       <%= link_to_home_page class: "navbar-brand" do %>
         <% if @site.logo_url %>
           <%= image_tag @site.logo_url %>

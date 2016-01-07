@@ -2,8 +2,8 @@
   <% if streamable_tracks?(album) %>
     <div class="inline-controls" data-audio-url="<%= album_track.audio.url %>">
       <% if album_track.audio.present? %>
-        <%= fa_stacked_icon "play", base: "circle-thin", class: "play" %>
-        <%= fa_stacked_icon "stop", base: "circle-thin", class: "stop" %>
+        <%= fa_stacked_icon("play", base: "circle-thin", class: "play") %>
+        <%= fa_stacked_icon("stop", base: "circle-thin", class: "stop") %>
       <% end %>
     </div>
   <% end %>
