@@ -72,8 +72,8 @@ div#admin table {
         cursor: not-allowed;
       }
 
-      &:hover {
-        color: $slate;
+      &:not(.disabled):hover {
+        color: $grey;
       }
     }
 
