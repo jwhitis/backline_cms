@@ -29,7 +29,6 @@ class ApplicationController < ActionController::Base
   def verify_feature_active!
     unless feature_active?(feature_name)
       render file: "#{Rails.root}/public/404", layout: false, status: :not_found
-      return
     end
   end
 
