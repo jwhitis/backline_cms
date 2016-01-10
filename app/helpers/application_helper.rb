@@ -71,6 +71,7 @@ module ApplicationHelper
       options.merge!(method: :delete)
       link_to "Sign Out", sign_out_path, options
     else
+      options.merge!(remote: true)
       link_to "Sign In", sign_in_path, options
     end
   end
