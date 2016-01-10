@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :sessions, only: :create
   delete "sign-out", to: "sessions#destroy", as: :sign_out
 
+  resources :password_resets, except: [:index, :show, :destroy]
+
   namespace :admin do
     concern :orderable do
       patch :reorder, on: :collection

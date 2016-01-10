@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :find_nav_links
   before_action :find_tweets
 
-  helper_method :feature_active?, :home_page_path, :current_role, :user_signed_in?,
-                :admin_signed_in?
+  helper_method :home_page_path, :feature_active?, :admin_signed_in?, :user_signed_in?,
+                :current_role
 
   protected
 
@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
   def find_page
     slug = request.path.sub(/\A\//, "")
     @page = Page.published.find_by_slug!(slug)
+  end
+
+  def home_page_path
+    @site.home_page.path
   end
 
   def verify_feature_active!
@@ -61,27 +65,16 @@ class ApplicationController < ActionController::Base
     !!cookies.signed[:subscriber_id]
   end
 
-  def home_page_path
-    @site.home_page.path
+  def verify_user_signed_out!
+    redirect_to after_sign_in_path if user_signed_in?
   end
 
-  def current_session
-    return @current_session if defined?(@current_session)
-    @current_session = Session.find
+  def after_sign_in_path
+    admin_signed_in? ? admin_root_path : home_page_path
   end
 
-  def current_user
-    return @current_user if defined?(@current_user)
-    @current_user = current_session && current_session.user
-  end
-
-  def current_role
-    return @current_role if defined?(@current_role)
-    @current_role = current_user && current_user.roles.find_by_site_id!(@site.id)
-  end
-
-  def user_signed_in?
-    !!current_session
+  def admin_signed_in?
+    user_signed_in? && Role::ADMIN_NAMES.include?(current_role.name)
   end
 
   def authenticate_user!
@@ -93,6 +86,10 @@ class ApplicationController < ActionController::Base
         redirect_to sign_in_path
       end
     end
+  end
+
+  def user_signed_in?
+    !!current_session
   end
 
   def authorize_user!
@@ -111,8 +108,19 @@ class ApplicationController < ActionController::Base
     Role::NAMES
   end
 
-  def admin_signed_in?
-    user_signed_in? && Role::ADMIN_NAMES.include?(current_role.name)
+  def current_role
+    return @current_role if defined?(@current_role)
+    @current_role = current_user && current_user.roles.find_by_site_id!(@site.id)
+  end
+
+  def current_user
+    return @current_user if defined?(@current_user)
+    @current_user = current_session && current_session.user
+  end
+
+  def current_session
+    return @current_session if defined?(@current_session)
+    @current_session = Session.find
   end
 
   def self.feature_name name

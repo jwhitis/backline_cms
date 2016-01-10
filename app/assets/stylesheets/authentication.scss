@@ -7,4 +7,38 @@ div#sign-in {
   input.btn-main {
     float: right;
   }
+
+  div.reset-password {
+    margin-top: 20px;
+    text-align: center;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+
+div#send-instructions {
+  i {
+    margin-bottom: 5px;
+    display: block;
+    font-style: normal;
+  }
+
+  input[type="email"] {
+    width: calc(100% - 100px);
+    float: left;
+  }
+
+  input.btn-main {
+    width: 90px;
+    padding: 0;
+    float: right;
+  }
+}
+
+div#new-password {
+  input.btn-main {
+    float: right;
+  }
 }

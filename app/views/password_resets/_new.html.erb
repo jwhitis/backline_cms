@@ -1,0 +1,10 @@
+<div id="send-instructions" class="max-width-xs">
+  <h2 class="page-title">Reset Password</h2>
+
+  <%= form_tag password_resets_path, class: "clearfix" do %>
+    <i>Enter your email address below to receive instructions for resetting your password.</i>
+    <%= label_tag :email, "Email Address", class: "sr-only" %>
+    <%= email_field_tag :email, nil, placeholder: "Email Address", class: "form-control" %>
+    <%= submit_tag "Send", class: "btn-main" %>
+  <% end %>
+</div>
