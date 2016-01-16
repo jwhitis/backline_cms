@@ -13,7 +13,7 @@ class Admin::AlbumTracksController < Admin::AdminController
   end
 
   def create
-    @album_track = @album.tracks.new(album_track_params)
+    @album_track = @album.tracks.build(album_track_params)
 
     if @album_track.save
       @album_tracks = @album.tracks.display_order

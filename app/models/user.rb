@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :roles, dependent: :destroy
-
   acts_as_authentic do |config|
     config.merge_validates_format_of_email_field_options(message: "is invalid")
     config.ignore_blank_passwords = false
@@ -8,9 +6,21 @@ class User < ActiveRecord::Base
     config.session_class = Session
   end
 
+  has_many :roles, inverse_of: :user, dependent: :destroy
+
+  accepts_nested_attributes_for :roles
+
+  def current_role
+    self.roles.find_by_site_id!(Backline.site.id)
+  end
+
   def deliver_password_reset_email!
     reset_perishable_token!
     PasswordResetMailer.password_reset_email(self).deliver_now
+  end
+
+  def self.display_order
+    order(:email)
   end
 
 end

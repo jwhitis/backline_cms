@@ -23,6 +23,7 @@ class AdminNavLinks
         ["Audio Player", url_helpers.admin_player_tracks_path, "music", admin_roles],
         ["Twitter Feed", url_helpers.admin_twitter_handles_path, "twitter", admin_roles],
         ["Mailing List", url_helpers.admin_subscribers_path, "envelope", %w(site_admin)],
+        ["Users", url_helpers.admin_users_path, "users", %w(site_admin)],
         ["Design", url_helpers.edit_admin_design_path, "paint-brush", admin_roles],
         ["Settings", url_helpers.edit_admin_site_path, "cog", %w(site_admin)]
       ]

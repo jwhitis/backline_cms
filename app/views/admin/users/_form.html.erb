@@ -1,0 +1,62 @@
+<h2><%= form_title(@user) %></h2>
+
+<%= render "shared/validation_errors", resource: @user %>
+
+<%= form_for [:admin, @user], remote: true do |f| %>
+  <div class="row">
+    <div class="form-group col-sm-8">
+      <%= f.label :email, "Email Address", class: "required" %>
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-sm-4">
+      <%= f.fields_for :roles, @role do |r| %>
+        <%= r.label :name, "Type", class: "required" %>
+        <%= r.select :name, role_options_for_select(@role.name), {}, class: "form-control" %>
+        <%= r.hidden_field :site_id %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table roles">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Access Public Pages</th>
+          <th>Create Site Content</th>
+          <th>Edit Mailing List</th>
+          <th>Add New Users</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Admin</td>
+          <td><%= fa_icon("check") %></td>
+          <td><%= fa_icon("check") %></td>
+          <td><%= fa_icon("check") %></td>
+          <td><%= fa_icon("check") %></td>
+        </tr>
+        <tr>
+          <td>Editor</td>
+          <td><%= fa_icon("check") %></td>
+          <td><%= fa_icon("check") %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Basic</td>
+          <td><%= fa_icon("check") %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="corner-container">
+    <%= submit_btn %>
+    <%= link_to "Cancel", admin_users_path, remote: true, class: "btn-white" %>
+  </div>
+<% end %>

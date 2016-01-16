@@ -110,7 +110,7 @@ class ApplicationController < ActionController::Base
 
   def current_role
     return @current_role if defined?(@current_role)
-    @current_role = current_user && current_user.roles.find_by_site_id!(@site.id)
+    @current_role = current_user && current_user.current_role
   end
 
   def current_user

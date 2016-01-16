@@ -1,3 +1,5 @@
+$border-color: rgba(white, .15);
+
 div#admin table {
   margin-bottom: 15px;
   border-collapse: separate;
@@ -22,9 +24,23 @@ div#admin table {
     }
   }
 
-  tr:last-child {
+  &.roles {
+    th {
+      text-align: center;
+      font-weight: lighter;
+    }
+
     td {
-      border-bottom: 1px solid rgba(white, .15);
+      font-weight: normal;
+      background-color: rgba(black, .15);
+
+      &:first-child {
+        padding-left: 15px;
+      }
+
+      &:not(:first-child) {
+        text-align: center;
+      }
     }
   }
 
@@ -34,7 +50,7 @@ div#admin table {
   }
 
   td {
-    border-color: rgba(white, .15);
+    border-color: $border-color;
     font-weight: lighter;
 
     &.inline-controls {
@@ -84,6 +100,22 @@ div#admin table {
       a:not(:last-child) {
         margin-right: 6px;
       }
+    }
+  }
+
+  tr:last-child td {
+    border-bottom: 1px solid $border-color;
+  }
+}
+
+div#admin div.table-responsive {
+  border: 1px solid $border-color;
+
+  table {
+    margin-bottom: 0;
+
+    tr:last-child td {
+      border-bottom: none;
     }
   }
 }

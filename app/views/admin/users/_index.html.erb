@@ -1,0 +1,35 @@
+<div class="corner-container">
+  <%= corner_btn("New User", new_admin_user_path) %>
+</div>
+
+<h2>Users</h2>
+
+<%= render "flash_messages" %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th class="hidden-xs">Added</th>
+      <th>Email Address</th>
+      <th class="hidden-xs">Type</th>
+      <th class="edit"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td class="hidden-xs"><%= user.created_at.to_s(:numeric) %></td>
+        <td><%= user.email %></td>
+        <td class="hidden-xs"><%= formatted_role_name(user.current_role.name) %></td>
+        <td class="edit">
+          <%= edit_link(user) %>
+          <%= delete_link(user) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="pagination-links clearfix">
+  <%= pagination_links(@users, params: { controller: "/admin/users" }, class: "btn-white") %>
+</div>
