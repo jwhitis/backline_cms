@@ -21,6 +21,12 @@ class Admin::UsersController < Admin::AdminController
     end
 
     if @user.save
+      if @user.new_account?
+        @user.deliver_new_account_email!
+      else
+        @user.deliver_new_site_email!
+      end
+
       @users = User.display_order.page(params[:page])
       flash.now[:notice] = "User successfully added."
       render :index

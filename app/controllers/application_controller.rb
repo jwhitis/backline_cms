@@ -74,7 +74,7 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_signed_in?
-    user_signed_in? && Role::ADMIN_NAMES.include?(current_role.name)
+    user_signed_in? && Role::ADMIN_NAMES.include?(current_role.try(:name))
   end
 
   def authenticate_user!
@@ -93,7 +93,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_user!
-    unless authorized_roles.include?(current_role.name)
+    unless authorized_roles.include?(current_role.try(:name))
       flash[:alert] = "You are not authorized to access the page you requested."
 
       if request.xhr?

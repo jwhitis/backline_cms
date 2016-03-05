@@ -12,7 +12,20 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :roles
 
   def current_role
-    self.roles.find_by_site_id!(Backline.site.id)
+    self.roles.find_by_site_id(Backline.site.id)
+  end
+
+  def new_account?
+    self.current_login_at.nil?
+  end
+
+  def deliver_new_account_email!
+    reset_perishable_token!
+    UserMailer.new_account_email(self).deliver_now
+  end
+
+  def deliver_new_site_email!
+    UserMailer.new_site_email(self).deliver_now
   end
 
   def deliver_password_reset_email!
