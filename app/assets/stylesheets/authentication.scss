@@ -23,7 +23,7 @@ div#request-password-reset {
     margin-bottom: 10px;
     text-align: center;
     line-height: 17px;
-    font-weight: lighter;
+    font-weight: normal;
   }
 
   input[type="email"] {
@@ -43,7 +43,6 @@ div#update-password {
     width: calc(100% - 95px);
     float: left;
     line-height: 17px;
-    font-weight: lighter;
     font-style: normal;
   }
 
