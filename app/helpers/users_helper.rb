@@ -9,4 +9,12 @@ module UsersHelper
     name.sub(/\Asite_/, "").titleize
   end
 
+  def password_reset_title
+    @user.new_account? ? "Set Password" : "New Password"
+  end
+
+  def site_titles
+    @user.sites.pluck(:title).to_sentence
+  end
+
 end

@@ -9,7 +9,7 @@ div#sign-in {
   }
 
   div.reset-password {
-    margin-top: 20px;
+    margin-top: 15px;
     text-align: center;
 
     a {
@@ -18,11 +18,12 @@ div#sign-in {
   }
 }
 
-div#send-instructions {
-  i {
-    margin-bottom: 5px;
-    display: block;
-    font-style: normal;
+div#request-password-reset {
+  label {
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 17px;
+    font-weight: lighter;
   }
 
   input[type="email"] {
@@ -37,8 +38,18 @@ div#send-instructions {
   }
 }
 
-div#new-password {
+div#update-password {
+  i {
+    width: calc(100% - 95px);
+    float: left;
+    line-height: 17px;
+    font-weight: lighter;
+    font-style: normal;
+  }
+
   input.btn-main {
+    width: 85px;
+    padding: 0;
     float: right;
   }
 }

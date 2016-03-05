@@ -1,5 +1,5 @@
-<div id="new-password" class="max-width-xs">
-  <h2 class="page-title">New Password</h2>
+<div id="update-password" class="max-width-xs">
+  <h2 class="page-title"><%= password_reset_title %></h2>
 
   <%= form_for @user, url: password_reset_path, method: :patch,
     html: { class: "clearfix" } do |f| %>
@@ -16,6 +16,7 @@
         class: "form-control" %>
     </div>
 
+    <i>You will use this password for every website that is hosted on Backline CMS.</i>
     <%= f.submit "Save", class: "btn-main" %>
   <% end %>
 </div>

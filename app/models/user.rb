@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   end
 
   has_many :roles, inverse_of: :user, dependent: :destroy
+  has_many :sites, through: :roles
 
   accepts_nested_attributes_for :roles
 

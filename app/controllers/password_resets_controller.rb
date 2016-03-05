@@ -1,5 +1,5 @@
 class PasswordResetsController < ApplicationController
-  before_action :verify_user_signed_out!, only: [:new, :edit]
+  before_action :verify_user_signed_out!
   before_action :find_user, only: [:edit, :update]
 
   def new
@@ -21,7 +21,8 @@ class PasswordResetsController < ApplicationController
 
   def update
     if @user.update_attributes(password_reset_params)
-      redirect_to after_sign_in_path, notice: "Your password has been reset."
+      flash[:notice] = "Your password has been saved. You are now signed in."
+      redirect_to after_sign_in_path
     else
       render :edit
     end
