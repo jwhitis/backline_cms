@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Set the default options for URLs generated in emails.
-  config.action_mailer.default_url_options = { host: "backlinecms.com" }
+  config.action_mailer.default_url_options = { host: "www.backlinecms.com" }
 
   # Configure Action Mailer to use SendGrid.
   ActionMailer::Base.smtp_settings = {
