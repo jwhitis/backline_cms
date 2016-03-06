@@ -28,7 +28,7 @@ class Admin::UsersController < Admin::AdminController
       end
 
       @users = User.display_order.page(params[:page])
-      flash.now[:notice] = "User successfully added."
+      flash.now[:notice] = "An email has been sent to notify this user that they have been added."
       render :index
     else
       @role = @user.roles.find(&:new_record?)
