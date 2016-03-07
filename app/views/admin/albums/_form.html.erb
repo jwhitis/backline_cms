@@ -76,22 +76,20 @@
       <%= dimensions_tag(500, 500) %>
     </div>
 
-    <div class="row">
-      <div class="col-sm-6">
-        <%= f.label :notes %>
-        <%= f.text_area :notes, rows: 6, class: "form-control equal-height" %>
-      </div>
-
-      <div class="col-sm-6">
-        <%= image_tag @album.cover_art_url || default_image_url, class: "equal-height" %>
-      </div>
-    </div>
-
     <% if @album.cover_art.present? %>
-      <div class="file-box">
-        <%= file_box_text(@album, :cover_art) %>
+      <div class="image-container">
+        <%= image_tag @album.cover_art_url %>
+
+        <div class="file-box">
+          <%= file_box_text(@album, :cover_art) %>
+        </div>
       </div>
     <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :notes %>
+    <%= f.text_area :notes, rows: 3, class: "form-control" %>
   </div>
 
   <div class="heading-box sidebar-right">

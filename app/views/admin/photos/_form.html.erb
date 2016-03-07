@@ -16,22 +16,20 @@
       <%= dimensions_tag(720, 560) %>
     </div>
 
-    <div class="row">
-      <div class="col-sm-6">
-        <%= f.label :caption %>
-        <%= f.text_area :caption, rows: 3, class: "form-control equal-height" %>
-      </div>
-
-      <div class="col-sm-6">
-        <%= image_tag @photo.image_url || default_image_url, class: "equal-height" %>
-      </div>
-    </div>
-
     <% if @photo.image.present? %>
-      <div class="file-box">
-        <%= file_box_text(@photo, :image) %>
+      <div class="image-container">
+        <%= image_tag @photo.image_url %>
+
+        <div class="file-box">
+          <%= file_box_text(@photo, :image) %>
+        </div>
       </div>
     <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :caption %>
+    <%= f.text_area :caption, rows: 3, class: "form-control" %>
   </div>
 
   <div class="heading-box sidebar-right">

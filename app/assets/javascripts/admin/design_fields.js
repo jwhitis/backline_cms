@@ -47,18 +47,6 @@ $(document).ready(function() {
     $("div#body-font-sample").css("font-family", font);
   });
 
-  // Set image panels to equal height
-  if ($(window).width() >= 768) {
-    $("div.editor-container ul.nav-tabs a[href='#images']").on("shown.bs.tab", function() {
-      var rowCount = $("div#images div.row").length;
-
-      for (var i = 1; i <= rowCount; i++) {
-        var selector = "div#images div.row:nth-child(" + i + ") div.image-panel";
-        setEqualHeight(selector);
-      }
-    });
-  }
-
 });
 
 function viewThemeAttributes(options) {

@@ -15,16 +15,12 @@
       <%= f.text_area :embed, rows: 3, class: "form-control" %>
     </div>
 
-    <div class="row">
-      <div class="col-sm-6">
-        <%= f.label :caption %>
-        <%= f.text_area :caption, rows: 3, class: "form-control equal-height" %>
-      </div>
+    <%== video_embed_preview(@video) %>
+  </div>
 
-      <div class="col-sm-6">
-        <%== video_embed_preview(@video, class: "equal-height") %>
-      </div>
-    </div>
+  <div class="form-group">
+    <%= f.label :caption %>
+    <%= f.text_area :caption, rows: 3, class: "form-control" %>
   </div>
 
   <div class="heading-box sidebar-right">

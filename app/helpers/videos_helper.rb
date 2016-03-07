@@ -2,10 +2,7 @@ module VideosHelper
 
   def video_embed_preview video, html_options = {}
     embed = video.embed.try(:dup)
-
-    unless embed.present?
-      return image_tag default_image_url, html_options
-    end
+    return "" unless embed.present?
 
     html_options.each do |attribute, value|
       embed.slice!(/#{attribute}="([^"]*)"/) || embed.slice!(/#{attribute}='([^']*)'/)

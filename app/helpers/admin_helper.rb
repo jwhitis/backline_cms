@@ -139,10 +139,6 @@ module AdminHelper
     end
   end
 
-  def default_image_url
-    "http://backline-cms.s3.amazonaws.com/images/default_image.png"
-  end
-
   def file_box_text resource, attribute
     filename = resource.send(attribute).file.filename
     "Filename: #{filename}"

@@ -68,24 +68,4 @@ div#admin {
       }
     }
   }
-
-  div#images div.row {
-    margin: 0 -7.5px;
-
-    div.col-sm-6 {
-      padding: 0 7.5px;
-
-      @media (min-width: 768px) {
-        div.file-box div.checkbox {
-          float: none;
-        }
-      }
-    }
-
-    @media (max-width: 767px) {
-      &:last-child div.col-sm-6:last-child div.image-panel {
-        margin-bottom: 0;
-      }
-    }
-  }
 }

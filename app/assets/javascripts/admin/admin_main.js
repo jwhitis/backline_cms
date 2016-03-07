@@ -128,12 +128,6 @@ $(document).on("ajaxSuccess", function() {
     dateFormat: "DD, MM d, yy"
   });
 
-  // Set panel elements to equal height
-  if ($(window).width() >= 768) {
-    setEqualHeight("div.image-panel .equal-height");
-    setEqualHeight("div.video-panel .equal-height");
-  }
-
 });
 
 function fadeOutAlerts() {
@@ -168,21 +162,5 @@ function initializeSwitchery() {
       speed: ".3s",
       size: "small"
     });
-  });
-}
-
-function setEqualHeight(selector) {
-  $(selector).imagesLoaded(function() {
-    var heightMax = 0;
-
-    $(selector).each(function() {
-      var height = $(this).outerHeight();
-
-      if (height > heightMax) {
-        heightMax = height;
-      }
-    });
-
-    $(selector).outerHeight(heightMax);
   });
 }
