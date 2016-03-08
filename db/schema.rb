@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108135359) do
+ActiveRecord::Schema.define(version: 20160308001742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,10 @@ ActiveRecord::Schema.define(version: 20160108135359) do
     t.datetime "updated_at",                   null: false
     t.integer  "tracks_count", default: 0,     null: false
     t.string   "archive"
+    t.integer  "site_id",                      null: false
   end
+
+  add_index "albums", ["site_id"], name: "index_albums_on_site_id", using: :btree
 
   create_table "color_schemes", force: :cascade do |t|
     t.integer  "design_id"
@@ -89,9 +92,11 @@ ActiveRecord::Schema.define(version: 20160108135359) do
     t.integer  "page_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "site_id",      null: false
   end
 
   add_index "nav_links", ["page_id"], name: "index_nav_links_on_page_id", using: :btree
+  add_index "nav_links", ["site_id"], name: "index_nav_links_on_site_id", using: :btree
   add_index "nav_links", ["text"], name: "index_nav_links_on_text", unique: true, using: :btree
 
   create_table "pages", force: :cascade do |t|
@@ -108,9 +113,11 @@ ActiveRecord::Schema.define(version: 20160108135359) do
     t.boolean  "blank_layout",      default: false, null: false
     t.integer  "feature_id"
     t.boolean  "exclusive_content", default: false, null: false
+    t.integer  "site_id",                           null: false
   end
 
   add_index "pages", ["feature_id"], name: "index_pages_on_feature_id", using: :btree
+  add_index "pages", ["site_id"], name: "index_pages_on_site_id", using: :btree
   add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true, using: :btree
 
   create_table "photos", force: :cascade do |t|
@@ -119,7 +126,10 @@ ActiveRecord::Schema.define(version: 20160108135359) do
     t.boolean  "published",  default: false, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "site_id",                    null: false
   end
+
+  add_index "photos", ["site_id"], name: "index_photos_on_site_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",       default: "basic", null: false
@@ -147,7 +157,10 @@ ActiveRecord::Schema.define(version: 20160108135359) do
     t.boolean  "published",   default: false, null: false
     t.string   "venue_url"
     t.string   "tickets_url"
+    t.integer  "site_id",                     null: false
   end
+
+  add_index "shows", ["site_id"], name: "index_shows_on_site_id", using: :btree
 
   create_table "sites", force: :cascade do |t|
     t.integer  "home_page_id"
@@ -170,9 +183,11 @@ ActiveRecord::Schema.define(version: 20160108135359) do
     t.string   "last_name"
     t.string   "country"
     t.string   "zip"
+    t.integer  "site_id",    null: false
   end
 
   add_index "subscribers", ["email"], name: "index_subscribers_on_email", unique: true, using: :btree
+  add_index "subscribers", ["site_id"], name: "index_subscribers_on_site_id", using: :btree
 
   create_table "tracks", force: :cascade do |t|
     t.string   "title",                        null: false
@@ -183,9 +198,11 @@ ActiveRecord::Schema.define(version: 20160108135359) do
     t.string   "type",                         null: false
     t.string   "audio"
     t.boolean  "downloadable", default: false, null: false
+    t.integer  "site_id",                      null: false
   end
 
   add_index "tracks", ["album_id"], name: "index_tracks_on_album_id", using: :btree
+  add_index "tracks", ["site_id"], name: "index_tracks_on_site_id", using: :btree
 
   create_table "tweets", force: :cascade do |t|
     t.string   "handle",                null: false
@@ -197,13 +214,19 @@ ActiveRecord::Schema.define(version: 20160108135359) do
     t.string   "name",                  null: false
     t.string   "profile_url",           null: false
     t.integer  "twitter_id",  limit: 8, null: false
+    t.integer  "site_id",               null: false
   end
+
+  add_index "tweets", ["site_id"], name: "index_tweets_on_site_id", using: :btree
 
   create_table "twitter_handles", force: :cascade do |t|
     t.string   "handle",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "site_id",    null: false
   end
+
+  add_index "twitter_handles", ["site_id"], name: "index_twitter_handles_on_site_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                          null: false
@@ -231,17 +254,30 @@ ActiveRecord::Schema.define(version: 20160108135359) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "published",  default: false, null: false
+    t.integer  "site_id",                    null: false
   end
 
+  add_index "videos", ["site_id"], name: "index_videos_on_site_id", using: :btree
+
+  add_foreign_key "albums", "sites"
   add_foreign_key "color_schemes", "designs"
   add_foreign_key "designs", "sites"
   add_foreign_key "feature_activations", "features"
   add_foreign_key "feature_activations", "sites"
   add_foreign_key "nav_links", "pages"
+  add_foreign_key "nav_links", "sites"
   add_foreign_key "pages", "features"
+  add_foreign_key "pages", "sites"
+  add_foreign_key "photos", "sites"
   add_foreign_key "roles", "sites"
   add_foreign_key "roles", "users"
+  add_foreign_key "shows", "sites"
   add_foreign_key "sites", "pages", column: "home_page_id"
   add_foreign_key "sites", "pages", column: "splash_page_id"
+  add_foreign_key "subscribers", "sites"
   add_foreign_key "tracks", "albums"
+  add_foreign_key "tracks", "sites"
+  add_foreign_key "tweets", "sites"
+  add_foreign_key "twitter_handles", "sites"
+  add_foreign_key "videos", "sites"
 end
