@@ -9,7 +9,7 @@ class SubscribersController < ApplicationController
   end
 
   def create
-    @subscriber.validate_profile = true
+    @subscriber.require_attributes = true
     @subscriber.assign_attributes(subscriber_params) unless @subscriber.valid?
 
     if !@subscriber.changed? || @subscriber.save

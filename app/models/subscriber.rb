@@ -1,15 +1,15 @@
 require "csv"
 
 class Subscriber < ActiveRecord::Base
-  PROFILE_ATTRIBUTES = [:first_name, :last_name, :country]
+  REQUIRED_ATTRIBUTES = [:first_name, :last_name, :country]
 
-  attr_accessor :validate_profile
+  attr_accessor :require_attributes
 
-  validates_presence_of *PROFILE_ATTRIBUTES, if: :validate_profile
+  validates_presence_of *REQUIRED_ATTRIBUTES, if: :require_attributes
   validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
 
   def exclusive_content?
-    PROFILE_ATTRIBUTES.all? { |attribute| self.send(attribute) }
+    REQUIRED_ATTRIBUTES.all? { |attribute| self.send(attribute) }
   end
 
   def exclusive_content_in_words
