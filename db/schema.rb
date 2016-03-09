@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309230017) do
+ActiveRecord::Schema.define(version: 20160309233108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20160309230017) do
 
   add_index "nav_links", ["page_id"], name: "index_nav_links_on_page_id", using: :btree
   add_index "nav_links", ["site_id"], name: "index_nav_links_on_site_id", using: :btree
-  add_index "nav_links", ["text"], name: "index_nav_links_on_text", unique: true, using: :btree
+  add_index "nav_links", ["text", "site_id"], name: "index_nav_links_on_text_and_site_id", unique: true, using: :btree
 
   create_table "pages", force: :cascade do |t|
     t.string   "title",                             null: false
