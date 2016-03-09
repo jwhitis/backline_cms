@@ -6,11 +6,14 @@ class Site < ActiveRecord::Base
 
   validates_presence_of :title
   validates_presence_of :home_page_id, on: :update
+  validates :subdomain, presence: true, subdomain: true, uniqueness: { case_sensitive: false }
   validate :referenced_pages_must_be_published
   validate :referenced_pages_must_not_have_exclusive_content
   validate :home_page_must_not_belong_to_inactive_feature
   validate :home_page_must_not_have_blank_layout
   validate :splash_page_must_have_blank_layout
+
+  before_validation :format_subdomain
 
   delegate :background_image_url, :banner_image_url, :logo_url, :favicon_url,
            *Design.color_methods, :display_font, :body_font, :css, to: :design
@@ -59,6 +62,13 @@ class Site < ActiveRecord::Base
 
     unless splash_page.blank_layout?
       self.errors.add(:splash_page_id, "must have a blank layout")
+    end
+  end
+
+  def format_subdomain
+    if self.subdomain_changed?
+      text = [self.subdomain, self.title].find(&:present?) || ""
+      self.subdomain = text.gsub("_", "-").parameterize
     end
   end
 

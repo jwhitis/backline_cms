@@ -170,10 +170,12 @@ ActiveRecord::Schema.define(version: 20160309230017) do
     t.text     "description"
     t.integer  "splash_page_id"
     t.text     "subscriber_message"
+    t.string   "subdomain",          null: false
   end
 
   add_index "sites", ["home_page_id"], name: "index_sites_on_home_page_id", using: :btree
   add_index "sites", ["splash_page_id"], name: "index_sites_on_splash_page_id", using: :btree
+  add_index "sites", ["subdomain"], name: "index_sites_on_subdomain", unique: true, using: :btree
 
   create_table "subscribers", force: :cascade do |t|
     t.string   "email",      null: false
