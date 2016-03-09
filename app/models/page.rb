@@ -2,7 +2,8 @@ class Page < ActiveRecord::Base
   has_one :nav_link, dependent: :destroy
 
   validates_presence_of :title
-  validates :slug, presence: true, slug: true, uniqueness: { case_sensitive: false }
+  validates :slug, presence: true, slug: true,
+    uniqueness: { scope: :site_id, case_sensitive: false }
 
   def has_styles_or_scripts?
     self.css.present? || self.javascript.present?
