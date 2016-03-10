@@ -9,8 +9,9 @@ class Admin::SitesController < Admin::AdminController
   def update
     if @editable_site.update_attributes(site_params)
       reorder_nav_links! if site_features_changed?
-      Backline.reload
-      redirect_to admin_root_path, notice: "Settings successfully updated."
+      flash[:notice] = "Settings successfully updated."
+      # Form the entire URL in case the subdomain has changed.
+      redirect_to admin_root_url(subdomain: @editable_site.subdomain)
     else
       render :edit
     end
@@ -35,7 +36,7 @@ class Admin::SitesController < Admin::AdminController
 
   def site_params
     params.require(:site).permit(:home_page_id, :title, :description, { feature_ids: [] },
-      :splash_page_id, :subscriber_message)
+      :splash_page_id, :subscriber_message, :subdomain)
   end
 
 end
