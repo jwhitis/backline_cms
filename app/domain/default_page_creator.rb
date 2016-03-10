@@ -6,8 +6,8 @@ class DefaultPageCreator
     @slug = slug
   end
 
-  def first_or_create!
-    DefaultPage.find_by_slug(@slug) || DefaultPage.create!(attributes)
+  def create!
+    DefaultPage.create!(attributes)
   end
 
   private

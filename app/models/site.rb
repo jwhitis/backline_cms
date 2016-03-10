@@ -68,7 +68,7 @@ class Site < ActiveRecord::Base
   end
 
   def format_subdomain
-    if self.subdomain_changed?
+    if self.new_record? || self.subdomain_changed?
       text = [self.subdomain, self.title].find(&:present?) || ""
       self.subdomain = text.gsub("_", "-").parameterize
     end

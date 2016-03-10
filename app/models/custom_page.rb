@@ -14,7 +14,7 @@ class CustomPage < Page
   end
 
   def format_slug
-    if self.slug_changed?
+    if self.new_record? || self.slug_changed?
       text = [self.slug, self.title].find(&:present?) || ""
       self.slug = text.parameterize
     end

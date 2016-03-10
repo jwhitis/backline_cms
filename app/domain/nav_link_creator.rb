@@ -5,8 +5,10 @@ class NavLinkCreator
     @page = page
   end
 
-  def first_or_create!
-    @page.nav_link || text && @page.create_nav_link!(text: text)
+  def create!
+    return true if text.nil?
+
+    @page.create_nav_link!(text: text)
   end
 
   private
