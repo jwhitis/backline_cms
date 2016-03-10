@@ -7,7 +7,7 @@ class Feature < ActiveRecord::Base
 
   def self.inactive
     joins("LEFT OUTER JOIN feature_activations ON feature_activations.feature_id = features.id").
-      where("feature_activations.site_id IS NULL OR feature_activations.site_id != ?", Backline.site.id).
+      where("feature_activations.site_id IS NULL OR feature_activations.site_id != ?", Site.current_id).
       group("features.id")
   end
 

@@ -13,7 +13,7 @@ class Role < ActiveRecord::Base
   validate :must_belong_to_current_site
 
   def must_belong_to_current_site
-    unless self.site_id == Backline.site.id
+    unless self.site_id == Site.current_id
       self.errors.add(:site_id, "must be the current site")
     end
   end

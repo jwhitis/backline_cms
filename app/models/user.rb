@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :roles
 
   def current_role
-    self.roles.find_by_site_id(Backline.site.id)
+    self.roles.find_by_site_id(Site.current_id)
   end
 
   def new_account?

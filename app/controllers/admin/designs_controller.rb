@@ -7,7 +7,6 @@ class Admin::DesignsController < Admin::AdminController
 
   def update
     if @design.update_attributes(design_params)
-      Backline.reload
       redirect_to admin_root_path, notice: "Design successfully updated."
     else
       find_style_snippets
