@@ -1,4 +1,5 @@
 class Album < ActiveRecord::Base
+  include SiteScope
   include ActionView::Helpers::NumberHelper
 
   ARCHIVE_SIZE_LIMIT = 100.megabytes

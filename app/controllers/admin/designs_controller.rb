@@ -17,11 +17,8 @@ class Admin::DesignsController < Admin::AdminController
 
   private
 
-  # This is necessary because reloading the Site object doesn't clear
-  # validation errors for the associated Design object.
   def find_design
-    design_id = @site.design.id
-    @design = Design.find(design_id)
+    @design = Design.first
   end
 
   def find_style_snippets

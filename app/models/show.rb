@@ -1,4 +1,6 @@
 class Show < ActiveRecord::Base
+  include SiteScope
+
   validates_presence_of :venue_name, :date, :city, :state
   validates :venue_url, url: true, allow_blank: true
   validates :tickets_url, url: true, allow_blank: true

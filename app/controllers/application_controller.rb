@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :find_site
+  around_action :set_current_site_id
   before_action :find_nav_links
   before_action :find_tweets
 
@@ -10,7 +11,14 @@ class ApplicationController < ActionController::Base
   protected
 
   def find_site
-    @site = Backline.site
+    @site = Site.find_by_subdomain!(request.subdomain)
+  end
+
+  def set_current_site_id
+    Site.current_id = @site.id
+    yield
+  ensure
+    Site.current_id = nil
   end
 
   def find_nav_links

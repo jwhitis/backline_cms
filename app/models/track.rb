@@ -1,4 +1,5 @@
 class Track < ActiveRecord::Base
+  include SiteScope
   include Orderable
 
   mount_uploader :audio, AudioUploader

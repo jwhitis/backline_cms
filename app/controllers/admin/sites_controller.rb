@@ -19,11 +19,8 @@ class Admin::SitesController < Admin::AdminController
 
   private
 
-  # This is necessary because reloading the Site object doesn't clear
-  # its validation errors.
   def find_editable_site
-    site_id = @site.id
-    @editable_site = Site.find(site_id)
+    @editable_site = Site.find(@site.id)
   end
 
   def store_feature_ids

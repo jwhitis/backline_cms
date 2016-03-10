@@ -1,4 +1,5 @@
 class Design < ActiveRecord::Base
+  include SiteScope
   include Styleable
 
   mount_uploader :background_image, ImageUploader

@@ -1,4 +1,6 @@
 class Site < ActiveRecord::Base
+  cattr_accessor :current_id
+
   has_many :feature_activations, dependent: :destroy
   has_many :features, through: :feature_activations
   has_many :roles, dependent: :destroy

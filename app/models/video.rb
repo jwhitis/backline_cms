@@ -1,4 +1,6 @@
 class Video < ActiveRecord::Base
+  include SiteScope
+
   validates_presence_of :title, :embed
 
   def self.display_order

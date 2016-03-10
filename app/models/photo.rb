@@ -1,4 +1,6 @@
 class Photo < ActiveRecord::Base
+  include SiteScope
+
   mount_uploader :image, ImageUploader
 
   validates_presence_of :image

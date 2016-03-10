@@ -1,4 +1,6 @@
 class Page < ActiveRecord::Base
+  include SiteScope
+
   has_one :nav_link, dependent: :destroy
 
   validates_presence_of :title

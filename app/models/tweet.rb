@@ -1,4 +1,6 @@
 class Tweet < ActiveRecord::Base
+  include SiteScope
+
   COUNT = 20 # Must be less than or equal to 200
 
   def self.newest_twitter_id

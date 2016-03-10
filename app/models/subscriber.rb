@@ -1,6 +1,8 @@
 require "csv"
 
 class Subscriber < ActiveRecord::Base
+  include SiteScope
+
   REQUIRED_ATTRIBUTES = [:first_name, :last_name, :country]
 
   attr_accessor :require_attributes

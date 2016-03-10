@@ -1,4 +1,5 @@
 class NavLink < ActiveRecord::Base
+  include SiteScope
   include Orderable
 
   belongs_to :page

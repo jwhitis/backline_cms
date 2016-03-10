@@ -1,4 +1,6 @@
 class TwitterHandle < ActiveRecord::Base
+  include SiteScope
+
   validates_presence_of :handle
 
   def self.handles
