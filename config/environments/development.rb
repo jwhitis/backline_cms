@@ -40,7 +40,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # Set the default options for URLs generated in emails.
-  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.default_url_options = { host: "lvh.me", port: 3000 }
 
   # Set the location of the mailer previews directory.
   config.action_mailer.preview_path = "#{Rails.root}/app/mailer_previews"

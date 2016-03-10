@@ -1,5 +1,5 @@
 <p>A Backline CMS account has been created for you so that you can sign in to the following website: <%= @site.title %>. Click the link below to set your password.</p>
 
-<p><%= link_to "Set My Password", edit_password_reset_url(@user.perishable_token) %></p>
+<p><%= link_to "Set My Password", edit_password_reset_url(@user.perishable_token, subdomain: @site.subdomain) %></p>
 
 <p>If you didn't request an account, you don't need to do anything. No one will be able to sign in with your email address.</p>

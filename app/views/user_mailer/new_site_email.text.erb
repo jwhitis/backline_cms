@@ -1,5 +1,5 @@
 Your Backline CMS account has been given access to the following website: <%= @site.title %>. To sign in, copy and paste the URL below into your address bar.
 
-<%= sign_in_url %>
+<%= sign_in_url(subdomain: @site.subdomain) %>
 
 If you didn't request access to this site, you don't need to do anything. No one else can sign in with your email address.
