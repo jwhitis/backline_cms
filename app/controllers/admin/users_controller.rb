@@ -3,7 +3,7 @@ class Admin::UsersController < Admin::AdminController
   authorized_roles :super_admin, :site_admin
 
   def index
-    @users = User.display_order.page(params[:page])
+    @users = User.for_current_site.display_order.page(params[:page])
   end
 
   def new
@@ -27,7 +27,7 @@ class Admin::UsersController < Admin::AdminController
         @user.deliver_new_site_email!
       end
 
-      @users = User.display_order.page(params[:page])
+      @users = User.for_current_site.display_order.page(params[:page])
       flash.now[:notice] = "An email has been sent to notify this user that they have been added."
       render :index
     else
@@ -42,7 +42,7 @@ class Admin::UsersController < Admin::AdminController
 
   def update
     if @user.update_attributes(user_params)
-      @users = User.display_order.page(params[:page])
+      @users = User.for_current_site.display_order.page(params[:page])
       flash.now[:notice] = "User successfully updated."
       render :index
     else
@@ -52,7 +52,7 @@ class Admin::UsersController < Admin::AdminController
 
   def destroy
     @user.destroy
-    @users = User.display_order.page(params[:page])
+    @users = User.for_current_site.display_order.page(params[:page])
     flash.now[:notice] = "User successfully removed."
     render :index
   end
