@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::AdminController
   before_action :find_user, only: [:edit, :update, :destroy]
-  authorized_roles :site_admin
+  authorized_roles :super_admin, :site_admin
 
   def index
     @users = User.display_order.page(params[:page])

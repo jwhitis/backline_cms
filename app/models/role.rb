@@ -1,11 +1,12 @@
 class Role < ActiveRecord::Base
-  ADMIN_NAMES = %w(site_admin site_editor)
-  NAMES = ADMIN_NAMES + %w(basic)
+  ADMIN_NAMES = %w(super_admin site_admin site_editor)
+  VALID_NAMES = %w(site_admin site_editor basic)
+  NAMES = ADMIN_NAMES | VALID_NAMES
 
   belongs_to :user
   belongs_to :site
 
-  validates :name, presence: true, inclusion: { in: NAMES }
+  validates :name, presence: true, inclusion: { in: VALID_NAMES }
   validates_presence_of :user # The association name is used to correspond with the
   # :inverse_of option that has been set on the User model. This prevents roles that
   # belong to new users from failing validation.

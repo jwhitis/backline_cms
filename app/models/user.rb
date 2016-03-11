@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :roles
 
   def current_role
+    return Role.new(name: "super_admin") if self.super_admin?
+
     self.roles.find_by_site_id(Site.current_id)
   end
 
