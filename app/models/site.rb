@@ -94,4 +94,9 @@ class Site < ActiveRecord::Base
     super
   end
 
+  def self.with_twitter_feed
+    feature = Feature.find_by_name!("twitter_feed")
+    joins(:feature_activations).where(feature_activations: { feature_id: feature.id })
+  end
+
 end
