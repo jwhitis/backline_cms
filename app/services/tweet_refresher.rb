@@ -7,11 +7,7 @@ class TweetRefresher
   class << self
 
     def refresh_all
-      sites = Site.with_twitter_feed.order(:id)
-      @offset = sites.offset(@offset).any? ? @offset : 0
-      sites = sites.offset(@offset).limit(LIMIT)
-      @offset = @offset.to_i + LIMIT
-
+      sites = Site.with_twitter_feed.limit(LIMIT)
       sites.each { |site| refresh(site.id) }
     end
 
@@ -41,7 +37,8 @@ class TweetRefresher
 
     def new_tweets client
       options = { count: Tweet::COUNT, exclude_replies: true }
-      options[:since_id] = Tweet.maximum(:twitter_id) if Tweet.maximum(:twitter_id)
+      max_twitter_id = Tweet.maximum(:twitter_id)
+      options[:since_id] = max_twitter_id if max_twitter_id
       tweets = []
 
       TwitterHandle.pluck(:handle).each do |handle|
