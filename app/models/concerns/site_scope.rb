@@ -2,6 +2,8 @@ module SiteScope
   extend ActiveSupport::Concern
 
   included do
+    belongs_to :site
+
     # The default scope is not applied to new records if it is
     # defined as a class method.
     default_scope do

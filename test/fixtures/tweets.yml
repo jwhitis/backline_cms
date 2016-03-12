@@ -6,6 +6,7 @@ default: &default
   name: Jack Whitis
   profile_url: https://twitter.com/jwhitis
   twitter_id: 444948979307282432
+  site: default
 
 first:
   <<: *default

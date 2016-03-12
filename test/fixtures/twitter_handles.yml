@@ -1,5 +1,6 @@
 default: &default
   handle: jwhitis
+  site: default
 
 first:
   <<: *default

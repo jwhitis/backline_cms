@@ -10,6 +10,7 @@ default: &default
   published: true
   venue_url: http://www.mercylounge.com
   tickets_url: http://www.ticketmaster.com
+  site: default
 
 first:
   <<: *default

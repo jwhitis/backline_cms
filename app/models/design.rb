@@ -7,7 +7,6 @@ class Design < ActiveRecord::Base
   mount_uploader :logo, ImageUploader
   mount_uploader :favicon, FaviconUploader
 
-  belongs_to :site
   has_one :color_scheme, dependent: :destroy
 
   accepts_nested_attributes_for :color_scheme
