@@ -1,4 +1,5 @@
 class Admin::AdminController < ApplicationController
+  skip_before_action :find_tweets
   before_action :authenticate_user!
   before_action :authorize_user!
   authorized_roles *Role::ADMIN_NAMES
