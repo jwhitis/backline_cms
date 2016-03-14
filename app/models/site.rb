@@ -4,6 +4,17 @@ class Site < ActiveRecord::Base
   has_many :feature_activations, dependent: :destroy
   has_many :features, through: :feature_activations
   has_many :roles, dependent: :destroy
+  has_many :users, through: :roles
+  has_many :albums, dependent: :destroy
+  has_many :nav_links, dependent: :destroy
+  has_many :pages, dependent: :destroy
+  has_many :photos, dependent: :destroy
+  has_many :shows, dependent: :destroy
+  has_many :subscribers, dependent: :destroy
+  has_many :tracks, dependent: :destroy
+  has_many :tweets, dependent: :destroy
+  has_many :twitter_handles, dependent: :destroy
+  has_many :videos, dependent: :destroy
   has_one :design, dependent: :destroy
 
   validates_presence_of :title
