@@ -39,8 +39,4 @@ class User < ActiveRecord::Base
     order(:email)
   end
 
-  def self.for_current_site
-    joins(:roles).where(roles: { site_id: Site.current_id })
-  end
-
 end
