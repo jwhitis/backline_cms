@@ -3,8 +3,6 @@ class DefaultPage < Page
 
   belongs_to :feature
 
-  validates_inclusion_of :slug, in: SLUGS
-
   after_initialize :set_published
 
   def set_published
