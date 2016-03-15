@@ -1,7 +1,7 @@
 module AdminHelper
 
   def admin_nav_hidden?
-    %w(admin sessions).include?(controller_name)
+    controller_name.end_with?("admin")
   end
 
   def admin_nav_links

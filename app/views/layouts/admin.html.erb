@@ -20,7 +20,12 @@
 <%= render "layouts/head" %>
 <body class="admin">
   <div id="wrapper">
-    <%= render "layouts/nav" %>
+    <% if content_for :nav %>
+      <%= content_for :nav %>
+    <% else %>
+      <%= render "layouts/nav" %>
+    <% end %>
+
     <%= render "layouts/main" %>
     <%= render "layouts/footer" %>
   </div>

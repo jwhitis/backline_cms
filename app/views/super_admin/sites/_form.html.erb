@@ -1,0 +1,23 @@
+<h2><%= form_title(@editable_site) %></h2>
+
+<%= render "shared/validation_errors", resource: @editable_site %>
+
+<%= form_for [:super_admin, @editable_site], remote: true do |f| %>
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <%= f.label :title, class: "required" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-sm-6">
+      <%= f.label :subdomain %>
+      <%= info_tooltip("This is placed before .backlinecms.com to form the domain name of the site. If you don't enter anything, the site title will be used instead. Changing this will invalidate any existing cookies for the site.") %>
+      <%= f.text_field :subdomain, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="corner-container">
+    <%= submit_btn %>
+    <%= link_to "Cancel", super_admin_root_path, class: "btn-white" %>
+  </div>
+<% end %>

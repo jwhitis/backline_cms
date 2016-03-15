@@ -1,0 +1,36 @@
+<div class="corner-container">
+  <%= corner_btn("New Site", new_super_admin_site_path) %>
+</div>
+
+<h2>Sites</h2>
+
+<%= render "admin/admin/flash_messages" %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th class="hidden-xs">Domain</th>
+      <th class="edit"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sites.each do |site| %>
+      <tr>
+        <td><%= site.title %></td>
+        <td class="hidden-xs"><%= root_url(subdomain: site.subdomain) %></td>
+        <td class="edit">
+          <%= link_to fa_icon("desktop"), root_url(subdomain: site.subdomain),
+            data: { no_turbolink: true } %>
+          <%= link_to fa_icon("edit"), edit_super_admin_site_path(site), remote: true %>
+          <%= link_to fa_icon("trash-o"), super_admin_site_path(site), method: :delete,
+            remote: true, data: { confirm: "Are you sure you want to delete this site? Doing so will permanently remove all site data, including any pages you have created and email addresses you have collected." } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="pagination-links clearfix">
+  <%= pagination_links(@sites, params: { controller: "/super_admin/sites" }, class: "btn-white") %>
+</div>

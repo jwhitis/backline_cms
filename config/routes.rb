@@ -18,6 +18,14 @@ Rails.application.routes.draw do
 
   resources :password_resets, except: [:index, :show, :destroy]
 
+  constraints subdomain: "www" do
+    scope :admin, module: :super_admin, as: :super_admin do
+      root "super_admin#index"
+      resources :users, except: :show
+      resources :sites, except: :show
+    end
+  end
+
   namespace :admin do
     concern :orderable do
       patch :reorder, on: :collection

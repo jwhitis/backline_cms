@@ -1,0 +1,13 @@
+<% content_for :nav do %>
+  <nav class="navbar" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to super_admin_root_path, class: "navbar-brand" do %>
+          <span class="display-font"><%= @site.title %></span>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+<% end %>
+
+<%= render template: "layouts/admin" %>
