@@ -34,7 +34,5 @@
   </tbody>
 </table>
 
-<div class="pagination-links clearfix">
-  <%= pagination_links(@pages, params: { controller: "/admin/pages" }, param_name: "page_number",
-    class: "btn-white") %>
-</div>
+<%= pagination_links(@pages, params: { controller: "/admin/pages" }, param_name: "page_number",
+  class: "btn-white") %>

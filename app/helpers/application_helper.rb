@@ -52,10 +52,11 @@ module ApplicationHelper
   def pagination_links collection, options = {}
     options.reverse_merge!(remote: true, class: "btn-main")
 
-    links = link_to_previous_page(collection, "#{fa_icon("caret-left")} Prev".html_safe,
-      options.dup) || "".html_safe
-    links += link_to_next_page(collection, "Next #{fa_icon("caret-right")}".html_safe,
-      options.dup) || ""
+    content_tag(:div, class: "pagination-links") do
+      link_to_previous_page(collection, "#{fa_icon("caret-left")} Prev".html_safe,
+        options.dup).to_s.html_safe +
+      link_to_next_page(collection, "Next #{fa_icon("caret-right")}".html_safe, options.dup)
+    end
   end
 
   def formatted_tweet_time tweet
