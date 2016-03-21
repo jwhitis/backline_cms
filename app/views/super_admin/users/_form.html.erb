@@ -1,0 +1,49 @@
+<h2><%= form_title(@user) %></h2>
+
+<%= render "shared/validation_errors", resource: @user %>
+
+<%= form_for [:admin, @user], remote: true do |f| %>
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <%= f.label :email, "Email Address", class: "required" %>
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="checkbox status-box <%= "checked" if @user.super_admin? %> super-admin">
+        <%= f.label :super_admin do %>
+          <%= f.check_box :super_admin %> Make this user a super admin?
+          <%= info_tooltip("Super admins have unrestricted access to all sites.", "top") %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <% if @roles.present? %>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Site</th>
+            <th>Access Level</th>
+            <th class="edit"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @roles.each do |role| %>
+            <tr>
+              <td><%= role.site.title %></td>
+              <td><%= formatted_role_name(role.name) %></td>
+              <td class="edit"><%= view_site_link(role.site) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+
+  <div class="corner-container">
+    <%= submit_btn %>
+    <%= link_to "Cancel", super_admin_users_path, remote: true, class: "btn-white" %>
+  </div>
+<% end %>

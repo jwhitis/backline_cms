@@ -1,0 +1,33 @@
+<div class="corner-container">
+  <%= corner_btn("New User", new_super_admin_user_path) %>
+</div>
+
+<h2>Users</h2>
+
+<%= render "shared/flash_messages" %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th class="hidden-xs">Added</th>
+      <th>Email Address</th>
+      <th class="hidden-xs">Super Admin?</th>
+      <th class="edit"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td class="hidden-xs"><%= user.created_at.to_s(:numeric) %></td>
+        <td><%= user.email %></td>
+        <td class="hidden-xs"><%= user.super_admin? ? "Yes" : "No" %></td>
+        <td class="edit">
+          <%= edit_link(user, prefix: :super_admin) %>
+          <%= delete_link(user, prefix: :super_admin) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= pagination_links(@users, params: { controller: "/super_admin/users" }, class: "btn-white") %>

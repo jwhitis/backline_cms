@@ -56,6 +56,12 @@ div#admin form {
 
   div.checkbox {
     margin: 15px 0;
+
+    @media (min-width: 768px) {
+      &.super-admin {
+        margin-top: 25px;
+      }
+    }
   }
 
   div.features {

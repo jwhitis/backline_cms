@@ -25,22 +25,14 @@ div#admin table {
   }
 
   &.roles {
-    th {
-      text-align: center;
-      font-weight: lighter;
-    }
-
-    td {
-      font-weight: normal;
-      background-color: rgba(black, .15);
-
-      &:first-child {
-        padding-left: 15px;
-      }
-
+    th, td {
       &:not(:first-child) {
         text-align: center;
       }
+    }
+
+    th {
+      font-weight: lighter;
     }
   }
 
@@ -109,13 +101,25 @@ div#admin table {
 }
 
 div#admin div.table-responsive {
-  border: 1px solid $border-color;
+  border-color: $border-color;
 
   table {
     margin-bottom: 0;
 
-    tr:last-child td {
-      border-bottom: none;
+    @media (max-width: 767px) {
+      th, td {
+        &:first-child {
+          padding-left: 15px;
+        }
+
+        &:last-child {
+          padding-right: 15px;
+        }
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
     }
   }
 }
