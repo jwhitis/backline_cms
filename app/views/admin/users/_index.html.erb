@@ -20,7 +20,7 @@
       <tr>
         <td class="hidden-xs"><%= user.created_at.to_s(:numeric) %></td>
         <td><%= user.email %></td>
-        <td class="hidden-xs"><%= formatted_role_name(user.current_role.name) %></td>
+        <td class="hidden-xs"><%= formatted_role_name(user.current_role(false).name) %></td>
         <td class="edit">
           <%= edit_link(user) %>
           <%= delete_link(user) %>

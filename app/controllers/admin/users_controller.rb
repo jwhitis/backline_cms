@@ -37,7 +37,7 @@ class Admin::UsersController < Admin::AdminController
   end
 
   def edit
-    @role = @user.current_role
+    @role = @user.current_role(false)
   end
 
   def update
@@ -51,7 +51,7 @@ class Admin::UsersController < Admin::AdminController
   end
 
   def destroy
-    @user.destroy
+    @user.current_role(false).destroy
     @users = @site.users.display_order.page(params[:page])
     flash.now[:notice] = "User successfully removed."
     render :index
