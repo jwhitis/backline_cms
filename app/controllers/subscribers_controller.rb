@@ -46,7 +46,7 @@ class SubscribersController < ApplicationController
   def after_subscription_path
     return home_page_path if request_path.blank?
 
-    request_path.end_with?("/download") ? albums_path : request_path
+    request_path.ends_with?("/download") ? albums_path : request_path
   end
 
   def request_path
