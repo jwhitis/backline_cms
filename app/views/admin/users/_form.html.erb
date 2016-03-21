@@ -11,7 +11,7 @@
 
     <div class="form-group col-sm-4">
       <%= f.fields_for :roles, @role do |r| %>
-        <%= r.label :name, "Type", class: "required" %>
+        <%= r.label :name, "Access Level", class: "required" %>
         <%= r.select :name, role_options_for_select(@role.name), {}, class: "form-control" %>
         <%= r.hidden_field :site_id %>
       <% end %>
