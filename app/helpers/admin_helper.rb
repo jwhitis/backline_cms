@@ -35,25 +35,24 @@ module AdminHelper
     link_to text, url, options
   end
 
-  def edit_link *parents, resource
+  def edit_link *parents, resource, prefix: :admin
     options = {}
     options[:remote] = true unless resource.is_a?(CustomPage)
     options[:data] = { no_turbolink: true } if resource.is_a?(CustomPage)
 
-    link_to fa_icon("edit"), polymorphic_path([:admin, *parents, resource], action: :edit),
+    link_to fa_icon("edit"), polymorphic_path([prefix, *parents, resource], action: :edit),
       options
   end
 
-  def delete_link *parents, resource, icon: nil, name: nil
+  def delete_link *parents, resource, prefix: :admin, name: nil
     return "" if resource.is_a?(DefaultPage)
 
-    icon ||= "trash-o"
     name ||= resource.class.to_s.titleize.downcase
 
-    link_to fa_icon(icon), nil, delete_link_options(*parents, resource, name)
+    link_to fa_icon("trash-o"), nil, delete_link_options(prefix, *parents, resource, name)
   end
 
-  def delete_link_options *parents, resource, name
+  def delete_link_options prefix, *parents, resource, name
     options = { method: :delete, remote: true }
 
     if resource == @site.home_page || resource == @site.splash_page
@@ -62,7 +61,7 @@ module AdminHelper
       options[:title] = "This page cannot be deleted because it is set as the home page or the splash page."
       options[:class] = "disabled"
     else
-      options[:href] = polymorphic_path([:admin, *parents, resource])
+      options[:href] = polymorphic_path([prefix, *parents, resource])
       options[:data] = { confirm: "Are you sure you want to delete this #{name}?" }
     end
 

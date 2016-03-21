@@ -20,11 +20,9 @@
         <td><%= site.title %></td>
         <td class="hidden-xs"><%= root_url(subdomain: site.subdomain) %></td>
         <td class="edit">
-          <%= link_to fa_icon("desktop"), root_url(subdomain: site.subdomain),
-            data: { no_turbolink: true } %>
-          <%= link_to fa_icon("edit"), edit_super_admin_site_path(site), remote: true %>
-          <%= link_to fa_icon("trash-o"), super_admin_site_path(site), method: :delete,
-            remote: true, data: { confirm: "Are you sure you want to delete this site? Doing so will permanently remove all site data, including any pages you have created and email addresses you have collected." } %>
+          <%= view_site_link(site) %>
+          <%= edit_link(site, prefix: :super_admin) %>
+          <%= delete_link(site, prefix: :super_admin) %>
         </td>
       </tr>
     <% end %>
