@@ -7,9 +7,8 @@ class Role < ActiveRecord::Base
   belongs_to :site
 
   validates :name, presence: true, inclusion: { in: VALID_NAMES }
-  validates_presence_of :user # The association name is used to correspond with the
-  # :inverse_of option that has been set on the User model. This prevents roles that
-  # belong to new users from failing validation.
+  validates_presence_of :user # This must match the :inverse_of option on the user#roles
+  # association to prevent roles that belong to new users from failing validation.
   validates :site_id, presence: true, uniqueness: { scope: :user_id }
   validate :must_belong_to_current_site
 

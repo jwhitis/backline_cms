@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322141217) do
+ActiveRecord::Schema.define(version: 20160322000134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,19 +95,22 @@ ActiveRecord::Schema.define(version: 20160322141217) do
 
   add_index "features", ["name"], name: "index_features_on_name", unique: true, using: :btree
 
-  create_table "nav_links", force: :cascade do |t|
-    t.string   "text",         null: false
+  create_table "links", force: :cascade do |t|
+    t.string   "text"
     t.string   "external_url"
-    t.integer  "position",     null: false
+    t.integer  "position"
     t.integer  "page_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "site_id",      null: false
+    t.integer  "site_id"
+    t.integer  "banner_id"
+    t.string   "type",         null: false
   end
 
-  add_index "nav_links", ["page_id"], name: "index_nav_links_on_page_id", using: :btree
-  add_index "nav_links", ["site_id"], name: "index_nav_links_on_site_id", using: :btree
-  add_index "nav_links", ["text", "site_id"], name: "index_nav_links_on_text_and_site_id", unique: true, using: :btree
+  add_index "links", ["banner_id"], name: "index_links_on_banner_id", using: :btree
+  add_index "links", ["page_id"], name: "index_links_on_page_id", using: :btree
+  add_index "links", ["site_id"], name: "index_links_on_site_id", using: :btree
+  add_index "links", ["text", "site_id"], name: "index_links_on_text_and_site_id", unique: true, using: :btree
 
   create_table "pages", force: :cascade do |t|
     t.string   "title",                             null: false
@@ -278,8 +281,9 @@ ActiveRecord::Schema.define(version: 20160322141217) do
   add_foreign_key "designs", "sites"
   add_foreign_key "feature_activations", "features"
   add_foreign_key "feature_activations", "sites"
-  add_foreign_key "nav_links", "pages"
-  add_foreign_key "nav_links", "sites"
+  add_foreign_key "links", "banners"
+  add_foreign_key "links", "pages"
+  add_foreign_key "links", "sites"
   add_foreign_key "pages", "features"
   add_foreign_key "pages", "sites"
   add_foreign_key "photos", "sites"
