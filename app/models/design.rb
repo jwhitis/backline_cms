@@ -3,11 +3,11 @@ class Design < ActiveRecord::Base
   include Styleable
 
   mount_uploader :background_image, ImageUploader
-  mount_uploader :banner_image, ImageUploader
   mount_uploader :logo, ImageUploader
   mount_uploader :favicon, FaviconUploader
 
   has_one :color_scheme, dependent: :destroy
+  has_one :banner, dependent: :destroy
 
   accepts_nested_attributes_for :color_scheme
 
@@ -28,7 +28,7 @@ class Design < ActiveRecord::Base
   end
 
   def banner_image_url
-    self.banner_image.banner.url
+    self.banner && self.banner.image.banner.url
   end
 
   def logo_url

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160313200652) do
+ActiveRecord::Schema.define(version: 20160322141217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 20160313200652) do
   end
 
   add_index "albums", ["site_id"], name: "index_albums_on_site_id", using: :btree
+
+  create_table "banners", force: :cascade do |t|
+    t.string   "image",                       null: false
+    t.boolean  "full_screen", default: false, null: false
+    t.integer  "design_id",                   null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "banners", ["design_id"], name: "index_banners_on_design_id", using: :btree
 
   create_table "color_schemes", force: :cascade do |t|
     t.integer  "design_id"
@@ -263,6 +273,7 @@ ActiveRecord::Schema.define(version: 20160313200652) do
   add_index "videos", ["site_id"], name: "index_videos_on_site_id", using: :btree
 
   add_foreign_key "albums", "sites"
+  add_foreign_key "banners", "designs"
   add_foreign_key "color_schemes", "designs"
   add_foreign_key "designs", "sites"
   add_foreign_key "feature_activations", "features"

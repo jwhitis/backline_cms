@@ -85,11 +85,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def background? image
-    model.is_a?(Design) && mounted_as == :background_image
+    model.is_a?(Design) && mounted_as == :background_image || model.is_a?(Banner)
   end
 
   def banner? image
-    model.is_a?(Design) && mounted_as == :banner_image
+    model.is_a?(Banner)
   end
 
   def logo? image
