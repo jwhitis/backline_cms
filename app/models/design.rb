@@ -10,6 +10,7 @@ class Design < ActiveRecord::Base
   has_one :banner, dependent: :destroy
 
   accepts_nested_attributes_for :color_scheme
+  accepts_nested_attributes_for :banner, reject_if: :all_blank, allow_destroy: true
 
   validates_presence_of :theme, :site_id
   validates :display_font, presence: true, inclusion: { in: GoogleFonts::DISPLAY_FONTS }

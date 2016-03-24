@@ -1,0 +1,57 @@
+<%= f.fields_for :banner do |b| %>
+  <div class="image-panel">
+    <div class="form-group">
+      <%= b.label :image, "Banner" %>
+      <%= file_btn(@banner.image_changed?, "Choose Banner") %>
+      <%= b.file_field :image %>
+      <%= b.hidden_field :image_cache %>
+    </div>
+
+    <div class="requirements clearfix">
+      <%= extension_tags(@banner, :image) %>
+      <%= dimensions_tag(1280, 300) %>
+    </div>
+
+    <% if @banner.image.present? %>
+      <div class="image-container">
+        <%= image_tag @design.banner_image_url %>
+
+        <div class="file-box">
+          <%= file_box_text(@banner, :image) %>
+
+          <div class="checkbox">
+            <%= b.label :_destroy do %>
+              <%= b.check_box :_destroy %> Remove banner?
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="banner-fields" style="<%= "display: none;" if @banner.image.blank? %>">
+      <div class="checkbox status-box <%= "checked" if @banner.full_screen? %>">
+        <%= b.label :full_screen do %>
+          <%= b.check_box :full_screen %> Make the banner full screen?
+        <% end %>
+      </div>
+
+      <%= b.fields_for :link do |l| %>
+        <i class="instructions border-bottom">Please choose one of the following destinations if you wish to make your banner a clickable link.</i>
+
+        <div class="row">
+          <div class="form-group col-sm-5">
+            <%= l.label :page_id, "Page" %>
+            <%= l.select :page_id, grouped_page_options_for_select(@banner_link.page_id),
+              { include_blank: "None" }, class: "form-control" %>
+          </div>
+
+          <div class="form-group col-sm-7">
+            <%= l.label :external_url, "URL" %>
+            <%= info_tooltip("The URL must begin with http:// or https://.") %>
+            <%= l.text_field :external_url, class: "form-control" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

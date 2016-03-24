@@ -3,25 +3,26 @@
 <%= render "shared/validation_errors", resource: @nav_link %>
 
 <%= form_for [:admin, @nav_link], remote: true do |f| %>
-  <div class="row">
-    <div class="form-group col-sm-6">
-      <%= f.label :text, class: "required" %>
-      <%= info_tooltip("The link text must be 15 characters or less in length.") %>
-      <%= f.text_field :text, class: "form-control" %>
-    </div>
+  <div class="form-group">
+    <%= f.label :text, class: "required" %>
+    <%= info_tooltip("The link text must be 15 characters or less in length.") %>
+    <%= f.text_field :text, class: "form-control" %>
+  </div>
 
-    <div class="form-group col-sm-6">
+  <i class="instructions border-bottom">Please choose one of the following destinations for your link.</i>
+
+  <div class="row">
+    <div class="form-group col-sm-5">
       <%= f.label :page_id, "Page" %>
       <%= f.select :page_id, grouped_page_options_for_select(@nav_link.page_id),
         { include_blank: "None" }, class: "form-control" %>
     </div>
-  </div>
 
-  <div class="form-group">
-    <%= f.label :external_url, "URL" %>
-    <%= info_tooltip("The URL must begin with http:// or https://.") %>
-    <i class="instructions">Only fill this in if you wish to link to an external site. Otherwise, please choose a page using the select box above.</i>
-    <%= f.text_field :external_url, class: "form-control" %>
+    <div class="form-group col-sm-7">
+      <%= f.label :external_url, "URL" %>
+      <%= info_tooltip("The URL must begin with http:// or https://.") %>
+      <%= f.text_field :external_url, class: "form-control" %>
+    </div>
   </div>
 
   <div class="corner-container">

@@ -54,6 +54,10 @@ div#admin {
     @media (min-width: 768px) {
       div.checkbox {
         float: right;
+
+        label {
+          margin-left: 10px;
+        }
       }
     }
   }

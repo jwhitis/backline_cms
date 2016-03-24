@@ -10,7 +10,7 @@
     </div>
 
     <div class="col-sm-6">
-      <div class="checkbox status-box <%= "checked" if @user.super_admin? %> super-admin">
+      <div class="checkbox status-box <%= "checked" if @user.super_admin? %> margin-top">
         <%= f.label :super_admin do %>
           <%= f.check_box :super_admin %> Make this user a super admin?
           <%= info_tooltip("Super admins have unrestricted access to all sites.", "top") %>

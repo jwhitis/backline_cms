@@ -105,35 +105,7 @@
           <% end %>
         </div>
 
-        <div class="image-panel">
-          <div class="form-group">
-            <%= f.label :banner_image, "Banner" %>
-            <%= file_btn(@design.banner_image_changed?, "Choose Banner") %>
-            <%= f.file_field :banner_image %>
-            <%= f.hidden_field :banner_image_cache %>
-          </div>
-
-          <div class="requirements clearfix">
-            <%= extension_tags(@design, :banner_image) %>
-            <%= dimensions_tag(1280, 300) %>
-          </div>
-
-          <% if @design.banner_image.present? %>
-            <div class="image-container">
-              <%= image_tag @design.banner_image_url %>
-
-              <div class="file-box">
-                <%= file_box_text(@design, :banner_image) %>
-
-                <div class="checkbox">
-                  <%= f.label :remove_banner_image do %>
-                    <%= f.check_box :remove_banner_image %> Remove banner?
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
+        <%= render "admin/banners/form_fields", f: f %>
 
         <div class="image-panel">
           <div class="form-group">

@@ -5,7 +5,7 @@ $(document).ready(function() {
     $(this).find("i.fa").toggleClass("hidden");
   });
 
-  // Clicking full-screen icon toggles full-screen mode
+  // Clicking full screen icon toggles full screen mode
   $("div#content").on("click", "div.editor-container a.full-screen-toggle", function() {
     $(this).parents("div.tab-pane").toggleClass("full-screen");
   });

@@ -1,28 +1,22 @@
 div#admin {
   %generic-panel {
     margin-bottom: 15px;
-    padding: 15px;
+    padding: 10px 15px 0 15px;
     background-color: rgba(white, .1);
 
-    div.form-group {
-      margin: 0;
+    div.file-box, div.status-box {
+      margin-top: 0;
     }
 
-    div.file-box, div.status-box {
-      margin: 10px 0;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
     }
   }
 
   div.file-panel {
     @extend %generic-panel;
-
-    div.form-group {
-      margin: 0;
-    }
   }
 
   div.image-panel {
@@ -34,13 +28,12 @@ div#admin {
     }
 
     div.requirements {
-      margin-top: 10px;
+      margin-bottom: 15px;
 
       span {
-        padding: 0 4px;
+        padding: 0 5px;
         display: inline-block;
         border: 1px solid rgba(black, .15);
-        line-height: 18px;
 
         &.dimensions {
           background-color: $red;
@@ -67,17 +60,16 @@ div#admin {
 
     div.image-container {
       max-width: 100%;
-      margin-top: 10px;
       display: inline-block;
 
       img {
         max-height: 315px;
+        margin-bottom: 15px;
       }
     }
 
     @media (min-width: 768px) {
       div.requirements {
-        margin-top: 0;
         position: absolute;
         top: 15px;
         right: 15px;
@@ -98,7 +90,7 @@ div#admin {
     @extend %generic-panel;
 
     iframe {
-      margin-top: 10px;
+      margin-bottom: 10px;
     }
   }
 }
