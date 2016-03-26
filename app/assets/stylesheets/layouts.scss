@@ -14,10 +14,18 @@ div#wrapper {
   position: relative;
 }
 
+a#banner-link {
+  display: block;
+}
+
 div#banner {
   height: 300px;
   background-size: cover;
   background-position: center;
+
+  &.full-screen {
+    height: 800px;
+  }
 }
 
 div#main {

@@ -8,6 +8,13 @@ $(document).on("ready page:load", function() {
   // Show flash modal if it exists
   $("div#flash-modal").modal("show");
 
+  // Clicking banner link sets active nav link
+  $("a#banner-link").click(function() {
+    var href = $(this).attr("href");
+    $("ul.navbar-nav a").removeClass("active");
+    $("ul.navbar-nav a[href='" + href + "']").addClass("active");
+  });
+
   // Links inside of page container open in a new window
   setPageLinkTarget();
 

@@ -18,6 +18,8 @@ class Design < ActiveRecord::Base
 
   after_initialize :set_defaults
 
+  delegate :link, to: :banner, prefix: true
+
   def set_defaults
     self.theme        ||= Theme.defaults.fetch(:title)
     self.display_font ||= Theme.defaults.fetch(:display_font)
@@ -29,7 +31,10 @@ class Design < ActiveRecord::Base
   end
 
   def banner_image_url
-    self.banner && self.banner.image.banner.url
+    return nil if self.banner.nil?
+
+    image = self.banner.image
+    self.banner.full_screen? ? image.background.url : image.banner.url
   end
 
   def logo_url

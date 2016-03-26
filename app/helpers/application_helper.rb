@@ -21,6 +21,20 @@ module ApplicationHelper
     link_to nav_link.text, nav_link.url, page_link_options(nav_link.page)
   end
 
+  def banner_link_to
+    options = page_link_options(@site.banner_link.page)
+    options.merge!(id: "banner-link", class: "hidden-xs")
+
+    link_to banner_tag, @site.banner_link.url, options
+  end
+
+  def banner_tag
+    options = { id: "banner" }
+    options[:class] = "full-screen" if @site.banner.full_screen?
+
+    content_tag(:div, nil, options)
+  end
+
   def page_link_options page
     options = {}
     return options if page.nil?

@@ -6,7 +6,7 @@
     <%= render "layouts/nav" %>
 
     <% if @site.banner_image_url %>
-      <div id="banner" class="hidden-xs"></div>
+      <%= @site.banner_link ? banner_link_to : banner_tag %>
     <% end %>
 
     <%= render "layouts/main" %>
@@ -21,7 +21,10 @@
       </div>
     <% end %>
 
-    <%= render "layouts/main_player" if feature_active?(:audio_player) %>
+    <% if feature_active?(:audio_player) %>
+      <%= render "layouts/main_player" %>
+    <% end %>
+
     <%= render "layouts/footer" %>
   </div>
 
