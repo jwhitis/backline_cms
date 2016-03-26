@@ -10,7 +10,7 @@ class Design < ActiveRecord::Base
   has_one :banner, dependent: :destroy
 
   accepts_nested_attributes_for :color_scheme
-  accepts_nested_attributes_for :banner, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :banner, reject_if: :reject_banner, allow_destroy: true
 
   validates_presence_of :theme, :site_id
   validates :display_font, presence: true, inclusion: { in: GoogleFonts::DISPLAY_FONTS }
@@ -19,6 +19,10 @@ class Design < ActiveRecord::Base
   after_initialize :set_defaults
 
   delegate :link, to: :banner, prefix: true
+
+  def reject_banner attributes
+    attributes[:image].blank?
+  end
 
   def set_defaults
     self.theme        ||= Theme.defaults.fetch(:title)
