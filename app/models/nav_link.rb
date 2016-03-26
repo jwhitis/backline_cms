@@ -1,10 +1,9 @@
 class NavLink < Link
-  include SiteScope
   include Orderable
 
-  validates_presence_of :position, :site_id
   validates :text, presence: true, length: { maximum: 15 },
     uniqueness: { scope: :site_id, case_sensitive: false }
+  validates_presence_of :position
 
   def self.with_accessible_url
     # Nav links that either have an external URL or belong to a page that is published

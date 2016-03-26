@@ -1,4 +1,6 @@
 class Link < ActiveRecord::Base
+  include SiteScope
+
   belongs_to :page
 
   validates :external_url, url: true, allow_blank: true

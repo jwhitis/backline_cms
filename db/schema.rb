@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20160322000134) do
     t.integer  "page_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "site_id"
+    t.integer  "site_id",      null: false
     t.integer  "banner_id"
     t.string   "type",         null: false
   end
