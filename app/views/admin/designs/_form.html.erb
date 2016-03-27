@@ -26,7 +26,7 @@
       <div role="tabpanel" class="tab-pane active" id="theme">
         <div class="form-group border-bottom">
           <%= f.label :theme, class: "sr-only" %>
-          <i class="instructions">Choose a theme to start from, then customize your design.</i>
+          <i class="instructions">Choose a theme below and click <small>Apply</small> to get started.</i>
 
           <div class="theme-field clearfix">
             <%= f.select :theme, theme_options_for_select(@design.theme), {},

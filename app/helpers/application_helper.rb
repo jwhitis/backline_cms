@@ -6,6 +6,19 @@ module ApplicationHelper
     tag(:meta, name: "description", content: @site.description)
   end
 
+  def navbar_tag &block
+    options = {
+      class: "navbar",
+      role: "navigation",
+      data: {
+        initial_background: @site.nav_background_color,
+        solid_background: @site.solid_nav_background_color
+      }
+    }
+
+    content_tag(:nav, options, &block)
+  end
+
   def link_to_home_page text = nil, options = {}, &block
     options = text if block_given?
     options = page_link_options(@site.home_page).merge(options)

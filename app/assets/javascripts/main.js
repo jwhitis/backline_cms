@@ -5,6 +5,21 @@ $(document).on("ready page:load", function() {
   // Initialize Transformicons
   transformicons.add(".tcon");
 
+  // Scrolling down the page changes the navbar to a solid color
+  $(window).scroll(function() {
+    if ($(window).width() >= 768) {
+      if ($("body").scrollTop() > 40) {
+        var background = $("nav.navbar").data("solid-background");
+        var boxShadow = "0 3px 8px rgba(0, 0, 0, .1)";
+      } else {
+        var background = $("nav.navbar").data("initial-background");
+        var boxShadow = "none";
+      }
+
+      $("nav.navbar").css({ "background-color" : background, "box-shadow" : boxShadow });
+    }
+  });
+
   // Show flash modal if it exists
   $("div#flash-modal").modal("show");
 

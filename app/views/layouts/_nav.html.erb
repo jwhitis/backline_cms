@@ -1,4 +1,4 @@
-<nav class="navbar" role="navigation">
+<%= navbar_tag do %>
   <div class="container">
     <div class="navbar-header">
       <%= link_to_home_page class: "navbar-brand" do %>
@@ -27,7 +27,7 @@
       </ul>
     </div>
   </div>
-</nav>
+<% end %>
 
 <script type="text/javascript">
   var path = window.location.pathname;

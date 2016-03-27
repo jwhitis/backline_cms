@@ -45,12 +45,15 @@ class SiteCSSCompiler
   end
 
   def nav_background_color_css
-    ".nav-background-color, nav.navbar, div.navbar-collapse { background-color: #{@site.nav_background_color}; }"
+    [
+      "nav.navbar { background-color: #{@site.nav_background_color}; transition: all .5s ease; }",
+      "@media (max-width: 767px) { nav.navbar, div.navbar-collapse { background-color: #{@site.solid_nav_background_color}; box-shadow: 0 3px 8px rgba(0, 0, 0, .1); } }"
+    ]
   end
 
   def nav_text_color_css
     [
-      ".nav-text-color, nav.navbar, nav.navbar a { color: #{@site.nav_text_color}; }",
+      "nav.navbar, nav.navbar a { color: #{@site.nav_text_color}; }",
       ".tcon-menu__lines, .tcon-menu__lines::before, .tcon-menu__lines::after { background: #{@site.nav_text_color}; }"
     ]
   end

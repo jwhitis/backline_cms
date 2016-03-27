@@ -1,6 +1,3 @@
-$nav-border-width: 1px;
-$nav-border: $nav-border-width solid rgba(black, .25);
-
 nav.navbar {
   width: 100%;
   height: $nav-height;
@@ -9,7 +6,6 @@ nav.navbar {
   z-index: 8000; // Must be less than z-index of Fancybox
   margin: 0;
   border: none;
-  border-bottom: $nav-border;
   border-radius: 0;
 
   %navbar-link {
@@ -18,7 +14,7 @@ nav.navbar {
   }
 
   div.navbar-header {
-    height: $nav-height - $nav-border-width;
+    height: $nav-height;
     margin: 0;
 
     a.navbar-brand {
@@ -41,8 +37,6 @@ nav.navbar {
   div.navbar-collapse {
     max-height: none;
     border-top: none;
-    border-bottom: $nav-border;
-    box-shadow: none;
 
     ul.navbar-nav {
       a {

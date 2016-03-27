@@ -30,7 +30,8 @@ class Site < ActiveRecord::Base
 
   delegate :background_image_url, :logo_url, :favicon_url,
            :banner, :banner_image_url, :banner_link,
-           :display_font, :body_font, *Design.color_methods, :css, to: :design
+           *Design.color_methods, :solid_nav_background_color,
+           :display_font, :body_font, :css, to: :design
 
   def referenced_pages_must_be_published
     [:home_page_id, :splash_page_id].each do |attribute|

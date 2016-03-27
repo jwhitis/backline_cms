@@ -53,6 +53,10 @@ class Design < ActiveRecord::Base
     define_method("#{attribute}_color") { self.color_scheme.send(attribute) }
   end
 
+  def solid_nav_background_color
+    nav_background_color.sub(/\d\.?\d*\)\z/, "1)")
+  end
+
   def self.color_methods
     self.instance_methods.select { |method_name| method_name.to_s.ends_with?("color") }
   end

@@ -1,6 +1,7 @@
 <%= f.fields_for :color_scheme do |c| %>
   <div class="form-group">
     <%= c.label :nav_background, "Nav Background Color", class: "required" %>
+    <%= info_tooltip("The nav will always appear solid on small screens, so make sure you pick a color that matches your site, even if you choose to make it transparent.") %>
 
     <div class="color-field clearfix">
       <%= c.text_field :nav_background, class: "form-control" %>
