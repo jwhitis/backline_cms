@@ -21,7 +21,7 @@ class Design < ActiveRecord::Base
   delegate :link, to: :banner, prefix: true
 
   def reject_banner attributes
-    attributes[:image].blank?
+    attributes[:id].blank? && attributes[:image].blank?
   end
 
   def set_defaults
