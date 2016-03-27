@@ -7,7 +7,7 @@ class ColorScheme < ActiveRecord::Base
   validates_presence_of :design_id
 
   COLOR_ATTRIBUTES.each do |attribute|
-    validates attribute, presence: true, hex_code: true
+    validates attribute, presence: true, rgba: true
   end
 
   after_initialize :set_defaults

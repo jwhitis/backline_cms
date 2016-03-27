@@ -1,7 +1,21 @@
 $(document).ready(function() {
 
   // Initialize color pickers
-  $("div.color-field input").minicolors({ theme: "bootstrap" });
+  $("div.color-field input").minicolors({
+    defaultValue: "rgba(0, 0, 0, 1)",
+    format: "rgb",
+    opacity: true,
+    theme: "bootstrap",
+    swatches: [
+      "rgba(217, 94, 64, 1)",   // Red
+      "rgba(242, 153, 46, 1)",  // Orange
+      "rgba(86, 188, 138, 1)",  // Green
+      "rgba(82, 158, 204, 1)",  // Blue
+      "rgba(167, 125, 194, 1)", // Purple
+      "rgba(68, 68, 68, 1)",    // Grey
+      "rgba(255, 255, 255, 1)"  // White
+    ]
+  });
 
   // View attributes of selected theme
   viewThemeAttributes();
