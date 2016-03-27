@@ -8,7 +8,7 @@ $(document).on("ready page:load", function() {
   // Scrolling down the page changes the navbar to a solid color
   $(window).scroll(function() {
     if ($(window).width() >= 768) {
-      if ($("body").scrollTop() > 40) {
+      if ($("body").scrollTop() > 60) {
         var background = $("nav.navbar").data("solid-background");
         var boxShadow = "0 3px 8px rgba(0, 0, 0, .1)";
       } else {
@@ -136,7 +136,7 @@ function initializeFancybox() {
 }
 
 function setPageHeight() {
-  var elements = ["nav.navbar", "div#banner:visible", "div#twitter-feed", "div#newsletter-signup", "footer"];
+  var elements = ["nav.navbar", "div#banner:visible", "div#newsletter-signup", "div#twitter-feed", "footer"];
   var difference = 0;
 
   for (var i = 0; i < elements.length; i++) {

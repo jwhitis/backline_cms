@@ -32,21 +32,28 @@ div#banner {
 }
 
 div#main {
-  padding: 40px 0;
+  margin: 40px 0;
 
   body.admin & {
+    margin: 0;
+    padding: 30px 0;
     background-image: url(http://backline-cms.s3.amazonaws.com/images/admin_background.png);
     background-position: center top;
+  }
+}
+
+@media (min-width: 768px) {
+  div#main {
+    margin: 60px 0;
   }
 }
 
 footer {
   width: 100%;
   height: $footer-height;
-  padding: 60px 0;
+  padding: 40px 0;
   position: absolute;
   bottom: 0;
-  border-top: 1px solid rgba(black, .25);
 
   div.copyright {
     text-align: center;

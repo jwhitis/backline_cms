@@ -34,9 +34,7 @@ div#subscribers {
 }
 
 div#newsletter-signup {
-  padding: 30px 0;
-  border-top: 1px solid rgba(black, .25);
-  border-bottom: 1px solid rgba(black, .25);
+  margin: 40px 0;
 
   form {
     max-width: 100%;
@@ -63,5 +61,11 @@ div#newsletter-signup {
       padding: 0;
       float: right;
     }
+  }
+}
+
+@media (min-width: 768px) {
+  div#newsletter-signup {
+    margin: 60px 0;
   }
 }

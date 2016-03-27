@@ -16,17 +16,15 @@
     <% end %>
 
     <% if feature_active?(:twitter_feed) %>
-      <div class="container">
-        <%= render "layouts/twitter_feed", tweets: @tweets %>
-      </div>
-    <% end %>
-
-    <% if feature_active?(:audio_player) %>
-      <%= render "layouts/main_player" %>
+      <%= render "layouts/twitter_feed", tweets: @tweets %>
     <% end %>
 
     <%= render "layouts/footer" %>
   </div>
+
+  <% if feature_active?(:audio_player) %>
+    <%= render "layouts/main_player" %>
+  <% end %>
 
   <%= render "layouts/flash_modal" %>
 </body>

@@ -6,15 +6,14 @@ $tweet-gutter: 10px;
 }
 
 div#twitter-feed {
-  margin: 30px (-$tweet-gutter) 25px (-$tweet-gutter);
-  text-align: center;
+  margin: 30px 0;
 
   div.tweet-container {
     @include tweet-container-width(2);
     height: 160px;
     overflow: hidden;
+    margin: 0 auto;
     padding: 10px 0 10px 10px;
-    display: inline-block;
   }
 
   @media (min-width: 470px) {
@@ -78,5 +77,11 @@ div#twitter-feed {
         padding: 8px 8px 5px 8px;
       }
     }
+  }
+}
+
+@media (min-width: 768px) {
+  div#twitter-feed {
+    margin: 50px 0;
   }
 }
