@@ -12,6 +12,9 @@ div#wrapper {
   padding-top: $nav-height;
   padding-bottom: $footer-height;
   position: relative;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 
 a#banner-link {
@@ -30,21 +33,10 @@ div#banner {
 
 div#main {
   padding: 40px 0;
-  background-position: center top;
 
   body.admin & {
     background-image: url(http://backline-cms.s3.amazonaws.com/images/admin_background.png);
-    background-position: initial;
-  }
-}
-
-@media (min-width: 1280px) {
-  div#main {
-    background-size: cover;
-
-    body.admin & {
-      background-size: initial;
-    }
+    background-position: center top;
   }
 }
 

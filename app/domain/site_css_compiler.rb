@@ -27,7 +27,7 @@ class SiteCSSCompiler
   def background_image_css
     return "" if @site.background_image_url.nil?
 
-    "div#main { background-image: url(#{@site.background_image_url}); }"
+    "div#wrapper { background-image: url(#{@site.background_image_url}); }"
   end
 
   def banner_image_css
