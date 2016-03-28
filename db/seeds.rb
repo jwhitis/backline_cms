@@ -2,10 +2,14 @@ Feature::NAMES.each do |name|
   Feature.find_or_create_by!(name: name)
 end
 
-site_attributes = { title: "Backline CMS", subdomain: "www" }
-site = SiteCreator.new(site_attributes, features: false, pages: false).create!
-home_page = DefaultPage.create!(title: "Admin", slug: "admin", site: site)
-site.update_attributes!(home_page_id: home_page.id)
+unless Site.exists?(subdomain: "www")
+  site_attributes = { title: "Backline CMS", subdomain: "www" }
+  site = SiteCreator.new(site_attributes, features: false, pages: false).create!
+  home_page = DefaultPage.create!(title: "Admin", slug: "admin", site: site)
+  site.update_attributes!(home_page_id: home_page.id)
+end
+
+SiteCreator.new(title: "Demo").create! unless Site.exists?(subdomain: "demo")
 
 User.create_with(
   password: "password",
