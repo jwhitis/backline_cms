@@ -56,9 +56,6 @@ $(document).on("ready page:load", function() {
     initializeFancybox();
   }
 
-  // Set page height to cover viewport
-  setPageHeight();
-
 });
 
 $(document).on("ajaxSuccess", function(event, xhr, settings) {
@@ -77,9 +74,6 @@ $(document).on("ajaxSuccess", function(event, xhr, settings) {
     initializeMasonry();
     initializeFancybox();
   }
-
-  // Set page height to cover viewport
-  setPageHeight();
 
   // Scroll past banner on page change (not including pagination)
   if (!url.match(/page=\d+/)) {
@@ -133,17 +127,4 @@ function initializeFancybox() {
   if ($(window).width() >= 768) {
     $("a.photo").fancybox(fancyboxOptions);
   }
-}
-
-function setPageHeight() {
-  var elements = ["nav.navbar", "div#banner:visible", "div#newsletter-signup", "div#twitter-feed", "footer"];
-  var difference = 0;
-
-  for (var i = 0; i < elements.length; i++) {
-    difference += $(elements[i]).outerHeight(true);
-  }
-
-  var minHeight = $("body").height() - difference;
-  minHeight = minHeight > 0 ? minHeight : 0;
-  $("div#main").css("min-height", minHeight);
 }

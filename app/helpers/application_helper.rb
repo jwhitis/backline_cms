@@ -92,6 +92,14 @@ module ApplicationHelper
     "#{time_in_words} ago"
   end
 
+  def footer_text
+    if admin_page?
+      "Powered by Backline CMS"
+    else
+      "&copy; #{Time.now.year} #{@site.title}".html_safe
+    end
+  end
+
   def session_link
     options = { class: "session" }
 

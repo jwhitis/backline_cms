@@ -58,3 +58,40 @@ nav.navbar {
     }
   }
 }
+
+body.admin {
+  nav.navbar {
+    color: #666666;
+    background: linear-gradient(to bottom, #F5F5F5, #CFD1CF);
+
+    a {
+      color: #666666;
+    }
+
+    div.navbar-collapse {
+      ul.navbar-nav {
+        a {
+          &:hover {
+            color: white;
+            background-color: #AAAAAA;
+          }
+
+          &.active {
+            color: white;
+            background-color: $blue;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 767px) {
+      div.navbar-collapse {
+        background-color: white;
+      }
+    }
+  }
+
+  .tcon-menu__lines, .tcon-menu__lines::before, .tcon-menu__lines::after {
+    background: #666666;
+  }
+}
