@@ -36,10 +36,10 @@ div#admin form {
   }
 
   i.instructions {
-    margin: -5px 0 5px 0;
+    margin-bottom: 5px;
+    padding: 0;
 
     &.border-bottom {
-      margin-top: 0;
       padding-bottom: 5px;
       border-bottom: 1px solid rgba(white, .15);
     }
@@ -47,6 +47,10 @@ div#admin form {
     small {
       text-transform: uppercase;
     }
+  }
+
+  label + i.instructions {
+    margin-top: -5px;
   }
 
   div.date-fields {

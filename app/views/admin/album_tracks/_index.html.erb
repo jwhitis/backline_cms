@@ -9,7 +9,7 @@
 
 <i class="instructions">Click and drag the tracks to reorder them.</i>
 
-<table class="table sortable" data-url="<%= reorder_admin_album_album_tracks_path(@album) %>">
+<table class="table sortable border-top" data-url="<%= reorder_admin_album_album_tracks_path(@album) %>">
   <tbody>
     <% @album_tracks.each do |album_track| %>
       <tr id="<%= album_track.id %>">

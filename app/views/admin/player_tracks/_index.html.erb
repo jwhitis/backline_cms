@@ -6,7 +6,7 @@
 
 <i class="instructions">Click and drag the tracks to reorder them.</i>
 
-<table class="table sortable" data-url="<%= reorder_admin_player_tracks_path %>">
+<table class="table sortable border-top" data-url="<%= reorder_admin_player_tracks_path %>">
   <tbody>
     <% @player_tracks.each do |player_track| %>
       <tr id="<%= player_track.id %>">
