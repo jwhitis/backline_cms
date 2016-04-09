@@ -1,0 +1,18 @@
+<div id="page-preview">
+  <header class="clearfix">
+    <div class="container">
+      <h2>Previewing: <%= @page.title %></h2>
+
+      <%= form_for [:admin, @page], as: :page do |f| %>
+        <div class="hidden">
+          <%= render "form_fields", f: f %>
+        </div>
+
+        <%= submit_btn %>
+        <%= submit_btn "Edit", name: "edit", class: "btn-white" %>
+      <% end %>
+    </div>
+  </header>
+
+  <%= render "pages/show" %>
+</div>

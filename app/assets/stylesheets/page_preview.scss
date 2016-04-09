@@ -1,0 +1,44 @@
+div#page-preview {
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    text-align: center;
+    background-color: rgba(black, .8);
+
+    h2 {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    form {
+      margin-bottom: 15px;
+
+      button.submit-btn {
+        &:not(:last-child) {
+          margin-right: 11px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    header {
+      height: $nav-height;
+
+      h2 {
+        margin: 15px 0;
+        float: left;
+      }
+
+      form {
+        margin: 8px 0 9px 0;
+        float: right;
+      }
+    }
+  }
+}

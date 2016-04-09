@@ -11,7 +11,7 @@ class Admin::CustomPagesController < Admin::AdminController
     @page = CustomPage.new(page_params)
 
     if @page.valid? && params[:preview]
-      render :preview and return
+      render :preview, layout: "application" and return
     elsif params[:edit]
       find_grouped_snippets
       render :new and return
@@ -34,7 +34,7 @@ class Admin::CustomPagesController < Admin::AdminController
     @page.assign_attributes(page_params)
 
     if @page.valid? && params[:preview]
-      render :preview and return
+      render :preview, layout: "application" and return
     elsif params[:edit]
       find_grouped_snippets
       render :edit and return

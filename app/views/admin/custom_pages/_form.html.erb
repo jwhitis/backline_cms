@@ -8,7 +8,7 @@
 
 <%= render "shared/validation_errors", resource: @page %>
 
-<%= form_for [:admin, @page], as: :page, remote: true do |f| %>
+<%= form_for [:admin, @page], as: :page do |f| %>
   <%= render "form_fields", f: f %>
 
   <div class="corner-container">
