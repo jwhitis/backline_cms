@@ -6,7 +6,7 @@ class ApplicationMailer < ActionMailer::Base
   protected
 
   def find_site
-    @site = Site.find(Site.current_id)
+    @site = Site.find_by_id(Site.current_id) || Site.find_by_subdomain!("www")
   end
 
 end
