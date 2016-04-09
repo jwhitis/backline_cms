@@ -1,6 +1,6 @@
 <%= render "shared/validation_errors", resource: @twitter_handle %>
 
-<%= form_for [:admin, @twitter_handle], remote: true, html: { class: "inline-custom" } do |f| %>
+<%= form_for [:admin, @twitter_handle], remote: true, html: { class: "inline" } do |f| %>
   <div class="form-group">
     <%= f.label :handle, "Username", class: "sr-only" %>
     <%= f.text_field :handle, placeholder: "Username", class: "form-control" %>

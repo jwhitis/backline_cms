@@ -5,14 +5,8 @@
 div#admin {
   position: relative;
 
-  %nav-element {
-    max-width: 100%;
-    width: 345px;
-  }
-
   div#admin-home {
     a {
-      @extend %nav-element;
       margin: 0 auto 20px auto;
       padding: 10px 0;
       display: block;
@@ -42,8 +36,9 @@ div#admin {
     margin-bottom: 15px;
 
     button.dropdown-toggle {
-      @extend %nav-element;
+      width: 100%;
       position: relative;
+      transition: none;
 
       &:hover {
         color: $blue;
@@ -58,7 +53,7 @@ div#admin {
     }
 
     ul.dropdown-menu {
-      @extend %nav-element;
+      width: 100%;
       text-align: center;
       border-width: 0 0 1px 0;
       border-bottom: 1px solid rgba(black, .4);
@@ -115,7 +110,6 @@ div#admin {
   }
 
   a.corner-btn {
-    @extend %nav-element;
     margin-bottom: 15px;
     display: block;
   }
@@ -123,6 +117,7 @@ div#admin {
   @media (min-width: 768px) {
     div#admin-home {
       a {
+        width: 345px;
         padding: 15px 0;
         float: left;
         font-size: 40px;
@@ -130,6 +125,12 @@ div#admin {
         &:nth-child(odd) {
           margin-right: 30px;
         }
+      }
+    }
+
+    div#admin-dropdown {
+      button.dropdown-toggle, ul.dropdown-menu {
+        width: 345px;
       }
     }
 
