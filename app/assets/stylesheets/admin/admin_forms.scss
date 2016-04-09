@@ -1,25 +1,4 @@
 div#admin form {
-  &.inline-custom {
-    input[type="text"] {
-      max-width: 100%;
-      width: 345px;
-    }
-
-    button.file-btn {
-      margin-right: 11px;
-    }
-
-    @media (min-width: 768px) {
-      div.form-group {
-        display: inline-block;
-
-        &:not(:last-child) {
-          margin-right: 11px;
-        }
-      }
-    }
-  }
-
   label {
     font-weight: normal;
     text-shadow: 0 1px 1px rgba(black, .35);
@@ -89,5 +68,25 @@ div#admin form {
 
   button.submit-btn {
     margin-right: 11px;
+  }
+
+  &.inline {
+    button.file-btn {
+      margin-right: 11px;
+    }
+
+    @media (min-width: 768px) {
+      div.form-group {
+        display: inline-block;
+
+        &:not(:last-child) {
+          margin-right: 11px;
+        }
+      }
+
+      input[type="text"] {
+        width: 345px;
+      }
+    }
   }
 }

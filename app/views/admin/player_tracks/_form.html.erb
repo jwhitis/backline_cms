@@ -1,6 +1,6 @@
 <%= render "shared/validation_errors", resource: @player_track %>
 
-<%= form_for [:admin, @player_track], remote: true, html: { class: "inline-custom" } do |f| %>
+<%= form_for [:admin, @player_track], remote: true, html: { class: "inline" } do |f| %>
   <div class="form-group">
     <%= f.label :title, "Track Title", class: "sr-only" %>
     <%= f.text_field :title, placeholder: "Track Title", class: "form-control" %>
