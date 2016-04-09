@@ -1,3 +1,11 @@
-<%= render "shared/inject_page_styles", page: @page %>
+var $pageStyles = $("style#page-css");
+var newStyles = "<%=j page_style_tag(@page) %>";
+
+if ($pageStyles.length) {
+  $pageStyles.replaceWith(newStyles);
+} else {
+  $("head").append(newStyles);
+}
+
 $("div#content").html("<%=j render 'show' %>");
 <%== @page.javascript %>
