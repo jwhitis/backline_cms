@@ -9,7 +9,9 @@ unless Site.exists?(subdomain: "www")
   site.update_attributes!(home_page_id: home_page.id)
 end
 
-SiteCreator.new(title: "Demo").create! unless Site.exists?(subdomain: "demo")
+unless Site.exists?(subdomain: "demo")
+  SiteCreator.new(title: "Demo Site", subdomain: "demo").create!
+end
 
 User.create_with(
   password: "password",
